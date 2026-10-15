@@ -1,0 +1,207 @@
+How the harm is spread over texts (session 6, plan 2; conventions, Section 6). Description only; no interval.
+Each statistic: its median over cells, with the 10th and 90th percentiles over cells in parentheses. Added harm is the
+text's harm under the setting less its harm under the same start. Statistics 1 and 2 are on the harm (0.75 nats is a
+harm level); the two concentration measures are on the added harm, negative values counted as zero. A text's harm is
+a mean over 512 positions, so "most texts" does not imply "most positions".
+The 11 held-out texts whose spans overlap attack rows are kept, as the batch's 128 texts. The lead analysis
+recomputed both tables without them: its 102 intervals of ratios moved by at most 0.0015 at either end, and its 120 intervals in nats by at most 0.018 nats.
+
+n20:
+  carried settings
+    share of texts above 0.75 nats: 0.10 (0.02 to 0.30), 1280 cells
+    harm of the 13th lowest text: 0.41 (0.31 to 0.49), 1280 cells
+    share carried by the 13 most-harmed texts: 0.15 (0.14 to 0.20), 1280 cells
+    median over mean added harm: 1.00 (0.92 to 1.04), 1280 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1280 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 0.18 (0.05 to 0.35), 80 cells
+    harm of the 13th lowest text: 0.46 (0.38 to 0.52), 80 cells
+    share carried by the 13 most-harmed texts: 0.20 (0.15 to 0.45), 80 cells
+    median over mean added harm: 0.92 (0.64 to 1.00), 80 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 80 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 10240 cells
+    harm of the 13th lowest text: 0.20 (0.18 to 0.22), 10240 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.15), 10240 cells
+    median over mean added harm: 1.04 (1.02 to 1.06), 10240 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 10240 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.51 (1 partner per cell; 1280 cells)
+    another attack batch, same start: 0.63 (15 partners per cell; 1280 cells)
+    the same attack batch, another start: 0.64 (4 partners per cell; 1280 cells)
+    the start's own harm: 0.44 (1 partner per cell; 1280 cells)
+
+n40:
+  carried settings
+    share of texts above 0.75 nats: 0.97 (0.36 to 1.00), 1280 cells
+    harm of the 13th lowest text: 1.00 (0.39 to 1.60), 1280 cells
+    share carried by the 13 most-harmed texts: 0.16 (0.14 to 0.40), 1280 cells
+    median over mean added harm: 0.98 (0.66 to 1.02), 1280 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1280 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 0.98 (0.43 to 1.00), 80 cells
+    harm of the 13th lowest text: 1.10 (0.47 to 1.60), 80 cells
+    share carried by the 13 most-harmed texts: 0.19 (0.14 to 0.56), 80 cells
+    median over mean added harm: 0.91 (0.29 to 1.01), 80 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 80 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 10240 cells
+    harm of the 13th lowest text: 0.21 (0.18 to 0.23), 10240 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.15), 10240 cells
+    median over mean added harm: 1.02 (1.00 to 1.04), 10240 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 10240 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.35 (1 partner per cell; 1280 cells)
+    another attack batch, same start: 0.40 (15 partners per cell; 1280 cells)
+    the same attack batch, another start: 0.50 (4 partners per cell; 1280 cells)
+    the start's own harm: 0.00 (1 partner per cell; 1280 cells)
+
+n80:
+  carried settings
+    share of texts above 0.75 nats: 1.00 (0.84 to 1.00), 1280 cells
+    harm of the 13th lowest text: 9.93 (0.60 to 23.88), 1280 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.27), 1280 cells
+    median over mean added harm: 1.02 (0.83 to 1.06), 1280 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1280 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 1.00 (0.88 to 1.00), 80 cells
+    harm of the 13th lowest text: 9.28 (0.52 to 25.22), 80 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.12 to 0.37), 80 cells
+    median over mean added harm: 1.01 (0.46 to 1.03), 80 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 80 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 10240 cells
+    harm of the 13th lowest text: 0.20 (0.18 to 0.23), 10240 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.15), 10240 cells
+    median over mean added harm: 1.01 (0.99 to 1.03), 10240 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 10240 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.32 (1 partner per cell; 1280 cells)
+    another attack batch, same start: 0.40 (15 partners per cell; 1280 cells)
+    the same attack batch, another start: 0.57 (4 partners per cell; 1280 cells)
+    the start's own harm: 0.11 (1 partner per cell; 1280 cells)
+
+n160:
+  carried settings
+    share of texts above 0.75 nats: 1.00 (0.98 to 1.00), 1280 cells
+    harm of the 13th lowest text: 22.86 (2.06 to 32.04), 1280 cells
+    share carried by the 13 most-harmed texts: 0.13 (0.12 to 0.18), 1280 cells
+    median over mean added harm: 1.03 (0.97 to 1.06), 1280 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1280 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 1.00 (0.99 to 1.00), 80 cells
+    harm of the 13th lowest text: 28.00 (13.94 to 37.08), 80 cells
+    share carried by the 13 most-harmed texts: 0.12 (0.12 to 0.15), 80 cells
+    median over mean added harm: 1.01 (0.98 to 1.03), 80 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 80 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 10240 cells
+    harm of the 13th lowest text: 0.20 (0.18 to 0.22), 10240 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.15), 10240 cells
+    median over mean added harm: 1.02 (1.00 to 1.04), 10240 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 10240 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.42 (1 partner per cell; 1280 cells)
+    another attack batch, same start: 0.47 (15 partners per cell; 1280 cells)
+    the same attack batch, another start: 0.60 (4 partners per cell; 1280 cells)
+    the start's own harm: 0.12 (1 partner per cell; 1280 cells)
+
+n320:
+  carried settings
+    share of texts above 0.75 nats: 1.00 (1.00 to 1.00), 1280 cells
+    harm of the 13th lowest text: 26.87 (9.63 to 35.68), 1280 cells
+    share carried by the 13 most-harmed texts: 0.12 (0.12 to 0.14), 1280 cells
+    median over mean added harm: 1.02 (1.00 to 1.05), 1280 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1280 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 1.00 (0.99 to 1.00), 80 cells
+    harm of the 13th lowest text: 29.69 (16.76 to 38.78), 80 cells
+    share carried by the 13 most-harmed texts: 0.12 (0.11 to 0.14), 80 cells
+    median over mean added harm: 1.01 (1.00 to 1.03), 80 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 80 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 10240 cells
+    harm of the 13th lowest text: 0.20 (0.17 to 0.22), 10240 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.15), 10240 cells
+    median over mean added harm: 1.02 (1.00 to 1.04), 10240 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 10240 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.43 (1 partner per cell; 1280 cells)
+    another attack batch, same start: 0.47 (15 partners per cell; 1280 cells)
+    the same attack batch, another start: 0.55 (4 partners per cell; 1280 cells)
+    the start's own harm: 0.09 (1 partner per cell; 1280 cells)
+
+h2:
+  carried settings
+    share of texts above 0.75 nats: 0.98 (0.43 to 1.00), 1280 cells
+    harm of the 13th lowest text: 1.32 (0.41 to 1.58), 1280 cells
+    share carried by the 13 most-harmed texts: 0.16 (0.14 to 0.44), 1280 cells
+    median over mean added harm: 0.98 (0.57 to 1.02), 1280 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1280 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 0.99 (0.40 to 1.00), 80 cells
+    harm of the 13th lowest text: 1.34 (0.52 to 1.66), 80 cells
+    share carried by the 13 most-harmed texts: 0.19 (0.14 to 0.76), 80 cells
+    median over mean added harm: 0.90 (0.24 to 1.01), 80 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 80 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 10240 cells
+    harm of the 13th lowest text: 0.21 (0.18 to 0.23), 10240 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.15), 10240 cells
+    median over mean added harm: 1.02 (1.00 to 1.04), 10240 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 10240 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.33 (1 partner per cell; 1280 cells)
+    another attack batch, same start: 0.37 (15 partners per cell; 1280 cells)
+    the same attack batch, another start: 0.52 (4 partners per cell; 1280 cells)
+    the start's own harm: -0.04 (1 partner per cell; 1280 cells)
+
+h5:
+  carried settings
+    share of texts above 0.75 nats: 1.00 (0.80 to 1.00), 1264 cells
+    harm of the 13th lowest text: 3.24 (0.43 to 4.12), 1264 cells
+    share carried by the 13 most-harmed texts: 0.15 (0.13 to 0.49), 1264 cells
+    median over mean added harm: 1.00 (0.46 to 1.05), 1264 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1264 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 1.00 (0.71 to 1.00), 79 cells
+    harm of the 13th lowest text: 3.67 (0.50 to 4.35), 79 cells
+    share carried by the 13 most-harmed texts: 0.15 (0.13 to 0.54), 79 cells
+    median over mean added harm: 0.98 (0.26 to 1.03), 79 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 79 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 10112 cells
+    harm of the 13th lowest text: 0.20 (0.18 to 0.23), 10112 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.16), 10112 cells
+    median over mean added harm: 1.01 (0.99 to 1.03), 10112 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 10112 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.31 (1 partner per cell; 1248 cells)
+    another attack batch, same start: 0.33 (14 to 15 partners per cell, mean 14.81; 1264 cells)
+    the same attack batch, another start: 0.52 (3 to 4 partners per cell, mean 3.95; 1264 cells)
+    the start's own harm: -0.03 (1 partner per cell; 1264 cells)
+
+h10:
+  carried settings
+    share of texts above 0.75 nats: 1.00 (0.88 to 1.00), 1248 cells
+    harm of the 13th lowest text: 6.37 (0.64 to 8.39), 1248 cells
+    share carried by the 13 most-harmed texts: 0.15 (0.14 to 0.24), 1248 cells
+    median over mean added harm: 1.02 (0.90 to 1.07), 1248 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 1248 cells
+  reference: the held-out batches' own searches
+    share of texts above 0.75 nats: 1.00 (0.97 to 1.00), 77 cells
+    harm of the 13th lowest text: 7.62 (3.00 to 9.43), 77 cells
+    share carried by the 13 most-harmed texts: 0.15 (0.14 to 0.26), 77 cells
+    median over mean added harm: 1.01 (0.79 to 1.05), 77 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 77 cells
+  reference: the shuffled copies
+    share of texts above 0.75 nats: 0.00 (0.00 to 0.00), 9984 cells
+    harm of the 13th lowest text: 0.19 (0.17 to 0.21), 9984 cells
+    share carried by the 13 most-harmed texts: 0.14 (0.13 to 0.16), 9984 cells
+    median over mean added harm: 1.01 (0.99 to 1.03), 9984 cells
+    share of texts with negative added harm: 0.00 (0.00 to 0.00), 9984 cells
+  Spearman correlation over texts, mean over cells, of a carried setting's added harm with:
+    the held-out batch's own search: 0.35 (1 partner per cell; 1202 cells)
+    another attack batch, same start: 0.38 (13 to 15 partners per cell, mean 14.64; 1248 cells)
+    the same attack batch, another start: 0.58 (3 to 4 partners per cell, mean 3.90; 1248 cells)
+    the start's own harm: 0.09 (1 partner per cell; 1248 cells)

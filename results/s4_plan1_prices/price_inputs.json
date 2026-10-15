@@ -1,0 +1,335 @@
+{
+ "environment": {
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "deterministic_algorithms": true,
+  "cublas_workspace_config": ":4096:8",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": false,
+  "float32_matmul_precision": "highest",
+  "vpd_audit_2_commit": "6f109ace6cfe2460291dcd39607a91152d951470",
+  "vpd_audit_2_dirty": "0"
+ },
+ "checkpoints": {
+  "s-55ea3f9b/final_config.yaml": {
+   "bytes": 3087,
+   "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+  },
+  "s-55ea3f9b/model_400000.pth": {
+   "bytes": 2908595703,
+   "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+  },
+  "t-9d2b8f02/ckpt/model_step_99999.pt": {
+   "bytes": 267736421,
+   "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+  },
+  "t-9d2b8f02/final_config.yaml": {
+   "bytes": 1318,
+   "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+  },
+  "t-9d2b8f02/model_config.yaml": {
+   "bytes": 323,
+   "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+  },
+  "t-9d2b8f02/tokenizer.json": {
+   "bytes": 3564303,
+   "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+  }
+ },
+ "bf16_cache": {
+  "pool": "Q",
+  "texts": "manifest pool Q: v0 to v1023",
+  "set_hash_ids_512": "81f8b75b4c31fc95836841062b0c49c4237b3e83dce43397b8ad7e927c18d103",
+  "checkpoints": {
+   "s-55ea3f9b/final_config.yaml": {
+    "bytes": 3087,
+    "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+   },
+   "s-55ea3f9b/model_400000.pth": {
+    "bytes": 2908595703,
+    "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+   },
+   "t-9d2b8f02/ckpt/model_step_99999.pt": {
+    "bytes": 267736421,
+    "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+   },
+   "t-9d2b8f02/final_config.yaml": {
+    "bytes": 1318,
+    "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+   },
+   "t-9d2b8f02/model_config.yaml": {
+    "bytes": 323,
+    "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+   },
+   "t-9d2b8f02/tokenizer.json": {
+    "bytes": 3564303,
+    "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+   }
+  },
+  "code_commit": "6f109ace6cfe2460291dcd39607a91152d951470",
+  "code_dirty": "0",
+  "environment": {
+   "gpu": "NVIDIA A100-SXM4-40GB",
+   "torch": "2.8.0+cu128",
+   "cuda": "12.8",
+   "deterministic_algorithms": true,
+   "cublas_workspace_config": ":4096:8",
+   "allow_tf32_matmul": false,
+   "allow_tf32_cudnn": false,
+   "float32_matmul_precision": "highest",
+   "vpd_audit_2_commit": "6f109ace6cfe2460291dcd39607a91152d951470",
+   "vpd_audit_2_dirty": "0"
+  },
+  "n_sequences": 1024,
+  "seq_len": 512,
+  "n_positions": 524288,
+  "n_subcomponents": 38912,
+  "module_order": [
+   "h.0.attn.k_proj",
+   "h.0.attn.o_proj",
+   "h.0.attn.q_proj",
+   "h.0.attn.v_proj",
+   "h.0.mlp.c_fc",
+   "h.0.mlp.down_proj",
+   "h.1.attn.k_proj",
+   "h.1.attn.o_proj",
+   "h.1.attn.q_proj",
+   "h.1.attn.v_proj",
+   "h.1.mlp.c_fc",
+   "h.1.mlp.down_proj",
+   "h.2.attn.k_proj",
+   "h.2.attn.o_proj",
+   "h.2.attn.q_proj",
+   "h.2.attn.v_proj",
+   "h.2.mlp.c_fc",
+   "h.2.mlp.down_proj",
+   "h.3.attn.k_proj",
+   "h.3.attn.o_proj",
+   "h.3.attn.q_proj",
+   "h.3.attn.v_proj",
+   "h.3.mlp.c_fc",
+   "h.3.mlp.down_proj"
+  ],
+  "module_offsets": {
+   "h.0.attn.k_proj": 0,
+   "h.0.attn.o_proj": 512,
+   "h.0.attn.q_proj": 1536,
+   "h.0.attn.v_proj": 2048,
+   "h.0.mlp.c_fc": 3072,
+   "h.0.mlp.down_proj": 6144,
+   "h.1.attn.k_proj": 9728,
+   "h.1.attn.o_proj": 10240,
+   "h.1.attn.q_proj": 11264,
+   "h.1.attn.v_proj": 11776,
+   "h.1.mlp.c_fc": 12800,
+   "h.1.mlp.down_proj": 15872,
+   "h.2.attn.k_proj": 19456,
+   "h.2.attn.o_proj": 19968,
+   "h.2.attn.q_proj": 20992,
+   "h.2.attn.v_proj": 21504,
+   "h.2.mlp.c_fc": 22528,
+   "h.2.mlp.down_proj": 25600,
+   "h.3.attn.k_proj": 29184,
+   "h.3.attn.o_proj": 29696,
+   "h.3.attn.q_proj": 30720,
+   "h.3.attn.v_proj": 31232,
+   "h.3.mlp.c_fc": 32256,
+   "h.3.mlp.down_proj": 35328
+  },
+  "module_to_c": {
+   "h.0.attn.k_proj": 512,
+   "h.0.attn.o_proj": 1024,
+   "h.0.attn.q_proj": 512,
+   "h.0.attn.v_proj": 1024,
+   "h.0.mlp.c_fc": 3072,
+   "h.0.mlp.down_proj": 3584,
+   "h.1.attn.k_proj": 512,
+   "h.1.attn.o_proj": 1024,
+   "h.1.attn.q_proj": 512,
+   "h.1.attn.v_proj": 1024,
+   "h.1.mlp.c_fc": 3072,
+   "h.1.mlp.down_proj": 3584,
+   "h.2.attn.k_proj": 512,
+   "h.2.attn.o_proj": 1024,
+   "h.2.attn.q_proj": 512,
+   "h.2.attn.v_proj": 1024,
+   "h.2.mlp.c_fc": 3072,
+   "h.2.mlp.down_proj": 3584,
+   "h.3.attn.k_proj": 512,
+   "h.3.attn.o_proj": 1024,
+   "h.3.attn.q_proj": 512,
+   "h.3.attn.v_proj": 1024,
+   "h.3.mlp.c_fc": 3072,
+   "h.3.mlp.down_proj": 3584
+  },
+  "precision": "bf16 autocast (the earlier harness's E_main conditions), labels and z stored as float32",
+  "chunk": 32,
+  "label": "lower_leaky = clamp(z, 0, 1); upper_leaky recomputable from z",
+  "blocks": {
+   "pos": "every entry with label > 0: indptr, indices, values, z"
+  },
+  "dtypes": {
+   "indptr": "int64",
+   "indices": "uint16",
+   "values": "float32",
+   "z": "float32"
+  },
+  "nnz": 106650413,
+  "mean_count_above_0_per_position": 203.41951942443848,
+  "count_z_above_1": 55912383,
+  "sha256": {
+   "indptr": "d2154945a0a03dde52177a44f5007dd057f44e51e40f33fbcf4feb699a8b3101",
+   "indices": "d38845bac6777343174c6d97d12e0d08e9d97d1527b0067dae0fdda7db20026a",
+   "values": "0429eaa5707467dd211070777d29df97ba8d460a2c6c668a0e5ddbaa58b1e131",
+   "z": "d0f50f7ac46d68cf098dcfe9b7fb81bb7d92051af3894b40ca202ea1fc24e463"
+  },
+  "label_blocks_equal_E_main": {
+   "indptr": true,
+   "indices": true,
+   "values": true
+  },
+  "E_main_sha256": {
+   "indptr": "d2154945a0a03dde52177a44f5007dd057f44e51e40f33fbcf4feb699a8b3101",
+   "indices": "d38845bac6777343174c6d97d12e0d08e9d97d1527b0067dae0fdda7db20026a",
+   "values": "0429eaa5707467dd211070777d29df97ba8d460a2c6c668a0e5ddbaa58b1e131"
+  },
+  "deterministic_algorithms": true,
+  "seconds": 77.23926758766174,
+  "created_at": "2026-10-02T15:27:18+0000",
+  "bytes": 1070699432
+ },
+ "check4": {
+  "texts": "manifest pool WS_W16 (the rebuilt step-400,000 evaluation batch), 128 texts, rank shares of 8 in rank order",
+  "logged": 1158.31591796875,
+  "bf16": {
+   "whole_batch_world_size_1": 1158.283953807304,
+   "per_process_16_shares_of_8": 1172.7778016876355,
+   "relative_difference_whole": -2.759537441399118e-05,
+   "relative_difference_per_process": 0.01248526718362486,
+   "float32_arithmetic_as_evaluation": {
+    "whole": 1158.283935546875,
+    "per_process": 1172.7778549194336
+   },
+   "l0": {
+    "h.0.attn.k_proj": 1.3011627197265625,
+    "h.0.attn.o_proj": 2.392364501953125,
+    "h.0.attn.q_proj": 0.941253662109375,
+    "h.0.attn.v_proj": 1.8800506591796875,
+    "h.0.mlp.c_fc": 17.935379028320312,
+    "h.0.mlp.down_proj": 19.410263061523438,
+    "h.1.attn.k_proj": 1.2357025146484375,
+    "h.1.attn.o_proj": 5.3270416259765625,
+    "h.1.attn.q_proj": 1.0012664794921875,
+    "h.1.attn.v_proj": 3.767242431640625,
+    "h.1.mlp.c_fc": 4.1535186767578125,
+    "h.1.mlp.down_proj": 3.1131591796875,
+    "h.2.attn.k_proj": 4.4437103271484375,
+    "h.2.attn.o_proj": 15.249542236328125,
+    "h.2.attn.q_proj": 4.48974609375,
+    "h.2.attn.v_proj": 9.837692260742188,
+    "h.2.mlp.c_fc": 6.9417266845703125,
+    "h.2.mlp.down_proj": 7.40460205078125,
+    "h.3.attn.k_proj": 1.9105987548828125,
+    "h.3.attn.o_proj": 11.550643920898438,
+    "h.3.attn.q_proj": 1.8497161865234375,
+    "h.3.attn.v_proj": 6.8939971923828125,
+    "h.3.mlp.c_fc": 26.22894287109375,
+    "h.3.mlp.down_proj": 42.18940734863281
+   },
+   "l0_tie": {
+    "all_24_equal_exactly": true,
+    "relative_differences": {
+     "h.0.attn.k_proj": 0.0,
+     "h.0.attn.o_proj": 0.0,
+     "h.0.attn.q_proj": 0.0,
+     "h.0.attn.v_proj": 0.0,
+     "h.0.mlp.c_fc": 0.0,
+     "h.0.mlp.down_proj": 0.0,
+     "h.1.attn.k_proj": 0.0,
+     "h.1.attn.o_proj": 0.0,
+     "h.1.attn.q_proj": 0.0,
+     "h.1.attn.v_proj": 0.0,
+     "h.1.mlp.c_fc": 0.0,
+     "h.1.mlp.down_proj": 0.0,
+     "h.2.attn.k_proj": 0.0,
+     "h.2.attn.o_proj": 0.0,
+     "h.2.attn.q_proj": 0.0,
+     "h.2.attn.v_proj": 0.0,
+     "h.2.mlp.c_fc": 0.0,
+     "h.2.mlp.down_proj": 0.0,
+     "h.3.attn.k_proj": 0.0,
+     "h.3.attn.o_proj": 0.0,
+     "h.3.attn.q_proj": 0.0,
+     "h.3.attn.v_proj": 0.0,
+     "h.3.mlp.c_fc": 0.0,
+     "h.3.mlp.down_proj": 0.0
+    },
+    "max_abs_relative_difference": 0.0,
+    "all_within_0.05pct": true,
+    "rule": "the 24 L0 values equal plan 2's exactly, or each lies within 0.05 percent (plan 2, item 7)",
+    "passes": true
+   },
+   "within_0.1pct": {
+    "whole": true,
+    "per_process": false
+   }
+  },
+  "fp32": {
+   "whole_batch_world_size_1": 1159.0426966031146,
+   "per_process_16_shares_of_8": 1173.5263762586578,
+   "relative_difference_whole": 0.0006274442257852009,
+   "relative_difference_per_process": 0.013131528328283126,
+   "float32_arithmetic_as_evaluation": {
+    "whole": 1159.0428466796875,
+    "per_process": 1173.5264282226562
+   },
+   "l0": {
+    "h.0.attn.k_proj": 1.3011474609375,
+    "h.0.attn.o_proj": 2.395721435546875,
+    "h.0.attn.q_proj": 0.9414215087890625,
+    "h.0.attn.v_proj": 1.8845367431640625,
+    "h.0.mlp.c_fc": 17.937759399414062,
+    "h.0.mlp.down_proj": 19.417831420898438,
+    "h.1.attn.k_proj": 1.236907958984375,
+    "h.1.attn.o_proj": 5.3458709716796875,
+    "h.1.attn.q_proj": 1.0012664794921875,
+    "h.1.attn.v_proj": 3.80242919921875,
+    "h.1.mlp.c_fc": 4.1556549072265625,
+    "h.1.mlp.down_proj": 3.11260986328125,
+    "h.2.attn.k_proj": 4.455718994140625,
+    "h.2.attn.o_proj": 15.263442993164062,
+    "h.2.attn.q_proj": 4.4924774169921875,
+    "h.2.attn.v_proj": 9.866806030273438,
+    "h.2.mlp.c_fc": 6.9432220458984375,
+    "h.2.mlp.down_proj": 7.402008056640625,
+    "h.3.attn.k_proj": 1.9127349853515625,
+    "h.3.attn.o_proj": 11.547042846679688,
+    "h.3.attn.q_proj": 1.849639892578125,
+    "h.3.attn.v_proj": 6.9108428955078125,
+    "h.3.mlp.c_fc": 26.222686767578125,
+    "h.3.mlp.down_proj": 42.15412902832031
+   }
+  },
+  "forms_within_0.1pct": [
+   "whole"
+  ],
+  "rule": "either bf16 form within 0.1 percent of the logged 1158.32, the labels tied to plan 2's by the 24 L0 values",
+  "passes": true
+ },
+ "seconds": 190.52220129966736,
+ "local_wall_seconds": 213.14838886260986,
+ "pools": {
+  "Q": {
+   "n": 1024,
+   "texts": [
+    "v0",
+    "v1023"
+   ]
+  },
+  "WS_W16": {
+   "n": 128
+  },
+  "manifest_sha256": "29d709c9a4e11bc35241dca5e851fc0d4f2876c7865328815e3059da2d477d71"
+ }
+}

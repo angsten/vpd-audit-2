@@ -1,0 +1,1498 @@
+{
+ "commit": "363742912eee4da48b95d8fafb976ec50fb63eef",
+ "row_d": {
+  "components": [
+   {
+    "agrees": true,
+    "batch_push_on_attack": 340.53247475624084,
+    "cell": "off",
+    "component": 517,
+    "drawn_arrow_on_attack": -1,
+    "drawn_arrow_on_text": -1,
+    "flat_entry": 33303,
+    "module": "h.2.attn.v_proj",
+    "stratum": 10,
+    "switch_off_push_on_text": 15.249780654907227
+   },
+   {
+    "agrees": false,
+    "batch_push_on_attack": 11644.831408977509,
+    "cell": "off",
+    "component": 777,
+    "drawn_arrow_on_attack": -1,
+    "drawn_arrow_on_text": 1,
+    "flat_entry": 33563,
+    "module": "h.2.attn.v_proj",
+    "stratum": 8,
+    "switch_off_push_on_text": -194.1925048828125
+   },
+   {
+    "agrees": true,
+    "batch_push_on_attack": -86.66587781906128,
+    "cell": "off",
+    "component": 546,
+    "drawn_arrow_on_attack": 1,
+    "drawn_arrow_on_text": 1,
+    "flat_entry": 36407,
+    "module": "h.1.attn.o_proj",
+    "stratum": 10,
+    "switch_off_push_on_text": -40.670345306396484
+   },
+   {
+    "agrees": true,
+    "batch_push_on_attack": 1125.5667553246021,
+    "cell": "off",
+    "component": 2938,
+    "drawn_arrow_on_attack": -1,
+    "drawn_arrow_on_text": -1,
+    "flat_entry": 25985,
+    "module": "h.3.mlp.down_proj",
+    "stratum": 10,
+    "switch_off_push_on_text": 12.87094497680664
+   },
+   {
+    "agrees": true,
+    "batch_push_on_attack": 1009.7965391874313,
+    "cell": "on",
+    "component": 778,
+    "drawn_arrow_on_attack": -1,
+    "drawn_arrow_on_text": -1,
+    "flat_entry": 9997,
+    "module": "h.3.mlp.c_fc",
+    "stratum": 10,
+    "switch_off_push_on_text": 4.318011283874512
+   },
+   {
+    "agrees": true,
+    "batch_push_on_attack": 145.10558173060417,
+    "cell": "on",
+    "component": 2890,
+    "drawn_arrow_on_attack": -1,
+    "drawn_arrow_on_text": -1,
+    "flat_entry": 25937,
+    "module": "h.3.mlp.down_proj",
+    "stratum": 10,
+    "switch_off_push_on_text": 1.4276282787322998
+   },
+   {
+    "agrees": true,
+    "batch_push_on_attack": -593403.3835449219,
+    "cell": "on",
+    "component": 2787,
+    "drawn_arrow_on_attack": 1,
+    "drawn_arrow_on_text": 1,
+    "flat_entry": 25834,
+    "module": "h.3.mlp.down_proj",
+    "stratum": 9,
+    "switch_off_push_on_text": -5834.53515625
+   },
+   {
+    "agrees": true,
+    "batch_push_on_attack": 24595.76590538025,
+    "cell": "on",
+    "component": 3020,
+    "drawn_arrow_on_attack": -1,
+    "drawn_arrow_on_text": -1,
+    "flat_entry": 15312,
+    "module": "h.0.mlp.down_proj",
+    "stratum": 8,
+    "switch_off_push_on_text": 182.44772338867188
+   }
+  ],
+  "licensed_to_draw": true,
+  "pooled_kappa": -0.0014508351568845296,
+  "setting": {
+   "attack": "A9",
+   "kappa": -0.00961495285018686,
+   "row": "n320",
+   "start": 12
+  },
+  "text": {
+   "batch": "H8",
+   "g": 0.7604887375793979,
+   "index": 64,
+   "text_id": "v495532"
+  }
+ },
+ "rows": {
+  "n320": {
+   "additivity": {
+    "off_set": 0.26511764136399674,
+    "off_set_and_off_delta": 0.2661541349537964,
+    "off_set_max_cell": 1.136266088425799,
+    "off_set_min_cell": 0.07289204903821331
+   },
+   "cells": 1280,
+   "check_s6_rounded": {
+    "cells": 320,
+    "max_relative_difference": 0.0029873903751674105,
+    "ratio_of_means": 0.9994047742917399
+   },
+   "checks": {
+    "intact_max_abs_logit_difference": 0.0007948875427246094,
+    "intact_max_text_kl": 1.6439731566949417e-08,
+    "zero_direction_positions": 0
+   },
+   "full_pattern": {
+    "g0_bar": 0.9042371856260459,
+    "g_bar": 0.8769981869598826,
+    "interval": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.0724249742765023,
+      "kurtosis": 3.0981507595808075,
+      "ratio": 0.9848985202366825
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": 12.593202168826963,
+     "denominator": 0.095762814373954,
+     "estimate": -0.28444233645635153,
+     "half_width": 0.058289281986161054,
+     "half_width_unwidened": 0.058289281986161054,
+     "interval": [
+      -0.3427316184425126,
+      -0.22615305447019046
+     ],
+     "interval_percentile": [
+      -0.3367796626913118,
+      -0.2335787407410618
+     ],
+     "interval_unwidened": [
+      -0.3427316184425126,
+      -0.22615305447019046
+     ],
+     "kind": "ratio",
+     "mean_squares": {
+      "ABS": 0.00028944900525436866,
+      "AS": 1.33009964018811,
+      "BS": 0.0004446591205648899,
+      "S": 0.6871437751831222
+     },
+     "multiplier": 1.0,
+     "nu": 15.0,
+     "nu_c": null,
+     "nu_c_untruncated": null,
+     "numerator": -0.02723899866616336,
+     "per_start": [
+      -0.30245163063833697,
+      -0.27644158359619864,
+      -0.22204346576464037,
+      -0.2698923982366708,
+      -0.3712177439663738
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": 0.0,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 0.0007011300389437975,
+     "sigma_c_sq": 0.0,
+     "sigma_c_sq_untruncated": -0.0025121526371886652,
+     "standard_error": 0.027347249249971207,
+     "start_part_not_estimable": false,
+     "start_share": 0.0,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.131449545559776,
+     "v_c": 0.0,
+     "v_closed": 0.0007118804877230477,
+     "v_pb": 0.0007478720415400507,
+     "zero_variance": false
+    },
+    "kappa": -0.28444233645635075,
+    "sign_balance_attack_mean": 0.8747750134057153
+   },
+   "g0_bar": 0.7433892378014176,
+   "g_bar": 0.743016937885985,
+   "interval": {
+    "batch_part": "bootstrap",
+    "closed_form": {
+     "band": 0.07290168967374012,
+     "kurtosis": 3.1258625429145233,
+     "ratio": 0.9933855598052904
+    },
+    "counts": {
+     "C_A": 1280.0,
+     "C_H": 80.0
+    },
+    "defined": true,
+    "denom_z": 124.56529441626428,
+    "denominator": 0.2566107621985824,
+    "estimate": -0.0014508351568845224,
+    "half_width": 0.020712450522795595,
+    "half_width_unwidened": 0.020712450522795595,
+    "interval": [
+     -0.02216328567968012,
+     0.01926161536591107
+    ],
+    "interval_percentile": [
+     -0.012782767709689192,
+     0.012359332786583504
+    ],
+    "interval_unwidened": [
+     -0.02216328567968012,
+     0.01926161536591107
+    ],
+    "kind": "ratio",
+    "mean_squares": {
+     "ABS": 1.0011727782722572e-05,
+     "AS": 0.02201158112720173,
+     "BS": 1.9863046441921465e-05,
+     "S": 0.06733193828906343
+    },
+    "multiplier": 1.0,
+    "nu": 7.616360064135758,
+    "nu_c": 1.7985905710672763,
+    "nu_c_untruncated": 1.7985905710672763,
+    "numerator": -0.0003722999154326372,
+    "per_start": [
+     -0.017160022905921047,
+     0.022530189664306765,
+     -0.014049860683120675,
+     0.006579058930160799,
+     -0.005273428832312837
+    ],
+    "percentile": {
+     "denominator_nonpositive_share": 0.0,
+     "replicates": 10000,
+     "replicates_left_out": 0,
+     "replicates_used": 10000,
+     "unreliable": false
+    },
+    "se_star_sq": 4.1128004263732417e-05,
+    "sigma_c_sq": 0.00017699416345000977,
+    "sigma_c_sq_untruncated": 0.00017699416345000977,
+    "standard_error": 0.008903297361351571,
+    "start_part_not_estimable": false,
+    "start_share": 0.44656757265240815,
+    "subtable": {
+     "K_A": 16,
+     "K_H": 16,
+     "n_s": 5
+    },
+    "t_quantile": 2.3263797312562553,
+    "v_c": 3.5398832690001955e-05,
+    "v_closed": 4.140185435330241e-05,
+    "v_pb": 4.386987121464791e-05,
+    "zero_variance": false
+   },
+   "kappa": -0.0014508351568845296,
+   "licence": {
+    "gate": "within-batch kappa at or below the upper end of the cross-batch interval",
+    "key": "do not agree, input-specific",
+    "sentence": "We may say: \"first-order pushes are specific to each input while the damage still carries over\".",
+    "within_as_low_as_cross": true
+   },
+   "mass_on_zero_batch_push": 0.0,
+   "pattern_kl_mean": 33.44646343673269,
+   "per_setting_kappa": [
+    [
+     -0.03701018429717479,
+     0.028078041640476968,
+     -0.032824669174894336,
+     0.051009782504056266,
+     -0.034307798769399135
+    ],
+    [
+     0.008599048725098212,
+     0.01959223312523466,
+     -0.06272922952536077,
+     -0.014428560408186492,
+     0.006264914142228993
+    ],
+    [
+     -0.03036250560558235,
+     0.01278371698817418,
+     -0.021000531795392446,
+     -0.034659404357666915,
+     0.002790388342616774
+    ],
+    [
+     -0.030513543160713776,
+     0.03041119971013431,
+     0.12809271710700712,
+     -0.029171059872691446,
+     0.05383453005723569
+    ],
+    [
+     -0.02029238962492275,
+     0.0433292976017516,
+     -0.05221574566675168,
+     -0.002974177030096108,
+     0.024701956769656783
+    ],
+    [
+     -0.010338529992557917,
+     0.016951120707215824,
+     -0.06124924750086423,
+     -0.03158191647100853,
+     -0.0455322705247612
+    ],
+    [
+     -0.01972491007746318,
+     0.006369280314350941,
+     -0.045309383449920235,
+     -0.029352871704864655,
+     -0.009562585592483033
+    ],
+    [
+     0.04164100421698678,
+     0.024318639399673714,
+     0.02676484323851587,
+     0.03308519030604524,
+     0.024820546121741338
+    ],
+    [
+     -0.04665222506808995,
+     0.017729328788869465,
+     -0.02277528627145197,
+     -0.00961495285018686,
+     -0.04406630291658812
+    ],
+    [
+     -0.03452435159202519,
+     0.028132514477063948,
+     -0.054175213334219034,
+     0.0038084052046835817,
+     -0.046688350924879184
+    ],
+    [
+     -0.023045528562871672,
+     0.014380020747438082,
+     -0.016873891596539087,
+     -0.00707127287004276,
+     -0.019731880277879338
+    ],
+    [
+     -0.02988790500982055,
+     0.019958541771685243,
+     -0.057766918558258294,
+     0.00026674464143985915,
+     -0.03935657347975332
+    ],
+    [
+     -0.03157569632405549,
+     0.11654659396763895,
+     -0.03065114961196335,
+     0.023200580427311126,
+     0.01073179966723432
+    ],
+    [
+     -0.0019442648925763286,
+     0.011106855820549443,
+     -0.05036132961273311,
+     -0.04170577945086186,
+     -0.01963167669226757
+    ],
+    [
+     0.03947271097234224,
+     0.01385700358213347,
+     0.13703832361811147,
+     0.0844447558874667,
+     0.05657226544078837
+    ],
+    [
+     -0.05224755588284514,
+     -0.0508180403567078,
+     -0.03936158602371659,
+     0.08482229147075376,
+     -0.007335918752998329
+    ]
+   ],
+   "positive_share_heldout": 0.5802673508285097,
+   "post_hoc_permutation_baseline": {
+    "g0_bar": 0.5454515871757473,
+    "g_bar": 0.743016937885985,
+    "interval": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.07161718450748684,
+      "kurtosis": 3.0516084467117652,
+      "ratio": 0.9896205852401962
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": 99.62315848215441,
+     "denominator": 0.45454841282425285,
+     "estimate": 0.43464094282653387,
+     "half_width": 0.022515088788378688,
+     "half_width_unwidened": 0.022515088788378688,
+     "interval": [
+      0.41212585403815516,
+      0.4571560316149126
+     ],
+     "interval_percentile": [
+      0.428467501132384,
+      0.4413095740488277
+     ],
+     "interval_unwidened": [
+      0.41212585403815516,
+      0.4571560316149126
+     ],
+     "kind": "ratio",
+     "mean_squares": {
+      "ABS": 4.307325390607089e-06,
+      "AS": 0.015867293952811685,
+      "BS": 6.105610085783458e-06,
+      "S": 0.08242638290761387
+     },
+     "multiplier": 1.0,
+     "nu": 3.8036170296923326,
+     "nu_c": 2.601639886350912,
+     "nu_c_untruncated": 2.601639886350912,
+     "numerator": 0.19756535071023779,
+     "per_start": [
+      0.4354124388843803,
+      0.4567532367085263,
+      0.4181280997398478,
+      0.4148546014751788,
+      0.4468634027209019
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": 0.0,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 1.0428380439685611e-05,
+     "sigma_c_sq": 0.00025998941668010553,
+     "sigma_c_sq_untruncated": 0.00025998941668010553,
+     "standard_error": 0.007944903343550028,
+     "start_part_not_estimable": false,
+     "start_share": 0.8237746613051203,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.833903423967679,
+     "v_c": 5.199788333602111e-05,
+     "v_closed": 1.053775618173351e-05,
+     "v_pb": 1.1123605802331319e-05,
+     "zero_variance": false
+    },
+    "kappa": 0.4346409428265338,
+    "lines_would_read": "partly agree",
+    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; kappa with the chance level of Daniel's note as first written: the off set's attack-batch signs permuted among the off set within each (weight matrix, usage band) cell, 8 permutations, seeded ('probe1-permutation', attack, start, steps, r)"
+   },
+   "post_hoc_positive_share": {
+    "attack_batch_push_mass": {
+     "matched_kept": 0.5686743367532419,
+     "off": 0.6553394192300135
+    },
+    "attack_texts": {
+     "matched_kept": 0.5322142039657101,
+     "off": 0.5753428216214281
+    },
+    "heldout_off_minus_matched_kept": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.07198280529744133,
+      "kurtosis": 3.0726097033957394,
+      "ratio": 0.9868943838227262
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": null,
+     "denominator": null,
+     "estimate": 0.043916064602901914,
+     "half_width": 0.016018001369990924,
+     "half_width_unwidened": 0.016018001369990924,
+     "interval": [
+      0.02789806323291099,
+      0.05993406597289284
+     ],
+     "interval_percentile": [
+      0.0383101938237833,
+      0.0507306295554737
+     ],
+     "interval_unwidened": [
+      0.02789806323291099,
+      0.05993406597289284
+     ],
+     "kind": "mean",
+     "mean_squares": {
+      "ABS": 1.4026028111605899e-06,
+      "AS": 0.0038922503119856963,
+      "BS": 7.583874750425007e-06,
+      "S": 0.04420977935077645
+     },
+     "multiplier": 1.0,
+     "nu": 5.845954132348301,
+     "nu_c": 3.3239430381362096,
+     "nu_c_untruncated": 3.3239430381362096,
+     "numerator": 0.043916064602901914,
+     "per_start": [
+      0.025592157808981275,
+      0.03771700475055103,
+      0.05486189970673202,
+      0.0579366198144476,
+      0.043472640933797616
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": null,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 1.0138557173064681e-05,
+     "sigma_c_sq": 0.00015746620221426363,
+     "sigma_c_sq_untruncated": 0.00015746620221426363,
+     "standard_error": 0.00650443705692161,
+     "start_part_not_estimable": false,
+     "start_share": 0.7443855227364251,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.462626854532412,
+     "v_c": 3.1493240442852726e-05,
+     "v_closed": 1.0273193706699469e-05,
+     "v_pb": 1.0814460984602326e-05,
+     "zero_variance": false
+    },
+    "heldout_texts": {
+     "matched_kept": 0.5363512862256077,
+     "off": 0.5802673508285097
+    },
+    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the share of push mass that is positive (along the pattern's shift) for the off set and the matched kept set (mean of the 8 draws), on the attack batch and pooled over the held-out texts, with session 5's interval on the held-out off-minus-kept difference"
+   },
+   "post_hoc_sign_balance_attack_kept": {
+    "all_kept": {
+     "max": 0.713395302991654,
+     "mean": 0.5674893931687954,
+     "min": 0.49420073303923107
+    },
+    "matched_kept_mean_of_draws": {
+     "max": 0.6923245310243253,
+     "mean": 0.5686743367532419,
+     "min": 0.5005725602396153
+    },
+    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the kept components' sign balance on the attack batch, computed as the off set's is"
+   },
+   "reading": "do not agree",
+   "row": "n320",
+   "sign_balance_attack": {
+    "max": 0.8294082416170522,
+    "mean": 0.6553394192300135,
+    "min": 0.5683285211680473
+   },
+   "sizes": {
+    "kept": {
+     "max": 26958,
+     "mean": 22499.825,
+     "min": 20006
+    },
+    "matched": {
+     "max": 16150,
+     "mean": 13975.9625,
+     "min": 11600
+    },
+    "off": {
+     "max": 18906,
+     "mean": 16412.175,
+     "min": 11954
+    },
+    "off_delta": {
+     "max": 19,
+     "mean": 13.9,
+     "min": 6
+    }
+   },
+   "texts_per_cell": 128,
+   "unweighted": {
+    "agreement": 0.6221151760286215,
+    "chance": 0.6217719434173916
+   },
+   "with_off_delta": {
+    "g_bar": 0.7432113598934086,
+    "interval": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.07286488807420204,
+      "kurtosis": 3.123716765626396,
+      "ratio": 0.9933457937916811
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": 124.56529441626428,
+     "denominator": 0.2566107621985824,
+     "estimate": -0.0006931817920848961,
+     "half_width": 0.020814311007051788,
+     "half_width_unwidened": 0.020814311007051788,
+     "interval": [
+      -0.021507492799136683,
+      0.020121129214966893
+     ],
+     "interval_percentile": [
+      -0.011990492890419513,
+      0.01308905874545673
+     ],
+     "interval_unwidened": [
+      -0.021507492799136683,
+      0.020121129214966893
+     ],
+     "kind": "ratio",
+     "mean_squares": {
+      "ABS": 1.0033387986544333e-05,
+      "AS": 0.021994255700083794,
+      "BS": 1.9879326588939e-05,
+      "S": 0.06830074077367469
+     },
+     "multiplier": 1.0,
+     "nu": 7.5435460099184946,
+     "nu_c": 1.8252235972503623,
+     "nu_c_untruncated": 1.8252235972503623,
+     "numerator": -0.00017787790800908448,
+     "per_start": [
+      -0.016633460735679523,
+      0.023501786279362964,
+      -0.013271012153127365,
+      0.007261054064272533,
+      -0.004439498417722393
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": 0.0,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 4.087210279684837e-05,
+     "sigma_c_sq": 0.00018084624662104886,
+     "sigma_c_sq_untruncated": 0.00018084624662104886,
+     "standard_error": 0.008931190232784282,
+     "start_part_not_estimable": false,
+     "start_share": 0.4534410304991243,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.3305192773352186,
+     "v_c": 3.616924932420977e-05,
+     "v_closed": 4.1145896073950494e-05,
+     "v_pb": 4.359690964997159e-05,
+     "zero_variance": false
+    },
+    "kappa_against_the_same_chance": -0.0006931817920847611
+   },
+   "within": {
+    "additivity": 0.23529141474715756,
+    "g0_bar": 0.7459048616544633,
+    "g_bar": 0.7445491898831827,
+    "interval": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.07200877144999496,
+      "kurtosis": 3.074105266295044,
+      "ratio": 1.0115854220764644
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": 141.10261928827245,
+     "denominator": 0.2540951383455366,
+     "estimate": -0.005335292048905984,
+     "half_width": 0.021136160225513363,
+     "half_width_unwidened": 0.021136160225513363,
+     "interval": [
+      -0.026471452274419348,
+      0.015800868176607377
+     ],
+     "interval_percentile": [
+      -0.016330798566951216,
+      0.008045623296980466
+     ],
+     "interval_unwidened": [
+      -0.026471452274419348,
+      0.015800868176607377
+     ],
+     "kind": "ratio",
+     "mean_squares": {
+      "ABS": 2.7123513383453574e-34,
+      "AS": 5.906185162787523e-34,
+      "BS": 0.020870237320513668,
+      "S": 0.07185929119024727
+     },
+     "multiplier": 1.0,
+     "nu": 7.249017765407844,
+     "nu_c": 2.002685147766266,
+     "nu_c_untruncated": 2.002685147766266,
+     "numerator": -0.0013556717712806072,
+     "per_start": [
+      -0.018806221717671462,
+      0.02040053453683628,
+      -0.020753174156598723,
+      0.0009165366717463945,
+      -0.008536095767626454
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": 0.0,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 3.8605289214285286e-05,
+     "sigma_c_sq": 0.00019917599167864686,
+     "sigma_c_sq_untruncated": 0.00019917599167864686,
+     "standard_error": 0.009000787382092396,
+     "start_part_not_estimable": false,
+     "start_share": 0.49170653252289126,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.348256805572923,
+     "v_c": 3.983519833572937e-05,
+     "v_closed": 3.8163152979251974e-05,
+     "v_pb": 4.11789751619043e-05,
+     "zero_variance": false
+    },
+    "kappa": -0.0053352920489059446,
+    "unweighted": 0.6222962318560378,
+    "unweighted_chance": 0.622409759597371
+   }
+  },
+  "n80": {
+   "additivity": {
+    "off_set": 0.41401271284822033,
+    "off_set_and_off_delta": 0.4154515431331601,
+    "off_set_max_cell": 1.0922643102858731,
+    "off_set_min_cell": 0.05511911245555943
+   },
+   "cells": 1280,
+   "check_s6_rounded": {
+    "cells": 320,
+    "max_relative_difference": 0.006684896293652669,
+    "ratio_of_means": 0.9985617889707228
+   },
+   "checks": {
+    "intact_max_abs_logit_difference": 0.0007948875427246094,
+    "intact_max_text_kl": 1.6439731566949417e-08,
+    "zero_direction_positions": 0
+   },
+   "g0_bar": 0.7425244925747572,
+   "g_bar": 0.7427552674800835,
+   "interval": {
+    "batch_part": "bootstrap",
+    "closed_form": {
+     "band": 0.07313388615044383,
+     "kurtosis": 3.1394261213864323,
+     "ratio": 0.9929141791278882
+    },
+    "counts": {
+     "C_A": 1280.0,
+     "C_H": 80.0
+    },
+    "defined": true,
+    "denom_z": 92.52478272751495,
+    "denominator": 0.25747550742524283,
+    "estimate": 0.0008962984776070445,
+    "half_width": 0.028194806580803415,
+    "half_width_unwidened": 0.028194806580803415,
+    "interval": [
+     -0.02729850810319637,
+     0.02909110505841046
+    ],
+    "interval_percentile": [
+     -0.012898271103964095,
+     0.017323611577470508
+    ],
+    "interval_unwidened": [
+     -0.02729850810319637,
+     0.02909110505841046
+    ],
+    "kind": "ratio",
+    "mean_squares": {
+     "ABS": 9.344595430598514e-06,
+     "AS": 0.014486532604475626,
+     "BS": 1.7064539359010614e-05,
+     "S": 0.12771789813066992
+    },
+    "multiplier": 1.0,
+    "nu": 8.33632489969264,
+    "nu_c": 3.140931031289325,
+    "nu_c_untruncated": 3.140931031289325,
+    "numerator": 0.00023077490532634644,
+    "per_start": [
+     -0.02151804777084692,
+     0.01598793528481512,
+     -0.020191085399256188,
+     0.029227685559714674,
+     -0.0006652952130936767
+    ],
+    "percentile": {
+     "denominator_nonpositive_share": 0.0,
+     "replicates": 10000,
+     "replicates_left_out": 0,
+     "replicates_used": 10000,
+     "unreliable": false
+    },
+    "se_star_sq": 5.919823133793567e-05,
+    "sigma_c_sq": 0.00044227986555572606,
+    "sigma_c_sq_untruncated": 0.00044227986555572606,
+    "standard_error": 0.01231262576402545,
+    "start_part_not_estimable": false,
+    "start_share": 0.5834797732935071,
+    "subtable": {
+     "K_A": 16,
+     "K_H": 16,
+     "n_s": 5
+    },
+    "t_quantile": 2.2899101394912775,
+    "v_c": 8.845597311114522e-05,
+    "v_closed": 5.962069288801131e-05,
+    "v_pb": 6.314478009379805e-05,
+    "zero_variance": false
+   },
+   "kappa": 0.000896298477606876,
+   "licence": {
+    "gate": "within-batch kappa at or below the upper end of the cross-batch interval",
+    "key": "do not agree, input-specific",
+    "sentence": "We may say: \"first-order pushes are specific to each input while the damage still carries over\".",
+    "within_as_low_as_cross": true
+   },
+   "mass_on_zero_batch_push": 0.0,
+   "pattern_kl_mean": 16.934403114151937,
+   "per_setting_kappa": [
+    [
+     -0.0006868163954243862,
+     0.00903658866777768,
+     -0.046051062935803355,
+     0.0933166139885559,
+     -0.011797717030192782
+    ],
+    [
+     0.02438372372396063,
+     0.0017847839920699092,
+     -0.05414197061904182,
+     0.01414539554744349,
+     -0.011578020168596222
+    ],
+    [
+     -0.06764399333941716,
+     -0.00025454657074260045,
+     -0.02393272076573762,
+     -0.005232297607524764,
+     -0.02312283295282213
+    ],
+    [
+     0.0336506231947849,
+     0.05509212892496738,
+     0.03363657793428907,
+     -0.013318863348876796,
+     0.041352942205943946
+    ],
+    [
+     0.009230494213642226,
+     0.032513399055932146,
+     0.0039524963458949834,
+     -0.009094786629419448,
+     0.03592513719188962
+    ],
+    [
+     -0.022353898609039382,
+     -0.004525184220923397,
+     -0.07850963293581675,
+     -0.03330088503502529,
+     -0.03775373422004631
+    ],
+    [
+     -0.043901055944350814,
+     0.009289779095497339,
+     -0.05132487937281455,
+     -0.001864221229241353,
+     -0.011513381212248116
+    ],
+    [
+     0.017701463052803165,
+     0.03734184604207815,
+     0.07881256711257013,
+     0.05770211065990801,
+     0.03939655854290299
+    ],
+    [
+     -0.026360640116507985,
+     0.010543403621964863,
+     -0.022530323052751666,
+     -0.0028531225631366866,
+     0.015107993010776921
+    ],
+    [
+     -0.044630526719631344,
+     0.006555410234716789,
+     -0.04891632440711359,
+     0.009815333940006355,
+     -0.0232975833242883
+    ],
+    [
+     -0.05453915130019565,
+     -0.0017537455999148421,
+     -0.005366023171425839,
+     0.03459818055823396,
+     -0.036900753731243005
+    ],
+    [
+     -0.09844183344273091,
+     0.014313180897483964,
+     -0.05689010624280646,
+     -0.0005633068732054306,
+     -0.04064464248845113
+    ],
+    [
+     -0.039415675912528696,
+     0.05868916547262874,
+     -0.06418382555073153,
+     0.08161779707489286,
+     0.002701037781643822
+    ],
+    [
+     -0.04286986147018293,
+     0.0002545611240645939,
+     -0.06158010772556428,
+     -0.007522991883888272,
+     -0.011701837774201541
+    ],
+    [
+     0.05844568394347993,
+     0.06051024200114518,
+     0.09682368095446676,
+     0.1249305626296478,
+     0.07307423802462354
+    ],
+    [
+     -0.0607906480779659,
+     -0.03478003400137366,
+     -0.040022507833776776,
+     0.10037329653357886,
+     -0.012683399673939954
+    ]
+   ],
+   "positive_share_heldout": 0.5954973168680081,
+   "post_hoc_permutation_baseline": {
+    "g0_bar": 0.5611001018606617,
+    "g_bar": 0.7427552674800835,
+    "interval": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.0712593725627513,
+      "kurtosis": 3.0311592712147974,
+      "ratio": 1.0110688698391603
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": 62.10344594708189,
+     "denominator": 0.4388998981393382,
+     "estimate": 0.4138874636096438,
+     "half_width": 0.023954775530383846,
+     "half_width_unwidened": 0.023954775530383846,
+     "interval": [
+      0.38993268807925996,
+      0.4378422391400276
+     ],
+     "interval_percentile": [
+      0.40801856190571745,
+      0.4197693540214399
+     ],
+     "interval_unwidened": [
+      0.38993268807925996,
+      0.4378422391400276
+     ],
+     "kind": "ratio",
+     "mean_squares": {
+      "ABS": 2.8623846999412365e-06,
+      "AS": 0.009471513164940078,
+      "BS": 8.231767168314741e-06,
+      "S": 0.09643548348770328
+     },
+     "multiplier": 1.0,
+     "nu": 4.228068335221979,
+     "nu_c": 3.250365146924813,
+     "nu_c_untruncated": 3.250365146924813,
+     "numerator": 0.18165516561942172,
+     "per_start": [
+      0.42055114837548574,
+      0.42699389353228595,
+      0.4022036416578809,
+      0.3844820587066679,
+      0.43250471456062406
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": 0.0,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 9.110986137384143e-06,
+     "sigma_c_sq": 0.0003396820349230267,
+     "sigma_c_sq_untruncated": 0.0003396820349230267,
+     "standard_error": 0.008812195651358127,
+     "start_part_not_estimable": false,
+     "start_share": 0.8748514426713875,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.7183662821526164,
+     "v_c": 6.793640698460534e-05,
+     "v_closed": 9.011241873991737e-06,
+     "v_pb": 9.718385213209752e-06,
+     "zero_variance": false
+    },
+    "kappa": 0.4138874636096438,
+    "lines_would_read": "partly agree",
+    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; kappa with the chance level of Daniel's note as first written: the off set's attack-batch signs permuted among the off set within each (weight matrix, usage band) cell, 8 permutations, seeded ('probe1-permutation', attack, start, steps, r)"
+   },
+   "post_hoc_positive_share": {
+    "attack_batch_push_mass": {
+     "matched_kept": 0.5692794735150482,
+     "off": 0.6868292328602427
+    },
+    "attack_texts": {
+     "matched_kept": 0.5323861164453254,
+     "off": 0.5919275296503358
+    },
+    "heldout_off_minus_matched_kept": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.07244527463878661,
+      "kurtosis": 3.0993271269956875,
+      "ratio": 0.9909767599741272
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": null,
+     "denominator": null,
+     "estimate": 0.05938429219419189,
+     "half_width": 0.015575005070442368,
+     "half_width_unwidened": 0.015575005070442368,
+     "interval": [
+      0.04380928712374952,
+      0.07495929726463425
+     ],
+     "interval_percentile": [
+      0.05390668174848562,
+      0.06595039454144522
+     ],
+     "interval_unwidened": [
+      0.04380928712374952,
+      0.07495929726463425
+     ],
+     "kind": "mean",
+     "mean_squares": {
+      "ABS": 1.492575672919002e-06,
+      "AS": 0.004413294355336885,
+      "BS": 9.693696644696267e-06,
+      "S": 0.04177578795064852
+     },
+     "multiplier": 1.0,
+     "nu": 5.7034087998544365,
+     "nu_c": 3.195719960759267,
+     "nu_c_untruncated": 3.195719960759267,
+     "numerator": 0.05938429219419189,
+     "per_start": [
+      0.05195448251636503,
+      0.047183274005406,
+      0.07454201449581171,
+      0.07184138527469272,
+      0.05140030467868403
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": null,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 9.67429355089159e-06,
+     "sigma_c_sq": 0.00014591520497789006,
+     "sigma_c_sq_untruncated": 0.00014591520497789006,
+     "standard_error": 0.0062850845220937465,
+     "start_part_not_estimable": false,
+     "start_share": 0.7387683822770543,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.4780899947633284,
+     "v_c": 2.9183040995578014e-05,
+     "v_closed": 9.762381865689938e-06,
+     "v_pb": 1.0319246454284363e-05,
+     "zero_variance": false
+    },
+    "heldout_texts": {
+     "matched_kept": 0.5361130246738163,
+     "off": 0.5954973168680081
+    },
+    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the share of push mass that is positive (along the pattern's shift) for the off set and the matched kept set (mean of the 8 draws), on the attack batch and pooled over the held-out texts, with session 5's interval on the held-out off-minus-kept difference"
+   },
+   "post_hoc_sign_balance_attack_kept": {
+    "all_kept": {
+     "max": 0.6866589521288767,
+     "mean": 0.5741656274485127,
+     "min": 0.5081573850664843
+    },
+    "matched_kept_mean_of_draws": {
+     "max": 0.6869209062442307,
+     "mean": 0.5692794735150482,
+     "min": 0.497900462750664
+    },
+    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the kept components' sign balance on the attack batch, computed as the off set's is"
+   },
+   "reading": "do not agree",
+   "row": "n80",
+   "sign_balance_attack": {
+    "max": 0.7964246647418486,
+    "mean": 0.6868292328602427,
+    "min": 0.5558121232197352
+   },
+   "sizes": {
+    "kept": {
+     "max": 26149,
+     "mean": 21813.325,
+     "min": 19831
+    },
+    "matched": {
+     "max": 17040,
+     "mean": 14102.375,
+     "min": 12229
+    },
+    "off": {
+     "max": 19081,
+     "mean": 17098.675,
+     "min": 12763
+    },
+    "off_delta": {
+     "max": 20,
+     "mean": 14.1125,
+     "min": 6
+    }
+   },
+   "texts_per_cell": 128,
+   "unweighted": {
+    "agreement": 0.6256608513385314,
+    "chance": 0.6258519095061
+   },
+   "with_off_delta": {
+    "g_bar": 0.7429537657645996,
+    "interval": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.07315472728722763,
+      "kurtosis": 3.140645649787459,
+      "ratio": 0.9927637930361605
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": 92.52478272751495,
+     "denominator": 0.25747550742524283,
+     "estimate": 0.0016672389313269961,
+     "half_width": 0.02824848015403516,
+     "half_width_unwidened": 0.02824848015403516,
+     "interval": [
+      -0.026581241222708163,
+      0.029915719085362155
+     ],
+     "interval_percentile": [
+      -0.012081946023638355,
+      0.01807736831527878
+     ],
+     "interval_unwidened": [
+      -0.026581241222708163,
+      0.029915719085362155
+     ],
+     "kind": "ratio",
+     "mean_squares": {
+      "ABS": 9.336154895118169e-06,
+      "AS": 0.014444923828486689,
+      "BS": 1.714175456284438e-05,
+      "S": 0.12846724231033999
+     },
+     "multiplier": 1.0,
+     "nu": 8.287824905648417,
+     "nu_c": 3.1479626097828257,
+     "nu_c_untruncated": 3.1479626097828257,
+     "numerator": 0.00042927318984253794,
+     "per_start": [
+      -0.021126084394899325,
+      0.01699268999289915,
+      -0.019250141884085782,
+      0.029911033530601313,
+      0.00016883378341823568
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": 0.0,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 5.888336293900359e-05,
+     "sigma_c_sq": 0.0004453691909460374,
+     "sigma_c_sq_untruncated": 0.0004453691909460374,
+     "standard_error": 0.012324072324417687,
+     "start_part_not_estimable": false,
+     "start_share": 0.5864644478184944,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.292138459628027,
+     "v_c": 8.907383818920747e-05,
+     "v_closed": 5.931256090526946e-05,
+     "v_pb": 6.280892046827049e-05,
+     "zero_variance": false
+    },
+    "kappa_against_the_same_chance": 0.0016672389313265668
+   },
+   "within": {
+    "additivity": 0.3809827192538809,
+    "g0_bar": 0.7450232629526429,
+    "g_bar": 0.7442109226936625,
+    "interval": {
+     "batch_part": "bootstrap",
+     "closed_form": {
+      "band": 0.07187116689482692,
+      "kurtosis": 3.066185852329626,
+      "ratio": 1.0093126361782294
+     },
+     "counts": {
+      "C_A": 1280.0,
+      "C_H": 80.0
+     },
+     "defined": true,
+     "denom_z": 95.24557948732624,
+     "denominator": 0.25497673704735707,
+     "estimate": -0.003185938718909377,
+     "half_width": 0.027784254658054227,
+     "half_width_unwidened": 0.027784254658054227,
+     "interval": [
+      -0.030970193376963603,
+      0.02459831593914485
+     ],
+     "interval_percentile": [
+      -0.01729040811888579,
+      0.013026998803513394
+     ],
+     "interval_unwidened": [
+      -0.030970193376963603,
+      0.02459831593914485
+     ],
+     "kind": "ratio",
+     "mean_squares": {
+      "ABS": 2.522968227147279e-34,
+      "AS": 4.622231866529366e-34,
+      "BS": 0.01617327752833165,
+      "S": 0.12282533868431497
+     },
+     "multiplier": 1.0,
+     "nu": 8.485085507206005,
+     "nu_c": 3.0124568555993423,
+     "nu_c_untruncated": 3.0124568555993423,
+     "numerator": -0.0008123402589803499,
+     "per_start": [
+      -0.025751795603667423,
+      0.010482724362027402,
+      -0.02388755784417698,
+      0.02466252172888469,
+      -0.003058432436977467
+     ],
+     "percentile": {
+      "denominator_nonpositive_share": 0.0,
+      "replicates": 10000,
+      "replicates_left_out": 0,
+      "replicates_used": 10000,
+      "unreliable": false
+     },
+     "se_star_sq": 6.070795512357723e-05,
+     "sigma_c_sq": 0.0004166096138905599,
+     "sigma_c_sq_untruncated": 0.0004166096138905599,
+     "standard_error": 0.012168692407564902,
+     "start_part_not_estimable": false,
+     "start_share": 0.5626929275095083,
+     "subtable": {
+      "K_A": 16,
+      "K_H": 16,
+      "n_s": 5
+     },
+     "t_quantile": 2.2832572085380027,
+     "v_c": 8.332192277811198e-05,
+     "v_closed": 6.014782035569118e-05,
+     "v_pb": 6.47551521318157e-05,
+     "zero_variance": false
+    },
+    "kappa": -0.0031859387189094148,
+    "unweighted": 0.6259136788484574,
+    "unweighted_chance": 0.6264207259987031
+   }
+  }
+ },
+ "validation": {
+  "at": "2026-10-08T21:59:07+00:00",
+  "bottom_decile_cut": 2.299810791015625,
+  "by_component_decile": {
+   "0": {
+    "median_abs_exact": 4.653658830139648,
+    "median_abs_first": 4.335600852966309,
+    "pairs": 160,
+    "sign_share": 0.95625
+   },
+   "1": {
+    "median_abs_exact": 8.892724994986565,
+    "median_abs_first": 8.579686164855957,
+    "pairs": 160,
+    "sign_share": 0.9625
+   },
+   "2": {
+    "median_abs_exact": 12.976164542284096,
+    "median_abs_first": 12.136162281036377,
+    "pairs": 160,
+    "sign_share": 0.9375
+   },
+   "3": {
+    "median_abs_exact": 17.3397011578636,
+    "median_abs_first": 16.238280296325684,
+    "pairs": 160,
+    "sign_share": 0.95625
+   },
+   "4": {
+    "median_abs_exact": 16.136795973725384,
+    "median_abs_first": 15.719985961914062,
+    "pairs": 160,
+    "sign_share": 0.9125
+   },
+   "5": {
+    "median_abs_exact": 19.21759901435871,
+    "median_abs_first": 20.49057388305664,
+    "pairs": 160,
+    "sign_share": 0.94375
+   },
+   "6": {
+    "median_abs_exact": 20.610595964360982,
+    "median_abs_first": 19.8482666015625,
+    "pairs": 160,
+    "sign_share": 0.96875
+   },
+   "7": {
+    "median_abs_exact": 32.75710707649705,
+    "median_abs_first": 33.30658721923828,
+    "pairs": 160,
+    "sign_share": 0.89375
+   },
+   "8": {
+    "median_abs_exact": 42.01667397894198,
+    "median_abs_first": 37.72222709655762,
+    "pairs": 160,
+    "sign_share": 0.9
+   },
+   "9": {
+    "median_abs_exact": 101.44670791254612,
+    "median_abs_first": 96.46366119384766,
+    "pairs": 160,
+    "sign_share": 0.88125
+   }
+  },
+  "candidates": 17815,
+  "commit": "363742912eee4da48b95d8fafb976ec50fb63eef",
+  "components_left_out_as_zero": 0,
+  "intact_against_target": [
+   {
+    "max_abs_logit_difference": 0.0005183219909667969,
+    "max_text_kl": 1.13239576601332e-08
+   },
+   {
+    "max_abs_logit_difference": 0.0005869865417480469,
+    "max_text_kl": 1.0258676116708595e-08
+   }
+  ],
+  "lead_carried_bf16": 30.813552856445312,
+  "null_spread_max": 0.0,
+  "pairs": 1600,
+  "pairs_above": 1440,
+  "passes": true,
+  "pattern_kl_whole_batch_fp32": 31.75685602864518,
+  "pearson_all": 0.7259780241326032,
+  "rule": {
+   "sign_share_at_least": 0.9,
+   "spearman_at_least": 0.8
+  },
+  "s6_rounded_bf16": 31.833560943603516,
+  "setting_sha": "3f7c9ec58cbdfb4286a5796a0eab2e81234276ce8c2fde369620d39becd55f67",
+  "sign_share_above": 0.9527777777777777,
+  "sign_share_all": 0.93125,
+  "spearman_above": 0.9184043660321982,
+  "spearman_all": 0.9175440097828164,
+  "texts": [
+   17,
+   19,
+   86,
+   93,
+   99,
+   113,
+   120,
+   125
+  ],
+  "timings": {
+   "cell_intact": 5.516754865646362,
+   "cell_intact_count": 10.0,
+   "cell_intact_pattern": 8.177584409713745,
+   "cell_intact_pattern_count": 10.0,
+   "device_gib": 178.3511962890625,
+   "intact_graph": 0.5188171863555908,
+   "intact_graph_count": 2.0,
+   "peak_gib_allocated": 90.6864538192749,
+   "peak_gib_reserved": 91.939453125,
+   "prep_batch": 1.265439510345459,
+   "prep_batch_count": 1.0,
+   "to_job": 12.143249988555908,
+   "to_ready": 13.408958196640015,
+   "unit_write_intact": 0.18121814727783203,
+   "unit_write_intact_count": 10.0,
+   "unit_write_intact_pattern": 0.3549513816833496,
+   "unit_write_intact_pattern_count": 10.0,
+   "validation_check": 7.4218590259552,
+   "validation_check_count": 1.0,
+   "volume_commit": 8.559652090072632,
+   "volume_commit_count": 1.0
+  }
+ }
+}

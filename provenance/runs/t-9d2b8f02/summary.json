@@ -1,0 +1,20 @@
+{
+  "_runtime": 9529.741957337,
+  "_step": 100000,
+  "_timestamp": 1772031436.4397357,
+  "_wandb.runtime": 9529,
+  "generation_tables": {
+    "_latest_artifact_path": "wandb-client-artifact://hrs73gfccndc6ahjy2vdkwxshl6rm6xuansyvb6n9yed6ia7g90idj9hg5pgy3pewv9wyjs8xv6a5d0koq5f5tb1ellbl86ee583azz5noz7n04zmroyonlt16txjcqv:latest/generation_tables.table.json",
+    "_type": "table-file",
+    "artifact_path": "wandb-client-artifact://op4tdn65qhbp0roq6lapuxjzrf68moes4fic4ilh2w69nc55w73yq24hmabdkoqu7rzy07gpqe088kaykpv1xu769bdt4cons68d0fc5od3njh52ldbg0fjkal1i3t74/generation_tables.table.json",
+    "log_mode": "IMMUTABLE",
+    "ncols": 2,
+    "nrows": 100,
+    "path": "media/table/generation_tables_100000_6e391e7b9a45be799b1c.table.json",
+    "sha256": "6e391e7b9a45be799b1c69050d4e03cf73109d5ad806cb02c10fa8279bafc9ce",
+    "size": 15882
+  },
+  "lr": 3.0000000067426517e-05,
+  "train_loss": 2.706329345703125,
+  "val_loss": 2.70751234292984
+}

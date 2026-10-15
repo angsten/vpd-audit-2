@@ -1,0 +1,89 @@
+{
+ "v2_reference_check": {
+  "freed": {
+   "authors_reproducible": true,
+   "start_equal": true,
+   "sources_equal_each_step": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "grads_equal_each_step": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "n_steps": 4,
+   "passes": true,
+   "freed_entries": 10460,
+   "a_freed_entry_moves_after_step_1": true,
+   "non_alive_sources_zero_every_step": true,
+   "fill_equal": true,
+   "harm_difference_ours_minus_theirs": 0.0
+  },
+  "original": {
+   "authors_reproducible": true,
+   "start_equal": true,
+   "sources_equal_each_step": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "grads_equal_each_step": [
+    true,
+    true,
+    true,
+    true
+   ],
+   "n_steps": 4,
+   "passes": true
+  },
+  "identity_empty_freed_set": {
+   "G": {
+    "fill": 0.0,
+    "zero": 0.0
+   },
+   "J": {
+    "fill": 0.0,
+    "zero": 0.0
+   },
+   "passes": true
+  },
+  "passes": true
+ },
+ "v2_precision_gap_original_arm": {
+  "bf16": {
+   "harm_original_fill": 0.44553550377593765
+  },
+  "fp32": {
+   "harm_original_fill": 0.4454973436657422
+  }
+ },
+ "g3_controls_reproduced": {
+  "all_on": {
+   "bitwise_equal": true,
+   "max_abs_difference": 0.0
+  },
+  "stochastic": {
+   "bitwise_equal": true,
+   "max_abs_difference": 0.0
+  },
+  "passes": true
+ },
+ "environment": {
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "deterministic_algorithms": true,
+  "deterministic_warn_only": false,
+  "cublas_workspace_config": ":4096:8",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": false,
+  "float32_matmul_precision": "highest",
+  "vpd_audit_2_commit": "b26f56d19cee28d50dc4690beb840da007894a97",
+  "vpd_audit_2_dirty": "0"
+ }
+}

@@ -1,0 +1,151 @@
+{
+ "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+ "projection_inputs": {
+  "to_ready": 23.74337124824524,
+  "per_batch_released": 0.9960961209403144,
+  "per_batch_per_document": 0.937663753827413,
+  "per_batch_batch": 0.9365247090657552
+ },
+ "arms": {
+  "released": {
+   "seconds_per_batch": 0.9960961209403144,
+   "first_two": [
+    2.229262113571167,
+    0.9961223602294922
+   ],
+   "peak_gib": 86.19177913665771
+  },
+  "per_document": {
+   "seconds_per_batch": 0.937663753827413,
+   "first_two": [
+    1.4804491996765137,
+    0.9373118877410889
+   ],
+   "peak_gib": 67.2172155380249
+  },
+  "batch": {
+   "seconds_per_batch": 0.9365247090657552,
+   "first_two": [
+    1.9066078662872314,
+    0.9368679523468018
+   ],
+   "peak_gib": 67.18068599700928
+  }
+ },
+ "at": "2026-10-08T23:24:49+00:00",
+ "projection_before_run": {
+  "check": "before_run",
+  "stage": "run",
+  "parts": [
+   {
+    "stage": "run",
+    "containers": [
+     {
+      "container": "released|s1",
+      "seconds": 1049.8394921885597
+     },
+     {
+      "container": "released|s2",
+      "seconds": 1049.8394921885597
+     },
+     {
+      "container": "per_document|s1",
+      "seconds": 991.4071250756582
+     },
+     {
+      "container": "per_document|s2",
+      "seconds": 991.4071250756582
+     },
+     {
+      "container": "batch|s1",
+      "seconds": 990.2680803140005
+     },
+     {
+      "container": "batch|s2",
+      "seconds": 990.2680803140005
+     }
+    ],
+    "seconds": 6063.029395156436,
+    "lives": 6
+   },
+   {
+    "stage": "carry",
+    "containers": [
+     {
+      "container": "carry",
+      "seconds": 300.0
+     }
+    ],
+    "seconds": 300.0,
+    "lives": 1
+   }
+  ],
+  "remaining": {
+   "function_seconds": 6363.029395156436,
+   "container_lives": 7.0,
+   "at_the_flat_rate": 12.01905552418438,
+   "at_the_listed_price_with_boot": 12.218653323300035,
+   "billed": null,
+   "dollars": 12.218653323300035
+  },
+  "spent": {
+   "function_seconds": 113.53518843650818,
+   "container_lives": 2.0,
+   "at_the_flat_rate": 0.21445535593562656,
+   "at_the_listed_price_with_boot": 0.388663937880826,
+   "billed": null,
+   "dollars": 0.388663937880826
+  },
+  "spent_dollars": 0.388663937880826,
+  "remaining_dollars": 12.218653323300035,
+  "projected_dollars": 12.607317261180862,
+  "cap": 35.0,
+  "exceeds_cap": false,
+  "listed_hourly_price": 6.552504,
+  "at": "2026-10-08T23:24:49+00:00"
+ },
+ "projection_of_the_largest_extension": {
+  "check": "before_extension",
+  "stage": "extension",
+  "parts": [
+   {
+    "stage": "extension",
+    "containers": [
+     {
+      "container": "per_document|x",
+      "seconds": 2866.734632730484
+     },
+     {
+      "container": "released|x",
+      "seconds": 3042.0317340691886
+     }
+    ],
+    "seconds": 5908.766366799673,
+    "lives": 2
+   }
+  ],
+  "remaining": {
+   "function_seconds": 5908.766366799673,
+   "container_lives": 2.0,
+   "at_the_flat_rate": 11.16100313728827,
+   "at_the_listed_price_with_boot": 10.936796014866758,
+   "billed": null,
+   "dollars": 11.16100313728827
+  },
+  "spent": {
+   "function_seconds": 113.53518843650818,
+   "container_lives": 2.0,
+   "at_the_flat_rate": 0.21445535593562656,
+   "at_the_listed_price_with_boot": 0.388663937880826,
+   "billed": null,
+   "dollars": 0.388663937880826
+  },
+  "spent_dollars": 0.388663937880826,
+  "remaining_dollars": 11.16100313728827,
+  "projected_dollars": 11.549667075169097,
+  "cap": 35.0,
+  "exceeds_cap": false,
+  "listed_hourly_price": 6.552504,
+  "at": "2026-10-08T23:24:49+00:00"
+ }
+}

@@ -1,0 +1,186 @@
+{
+ "steps": [
+  20,
+  40,
+  80
+ ],
+ "reference_mode": "whole batch",
+ "per_step": {
+  "20": {
+   "bf16_whole": {
+    "fraction_differing_nonzero_ref": 0.0039552085473597695,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "bf16_micro8": {
+    "fraction_differing_nonzero_ref": 0.0038524758578179575,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "bf16_micro16": {
+    "fraction_differing_nonzero_ref": 0.0039552085473597695,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "fp32_ref_full_float32_against_ref": {
+    "fraction_differing_nonzero_ref": 0.002927881651941648,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0001541940789473684,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "against_full_float32_ref": {
+    "bf16_whole": {
+     "fraction_differing_nonzero_ref": 0.003595644133963427,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 5.139802631578947e-05,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    },
+    "bf16_micro8": {
+     "fraction_differing_nonzero_ref": 0.0036983768235052394,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 5.139802631578947e-05,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    },
+    "bf16_micro16": {
+     "fraction_differing_nonzero_ref": 0.0036470104787343334,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 5.139802631578947e-05,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    }
+   },
+   "exact_zeros_reference": 0
+  },
+  "40": {
+   "bf16_whole": {
+    "fraction_differing_nonzero_ref": 0.0031847133757961785,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "bf16_micro8": {
+    "fraction_differing_nonzero_ref": 0.0032360797205670845,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "bf16_micro16": {
+    "fraction_differing_nonzero_ref": 0.0031847133757961785,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "fp32_ref_full_float32_against_ref": {
+    "fraction_differing_nonzero_ref": 0.002208752825148962,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "against_full_float32_ref": {
+    "bf16_whole": {
+     "fraction_differing_nonzero_ref": 0.0028251489623998356,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 5.139802631578947e-05,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    },
+    "bf16_micro8": {
+     "fraction_differing_nonzero_ref": 0.0028765153071707416,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 5.139802631578947e-05,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    },
+    "bf16_micro16": {
+     "fraction_differing_nonzero_ref": 0.0028251489623998356,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 5.139802631578947e-05,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    }
+   },
+   "exact_zeros_reference": 0
+  },
+  "80": {
+   "bf16_whole": {
+    "fraction_differing_nonzero_ref": 0.0027994657900143826,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "bf16_micro8": {
+    "fraction_differing_nonzero_ref": 0.0027224162728580236,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "bf16_micro16": {
+    "fraction_differing_nonzero_ref": 0.0027994657900143826,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "fp32_ref_full_float32_against_ref": {
+    "fraction_differing_nonzero_ref": 0.0016950893774399015,
+    "n_nonzero_ref": 38936,
+    "fraction_differing_above_module_median": 0.0,
+    "n_above_module_median": 19456,
+    "exact_zeros": 0
+   },
+   "against_full_float32_ref": {
+    "bf16_whole": {
+     "fraction_differing_nonzero_ref": 0.0026967331004725706,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 0.0,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    },
+    "bf16_micro8": {
+     "fraction_differing_nonzero_ref": 0.002671049928087117,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 0.0,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    },
+    "bf16_micro16": {
+     "fraction_differing_nonzero_ref": 0.0026967331004725706,
+     "n_nonzero_ref": 38936,
+     "fraction_differing_above_module_median": 0.0,
+     "n_above_module_median": 19456,
+     "exact_zeros": 0
+    }
+   },
+   "exact_zeros_reference": 0
+  }
+ },
+ "environment": {
+  "gpu": "NVIDIA B200",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "deterministic_algorithms": true,
+  "cublas_workspace_config": ":4096:8",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": false,
+  "float32_matmul_precision": "highest",
+  "vpd_audit_2_commit": "0d942f2837a24acfec7835676d1265aea69eecbc",
+  "vpd_audit_2_dirty": "0"
+ },
+ "function_seconds": 39.903788566589355,
+ "peak_memory_gib": 167.06105995178223
+}

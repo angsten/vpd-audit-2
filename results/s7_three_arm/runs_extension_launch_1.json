@@ -1,0 +1,20 @@
+{
+ "stage": "s7_three_arm_extension",
+ "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+ "app_id": "ap-xafbAWoEW4ctH4ZZtbCZmI",
+ "launch": "ap-xafbAWoEW4ctH4ZZtbCZmI|s7_three_arm_extension|1",
+ "summary": {
+  "stage": "s7_three_arm_extension",
+  "containers": 0,
+  "finished_units": 0,
+  "expected_units": 0,
+  "stopped": false,
+  "function_seconds": 0,
+  "all_guards_true": true,
+  "complete": false,
+  "errors": {
+   "released|s1|x": "RemoteError outside the container's own code"
+  }
+ },
+ "containers": []
+}

@@ -1,0 +1,228 @@
+{
+ "stages": {
+  "starts_test": {
+   "launches": [
+    {
+     "launch": "ap-u3NzWGbib9WIfEv5MWvf6t|starts_test|1",
+     "app_id": "ap-u3NzWGbib9WIfEv5MWvf6t",
+     "commit": "21c5c7b75e00ab26d0fd86481cfd4b39177a895b",
+     "began": "2026-10-07T22:04:29+00:00",
+     "last_alive": 1791412355.509442,
+     "ended": "2026-10-07T22:32:35+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "C1": 1791410675.433706,
+      "C2": 1791410680.065994,
+      "C3": 1791410684.80338,
+      "C4": 1791410689.231879,
+      "C5": 1791410693.6706371,
+      "C6": 1791410698.0937521,
+      "C7": 1791410702.486581,
+      "C8": 1791410707.004965
+     },
+     "calls": {
+      "C2": {
+       "outcome": "returned",
+       "wait_seconds": 679.4063811302185,
+       "returned_seconds": 664.2728092670441,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 664.2728092670441,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "C3": {
+       "outcome": "returned",
+       "wait_seconds": 715.4705989360809,
+       "returned_seconds": 687.4549233913422,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 687.4549233913422,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "C1": {
+       "outcome": "returned",
+       "wait_seconds": 802.7314109802246,
+       "returned_seconds": 786.2856271266937,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 786.2856271266937,
+       "error": null,
+       "stopped": false,
+       "finished_units": 6,
+       "expected_units": 6
+      },
+      "C4": {
+       "outcome": "returned",
+       "wait_seconds": 1279.2604351043701,
+       "returned_seconds": 677.6178522109985,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 677.6178522109985,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "C6": {
+       "outcome": "returned",
+       "wait_seconds": 1603.006509065628,
+       "returned_seconds": 650.7679064273834,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 650.7679064273834,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "C7": {
+       "outcome": "returned",
+       "wait_seconds": 1618.8056287765503,
+       "returned_seconds": 668.1857810020447,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 668.1857810020447,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "C5": {
+       "outcome": "returned",
+       "wait_seconds": 1657.927533864975,
+       "returned_seconds": 692.3264050483704,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 692.3264050483704,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "C8": {
+       "outcome": "returned",
+       "wait_seconds": 1648.504763841629,
+       "returned_seconds": 694.8811588287354,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 694.8811588287354,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      }
+     },
+     "function_seconds": 5521.792463302612,
+     "container_lives": 8
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "starts_test",
+    "containers": 8,
+    "finished_units": 41,
+    "expected_units": 41,
+    "stopped": false,
+    "function_seconds": 5521.792463302612,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "C0",
+   "searches": 41,
+   "containers": 8,
+   "listed_hourly_price": 6.552504,
+   "inputs": {
+    "run_attack_containers": 16,
+    "run_attack_container_seconds_mean": 663.892735093832,
+    "run_attack_container_seconds_max": 686.6308100223541,
+    "searches_per_run_attack_container": 5,
+    "rehearsal_seconds_to_ready": 20.367768621444704,
+    "rehearsal_seconds_per_scoring_pass": 0.18403499697645506,
+    "wrapper_passes_per_search": 11,
+    "pilot_dollars": 19.2,
+    "pilot_searches": 64
+   },
+   "from_the_run_at_the_mean": {
+    "container_seconds": 663.892735093832,
+    "seconds_per_search": 128.70499329447745,
+    "function_seconds": 5522.8466576815135,
+    "container_lives": 8.0,
+    "at_the_flat_rate": 10.432043686731749,
+    "at_the_listed_price_with_boot": 10.78041011551243,
+    "billed": null,
+    "dollars": 10.78041011551243
+   },
+   "from_the_run_at_the_largest": {
+    "container_seconds": 686.6308100223541,
+    "seconds_per_search": 133.25260828018187,
+    "function_seconds": 5709.298872095395,
+    "container_lives": 8.0,
+    "at_the_flat_rate": 10.784231202846858,
+    "at_the_listed_price_with_boot": 11.119779249055712,
+    "billed": null,
+    "dollars": 11.119779249055712
+   },
+   "from_the_pilot_dollars": 12.299999999999999,
+   "projected_dollars": 12.299999999999999,
+   "cap": 20.0,
+   "exceeds_cap": false,
+   "at": "2026-10-07T22:04:29+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 5521.792463302612,
+    "container_lives": 8.0,
+    "at_the_flat_rate": 10.430052430682712,
+    "at_the_listed_price_with_boot": 10.778491334155618,
+    "billed": null,
+    "dollars": 10.778491334155618
+   },
+   "spent_dollars": 10.778491334155618,
+   "remaining": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "remaining_dollars": 0.0,
+   "projected_dollars": 10.778491334155618,
+   "cap": 20.0,
+   "exceeds_cap": false,
+   "at": "2026-10-07T22:32:35+00:00",
+   "after_stage": "starts_test",
+   "bill_read_at": "2026-10-07T22:32:35+00:00",
+   "measured_seconds": {
+    "starts_test": 5521.792463302612
+   }
+  }
+ ],
+ "bills": [
+  {
+   "read_at": "2026-10-07T22:32:35+00:00",
+   "latest_interval_posted": "2026-10-07 03:00:00+00:00",
+   "by_app": {},
+   "error": null
+  }
+ ],
+ "guards_pass": null,
+ "stopped_by": null,
+ "stops": []
+}

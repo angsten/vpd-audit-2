@@ -1,0 +1,1750 @@
+{
+ "floor_per_text": 0.008114653145400896,
+ "registered": "amended after the result (session 4, plan 3)",
+ "7a": {
+  "qualifying_components": 15,
+  "labels": 6192340,
+  "rule": "CV < 0.2, m_c < 0.05, a label on Q: each component's median new/old in [0.98, 1.02]",
+  "median_ratio_range": [
+   0.9999919861029224,
+   1.0010650530426342
+  ],
+  "components_outside": [],
+  "passes": true
+ },
+ "7b": {
+  "components": 2565,
+  "labels": 21230,
+  "rule": "CV < 0.2, m_c >= 0.05, a label on Q: each component's median of (new/old) / rho_pred in [0.98, 1.02]",
+  "median_of_ratio_over_prediction_range": [
+   0.9984180633798202,
+   1.00134694154711
+  ],
+  "median_new_over_old_range": [
+   0.9787842586569664,
+   1.2304164443041379
+  ],
+  "median_rho_pred_range": [
+   0.9788138836690563,
+   1.2311589758141568
+  ],
+  "by_group": {
+   "near_dead": {
+    "components": 2548,
+    "range": [
+     0.9984180633798202,
+     1.00134694154711
+    ]
+   },
+   "rest": {
+    "components": 17,
+    "range": [
+     0.9996735529717982,
+     1.0001534702280714
+    ]
+   }
+  },
+  "components_outside": [],
+  "passes": true
+ },
+ "7c": {
+  "rule": "check 3's rule on each label: |pi_ref - pi_work| <= 1e-9 pi_ref + 1e-13",
+  "groups": {
+   "near-dead": {
+    "labels_in_group": 3468,
+    "drawn": 100,
+    "seed_key": "(master, 'price-check7c', 'near-dead')",
+    "n_failing": 0,
+    "max_relative_difference": 1.6055106253257313e-15,
+    "max_abs_difference": 1.0164395367051604e-20,
+    "passes": true,
+    "rows": [
+     {
+      "entry": 2925638,
+      "component": 31194,
+      "pi_ref": 1.1159243782809113e-05,
+      "pi_work": 1.1159243782809113e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 3081875,
+      "component": 2055,
+      "pi_ref": 1.7392986801003774e-05,
+      "pi_work": 1.7392986801003774e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 3470478,
+      "component": 12185,
+      "pi_ref": 9.886489426407278e-06,
+      "pi_work": 9.886489426407281e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 3615345,
+      "component": 3362,
+      "pi_ref": 8.64184471501074e-06,
+      "pi_work": 8.641844715010736e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 5730713,
+      "component": 28945,
+      "pi_ref": 5.073699757349149e-06,
+      "pi_work": 5.073699757349151e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 6263572,
+      "component": 15668,
+      "pi_ref": 3.643286525509608e-06,
+      "pi_work": 3.643286525509608e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 7591842,
+      "component": 30260,
+      "pi_ref": 1.5103907818010848e-05,
+      "pi_work": 1.5103907818010851e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 12481263,
+      "component": 28010,
+      "pi_ref": 3.468218606242235e-06,
+      "pi_work": 3.468218606242235e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 19702571,
+      "component": 19378,
+      "pi_ref": 1.0830371855539251e-05,
+      "pi_work": 1.0830371855539251e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 20341708,
+      "component": 38482,
+      "pi_ref": 1.5649822764383322e-05,
+      "pi_work": 1.5649822764383322e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 20420418,
+      "component": 21943,
+      "pi_ref": 9.13452233508633e-06,
+      "pi_work": 9.134522335086326e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 20590670,
+      "component": 13128,
+      "pi_ref": 8.9583690630857e-06,
+      "pi_work": 8.958369063085698e-06,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 21312757,
+      "component": 19370,
+      "pi_ref": 1.4899793705206311e-05,
+      "pi_work": 1.4899793705206311e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 21589470,
+      "component": 26941,
+      "pi_ref": 5.407191645894167e-06,
+      "pi_work": 5.407191645894167e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 21738974,
+      "component": 23666,
+      "pi_ref": 1.3819685601212834e-05,
+      "pi_work": 1.3819685601212837e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 22179213,
+      "component": 14867,
+      "pi_ref": 1.2494744993908272e-05,
+      "pi_work": 1.2494744993908267e-05,
+      "abs_difference": 5.082197683525802e-21,
+      "passes": true
+     },
+     {
+      "entry": 24320570,
+      "component": 1617,
+      "pi_ref": 1.662585703420456e-05,
+      "pi_work": 1.662585703420456e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 24809772,
+      "component": 14794,
+      "pi_ref": 4.807149607214054e-06,
+      "pi_work": 4.807149607214056e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 25229428,
+      "component": 18293,
+      "pi_ref": 1.2551666733851958e-05,
+      "pi_work": 1.255166673385196e-05,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 26046667,
+      "component": 7173,
+      "pi_ref": 1.133878978080447e-05,
+      "pi_work": 1.1338789780804473e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 29369109,
+      "component": 34353,
+      "pi_ref": 6.734808207711646e-06,
+      "pi_work": 6.734808207711643e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 29652381,
+      "component": 36059,
+      "pi_ref": 1.862762235118472e-05,
+      "pi_work": 1.862762235118472e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 32247986,
+      "component": 29862,
+      "pi_ref": 1.5476628107924683e-05,
+      "pi_work": 1.5476628107924673e-05,
+      "abs_difference": 1.0164395367051604e-20,
+      "passes": true
+     },
+     {
+      "entry": 32933226,
+      "component": 18735,
+      "pi_ref": 1.3943381052914002e-05,
+      "pi_work": 1.3943381052913998e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 33168962,
+      "component": 29986,
+      "pi_ref": 7.925420200315947e-06,
+      "pi_work": 7.925420200315947e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 33262995,
+      "component": 16626,
+      "pi_ref": 1.1440865807079526e-05,
+      "pi_work": 1.1440865807079526e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 33495700,
+      "component": 31843,
+      "pi_ref": 1.1701523098011774e-05,
+      "pi_work": 1.1701523098011774e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 34263034,
+      "component": 15989,
+      "pi_ref": 9.544876626944587e-06,
+      "pi_work": 9.544876626944585e-06,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 34672631,
+      "component": 19659,
+      "pi_ref": 1.7024139252528205e-05,
+      "pi_work": 1.7024139252528205e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 35740864,
+      "component": 19080,
+      "pi_ref": 9.441883619254594e-06,
+      "pi_work": 9.441883619254595e-06,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 36141484,
+      "component": 18984,
+      "pi_ref": 6.2108256627807975e-06,
+      "pi_work": 6.210825662780795e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 36359365,
+      "component": 18319,
+      "pi_ref": 9.106289283895738e-06,
+      "pi_work": 9.106289283895741e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 36485415,
+      "component": 21020,
+      "pi_ref": 1.7241911428239182e-05,
+      "pi_work": 1.724191142823918e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 37302896,
+      "component": 21079,
+      "pi_ref": 9.346351281833506e-06,
+      "pi_work": 9.346351281833505e-06,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 38530529,
+      "component": 320,
+      "pi_ref": 1.6029868781230416e-05,
+      "pi_work": 1.602986878123042e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 39090683,
+      "component": 8061,
+      "pi_ref": 9.432614556910871e-06,
+      "pi_work": 9.432614556910871e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 39757070,
+      "component": 27492,
+      "pi_ref": 3.4292604921477456e-06,
+      "pi_work": 3.429260492147751e-06,
+      "abs_difference": 5.505714157152952e-21,
+      "passes": true
+     },
+     {
+      "entry": 40722992,
+      "component": 26964,
+      "pi_ref": 7.020448070569288e-06,
+      "pi_work": 7.020448070569291e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 41435822,
+      "component": 21707,
+      "pi_ref": 1.379785182319148e-05,
+      "pi_work": 1.3797851823191482e-05,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 43272956,
+      "component": 31077,
+      "pi_ref": 1.5166527676064241e-05,
+      "pi_work": 1.5166527676064241e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 43447736,
+      "component": 15161,
+      "pi_ref": 9.962088091899776e-06,
+      "pi_work": 9.962088091899774e-06,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 43583061,
+      "component": 4806,
+      "pi_ref": 8.708051954388618e-06,
+      "pi_work": 8.708051954388618e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 43971691,
+      "component": 15656,
+      "pi_ref": 1.3287288079697368e-05,
+      "pi_work": 1.3287288079697372e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 44081600,
+      "component": 14084,
+      "pi_ref": 7.544213442417364e-06,
+      "pi_work": 7.544213442417367e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 44195244,
+      "component": 9746,
+      "pi_ref": 1.5689513917771303e-05,
+      "pi_work": 1.56895139177713e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 44303491,
+      "component": 23500,
+      "pi_ref": 1.3731395177010226e-05,
+      "pi_work": 1.373139517701022e-05,
+      "abs_difference": 6.776263578034403e-21,
+      "passes": true
+     },
+     {
+      "entry": 45790032,
+      "component": 37638,
+      "pi_ref": 1.1716822671498557e-05,
+      "pi_work": 1.1716822671498557e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 46719811,
+      "component": 25836,
+      "pi_ref": 4.1351383216698066e-06,
+      "pi_work": 4.13513832166981e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 48119800,
+      "component": 23140,
+      "pi_ref": 7.724822000902674e-06,
+      "pi_work": 7.72482200090267e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 50192936,
+      "component": 24652,
+      "pi_ref": 9.590360347678527e-06,
+      "pi_work": 9.590360347678523e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 52542020,
+      "component": 11979,
+      "pi_ref": 1.6673428888599285e-05,
+      "pi_work": 1.667342888859929e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 52999607,
+      "component": 5724,
+      "pi_ref": 9.963069295329272e-06,
+      "pi_work": 9.963069295329268e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 53854161,
+      "component": 23724,
+      "pi_ref": 1.0694071358174696e-05,
+      "pi_work": 1.0694071358174697e-05,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 54651191,
+      "component": 25256,
+      "pi_ref": 9.35729333249655e-06,
+      "pi_work": 9.357293332496548e-06,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 55678814,
+      "component": 15492,
+      "pi_ref": 6.0738654937541215e-06,
+      "pi_work": 6.073865493754119e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 57847038,
+      "component": 12134,
+      "pi_ref": 4.520833463352636e-06,
+      "pi_work": 4.520833463352639e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 58111269,
+      "component": 16804,
+      "pi_ref": 6.74484666594474e-06,
+      "pi_work": 6.744846665944738e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 58820295,
+      "component": 3963,
+      "pi_ref": 9.214442038228654e-06,
+      "pi_work": 9.214442038228651e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 60108701,
+      "component": 15227,
+      "pi_ref": 5.365671821282464e-06,
+      "pi_work": 5.365671821282467e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 67110444,
+      "component": 11007,
+      "pi_ref": 1.4665584635671339e-05,
+      "pi_work": 1.4665584635671342e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 68212766,
+      "component": 38002,
+      "pi_ref": 9.915718674154187e-06,
+      "pi_work": 9.915718674154182e-06,
+      "abs_difference": 5.082197683525802e-21,
+      "passes": true
+     },
+     {
+      "entry": 68430249,
+      "component": 31480,
+      "pi_ref": 1.7598633546429023e-05,
+      "pi_work": 1.7598633546429023e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 72092138,
+      "component": 24640,
+      "pi_ref": 8.509125376468021e-06,
+      "pi_work": 8.509125376468016e-06,
+      "abs_difference": 5.082197683525802e-21,
+      "passes": true
+     },
+     {
+      "entry": 72448320,
+      "component": 2709,
+      "pi_ref": 1.8871863176604015e-05,
+      "pi_work": 1.887186317660401e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 72461339,
+      "component": 34624,
+      "pi_ref": 6.658234783480974e-06,
+      "pi_work": 6.658234783480971e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 73038766,
+      "component": 25489,
+      "pi_ref": 4.6551717099497845e-06,
+      "pi_work": 4.655171709949788e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 73050907,
+      "component": 6645,
+      "pi_ref": 1.542039430162236e-05,
+      "pi_work": 1.5420394301622353e-05,
+      "abs_difference": 6.776263578034403e-21,
+      "passes": true
+     },
+     {
+      "entry": 73205538,
+      "component": 28450,
+      "pi_ref": 1.5682942512076005e-05,
+      "pi_work": 1.5682942512076005e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 73341785,
+      "component": 14414,
+      "pi_ref": 9.88166744423387e-06,
+      "pi_work": 9.88166744423387e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 73656994,
+      "component": 28811,
+      "pi_ref": 7.1746953078310055e-06,
+      "pi_work": 7.174695307831009e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 77050027,
+      "component": 16300,
+      "pi_ref": 8.553536600561271e-06,
+      "pi_work": 8.553536600561271e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 77177768,
+      "component": 902,
+      "pi_ref": 1.193168921243926e-05,
+      "pi_work": 1.193168921243926e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 77429740,
+      "component": 11608,
+      "pi_ref": 8.234685770451809e-06,
+      "pi_work": 8.234685770451809e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 78059788,
+      "component": 33744,
+      "pi_ref": 8.876532398689516e-06,
+      "pi_work": 8.876532398689514e-06,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 80808680,
+      "component": 16635,
+      "pi_ref": 1.051889930658875e-05,
+      "pi_work": 1.051889930658875e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 81128643,
+      "component": 17413,
+      "pi_ref": 8.389010769630163e-06,
+      "pi_work": 8.389010769630163e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 83343241,
+      "component": 21170,
+      "pi_ref": 5.998086886844201e-06,
+      "pi_work": 5.998086886844203e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 83504431,
+      "component": 19807,
+      "pi_ref": 3.6324033195922272e-06,
+      "pi_work": 3.6324033195922298e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 83707695,
+      "component": 24861,
+      "pi_ref": 1.8689500872820385e-05,
+      "pi_work": 1.868950087282039e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 84819578,
+      "component": 24125,
+      "pi_ref": 4.571272072668331e-06,
+      "pi_work": 4.571272072668334e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 85181150,
+      "component": 9071,
+      "pi_ref": 3.1468993182969504e-06,
+      "pi_work": 3.146899318296953e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 85400718,
+      "component": 29342,
+      "pi_ref": 9.97011098080485e-06,
+      "pi_work": 9.97011098080485e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 88267545,
+      "component": 1693,
+      "pi_ref": 1.0899879001726426e-05,
+      "pi_work": 1.089987900172642e-05,
+      "abs_difference": 5.082197683525802e-21,
+      "passes": true
+     },
+     {
+      "entry": 89725726,
+      "component": 14924,
+      "pi_ref": 1.2749810658067896e-05,
+      "pi_work": 1.2749810658067896e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 89844604,
+      "component": 4019,
+      "pi_ref": 6.043774223853382e-06,
+      "pi_work": 6.04377422385338e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 91103514,
+      "component": 18825,
+      "pi_ref": 1.1721877409874843e-05,
+      "pi_work": 1.172187740987484e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 91467980,
+      "component": 1896,
+      "pi_ref": 1.5533167836064923e-05,
+      "pi_work": 1.553316783606492e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 91863927,
+      "component": 26118,
+      "pi_ref": 6.501879315871412e-06,
+      "pi_work": 6.501879315871409e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 92397465,
+      "component": 13769,
+      "pi_ref": 1.2820207020820196e-05,
+      "pi_work": 1.2820207020820194e-05,
+      "abs_difference": 1.6940658945086007e-21,
+      "passes": true
+     },
+     {
+      "entry": 94069255,
+      "component": 21133,
+      "pi_ref": 1.8469585078492242e-05,
+      "pi_work": 1.8469585078492245e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 97725289,
+      "component": 1862,
+      "pi_ref": 1.4294698282913412e-05,
+      "pi_work": 1.4294698282913412e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 99386052,
+      "component": 30698,
+      "pi_ref": 4.898069237137143e-06,
+      "pi_work": 4.898069237137148e-06,
+      "abs_difference": 5.082197683525802e-21,
+      "passes": true
+     },
+     {
+      "entry": 99986915,
+      "component": 12430,
+      "pi_ref": 7.1004386099441576e-06,
+      "pi_work": 7.100438609944154e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 100692093,
+      "component": 38744,
+      "pi_ref": 7.574045865469242e-06,
+      "pi_work": 7.574045865469246e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 101895912,
+      "component": 34861,
+      "pi_ref": 7.973145865876016e-06,
+      "pi_work": 7.973145865876013e-06,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     },
+     {
+      "entry": 102324704,
+      "component": 16661,
+      "pi_ref": 1.0944800417654227e-05,
+      "pi_work": 1.0944800417654227e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 102820975,
+      "component": 26086,
+      "pi_ref": 6.498364968277679e-06,
+      "pi_work": 6.498364968277681e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 103294999,
+      "component": 16301,
+      "pi_ref": 3.215191299888609e-06,
+      "pi_work": 3.2151912998886117e-06,
+      "abs_difference": 2.541098841762901e-21,
+      "passes": true
+     },
+     {
+      "entry": 103722912,
+      "component": 25398,
+      "pi_ref": 6.237856013393903e-06,
+      "pi_work": 6.237856013393903e-06,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 106350209,
+      "component": 22015,
+      "pi_ref": 1.414866316853263e-05,
+      "pi_work": 1.4148663168532634e-05,
+      "abs_difference": 3.3881317890172014e-21,
+      "passes": true
+     }
+    ]
+   },
+   "rest": {
+    "labels_in_group": 17762,
+    "drawn": 100,
+    "seed_key": "(master, 'price-check7c', 'rest')",
+    "n_failing": 0,
+    "max_relative_difference": 8.62642163915276e-15,
+    "max_abs_difference": 3.903127820947816e-18,
+    "passes": true,
+    "rows": [
+     {
+      "entry": 979237,
+      "component": 25396,
+      "pi_ref": 0.0009152113617019538,
+      "pi_work": 0.0009152113617019563,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 5026714,
+      "component": 10000,
+      "pi_ref": 0.0009267664898682455,
+      "pi_work": 0.0009267664898682484,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 5760977,
+      "component": 15740,
+      "pi_ref": 0.0009269056279342646,
+      "pi_work": 0.0009269056279342671,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 7148396,
+      "component": 10000,
+      "pi_ref": 0.0009258585027568166,
+      "pi_work": 0.0009258585027568166,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 7351030,
+      "component": 14945,
+      "pi_ref": 0.0009642782063707067,
+      "pi_work": 0.0009642782063707067,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 7768612,
+      "component": 13491,
+      "pi_ref": 0.0009268510747552455,
+      "pi_work": 0.0009268510747552476,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 9488860,
+      "component": 15473,
+      "pi_ref": 0.0009275456697564202,
+      "pi_work": 0.0009275456697564224,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 11660781,
+      "component": 10000,
+      "pi_ref": 0.0009266961773682362,
+      "pi_work": 0.0009266961773682383,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 12801370,
+      "component": 13664,
+      "pi_ref": 0.0009308822033844443,
+      "pi_work": 0.0009308822033844468,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 13001317,
+      "component": 7899,
+      "pi_ref": 0.0009270725146839098,
+      "pi_work": 0.0009270725146839127,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 14144031,
+      "component": 25396,
+      "pi_ref": 0.0009258031196571989,
+      "pi_work": 0.0009258031196571992,
+      "abs_difference": 3.2526065174565133e-19,
+      "passes": true
+     },
+     {
+      "entry": 15741973,
+      "component": 13690,
+      "pi_ref": 0.0009273120317468106,
+      "pi_work": 0.0009273120317468134,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 16823185,
+      "component": 10000,
+      "pi_ref": 0.0009264578155534394,
+      "pi_work": 0.0009264578155534419,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 18007650,
+      "component": 29578,
+      "pi_ref": 0.000927051498040359,
+      "pi_work": 0.0009270514980403608,
+      "abs_difference": 1.8431436932253575e-18,
+      "passes": true
+     },
+     {
+      "entry": 18116189,
+      "component": 15473,
+      "pi_ref": 0.0009266475658944476,
+      "pi_work": 0.0009266475658944501,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 18332701,
+      "component": 14945,
+      "pi_ref": 0.000929440800658459,
+      "pi_work": 0.0009294408006584608,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 19524151,
+      "component": 25396,
+      "pi_ref": 0.0007858392401214609,
+      "pi_work": 0.0007858392401214615,
+      "abs_difference": 6.505213034913027e-19,
+      "passes": true
+     },
+     {
+      "entry": 22815119,
+      "component": 7899,
+      "pi_ref": 0.0009270365692099717,
+      "pi_work": 0.0009270365692099738,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 26054150,
+      "component": 17145,
+      "pi_ref": 0.0009272635682373558,
+      "pi_work": 0.0009272635682373583,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 26148365,
+      "component": 15024,
+      "pi_ref": 0.0009293198362065138,
+      "pi_work": 0.0009293198362065156,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 27251458,
+      "component": 15837,
+      "pi_ref": 0.0009293103523785679,
+      "pi_work": 0.0009293103523785696,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 28547454,
+      "component": 25396,
+      "pi_ref": 0.0009264238330545528,
+      "pi_work": 0.0009264238330545557,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 32869414,
+      "component": 10820,
+      "pi_ref": 0.0008964693875915234,
+      "pi_work": 0.0008964693875915224,
+      "abs_difference": 1.0842021724855044e-18,
+      "passes": true
+     },
+     {
+      "entry": 34011431,
+      "component": 25396,
+      "pi_ref": 0.0009268613491401368,
+      "pi_work": 0.0009268613491401397,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 35050526,
+      "component": 12863,
+      "pi_ref": 0.0009281050413236529,
+      "pi_work": 0.0009281050413236546,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 35156738,
+      "component": 15024,
+      "pi_ref": 0.0009544370831540566,
+      "pi_work": 0.0009544370831540583,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 36754456,
+      "component": 13491,
+      "pi_ref": 0.0009264744424063622,
+      "pi_work": 0.0009264744424063647,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 37628720,
+      "component": 15473,
+      "pi_ref": 0.0009277972237142414,
+      "pi_work": 0.0009277972237142436,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 37728418,
+      "component": 14945,
+      "pi_ref": 0.0009302152714275746,
+      "pi_work": 0.0009302152714275771,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 39754033,
+      "component": 29578,
+      "pi_ref": 0.0009269670159284854,
+      "pi_work": 0.0009269670159284875,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 39980091,
+      "component": 13690,
+      "pi_ref": 0.0009282813672348443,
+      "pi_work": 0.0009282813672348461,
+      "abs_difference": 1.8431436932253575e-18,
+      "passes": true
+     },
+     {
+      "entry": 40077210,
+      "component": 13491,
+      "pi_ref": 0.0009270361084324283,
+      "pi_work": 0.0009270361084324314,
+      "abs_difference": 3.144186300207963e-18,
+      "passes": true
+     },
+     {
+      "entry": 40281625,
+      "component": 14945,
+      "pi_ref": 0.0009286070495144053,
+      "pi_work": 0.0009286070495144075,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 42438701,
+      "component": 15024,
+      "pi_ref": 0.0009283671666870859,
+      "pi_work": 0.0009283671666870888,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 44204518,
+      "component": 12863,
+      "pi_ref": 0.0009283766613761266,
+      "pi_work": 0.0009283766613761287,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 45127661,
+      "component": 13461,
+      "pi_ref": 0.0009287630026433363,
+      "pi_work": 0.0009287630026433391,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 46644154,
+      "component": 17145,
+      "pi_ref": 0.0009271423663201574,
+      "pi_work": 0.0009271423663201599,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 47745873,
+      "component": 15740,
+      "pi_ref": 0.000926407335301721,
+      "pi_work": 0.0009264073353017207,
+      "abs_difference": 3.2526065174565133e-19,
+      "passes": true
+     },
+     {
+      "entry": 48251797,
+      "component": 14945,
+      "pi_ref": 0.000928815664077051,
+      "pi_work": 0.0009288156640770538,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 49828720,
+      "component": 7899,
+      "pi_ref": 0.0009275980078143196,
+      "pi_work": 0.000927598007814321,
+      "abs_difference": 1.4094628242311558e-18,
+      "passes": true
+     },
+     {
+      "entry": 50432405,
+      "component": 29578,
+      "pi_ref": 9.74376702392128e-05,
+      "pi_work": 9.74376702392128e-05,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 53473524,
+      "component": 13690,
+      "pi_ref": 0.0009044498810482588,
+      "pi_work": 0.0009044498810482588,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 53969996,
+      "component": 7899,
+      "pi_ref": 0.0009265962403428621,
+      "pi_work": 0.0009265962403428635,
+      "abs_difference": 1.4094628242311558e-18,
+      "passes": true
+     },
+     {
+      "entry": 55537693,
+      "component": 15473,
+      "pi_ref": 0.0010747980884347114,
+      "pi_work": 0.0010747980884347086,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 56932183,
+      "component": 7899,
+      "pi_ref": 0.00092730097196791,
+      "pi_work": 0.0009273009719679123,
+      "abs_difference": 2.3852447794681098e-18,
+      "passes": true
+     },
+     {
+      "entry": 56932279,
+      "component": 13690,
+      "pi_ref": 0.0009276289257739841,
+      "pi_work": 0.0009276289257739866,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 57254419,
+      "component": 17145,
+      "pi_ref": 0.0009270031063816781,
+      "pi_work": 0.0009270031063816803,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 57521047,
+      "component": 17145,
+      "pi_ref": 0.0009269809271219658,
+      "pi_work": 0.0009269809271219683,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 58720679,
+      "component": 15837,
+      "pi_ref": 0.0009275588907990902,
+      "pi_work": 0.0009275588907990922,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 58720690,
+      "component": 17145,
+      "pi_ref": 0.0009070704972682976,
+      "pi_work": 0.0009070704972682961,
+      "abs_difference": 1.4094628242311558e-18,
+      "passes": true
+     },
+     {
+      "entry": 61304440,
+      "component": 14945,
+      "pi_ref": 0.0009290720854268795,
+      "pi_work": 0.0009290720854268827,
+      "abs_difference": 3.144186300207963e-18,
+      "passes": true
+     },
+     {
+      "entry": 61604193,
+      "component": 13491,
+      "pi_ref": 0.0009269199253395531,
+      "pi_work": 0.0009269199253395549,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 63344284,
+      "component": 15473,
+      "pi_ref": 0.0009268974639831939,
+      "pi_work": 0.0009268974639831953,
+      "abs_difference": 1.4094628242311558e-18,
+      "passes": true
+     },
+     {
+      "entry": 63454200,
+      "component": 15024,
+      "pi_ref": 0.0009287432948577078,
+      "pi_work": 0.0009287432948577095,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 64805731,
+      "component": 14945,
+      "pi_ref": 0.0009277362865352661,
+      "pi_work": 0.0009277362865352682,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 65918474,
+      "component": 15740,
+      "pi_ref": 0.0009274978883158528,
+      "pi_work": 0.0009274978883158553,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 68037903,
+      "component": 17145,
+      "pi_ref": 0.0009269902755104696,
+      "pi_work": 0.0009269902755104717,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 68157441,
+      "component": 13690,
+      "pi_ref": 0.0009281106014642934,
+      "pi_work": 0.0009281106014642951,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 68359731,
+      "component": 17145,
+      "pi_ref": 0.0009261685164988347,
+      "pi_work": 0.0009261685164988386,
+      "abs_difference": 3.903127820947816e-18,
+      "passes": true
+     },
+     {
+      "entry": 68839281,
+      "component": 15024,
+      "pi_ref": 0.0009277544422054255,
+      "pi_work": 0.000927754442205428,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 69142707,
+      "component": 13261,
+      "pi_ref": 0.0009277522096213513,
+      "pi_work": 0.0009277522096213546,
+      "abs_difference": 3.2526065174565133e-18,
+      "passes": true
+     },
+     {
+      "entry": 69571510,
+      "component": 10000,
+      "pi_ref": 0.0009266773846332036,
+      "pi_work": 0.0009266773846332065,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 70493715,
+      "component": 13261,
+      "pi_ref": 0.0009279168554322414,
+      "pi_work": 0.0009279168554322439,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 72697169,
+      "component": 15837,
+      "pi_ref": 0.000869237251663288,
+      "pi_work": 0.0008692372516632872,
+      "abs_difference": 7.589415207398531e-19,
+      "passes": true
+     },
+     {
+      "entry": 73682806,
+      "component": 13461,
+      "pi_ref": 0.0008386116301281778,
+      "pi_work": 0.0008386116301281778,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 74358097,
+      "component": 14945,
+      "pi_ref": 0.0009287690098142083,
+      "pi_work": 0.0009287690098142108,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 75102582,
+      "component": 15473,
+      "pi_ref": 0.0009268514739662682,
+      "pi_work": 0.0009268514739662699,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 75421107,
+      "component": 12863,
+      "pi_ref": 0.000927542573075354,
+      "pi_work": 0.0009275425730753555,
+      "abs_difference": 1.4094628242311558e-18,
+      "passes": true
+     },
+     {
+      "entry": 75865771,
+      "component": 15024,
+      "pi_ref": 0.0009252499931260623,
+      "pi_work": 0.0009252499931260627,
+      "abs_difference": 3.2526065174565133e-19,
+      "passes": true
+     },
+     {
+      "entry": 76291972,
+      "component": 13491,
+      "pi_ref": 0.0009269529109168239,
+      "pi_work": 0.0009269529109168268,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 76401983,
+      "component": 7899,
+      "pi_ref": 0.0009273610522745131,
+      "pi_work": 0.0009273610522745153,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 78755611,
+      "component": 13664,
+      "pi_ref": 0.000932008682025549,
+      "pi_work": 0.0009320086820255519,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 78844742,
+      "component": 14945,
+      "pi_ref": 0.0009289752342542848,
+      "pi_work": 0.0009289752342542869,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 79302942,
+      "component": 15024,
+      "pi_ref": 0.0009284382281626826,
+      "pi_work": 0.0009284382281626851,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 79544228,
+      "component": 13690,
+      "pi_ref": 0.0009268898053514583,
+      "pi_work": 0.0009268898053514622,
+      "abs_difference": 3.903127820947816e-18,
+      "passes": true
+     },
+     {
+      "entry": 80206399,
+      "component": 17145,
+      "pi_ref": 0.0009112039988611987,
+      "pi_work": 0.0009112039988611984,
+      "abs_difference": 3.2526065174565133e-19,
+      "passes": true
+     },
+     {
+      "entry": 81387395,
+      "component": 15473,
+      "pi_ref": 0.0009313872401446023,
+      "pi_work": 0.0009313872401446051,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 81763665,
+      "component": 13461,
+      "pi_ref": 0.0009283599853618914,
+      "pi_work": 0.0009283599853618942,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 81992129,
+      "component": 25396,
+      "pi_ref": 0.0009277032071775573,
+      "pi_work": 0.0009277032071775587,
+      "abs_difference": 1.4094628242311558e-18,
+      "passes": true
+     },
+     {
+      "entry": 82628767,
+      "component": 13690,
+      "pi_ref": 0.0009276391435901261,
+      "pi_work": 0.0009276391435901282,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 83295019,
+      "component": 17145,
+      "pi_ref": 0.0009278549146408715,
+      "pi_work": 0.0009278549146408743,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 84667149,
+      "component": 15024,
+      "pi_ref": 0.0009295130756421507,
+      "pi_work": 0.0009295130756421536,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 85427484,
+      "component": 14945,
+      "pi_ref": 0.0009290321507466317,
+      "pi_work": 0.0009290321507466346,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 86365996,
+      "component": 15740,
+      "pi_ref": 0.0009287092935408829,
+      "pi_work": 0.0009287092935408854,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 86882065,
+      "component": 15837,
+      "pi_ref": 0.00092857807173934,
+      "pi_work": 0.000928578071739343,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 87946182,
+      "component": 7899,
+      "pi_ref": 0.00032677809715074064,
+      "pi_work": 0.0003267780971507378,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     },
+     {
+      "entry": 88686298,
+      "component": 15837,
+      "pi_ref": 0.0009290606430453899,
+      "pi_work": 0.000929060643045392,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 90078072,
+      "component": 25396,
+      "pi_ref": 0.0009449092695737023,
+      "pi_work": 0.0009449092695737054,
+      "abs_difference": 3.144186300207963e-18,
+      "passes": true
+     },
+     {
+      "entry": 90888469,
+      "component": 15837,
+      "pi_ref": 0.000926279879631985,
+      "pi_work": 0.0009262798796319867,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 91744879,
+      "component": 15740,
+      "pi_ref": 0.0009279282223762195,
+      "pi_work": 0.000927928222376222,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 92041746,
+      "component": 13461,
+      "pi_ref": 0.0009312051636981139,
+      "pi_work": 0.000931205163698116,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 95205155,
+      "component": 17145,
+      "pi_ref": 0.0009271843119900901,
+      "pi_work": 0.0009271843119900922,
+      "abs_difference": 2.168404344971009e-18,
+      "passes": true
+     },
+     {
+      "entry": 98235594,
+      "component": 29578,
+      "pi_ref": 0.0009265788523024512,
+      "pi_work": 0.0009265788523024533,
+      "abs_difference": 2.0599841277224584e-18,
+      "passes": true
+     },
+     {
+      "entry": 98823908,
+      "component": 15740,
+      "pi_ref": 0.0009275655069156927,
+      "pi_work": 0.0009275655069156958,
+      "abs_difference": 3.144186300207963e-18,
+      "passes": true
+     },
+     {
+      "entry": 98934993,
+      "component": 29578,
+      "pi_ref": 0.0009265706081697317,
+      "pi_work": 0.0009265706081697342,
+      "abs_difference": 2.4936649967166602e-18,
+      "passes": true
+     },
+     {
+      "entry": 99429356,
+      "component": 7899,
+      "pi_ref": 0.0009461436471966342,
+      "pi_work": 0.0009461436471966373,
+      "abs_difference": 3.144186300207963e-18,
+      "passes": true
+     },
+     {
+      "entry": 100550479,
+      "component": 10820,
+      "pi_ref": 0.0008116538269116391,
+      "pi_work": 0.0008116538269116391,
+      "abs_difference": 0.0,
+      "passes": true
+     },
+     {
+      "entry": 100550518,
+      "component": 13261,
+      "pi_ref": 0.0009350892411653195,
+      "pi_work": 0.0009350892411653213,
+      "abs_difference": 1.734723475976807e-18,
+      "passes": true
+     },
+     {
+      "entry": 103338613,
+      "component": 13461,
+      "pi_ref": 0.0009314311121653049,
+      "pi_work": 0.0009314311121653078,
+      "abs_difference": 2.927345865710862e-18,
+      "passes": true
+     },
+     {
+      "entry": 104622351,
+      "component": 13664,
+      "pi_ref": 0.0009293455065989711,
+      "pi_work": 0.000929345506598974,
+      "abs_difference": 2.8189256484623115e-18,
+      "passes": true
+     }
+    ]
+   }
+  },
+  "passes": true
+ },
+ "description": {
+  "qualifying_under_the_original_rule": 2580,
+  "without_labels": 5264,
+  "m_c_percentiles_over_qualifying_with_labels": {
+   "n": 2580,
+   "p1": 0.16111816584211264,
+   "p5": 0.3855146283942071,
+   "p25": 0.7365176090242,
+   "p50": 0.9652014564989437,
+   "p75": 1.2154384664924671,
+   "p95": 1.5210789649644956,
+   "p99": 1.5769460337356642
+  },
+  "m_c_histogram": {
+   "[0, 0.001)": 13,
+   "[0.001, 0.01)": 2,
+   "[0.01, 0.05)": 0,
+   "[0.05, 0.1)": 3,
+   "[0.1, 0.25)": 41,
+   "[0.25, 0.5)": 167,
+   "[0.5, 1)": 1168,
+   "[1, 2)": 1186,
+   "[2, inf)": 0
+  },
+  "groups": {
+   "near-dead": {
+    "components": 2548,
+    "labels": 3468
+   },
+   "rest": {
+    "components": 17,
+    "labels": 17762
+   }
+  }
+ },
+ "passes": true,
+ "environment": {
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "deterministic_algorithms": true,
+  "cublas_workspace_config": ":4096:8",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": true,
+  "float32_matmul_precision": "highest",
+  "vpd_audit_2_commit": "5034a519e23e19e19a9be717bb656b3b43287e64",
+  "vpd_audit_2_dirty": "0"
+ },
+ "inputs_sha256": {
+  "S": "5c84223a568b9055f03fdc3ae64cc7efebaba8b78c0f8d6f2c8e339bb39bf7cd",
+  "price_W16": "d3f49e05d9e3f27fc344fe7424d895a2666858f1b99c3741fc9c5b827a2bd19f",
+  "price_old_formula": "cf6b2c3bff0e042a66518ca29641cf5a2f10635c6449e6fdce953fdeebc3fe91"
+ },
+ "inputs_equal_the_recorded_outputs": true,
+ "original_check7": {
+  "qualifying_components": 7844,
+  "qualifying_components_with_labels": 2580,
+  "labels": 6213570,
+  "cv_definition": "population SD of S[i, c] across the cache's texts over its mean",
+  "rule": "for every qualifying component, the median over its labels of new / old price lies in [0.98, 1.02]",
+  "component_median_ratio": {
+   "min": 0.9787842586569664,
+   "median": 1.1101038103821663,
+   "max": 1.2304164443041379
+  },
+  "label_ratio_percentiles": {
+   "p1": 0.9913657623324841,
+   "p50": 1.0001044638000454,
+   "p99": 1.005550662530124
+  },
+  "passes": false
+ }
+}

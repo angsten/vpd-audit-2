@@ -1,0 +1,33 @@
+A dose-response on an intact model, on cell set S4 (session 6, plan 3, Section 8). Added after the readings, as description (plan 3, Section 8); no line.
+S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per length. At fraction f, a random f of the setting's entries at exactly 0
+(delta entries included) stays 0 and every other entry is 1; f = 1 is V1 (plan 3's variants units), f = 0 is all ones (plan 2's ones pass).
+Kept share: the sum over cells of (harm - saved start harm) over the sum of (saved carried harm - saved start harm), as V1 is read.
+
+The checks, per batch (the full setting on the split's path and the flat path, and the start on the split's path):
+  H1: check|s_everywhere 30.813553 against 30.813553, bit for bit yes; check|s0_everywhere 0.216215 against 0.216215, bit for bit yes; check|flat 30.813553 against 30.813553, bit for bit yes
+  H5: check|s_everywhere 21.348015 against 21.348015, bit for bit yes; check|s0_everywhere 0.219008 against 0.219008, bit for bit yes; check|flat 21.348015 against 21.348015, bit for bit yes
+  H9: check|s_everywhere 34.691792 against 34.691792, bit for bit yes; check|s0_everywhere 0.217920 against 0.217920, bit for bit yes; check|flat 34.691792 against 34.691792, bit for bit yes
+  H13: check|s_everywhere 37.356144 against 37.356144, bit for bit yes; check|s0_everywhere 0.220712 against 0.220712, bit for bit yes; check|flat 37.356144 against 37.356144, bit for bit yes
+
+Kept share, by length and fraction f:
+    length   cells       f = 0    f = 0.25     f = 0.5    f = 0.75       f = 1
+    n20        320      -0.565       0.388       0.516       0.679       1.182
+    n40        320      -0.141       0.088       0.139       0.284       0.981
+    n80        320      -0.013       0.008       0.012       0.037       0.810
+    n160       320      -0.008       0.004       0.007       0.018       0.662
+    n320       320      -0.007       0.004       0.006       0.019       0.561
+
+Mean harm in nats, by length and fraction f:
+    length   cells       f = 0    f = 0.25     f = 0.5    f = 0.75       f = 1
+    n20        320       0.001       0.366       0.416       0.478       0.672
+    n40        320       0.001       0.354       0.431       0.656       1.732
+    n80        320       0.001       0.347       0.412       0.835      13.691
+    n160       320       0.001       0.343       0.410       0.742      19.161
+    n320       320       0.001       0.340       0.411       0.840      18.494
+
+At 320 steps, the kept share per batch (80 cells each):
+    batch           f = 0    f = 0.25     f = 0.5    f = 0.75       f = 1
+    H1             -0.007       0.004       0.006       0.020       0.560
+    H5             -0.007       0.004       0.006       0.019       0.562
+    H9             -0.007       0.004       0.006       0.019       0.560
+    H13            -0.007       0.003       0.006       0.019       0.560

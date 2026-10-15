@@ -1,0 +1,1025 @@
+{
+ "stages": {
+  "lead_attack": {
+   "launches": [
+    {
+     "launch": "ap-qhYDIbWtejIuTppBs2HCCO|lead_attack|1",
+     "app_id": "ap-qhYDIbWtejIuTppBs2HCCO",
+     "commit": "8522c18156c6c9023aedffe9061a56838898e960",
+     "began": "2026-10-06T17:55:09+00:00",
+     "last_alive": 1791311055.505492,
+     "ended": "2026-10-06T18:24:15+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "A1": 1791309315.427758,
+      "A2": 1791309319.848503,
+      "A3": 1791309324.4812422,
+      "A4": 1791309329.003826,
+      "A5": 1791309333.2092412,
+      "A6": 1791309337.549697,
+      "A7": 1791309342.2057228,
+      "A8": 1791309346.845702,
+      "A9": 1791309351.4902139,
+      "A10": 1791309355.882027,
+      "A11": 1791309360.393627,
+      "A12": 1791309364.7742221,
+      "A13": 1791309369.156838,
+      "A14": 1791309373.637739,
+      "A15": 1791309378.172104,
+      "A16": 1791309382.560648
+     },
+     "calls": {
+      "A1": {
+       "outcome": "returned",
+       "wait_seconds": 774.5954101085663,
+       "returned_seconds": 644.7051274776459,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 644.7051274776459,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A2": {
+       "outcome": "returned",
+       "wait_seconds": 770.2351710796356,
+       "returned_seconds": 643.4594693183899,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 643.4594693183899,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A5": {
+       "outcome": "returned",
+       "wait_seconds": 842.9640576839447,
+       "returned_seconds": 659.4159197807312,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 659.4159197807312,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A7": {
+       "outcome": "returned",
+       "wait_seconds": 835.5966901779175,
+       "returned_seconds": 652.9549932479858,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 652.9549932479858,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A10": {
+       "outcome": "returned",
+       "wait_seconds": 845.8373279571533,
+       "returned_seconds": 675.5585200786591,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 675.5585200786591,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A3": {
+       "outcome": "returned",
+       "wait_seconds": 888.4719066619873,
+       "returned_seconds": 678.39679479599,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 678.39679479599,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A4": {
+       "outcome": "returned",
+       "wait_seconds": 884.0494801998138,
+       "returned_seconds": 681.356659412384,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 681.356659412384,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A6": {
+       "outcome": "returned",
+       "wait_seconds": 875.5682120323181,
+       "returned_seconds": 682.5757949352264,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 682.5757949352264,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A8": {
+       "outcome": "returned",
+       "wait_seconds": 866.3339581489563,
+       "returned_seconds": 686.6308100223541,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 686.6308100223541,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A9": {
+       "outcome": "returned",
+       "wait_seconds": 861.7500410079956,
+       "returned_seconds": 683.1178987026215,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 683.1178987026215,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A11": {
+       "outcome": "returned",
+       "wait_seconds": 1541.8552660942078,
+       "returned_seconds": 649.7139883041382,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 649.7139883041382,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A12": {
+       "outcome": "returned",
+       "wait_seconds": 1558.024780035019,
+       "returned_seconds": 662.1098909378052,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 662.1098909378052,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A16": {
+       "outcome": "returned",
+       "wait_seconds": 1660.5669870376587,
+       "returned_seconds": 651.4944443702698,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 651.4944443702698,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A13": {
+       "outcome": "returned",
+       "wait_seconds": 1674.054517030716,
+       "returned_seconds": 646.7744100093842,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 646.7744100093842,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A14": {
+       "outcome": "returned",
+       "wait_seconds": 1671.4497301578522,
+       "returned_seconds": 657.0039260387421,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 657.0039260387421,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A15": {
+       "outcome": "returned",
+       "wait_seconds": 1677.3345761299133,
+       "returned_seconds": 667.015114068985,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 667.015114068985,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      }
+     },
+     "function_seconds": 10622.283761501312,
+     "container_lives": 16
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "lead_attack",
+    "containers": 16,
+    "finished_units": 80,
+    "expected_units": 80,
+    "stopped": false,
+    "function_seconds": 10622.283761501312,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "lead_heldout_1": {
+   "launches": [
+    {
+     "launch": "ap-wsWccUccYT4sbViBl8RHeu|lead_heldout_1|1",
+     "app_id": "ap-wsWccUccYT4sbViBl8RHeu",
+     "commit": "8522c18156c6c9023aedffe9061a56838898e960",
+     "began": "2026-10-06T18:25:03+00:00",
+     "last_alive": 1791313236.182816,
+     "ended": "2026-10-06T19:00:36+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "H1": 1791311109.352971
+     },
+     "calls": {
+      "H1": {
+       "outcome": "returned",
+       "wait_seconds": 2126.830074071884,
+       "returned_seconds": 2116.9299664497375,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 2116.9299664497375,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      }
+     },
+     "function_seconds": 2116.9299664497375,
+     "container_lives": 1
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "lead_heldout_1",
+    "containers": 1,
+    "finished_units": 85,
+    "expected_units": 85,
+    "stopped": false,
+    "function_seconds": 2116.9299664497375,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "lead_heldout_2": {
+   "launches": [
+    {
+     "launch": "ap-mHO90fZrIV5WvvkzODex7T|lead_heldout_2|1",
+     "app_id": "ap-mHO90fZrIV5WvvkzODex7T",
+     "commit": "8522c18156c6c9023aedffe9061a56838898e960",
+     "began": "2026-10-06T19:03:26+00:00",
+     "last_alive": 1791318410.79529,
+     "ended": "2026-10-06T20:26:50+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "H2": 1791313411.592653,
+      "H3": 1791313415.793951,
+      "H4": 1791313420.369834,
+      "H5": 1791313424.559463,
+      "H6": 1791313428.7051709,
+      "H7": 1791313433.0478568,
+      "H8": 1791313437.304954,
+      "H9": 1791313441.653288,
+      "H10": 1791313446.107033,
+      "H11": 1791313450.64324,
+      "H12": 1791313454.968559,
+      "H13": 1791313459.3109078,
+      "H14": 1791313463.727921,
+      "H15": 1791313468.016858,
+      "H16": 1791313472.554904
+     },
+     "calls": {
+      "H2": {
+       "outcome": "returned",
+       "wait_seconds": 1824.2784378528595,
+       "returned_seconds": 1815.3825809955597,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1815.3825809955597,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H3": {
+       "outcome": "returned",
+       "wait_seconds": 1902.6024718284607,
+       "returned_seconds": 1804.4955627918243,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1804.4955627918243,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H4": {
+       "outcome": "returned",
+       "wait_seconds": 2350.5526881217957,
+       "returned_seconds": 1800.541457414627,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1800.541457414627,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H5": {
+       "outcome": "returned",
+       "wait_seconds": 2571.8672540187836,
+       "returned_seconds": 1786.3254449367523,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1786.3254449367523,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H6": {
+       "outcome": "returned",
+       "wait_seconds": 2690.7128400802612,
+       "returned_seconds": 1901.3955481052399,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1901.3955481052399,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H7": {
+       "outcome": "returned",
+       "wait_seconds": 2686.60795211792,
+       "returned_seconds": 1896.0462572574615,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1896.0462572574615,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H8": {
+       "outcome": "returned",
+       "wait_seconds": 2682.5849947929382,
+       "returned_seconds": 1900.5358526706696,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1900.5358526706696,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H9": {
+       "outcome": "returned",
+       "wait_seconds": 2678.4498329162598,
+       "returned_seconds": 1903.5384321212769,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1903.5384321212769,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H11": {
+       "outcome": "returned",
+       "wait_seconds": 2672.5855820178986,
+       "returned_seconds": 1901.4929375648499,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1901.4929375648499,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H10": {
+       "outcome": "returned",
+       "wait_seconds": 2694.201297044754,
+       "returned_seconds": 1905.9581751823425,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1905.9581751823425,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H12": {
+       "outcome": "returned",
+       "wait_seconds": 3993.188022851944,
+       "returned_seconds": 1802.5346806049347,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1802.5346806049347,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H13": {
+       "outcome": "returned",
+       "wait_seconds": 4029.7109780311584,
+       "returned_seconds": 1795.951976776123,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1795.951976776123,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H15": {
+       "outcome": "returned",
+       "wait_seconds": 4893.173359870911,
+       "returned_seconds": 1786.7884163856506,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1786.7884163856506,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H16": {
+       "outcome": "returned",
+       "wait_seconds": 4938.066561222076,
+       "returned_seconds": 1810.9732310771942,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1810.9732310771942,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      },
+      "H14": {
+       "outcome": "returned",
+       "wait_seconds": 4947.0679750442505,
+       "returned_seconds": 1538.6054899692535,
+       "attempts": 2,
+       "lives": 2,
+       "counted_seconds": 4947.0679750442505,
+       "error": null,
+       "stopped": false,
+       "finished_units": 85,
+       "expected_units": 85
+      }
+     },
+     "function_seconds": 30759.028528928757,
+     "container_lives": 16
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "lead_heldout_2",
+    "containers": 15,
+    "finished_units": 1275,
+    "expected_units": 1275,
+    "stopped": false,
+    "function_seconds": 27350.56604385376,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "delta_attack": {
+   "launches": [
+    {
+     "launch": "ap-RpFU0qaWJmWWYW29YXBVBF|delta_attack|1",
+     "app_id": "ap-RpFU0qaWJmWWYW29YXBVBF",
+     "commit": "8522c18156c6c9023aedffe9061a56838898e960",
+     "began": "2026-10-06T20:27:29+00:00",
+     "last_alive": 1791319566.311646,
+     "ended": "2026-10-06T20:46:06+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "A1": 1791318455.566668,
+      "A2": 1791318460.058311,
+      "A3": 1791318464.616564,
+      "A4": 1791318469.049888,
+      "A5": 1791318473.229463,
+      "A6": 1791318477.4334028,
+      "A7": 1791318482.036331,
+      "A8": 1791318486.503257
+     },
+     "calls": {
+      "A1": {
+       "outcome": "returned",
+       "wait_seconds": 660.8291578292847,
+       "returned_seconds": 643.3849382400513,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 643.3849382400513,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A2": {
+       "outcome": "returned",
+       "wait_seconds": 737.4381990432739,
+       "returned_seconds": 651.7136812210083,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 651.7136812210083,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A3": {
+       "outcome": "returned",
+       "wait_seconds": 753.2265839576721,
+       "returned_seconds": 660.3404815196991,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 660.3404815196991,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A4": {
+       "outcome": "returned",
+       "wait_seconds": 789.8413660526276,
+       "returned_seconds": 654.3825607299805,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 654.3825607299805,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A5": {
+       "outcome": "returned",
+       "wait_seconds": 1014.2146308422089,
+       "returned_seconds": 641.4071342945099,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 641.4071342945099,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A6": {
+       "outcome": "returned",
+       "wait_seconds": 1050.3418791294098,
+       "returned_seconds": 642.389452457428,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 642.389452457428,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A7": {
+       "outcome": "returned",
+       "wait_seconds": 1065.983197927475,
+       "returned_seconds": 665.8986954689026,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 665.8986954689026,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      },
+      "A8": {
+       "outcome": "returned",
+       "wait_seconds": 1079.8105099201202,
+       "returned_seconds": 662.1511082649231,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 662.1511082649231,
+       "error": null,
+       "stopped": false,
+       "finished_units": 5,
+       "expected_units": 5
+      }
+     },
+     "function_seconds": 5221.668052196503,
+     "container_lives": 8
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "delta_attack",
+    "containers": 8,
+    "finished_units": 40,
+    "expected_units": 40,
+    "stopped": false,
+    "function_seconds": 5221.668052196503,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "delta_heldout": {
+   "launches": [
+    {
+     "launch": "ap-WWe8qiNaZajCMtqnNdUFnH|delta_heldout|1",
+     "app_id": "ap-WWe8qiNaZajCMtqnNdUFnH",
+     "commit": "8522c18156c6c9023aedffe9061a56838898e960",
+     "began": "2026-10-06T20:46:44+00:00",
+     "last_alive": 1791320947.3554182,
+     "ended": "2026-10-06T21:09:07+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "H1": 1791319610.102219,
+      "H2": 1791319614.63295,
+      "H3": 1791319618.808106,
+      "H4": 1791319623.140736,
+      "H5": 1791319627.1871622,
+      "H6": 1791319631.282345,
+      "H7": 1791319635.585479,
+      "H8": 1791319639.740461
+     },
+     "calls": {
+      "H4": {
+       "outcome": "returned",
+       "wait_seconds": 1225.67502784729,
+       "returned_seconds": 1013.9759542942047,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1013.9759542942047,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      },
+      "H7": {
+       "outcome": "returned",
+       "wait_seconds": 1219.06507396698,
+       "returned_seconds": 1008.8518149852753,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1008.8518149852753,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      },
+      "H1": {
+       "outcome": "returned",
+       "wait_seconds": 1248.0278158187866,
+       "returned_seconds": 1022.0313749313354,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1022.0313749313354,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      },
+      "H2": {
+       "outcome": "returned",
+       "wait_seconds": 1243.564645767212,
+       "returned_seconds": 1017.0741651058197,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1017.0741651058197,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      },
+      "H6": {
+       "outcome": "returned",
+       "wait_seconds": 1237.1521990299225,
+       "returned_seconds": 1017.1031785011292,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1017.1031785011292,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      },
+      "H5": {
+       "outcome": "returned",
+       "wait_seconds": 1256.514881849289,
+       "returned_seconds": 1048.2298984527588,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1048.2298984527588,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      },
+      "H8": {
+       "outcome": "returned",
+       "wait_seconds": 1304.5595269203186,
+       "returned_seconds": 1096.7992627620697,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1096.7992627620697,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      },
+      "H3": {
+       "outcome": "returned",
+       "wait_seconds": 1328.5494921207428,
+       "returned_seconds": 1114.1205065250397,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1114.1205065250397,
+       "error": null,
+       "stopped": false,
+       "finished_units": 45,
+       "expected_units": 45
+      }
+     },
+     "function_seconds": 8338.186155557632,
+     "container_lives": 8
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "delta_heldout",
+    "containers": 8,
+    "finished_units": 360,
+    "expected_units": 360,
+    "stopped": false,
+    "function_seconds": 8338.186155557632,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "C0",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "stages": {
+    "lead_attack": {
+     "search": 9790.957685901272,
+     "scoring": 161.95079733928046,
+     "overhead": 613.1140737102878,
+     "total": 10566.02255695084
+    },
+    "lead_heldout_1": {
+     "search": 611.9348553688295,
+     "scoring": 1099.609106934319,
+     "overhead": 176.17593282191984,
+     "total": 1887.7198951250682
+    },
+    "lead_heldout_2": {
+     "search": 9179.022830532444,
+     "scoring": 16494.136604014784,
+     "overhead": 2642.638992328798,
+     "total": 28315.798426876023
+    },
+    "delta_attack": {
+     "search": 4918.975830078125,
+     "scoring": 44.16839927434921,
+     "overhead": 306.5570368551439,
+     "total": 5269.701266207618
+    },
+    "delta_heldout": {
+     "search": 4918.975830078125,
+     "scoring": 2694.272355735302,
+     "overhead": 806.182971455974,
+     "total": 8419.4311572694
+    }
+   },
+   "assemble_seconds": 5.559345722198486,
+   "function_hours": 15.128953513375318,
+   "run": {
+    "function_seconds": 54464.23264815115,
+    "container_lives": 48.0,
+    "at_the_flat_rate": 102.87688389095216,
+    "at_the_listed_price_with_boot": 103.50086441220583,
+    "billed": null,
+    "dollars": 103.50086441220583
+   },
+   "run_dollars": 103.50086441220583,
+   "spent": {
+    "function_seconds": 1316.2724061012268,
+    "container_lives": 14.0,
+    "at_the_flat_rate": 2.4862923226356504,
+    "at_the_listed_price_with_boot": 3.6698980572410864,
+    "billed": 0.75090995,
+    "dollars": 3.6698980572410864
+   },
+   "spent_dollars": 3.6698980572410864,
+   "projected_dollars": 107.17076246944691,
+   "cap": 150.0,
+   "exceeds_cap": false,
+   "bill_read_at": "2026-10-06T17:55:09+00:00",
+   "at": "2026-10-06T17:55:09+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 11938.556167602539,
+    "container_lives": 30.0,
+    "at_the_flat_rate": 22.55060609436035,
+    "at_the_listed_price_with_boot": 24.460053622900084,
+    "billed": 4.2618911,
+    "dollars": 24.460053622900084
+   },
+   "spent_dollars": 24.460053622900084,
+   "remaining": {
+    "function_seconds": 44126.36720676176,
+    "container_lives": 32.0,
+    "at_the_flat_rate": 83.34980472388331,
+    "at_the_listed_price_with_boot": 83.22839000771535,
+    "billed": null,
+    "dollars": 83.34980472388331
+   },
+   "remaining_dollars": 83.34980472388331,
+   "projected_dollars": 107.80985834678339,
+   "cap": 150.0,
+   "exceeds_cap": false,
+   "at": "2026-10-06T18:24:15+00:00",
+   "after_stage": "lead_attack",
+   "bill_read_at": "2026-10-06T18:24:15+00:00",
+   "measured_seconds": {
+    "lead_attack": 10622.283761501312
+   }
+  },
+  {
+   "check": "C2",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 14055.486134052277,
+    "container_lives": 31.0,
+    "at_the_flat_rate": 26.54925158654319,
+    "at_the_listed_price_with_boot": 28.40416953203391,
+    "billed": 26.18310311,
+    "dollars": 28.40416953203391
+   },
+   "spent_dollars": 28.40416953203391,
+   "remaining": {
+    "function_seconds": 46493.44290433711,
+    "container_lives": 31.0,
+    "at_the_flat_rate": 87.82094770819232,
+    "at_the_listed_price_with_boot": 87.44579216790015,
+    "billed": null,
+    "dollars": 87.82094770819232
+   },
+   "remaining_dollars": 87.82094770819232,
+   "projected_dollars": 116.22511724022624,
+   "cap": 150.0,
+   "exceeds_cap": false,
+   "at": "2026-10-06T19:00:36+00:00",
+   "after_stage": "lead_heldout_1",
+   "bill_read_at": "2026-10-06T19:00:36+00:00",
+   "measured_seconds": {
+    "lead_attack": 10622.283761501312,
+    "lead_heldout_1": 2116.9299664497375
+   }
+  },
+  {
+   "check": "C3",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 44932.17349886894,
+    "container_lives": 47.0,
+    "at_the_flat_rate": 84.87188327564134,
+    "at_the_listed_price_with_boot": 86.0601752722313,
+    "billed": 65.77550939999999,
+    "dollars": 86.0601752722313
+   },
+   "spent_dollars": 86.0601752722313,
+   "remaining": {
+    "function_seconds": 14462.15258569879,
+    "container_lives": 16.0,
+    "at_the_flat_rate": 27.31739932854216,
+    "at_the_listed_price_with_boot": 27.779254407333795,
+    "billed": null,
+    "dollars": 27.779254407333795
+   },
+   "remaining_dollars": 27.779254407333795,
+   "projected_dollars": 113.8394296795651,
+   "cap": 150.0,
+   "exceeds_cap": false,
+   "at": "2026-10-06T20:26:51+00:00",
+   "after_stage": "lead_heldout_2",
+   "bill_read_at": "2026-10-06T20:26:50+00:00",
+   "measured_seconds": {
+    "lead_attack": 10622.283761501312,
+    "lead_heldout_1": 2116.9299664497375,
+    "lead_heldout_2": 30759.028528928757
+   }
+  }
+ ],
+ "bills": [
+  {
+   "read_at": "2026-10-06T18:24:15+00:00",
+   "latest_interval_posted": "2026-10-06 17:00:00+00:00",
+   "by_app": {
+    "ap-8mcTtty2kYGYLHtQTCPIHs": 0.32226094,
+    "ap-954m6ongllLvCLrRPo5UIf": 0.57118534,
+    "ap-KGrphlvrsfGgH5nKA8TAhP": 0.12166986,
+    "ap-QVqGxUKzmYt8lAppjeVX7Z": 0.75090995,
+    "ap-S3EsA6tt7pk4gD6kSqcQOC": 0.16802784,
+    "ap-YtjOV2gu7EcE2pHpkQP7N4": 0.31869779,
+    "ap-fl6Ua3fj4EYaOp1oLCRkzr": 0.15923078,
+    "ap-qhYDIbWtejIuTppBs2HCCO": 1.84867504,
+    "ap-sa8oDIrHION5UGkwgubjjH": 0.00123356
+   },
+   "error": null
+  },
+  {
+   "read_at": "2026-10-06T19:00:36+00:00",
+   "latest_interval_posted": "2026-10-06 18:00:00+00:00",
+   "by_app": {
+    "ap-8mcTtty2kYGYLHtQTCPIHs": 0.32226094,
+    "ap-954m6ongllLvCLrRPo5UIf": 0.57118534,
+    "ap-KGrphlvrsfGgH5nKA8TAhP": 0.12166986,
+    "ap-QVqGxUKzmYt8lAppjeVX7Z": 0.75090995,
+    "ap-S3EsA6tt7pk4gD6kSqcQOC": 0.16802784,
+    "ap-YtjOV2gu7EcE2pHpkQP7N4": 0.31869779,
+    "ap-fl6Ua3fj4EYaOp1oLCRkzr": 0.15923078,
+    "ap-qhYDIbWtejIuTppBs2HCCO": 19.84484672,
+    "ap-sa8oDIrHION5UGkwgubjjH": 0.00123356,
+    "ap-wsWccUccYT4sbViBl8RHeu": 3.92504033
+   },
+   "error": null
+  },
+  {
+   "read_at": "2026-10-06T20:26:50+00:00",
+   "latest_interval_posted": "2026-10-06 19:00:00+00:00",
+   "by_app": {
+    "ap-8mcTtty2kYGYLHtQTCPIHs": 0.32226094,
+    "ap-954m6ongllLvCLrRPo5UIf": 0.57118534,
+    "ap-KGrphlvrsfGgH5nKA8TAhP": 0.12166986,
+    "ap-QVqGxUKzmYt8lAppjeVX7Z": 0.75090995,
+    "ap-S3EsA6tt7pk4gD6kSqcQOC": 0.16802784,
+    "ap-YtjOV2gu7EcE2pHpkQP7N4": 0.31869779,
+    "ap-fl6Ua3fj4EYaOp1oLCRkzr": 0.15923078,
+    "ap-mHO90fZrIV5WvvkzODex7T": 39.50736136,
+    "ap-qhYDIbWtejIuTppBs2HCCO": 19.84484672,
+    "ap-sa8oDIrHION5UGkwgubjjH": 0.00123356,
+    "ap-wsWccUccYT4sbViBl8RHeu": 4.01008526
+   },
+   "error": null
+  }
+ ],
+ "guards_pass": {
+  "at": "2026-10-06T19:00:36+00:00",
+  "app_id": "ap-wsWccUccYT4sbViBl8RHeu",
+  "outcomes": {
+   "G6": true,
+   "G10": true,
+   "G11_setting_is_the_attack_searchs": true,
+   "G11_differs_from_the_heldout_batchs_own": true,
+   "shuffles_the_same_in_every_container": true,
+   "one_commit": true,
+   "block_prep_fp_is_the_heldout_batchs": true
+  },
+  "seconds": 117.65883588790894,
+  "error": null
+ },
+ "stopped_by": null,
+ "stops": []
+}

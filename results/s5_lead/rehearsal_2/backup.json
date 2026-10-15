@@ -1,0 +1,16 @@
+{
+ "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+ "at": "2026-10-06T17:31:31+00:00",
+ "folder": ".cache/s5_lead_units/rehearsal_2",
+ "notice": "DO_NOT_OPEN.md",
+ "files": {
+  "units_attack/search_C1_s1.npz": "76dba4605c17d72c42c036d661a35280472053c4f9978dcfe9b9daebb4370af2",
+  "units_attack/search_C2_s1.npz": "8b5041a8242dd4c08a484135434d3aee1397f101948ce4ba681f07ca3cf6ed0a",
+  "units_delta_attack/search_C1_s1.npz": "90585fd4914fe2d120fa2e05ccab30afd6267edc3f15da3c35275d652882e2ed",
+  "units_delta_attack/search_C2_s1.npz": "b5d1218b4ecdf558589a08be51909348e5147b23b07b59cb03bae65bdee82e19",
+  "units_delta_heldout/search_C1_s1.npz": "9943e2b194bb5b4879fa6bbb1fa68446c5b2372ba86da274c2cac3c39b6cb107",
+  "units_delta_heldout/search_C2_s1.npz": "bb72d13a4ab58be90aa647b86846c94129b88bb83d520f924b9667521d92b5f6",
+  "units_heldout/search_C1_s1.npz": "eda5d86907f920c661b8df559eb2e2a2f17a4baac8a95a0bac2dfc3e1ccd0569",
+  "units_heldout/search_C2_s1.npz": "04c4ce4f23c2909ff1d0585f911f92aa4e25789634909b78f358a2cf24490aee"
+ }
+}

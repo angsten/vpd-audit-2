@@ -1,0 +1,461 @@
+{
+ "stages": {
+  "rehearsal_attack": {
+   "launches": [
+    {
+     "launch": "ap-954m6ongllLvCLrRPo5UIf|rehearsal_attack|1",
+     "app_id": "ap-954m6ongllLvCLrRPo5UIf",
+     "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+     "began": "2026-10-06T17:12:38+00:00",
+     "last_alive": 1791306989.937031,
+     "ended": "2026-10-06T17:16:29+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "C1": 1791306768.587787,
+      "C2": 1791306776.172627
+     },
+     "calls": {
+      "C1": {
+       "outcome": "returned",
+       "wait_seconds": 210.1235589981079,
+       "returned_seconds": 144.65656805038452,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 144.65656805038452,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      },
+      "C2": {
+       "outcome": "returned",
+       "wait_seconds": 213.7649462223053,
+       "returned_seconds": 157.82597589492798,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 157.82597589492798,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      }
+     },
+     "function_seconds": 302.4825439453125,
+     "container_lives": 2
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "rehearsal_attack",
+    "containers": 2,
+    "finished_units": 2,
+    "expected_units": 2,
+    "stopped": false,
+    "function_seconds": 302.4825439453125,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "rehearsal_heldout_1": {
+   "launches": [
+    {
+     "launch": "ap-YtjOV2gu7EcE2pHpkQP7N4|rehearsal_heldout_1|1",
+     "app_id": "ap-YtjOV2gu7EcE2pHpkQP7N4",
+     "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+     "began": "2026-10-06T17:17:14+00:00",
+     "last_alive": 1791307221.7856221,
+     "ended": "2026-10-06T17:20:21+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "C1": 1791307042.648118
+     },
+     "calls": {
+      "C1": {
+       "outcome": "returned",
+       "wait_seconds": 179.13790011405945,
+       "returned_seconds": 172.34013533592224,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 172.34013533592224,
+       "error": null,
+       "stopped": false,
+       "finished_units": 2,
+       "expected_units": 2
+      }
+     },
+     "function_seconds": 172.34013533592224,
+     "container_lives": 1
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "rehearsal_heldout_1",
+    "containers": 1,
+    "finished_units": 2,
+    "expected_units": 2,
+    "stopped": false,
+    "function_seconds": 172.34013533592224,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "rehearsal_heldout_2": {
+   "launches": [
+    {
+     "launch": "ap-8mcTtty2kYGYLHtQTCPIHs|rehearsal_heldout_2|1",
+     "app_id": "ap-8mcTtty2kYGYLHtQTCPIHs",
+     "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+     "began": "2026-10-06T17:21:29+00:00",
+     "last_alive": 1791307479.568588,
+     "ended": "2026-10-06T17:24:39+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": true,
+     "spawned": {
+      "C2": 1791307298.138736
+     },
+     "calls": {
+      "C2": {
+       "outcome": "returned",
+       "wait_seconds": 181.4305100440979,
+       "returned_seconds": 174.02741169929504,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 174.02741169929504,
+       "error": null,
+       "stopped": false,
+       "finished_units": 2,
+       "expected_units": 2
+      }
+     },
+     "function_seconds": 174.02741169929504,
+     "container_lives": 1
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "rehearsal_heldout_2",
+    "containers": 1,
+    "finished_units": 2,
+    "expected_units": 2,
+    "stopped": false,
+    "function_seconds": 174.02741169929504,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "rehearsal_delta_attack": {
+   "launches": [
+    {
+     "launch": "ap-fl6Ua3fj4EYaOp1oLCRkzr|rehearsal_delta_attack|1",
+     "app_id": "ap-fl6Ua3fj4EYaOp1oLCRkzr",
+     "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+     "began": "2026-10-06T17:24:53+00:00",
+     "last_alive": 1791307635.657127,
+     "ended": "2026-10-06T17:27:15+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "C1": 1791307500.597597,
+      "C2": 1791307507.422653
+     },
+     "calls": {
+      "C1": {
+       "outcome": "returned",
+       "wait_seconds": 116.01250100135803,
+       "returned_seconds": 24.244879007339478,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 24.244879007339478,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      },
+      "C2": {
+       "outcome": "returned",
+       "wait_seconds": 128.23510003089905,
+       "returned_seconds": 41.30168533325195,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 41.30168533325195,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      }
+     },
+     "function_seconds": 65.54656434059143,
+     "container_lives": 2
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "rehearsal_delta_attack",
+    "containers": 2,
+    "finished_units": 2,
+    "expected_units": 2,
+    "stopped": false,
+    "function_seconds": 65.54656434059143,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "rehearsal_delta_heldout": {
+   "launches": [
+    {
+     "launch": "ap-S3EsA6tt7pk4gD6kSqcQOC|rehearsal_delta_heldout|1",
+     "app_id": "ap-S3EsA6tt7pk4gD6kSqcQOC",
+     "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+     "began": "2026-10-06T17:27:43+00:00",
+     "last_alive": 1791307727.4459012,
+     "ended": "2026-10-06T17:28:47+00:00",
+     "trigger": "stop",
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "C1": 1791307671.9573278,
+      "C2": 1791307677.664284
+     },
+     "calls": {
+      "C1": {
+       "outcome": "returned",
+       "wait_seconds": 47.05565619468689,
+       "returned_seconds": 38.46408414840698,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 38.46408414840698,
+       "error": null,
+       "stopped": true,
+       "finished_units": 1,
+       "expected_units": 2
+      },
+      "C2": {
+       "outcome": "returned",
+       "wait_seconds": 49.78222894668579,
+       "returned_seconds": 38.82794785499573,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 38.82794785499573,
+       "error": null,
+       "stopped": true,
+       "finished_units": 1,
+       "expected_units": 2
+      }
+     },
+     "function_seconds": 77.29203200340271,
+     "container_lives": 2
+    },
+    {
+     "launch": "ap-KGrphlvrsfGgH5nKA8TAhP|rehearsal_delta_heldout|2",
+     "app_id": "ap-KGrphlvrsfGgH5nKA8TAhP",
+     "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+     "began": "2026-10-06T17:29:17+00:00",
+     "last_alive": 1791307829.9032269,
+     "ended": "2026-10-06T17:30:29+00:00",
+     "trigger": "kill",
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "C1": 1791307763.835158,
+      "C2": 1791307770.5397918
+     },
+     "calls": {
+      "C2": {
+       "outcome": "returned",
+       "wait_seconds": 32.54820704460144,
+       "returned_seconds": 19.292774200439453,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 19.292774200439453,
+       "error": null,
+       "stopped": false,
+       "finished_units": 2,
+       "expected_units": 2
+      },
+      "C1": {
+       "outcome": "returned",
+       "wait_seconds": 66.06893587112427,
+       "returned_seconds": 19.752058744430542,
+       "attempts": 2,
+       "lives": 2,
+       "counted_seconds": 66.06893587112427,
+       "error": null,
+       "stopped": false,
+       "finished_units": 2,
+       "expected_units": 2
+      }
+     },
+     "function_seconds": 85.36171007156372,
+     "container_lives": 3
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "rehearsal_delta_heldout",
+    "containers": 2,
+    "finished_units": 4,
+    "expected_units": 4,
+    "stopped": false,
+    "function_seconds": 39.044832944869995,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 302.4825439453125,
+    "container_lives": 2.0,
+    "at_the_flat_rate": 0.5713559163411458,
+    "at_the_listed_price_with_boot": 0.732574577536621,
+    "billed": null,
+    "dollars": 0.732574577536621
+   },
+   "spent_dollars": 0.732574577536621,
+   "remaining": {
+    "function_seconds": 598.4689436529935,
+    "container_lives": 6.0,
+    "at_the_flat_rate": 1.13044133801121,
+    "at_the_listed_price_with_boot": 1.6353392631005597,
+    "billed": null,
+    "dollars": 1.6353392631005597
+   },
+   "remaining_dollars": 1.6353392631005597,
+   "projected_dollars": 2.367913840637181,
+   "cap": 6.0,
+   "exceeds_cap": false,
+   "at": "2026-10-06T17:16:30+00:00",
+   "after_stage": "rehearsal_attack",
+   "bill_read_at": "2026-10-06T17:16:29+00:00",
+   "measured_seconds": {
+    "rehearsal_attack": 302.4825439453125
+   }
+  },
+  {
+   "check": "C2",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 474.82267928123474,
+    "container_lives": 3.0,
+    "at_the_flat_rate": 0.8968872830867767,
+    "at_the_listed_price_with_boot": 1.1372647514669467,
+    "billed": null,
+    "dollars": 1.1372647514669467
+   },
+   "spent_dollars": 1.1372647514669467,
+   "remaining": {
+    "function_seconds": 485.4639068541483,
+    "container_lives": 5.0,
+    "at_the_flat_rate": 0.9169873796133912,
+    "at_the_listed_price_with_boot": 1.3386472754215095,
+    "billed": null,
+    "dollars": 1.3386472754215095
+   },
+   "remaining_dollars": 1.3386472754215095,
+   "projected_dollars": 2.475912026888456,
+   "cap": 6.0,
+   "exceeds_cap": false,
+   "at": "2026-10-06T17:20:22+00:00",
+   "after_stage": "rehearsal_heldout_1",
+   "bill_read_at": "2026-10-06T17:20:21+00:00",
+   "measured_seconds": {
+    "rehearsal_attack": 302.4825439453125,
+    "rehearsal_heldout_1": 172.34013533592224
+   }
+  },
+  {
+   "check": "C3",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 650.8601825237274,
+    "container_lives": 4.0,
+    "at_the_flat_rate": 1.229402566989263,
+    "at_the_listed_price_with_boot": 1.5486846526187372,
+    "billed": null,
+    "dollars": 1.5486846526187372
+   },
+   "spent_dollars": 1.5486846526187372,
+   "remaining": {
+    "function_seconds": 272.46880338555843,
+    "container_lives": 4.0,
+    "at_the_flat_rate": 0.5146632952838326,
+    "at_the_listed_price_with_boot": 0.8599593677941902,
+    "billed": null,
+    "dollars": 0.8599593677941902
+   },
+   "remaining_dollars": 0.8599593677941902,
+   "projected_dollars": 2.4086440204129276,
+   "cap": 6.0,
+   "exceeds_cap": false,
+   "at": "2026-10-06T17:24:39+00:00",
+   "after_stage": "rehearsal_heldout_2",
+   "bill_read_at": "2026-10-06T17:24:39+00:00",
+   "measured_seconds": {
+    "rehearsal_attack": 302.4825439453125,
+    "rehearsal_heldout_1": 172.34013533592224,
+    "rehearsal_heldout_2": 174.02741169929504
+   }
+  }
+ ],
+ "bills": [
+  {
+   "read_at": "2026-10-06T17:16:29+00:00",
+   "latest_interval_posted": "2026-10-06 16:00:00+00:00",
+   "by_app": {},
+   "error": null
+  },
+  {
+   "read_at": "2026-10-06T17:20:21+00:00",
+   "latest_interval_posted": "2026-10-06 16:00:00+00:00",
+   "by_app": {},
+   "error": null
+  },
+  {
+   "read_at": "2026-10-06T17:24:39+00:00",
+   "latest_interval_posted": "2026-10-06 16:00:00+00:00",
+   "by_app": {},
+   "error": null
+  }
+ ],
+ "guards_pass": {
+  "at": "2026-10-06T17:20:22+00:00",
+  "app_id": "ap-YtjOV2gu7EcE2pHpkQP7N4",
+  "outcomes": {
+   "G6": false,
+   "G10": true,
+   "G11_setting_is_the_attack_searchs": true,
+   "G11_differs_from_the_heldout_batchs_own": false,
+   "shuffles_the_same_in_every_container": true,
+   "one_commit": true,
+   "block_prep_fp_is_the_heldout_batchs": true,
+   "G6_reports_every_carried_vector_equal": true,
+   "G11_reports_every_carried_vector_equal_to_the_heldout_own": true
+  },
+  "seconds": 2.010091543197632,
+  "error": null
+ },
+ "stopped_by": null,
+ "stops": [
+  {
+   "at": "2026-10-06T17:20:28+00:00",
+   "after_stage": "rehearsal_heldout_1",
+   "by": [
+    "the guards-only pass: G11_differs_from_the_heldout_batchs_own, G6"
+   ]
+  }
+ ]
+}

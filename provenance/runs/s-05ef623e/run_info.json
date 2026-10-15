@@ -1,0 +1,15 @@
+{
+  "commit": "9c802c2d46362c1281b53b7c9da43f6a314599a2",
+  "created_at": "2026-03-16T12:23:15Z",
+  "id": "s-05ef623e",
+  "name": "pile_llama_simple_mlp-4L-no-adv-seed-0",
+  "project": "goodfire/spd",
+  "state": "finished",
+  "tags": [
+    "launch-20260316_122201",
+    "lm",
+    "pile_llama_simple_mlp-4L-no-adv",
+    "slurm-array-job-id_346633"
+  ],
+  "url": "https://wandb.ai/goodfire/spd/runs/s-05ef623e"
+}

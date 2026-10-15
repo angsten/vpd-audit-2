@@ -1,0 +1,72 @@
+{
+ "A100-80GB": {
+  "environment": {
+   "gpu": "NVIDIA A100-SXM4-80GB",
+   "torch": "2.8.0+cu128",
+   "cuda": "12.8",
+   "deterministic_algorithms": true,
+   "cublas_workspace_config": ":4096:8",
+   "allow_tf32_matmul": false,
+   "allow_tf32_cudnn": false,
+   "float32_matmul_precision": "highest",
+   "vpd_audit_2_commit": "d80b403903c17e92b08dbdeae3dbb9408aaddaba",
+   "vpd_audit_2_dirty": "0"
+  },
+  "n_steps": 3,
+  "texts": "random token ids, generator seed 0",
+  "ok": false,
+  "error": "CUDA out of memory. Tried to allocate 6.14 GiB. GPU 0 has a total capacity of 79.25 GiB of which 6.08 GiB is free. Process 1 has 73.17 GiB memory in use. Of the allocated memory 72.19 GiB is allocated by PyTorch, and 469.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  Se",
+  "peak_memory_gib": 74.02485847473145,
+  "device_memory_gib": 79.250732421875,
+  "local_wall_seconds": 46.51477909088135
+ },
+ "H200": {
+  "environment": {
+   "gpu": "NVIDIA H200",
+   "torch": "2.8.0+cu128",
+   "cuda": "12.8",
+   "deterministic_algorithms": true,
+   "cublas_workspace_config": ":4096:8",
+   "allow_tf32_matmul": false,
+   "allow_tf32_cudnn": false,
+   "float32_matmul_precision": "highest",
+   "vpd_audit_2_commit": "d80b403903c17e92b08dbdeae3dbb9408aaddaba",
+   "vpd_audit_2_dirty": "0"
+  },
+  "n_steps": 3,
+  "texts": "random token ids, generator seed 0",
+  "ok": false,
+  "error": "CUDA out of memory. Tried to allocate 12.28 GiB. GPU 0 has a total capacity of 139.80 GiB of which 11.73 GiB is free. Process 1 has 128.06 GiB memory in use. Of the allocated memory 126.95 GiB is allocated by PyTorch, and 487.40 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation",
+  "peak_memory_gib": 126.95371389389038,
+  "device_memory_gib": 139.80084228515625,
+  "local_wall_seconds": 63.653815031051636
+ },
+ "B200": {
+  "environment": {
+   "gpu": "NVIDIA B200",
+   "torch": "2.8.0+cu128",
+   "cuda": "12.8",
+   "deterministic_algorithms": true,
+   "cublas_workspace_config": ":4096:8",
+   "allow_tf32_matmul": false,
+   "allow_tf32_cudnn": false,
+   "float32_matmul_precision": "highest",
+   "vpd_audit_2_commit": "1a409fc387f8877e79ff139c69935d6070e5b007",
+   "vpd_audit_2_dirty": "0"
+  },
+  "n_steps": 3,
+  "texts": "random token ids, generator seed 0",
+  "ok": true,
+  "seconds": 7.525676727294922,
+  "record": [
+   0.5808218121528625,
+   0.9698158502578735,
+   1.649613380432129,
+   2.755119562149048
+  ],
+  "wall_seconds": 8.735486507415771,
+  "peak_memory_gib": 139.5410294532776,
+  "device_memory_gib": 178.3511962890625,
+  "local_wall_seconds": 45.41651892662048
+ }
+}

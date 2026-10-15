@@ -1,0 +1,56 @@
+{
+ "floor_per_text": 0.008114653145400896,
+ "qualifying": 7844,
+ "qualifying_without_labels": 5264,
+ "qualifying_with_labels": 2580,
+ "groups_by_S_bar": {
+  "S-bar in [0, 0.01623)": {
+   "components": 2548,
+   "labels": 3468,
+   "medians_inside": 10,
+   "median_ratio_range": [
+    1.0097597977696224,
+    1.2304164443041379
+   ],
+   "median_of_median_delta_over_4_Sbar": 0.9699873321038592
+  },
+  "S-bar in [0.01623, 0.1)": {
+   "components": 0,
+   "labels": 0,
+   "medians_inside": 0,
+   "median_ratio_range": null,
+   "median_of_median_delta_over_4_Sbar": null
+  },
+  "S-bar in [0.1, 1)": {
+   "components": 1,
+   "labels": 1050,
+   "medians_inside": 0,
+   "median_ratio_range": [
+    0.9797412465121782,
+    0.9797412465121782
+   ],
+   "median_of_median_delta_over_4_Sbar": 0.25378181205440864
+  },
+  "S-bar in [1, 10)": {
+   "components": 16,
+   "labels": 16712,
+   "medians_inside": 0,
+   "median_ratio_range": [
+    0.9787842586569664,
+    0.979416229655117
+   ],
+   "median_of_median_delta_over_4_Sbar": 0.24777320989898854
+  },
+  "S-bar in [10, inf)": {
+   "components": 15,
+   "labels": 6192340,
+   "medians_inside": 15,
+   "median_ratio_range": [
+    0.9999919861029224,
+    1.0010650530426342
+   ],
+   "median_of_median_delta_over_4_Sbar": 0.0005987095612048555
+  }
+ },
+ "note": "description only; check 7's rule and its qualifying set are unchanged"
+}

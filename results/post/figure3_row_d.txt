@@ -1,0 +1,25 @@
+Figure 3, row (d): caption note (session 7, plan 7). Written by vpd_audit_2/post_interference.py from results/s7_probe1/record.json.
+
+Each arrow in row (d) is a real component's first-order push measured by probe 1 on one unseen text, drawn as the push
+WHILE ON: the negative of the measured effect of switching it off. Rightward points along the full pattern's shift on
+that text, toward the damage. Every arrow has the toy's length; only its direction is measured.
+Setting: A9 from start 12 at 320 steps (its kappa -0.0096, the lower median of the 80); text v495532, H8 position 64 (its agreement 0.7605, the lower median of the setting's 2,048).
+Four switched-off components (off cells) and four kept components (on cells), drawn with probability proportional to
+their push on that text (plan 5, amendment 6).
+
+As drawn, left to right (cell, component, measured switch-off push, drawn arrow):
+  1. kept  h.3.mlp.c_fc 778        +4.3180e+00  left (-)
+  2. off   h.2.attn.v_proj 517     +1.5250e+01  left (-)
+  3. kept  h.3.mlp.down_proj 2890  +1.4276e+00  left (-)
+  4. off   h.2.attn.v_proj 777     -1.9419e+02  right (+)
+  5. off   h.1.attn.o_proj 546     -4.0670e+01  right (+)
+  6. kept  h.3.mlp.down_proj 2787  -5.8345e+03  right (+)
+  7. kept  h.0.mlp.down_proj 3020  +1.8245e+02  left (-)
+  8. off   h.3.mlp.down_proj 2938  +1.2871e+01  left (-)
+
+Beside the arrows:
+  74% keep their direction from the searched batch (chance about 55%)
+  components left on: also 74%
+  their first-order sum: about a quarter of the shift
+
+Sources, 320-step row of the record: off-set agreement g_bar 0.7430; permutation chance (post hoc, post_hoc_permutation_baseline.g0_bar) 0.5455; kept components' agreement (the pre-registered chance, g0_bar) 0.7434; additivity ratio (additivity.off_set) 0.2651.

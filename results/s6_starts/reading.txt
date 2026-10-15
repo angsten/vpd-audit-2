@@ -1,0 +1,114 @@
+The starts test, read as fixed in advance (sessions/005/checkpoint.md, Appendix G; sessions/006/engineering/plan_1.md, Section 2.4).
+Added harm at step k is record[k] - record[0], in nats.
+
+The guard: C1 from start 1, searched again in this test, equals the pilot's record (runs.json, a1, C1, start 1) bit for bit, all 321 values.
+
+1. The deciding statistic: the mean added harm after step 320 over the 40 searches of C1 to C8 from starts 9 to 13.
+   26.0631 nats. Reading: Something else.
+   The reading fixed in advance: at or above 31 nats, Starts; at or below 29 nats, Something else; between, Undetermined.
+   For reference (Appendix G): the pilot's 25.5 (C1 to C8 from starts 1 to 8; exactly 25.4485 from runs.json); the run's 34.5 (held-out side, 16 batches, from starts 9 to 13).
+   The checkpoint's 25.5 was rounded twice (25.4485 to 25.45, then to 25.5); rounded once it is 25.4. The thresholds, 31 and 29, are untouched.
+
+2. Each start's mean added harm over the eight batches C1 to C8:
+    start    80 steps   160 steps   320 steps
+        9        4.22       15.86       19.42
+       10       24.77       33.45       34.80
+       11        9.86       21.64       24.61
+       12       19.08       24.99       26.34
+       13       11.71       17.32       25.15
+
+3. Each batch's mean added harm over starts 9 to 13 (this test), beside the pilot's over starts 1 to 8:
+    batch    80, 9-13     80, 1-8   160, 9-13    160, 1-8   320, 9-13    320, 1-8
+       C1       11.19       10.05       20.49       20.73       27.32       22.74
+       C2       18.81        8.12       28.86       24.49       31.12       25.97
+       C3       13.53        9.08       16.02       19.43       26.80       25.62
+       C4       17.86       12.87       30.21       26.88       31.76       29.77
+       C5        4.29        8.34        4.83       12.74        5.49       14.74
+       C6        6.41        6.88       27.45       21.87       28.98       30.34
+       C7       23.17       13.54       32.97       25.02       33.98       26.76
+       C8       16.17        9.22       20.40       25.61       23.06       27.65
+
+4. The 8 by 13 tables: the pilot's 64 searches (starts 1 to 8) joined with this test's 40 (starts 9 to 13), with a two-way
+   analysis of variance on batch and start. The start's share is its variance component over the sum of the three.
+   Added harm at 80 steps:
+               s1      s2      s3      s4      s5      s6      s7      s8      s9     s10     s11     s12     s13
+       C1    4.30    2.08    8.17   18.87    5.83   20.74   16.78    3.61    8.76   16.33    8.08   21.46    1.32
+       C2    2.44    1.68    9.38    7.56    8.25   13.45    3.67   18.55    2.05   39.15   27.44   23.62    1.78
+       C3    7.04    1.55   11.11   14.81    2.78    5.01    5.30   25.02    1.52   35.42    1.32   27.67    1.70
+       C4   14.75   13.41   20.50   15.31    6.82    8.67    3.07   20.45    2.34   31.06    3.85   26.39   25.67
+       C5    4.70    4.44    4.82    7.31   15.21    3.72   22.46    4.09    3.83    4.05    4.05    5.23    4.26
+       C6    2.03    3.00    3.85    3.89   24.27   11.87    4.51    1.60    3.64    6.35   10.98    6.00    5.11
+       C7   22.76   25.57    7.74   15.33   12.22    4.36    3.19   17.16    8.89   32.91   21.25   25.34   27.48
+       C8   12.68    2.57    8.50    5.48   16.22    6.69    4.28   17.37    2.73   32.86    1.96   16.95   26.33
+   Mean squares: batch 169.43 (df 7), start 230.04 (df 12), residual 62.94 (df 84).
+   Variance components: batch 8.19, start 20.89 (untruncated 20.89), residual 62.94. The start's share: 0.227.
+   Added harm at 160 steps:
+               s1      s2      s3      s4      s5      s6      s7      s8      s9     s10     s11     s12     s13
+       C1   25.50    2.34   15.63   21.55   42.85   29.97   24.02    4.01   10.43   24.57   34.05   31.94    1.47
+       C2   37.87   13.46   27.56    8.51   14.83   26.77   25.59   41.35    7.52   43.96   34.16   27.56   31.12
+       C3   18.22    4.89   23.55   24.89   15.32    8.16   29.42   30.99    1.73   38.12    4.48   33.88    1.88
+       C4   29.59   24.19   27.94   24.45   35.69   22.57   24.29   26.29   25.91   32.01   31.14   30.51   31.47
+       C5    5.35    4.22    5.36   31.60   17.18    4.54   26.37    7.30    4.04    4.94    4.62    5.91    4.62
+       C6    8.85   38.95   26.29   13.75   33.62   22.34   29.29    1.89   40.63   43.67   33.81   12.86    6.25
+       C7   26.40   32.60   26.05   23.90   16.66   27.09   19.29   28.19   33.66   38.82   28.40   33.84   30.14
+       C8   35.31   14.27   32.52   30.49   18.34   29.32   15.59   29.08    3.01   41.47    2.44   23.42   31.66
+   Mean squares: batch 494.95 (df 7), start 159.68 (df 12), residual 115.09 (df 84).
+   Variance components: batch 29.22, start 5.57 (untruncated 5.57), residual 115.09. The start's share: 0.037.
+   Added harm at 320 steps:
+               s1      s2      s3      s4      s5      s6      s7      s8      s9     s10     s11     s12     s13
+       C1   28.31    2.48   16.52   26.39   44.57   30.61   28.61    4.46   10.61   28.65   35.57   34.96   26.82
+       C2   40.91   16.93   28.90    8.64   15.37   27.97   27.23   41.83    9.10   45.07   38.85   29.63   32.94
+       C3   19.80   37.62   24.09   26.27   15.65    8.34   31.91   41.26   17.87   38.88    9.02   34.80   33.42
+       C4   29.57   24.21   28.03   28.29   36.96   22.75   41.11   27.22   31.08   32.05   32.24   30.70   32.72
+       C5    5.70    4.49   17.50   31.35   17.64    4.98   26.82    9.45    4.65    6.09    4.85    6.54    5.33
+       C6   29.61   41.29   41.63   24.82   33.97   23.62   45.34    2.45   43.03   45.45   37.97   12.23    6.22
+       C7   27.90   34.40   26.14   30.74   16.97   28.22   19.08   30.61   33.88   39.78   28.83   36.72   30.68
+       C8   37.59   15.07   36.78   35.81   18.79   31.94   15.98   29.22    5.15   42.44    9.51   25.11   33.09
+   Mean squares: batch 505.96 (df 7), start 117.61 (df 12), residual 118.60 (df 84).
+   Variance components: batch 29.80, start 0.00 (untruncated -0.12), residual 118.60. The start's share: 0.000.
+
+5. Description.
+   Each search's final level, its mean harm over steps 301 to 320 (the 40 searches of this test):
+               s9     s10     s11     s12     s13
+       C1   10.86   28.93   35.84   35.85   25.96
+       C2    9.37   45.18   38.75   29.75   33.09
+       C3   17.17   39.11    8.90   34.99   33.65
+       C4   31.16   32.73   32.32   33.75   32.92
+       C5    4.73    6.45    4.90    6.78    5.47
+       C6   43.20   45.22   38.42   19.32    6.79
+       C7   34.11   39.94   29.08   37.00   30.90
+       C8    5.28   43.34    9.85   25.29   33.28
+   Over the 40: median 31.74, quartiles 10.61 and 35.84 (numpy's linear interpolation), range 4.73 to 45.22.
+   At or above 40.2 nats, the paper's 320-step value, by the harm after step 320 (as the checkpoint's Section 7 counted its 12.5 and 31 percent): 4 of 40 (10.0 percent).
+   At or above 40.2 nats, by the final level: 4 of 40 (10.0 percent).
+
+6. Description: the breakout step.
+   Each search's breakout step, the first step k at which (record[k - 1] + record[k]) / 2 reaches 5 nats
+   (pilot.crossing, the harm-level table's rule), the 40 searches of this test; "-" where it never does within 320 steps:
+               s9     s10     s11     s12     s13
+       C1      52      62      78      43     287
+       C2      90      56      67      48     110
+       C3     181      56     161      46     220
+       C4     104      46      92      30      54
+       C5       -     164     193      57     205
+       C6      94      78      75      75      68
+       C7      73      61      55      59      51
+       C8     263      64     228      61      38
+   By start, over the eight batches: the median breakout step (a search that never breaks out counted as later than any
+   that does), and how many never break out.
+    start    median   never
+        9        99       1
+       10      61.5       0
+       11        85       0
+       12      52.5       0
+       13        89       0
+   By batch, over starts 9 to 13: the median breakout step, and how many never break out.
+    batch    median   never
+       C1        62       0
+       C2        67       0
+       C3       161       0
+       C4        54       0
+       C5       193       1
+       C6        75       0
+       C7        59       0
+       C8        64       0

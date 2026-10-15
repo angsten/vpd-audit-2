@@ -1,0 +1,194 @@
+{
+ "g4_across_precisions": {
+  "inherited": {
+   "cache": "vpd-audit-cache:donors/E_main.npz",
+   "sha256": {
+    "indices": "d38845bac6777343174c6d97d12e0d08e9d97d1527b0067dae0fdda7db20026a",
+    "indptr": "d2154945a0a03dde52177a44f5007dd057f44e51e40f33fbcf4feb699a8b3101",
+    "values": "0429eaa5707467dd211070777d29df97ba8d460a2c6c668a0e5ddbaa58b1e131"
+   },
+   "precision": "bf16",
+   "set_hash": "81f8b75b4c31fc95836841062b0c49c4237b3e83dce43397b8ad7e927c18d103",
+   "commits": {
+    "dirty": "0",
+    "project": "6358459f305e2c641d814a0de22f32ce99691189",
+    "submodule": "74146b555f3eb3cd2bc639c3789fd3b7a099094a"
+   }
+  },
+  "fresh": {
+   "cache": "vpd-audit-2-cache:labels/Q_fp32.npz",
+   "sha256": {
+    "band_indices": "daae9922f4876300e4ff02d357fce7ef4fb0fe6d2270ebe2a56cdb640dee56d1",
+    "band_indptr": "6016c4879a7a9f72f53cb3b9c38361558d2d7762eaef5cee1185da986cc06ca0",
+    "band_z": "944f38aa3155ca146425b465deeaa57b66fd44600ba57624f27bdcf313381359",
+    "indices": "0c994d099adbb1ab884e24d979280d0c61c03d6993f5bacb3b74eafb71708783",
+    "indptr": "0bc8c160835bc4f42f45a282578e868918e22df73e29f1727d139d8270fc19be",
+    "values": "c8d63de64f0ba94bcaae0abbe07402fba8ffbf3946071a8ec6342018855640e3",
+    "z": "5fb7e3e4318adc5031bb9d94f657bc22f55ed89ed7dcc30332c2e6e1f953e3ea"
+   },
+   "precision": "fp32, autocast off, TF32 off, float32 matmul precision highest"
+  },
+  "entries_inherited": 106650413,
+  "entries_fresh": 106709397,
+  "entries_in_both": 105743014,
+  "abs_label_difference_in_both": {
+   "p99.9": 0.26360027857872503,
+   "p99": 0.11993153721094174,
+   "p50": 0.0,
+   "max": 0.9997374585364014,
+   "mean": 0.011994645387682273
+  },
+  "mean_count_above_0_per_position": {
+   "inherited": 203.41951942443848,
+   "fresh": 203.5320224761963,
+   "relative_difference": 0.0005530592741351814
+  },
+  "crossing_0": {
+   "inherited_only": 907399,
+   "fresh_only": 966383,
+   "total": 1873782,
+   "per_position": 3.573955535888672
+  },
+  "crossing_0.1": {
+   "inherited_only": 793080,
+   "fresh_only": 844091,
+   "total": 1637171,
+   "per_position": 3.1226558685302734
+  },
+  "rule": "passes if the 99.9th percentile of |label difference| over entries in both is below 0.02 and the mean count of labels > 0 per position agrees within 5%",
+  "passes": false
+ },
+ "g4_like_for_like": {
+  "inherited": {
+   "cache": "vpd-audit-cache:donors/E_main.npz",
+   "sha256": {
+    "indices": "d38845bac6777343174c6d97d12e0d08e9d97d1527b0067dae0fdda7db20026a",
+    "indptr": "d2154945a0a03dde52177a44f5007dd057f44e51e40f33fbcf4feb699a8b3101",
+    "values": "0429eaa5707467dd211070777d29df97ba8d460a2c6c668a0e5ddbaa58b1e131"
+   },
+   "precision": "bf16",
+   "set_hash": "81f8b75b4c31fc95836841062b0c49c4237b3e83dce43397b8ad7e927c18d103",
+   "commits": {
+    "dirty": "0",
+    "project": "6358459f305e2c641d814a0de22f32ce99691189",
+    "submodule": "74146b555f3eb3cd2bc639c3789fd3b7a099094a"
+   }
+  },
+  "fresh": {
+   "cache": "vpd-audit-2-cache:labels/reproduce/E_main.npz (bf16, the earlier harness's build_cache)",
+   "sha256": {
+    "indices": "d38845bac6777343174c6d97d12e0d08e9d97d1527b0067dae0fdda7db20026a",
+    "indptr": "d2154945a0a03dde52177a44f5007dd057f44e51e40f33fbcf4feb699a8b3101",
+    "values": "0429eaa5707467dd211070777d29df97ba8d460a2c6c668a0e5ddbaa58b1e131"
+   },
+   "precision": "bf16"
+  },
+  "entries_inherited": 106650413,
+  "entries_fresh": 106650413,
+  "entries_in_both": 106650413,
+  "abs_label_difference_in_both": {
+   "p99.9": 0.0,
+   "p99": 0.0,
+   "p50": 0.0,
+   "max": 0.0,
+   "mean": 0.0
+  },
+  "mean_count_above_0_per_position": {
+   "inherited": 203.41951942443848,
+   "fresh": 203.41951942443848,
+   "relative_difference": 0.0
+  },
+  "crossing_0": {
+   "inherited_only": 0,
+   "fresh_only": 0,
+   "total": 0,
+   "per_position": 0.0
+  },
+  "crossing_0.1": {
+   "inherited_only": 0,
+   "fresh_only": 0,
+   "total": 0,
+   "per_position": 0.0
+  },
+  "rule": "passes if the 99.9th percentile of |label difference| over entries in both is below 0.02 and the mean count of labels > 0 per position agrees within 5%",
+  "passes": true
+ },
+ "e_reproduction": {
+  "inherited": {
+   "cache": "vpd-audit-cache:donors/E_main.npz",
+   "sha256": {
+    "indices": "d38845bac6777343174c6d97d12e0d08e9d97d1527b0067dae0fdda7db20026a",
+    "indptr": "d2154945a0a03dde52177a44f5007dd057f44e51e40f33fbcf4feb699a8b3101",
+    "values": "0429eaa5707467dd211070777d29df97ba8d460a2c6c668a0e5ddbaa58b1e131"
+   },
+   "commits": {
+    "dirty": "0",
+    "project": "6358459f305e2c641d814a0de22f32ce99691189",
+    "submodule": "74146b555f3eb3cd2bc639c3789fd3b7a099094a"
+   },
+   "mean_nnz_per_position": 203.41951942443848,
+   "set_hash": "81f8b75b4c31fc95836841062b0c49c4237b3e83dce43397b8ad7e927c18d103"
+  },
+  "reproduced": {
+   "sha256": {
+    "indices": "d38845bac6777343174c6d97d12e0d08e9d97d1527b0067dae0fdda7db20026a",
+    "indptr": "d2154945a0a03dde52177a44f5007dd057f44e51e40f33fbcf4feb699a8b3101",
+    "values": "0429eaa5707467dd211070777d29df97ba8d460a2c6c668a0e5ddbaa58b1e131"
+   },
+   "mean_nnz_per_position": 203.41951942443848,
+   "set_hash": "81f8b75b4c31fc95836841062b0c49c4237b3e83dce43397b8ad7e927c18d103",
+   "commits": {
+    "dirty": "unknown",
+    "project": "unknown",
+    "submodule": "unknown"
+   },
+   "gpu_name": "NVIDIA A100-SXM4-40GB",
+   "torch_version": "2.8.0+cu128"
+  },
+  "arrays_identical": true,
+  "positions": 524288,
+  "positions_with_identical_fingerprint": 524288,
+  "first_unequal_position": null,
+  "fingerprint": "SHA-256 of a position's uint16 indices then float32 values"
+ },
+ "d_unif": {
+  "inherited": {
+   "cache": "vpd-audit-cache:donors/D_unif_main.npz",
+   "sha256": {
+    "indices": "5410c3d7f4f8d50379e94ceca991149ab21c9ae224066a1a4d7f9e4005251e61",
+    "indptr": "9546b5a2d04e99dc41b8c3b4801712e99b5db7959c371089eecdbde6fd997462",
+    "values": "c819fa29cae6119ec52045fab92a0daa9ef62274355f00dd1729120bd035b275"
+   },
+   "commits": {
+    "dirty": "1",
+    "project": "0b4ae4a58c7fa7f2324990cafe03eeff372c9227",
+    "submodule": "74146b555f3eb3cd2bc639c3789fd3b7a099094a"
+   },
+   "mean_nnz_per_position": 206.83881378173828,
+   "set_hash": "1807c12e26c0baec8065381127ee9b049d22aa85670680e03ea5e9b56ac8ed20"
+  },
+  "reproduced": {
+   "sha256": {
+    "indices": "5410c3d7f4f8d50379e94ceca991149ab21c9ae224066a1a4d7f9e4005251e61",
+    "indptr": "9546b5a2d04e99dc41b8c3b4801712e99b5db7959c371089eecdbde6fd997462",
+    "values": "c819fa29cae6119ec52045fab92a0daa9ef62274355f00dd1729120bd035b275"
+   },
+   "mean_nnz_per_position": 206.83881378173828,
+   "set_hash": "1807c12e26c0baec8065381127ee9b049d22aa85670680e03ea5e9b56ac8ed20",
+   "commits": {
+    "dirty": "unknown",
+    "project": "unknown",
+    "submodule": "unknown"
+   },
+   "gpu_name": "NVIDIA A100-SXM4-40GB",
+   "torch_version": "2.8.0+cu128"
+  },
+  "arrays_identical": true,
+  "positions": 524288,
+  "positions_with_identical_fingerprint": 524288,
+  "first_unequal_position": null,
+  "fingerprint": "SHA-256 of a position's uint16 indices then float32 values"
+ },
+ "g4_reading": "passes like for like; across precisions, the value difference is large",
+ "local_wall_seconds": 59.83307600021362
+}

@@ -1,0 +1,233 @@
+{
+ "cq_cache": {
+  "sha256": {
+   "indices": "04e7dfd66b50c5fa25310eb76d5f3a5c4b09cd1a7e9e1993a4d9f38947932f84",
+   "indptr": "b6fda9918f91ea232f39d4dbd2936ecf0fcd3ab432c4de2c8e2b0ec6f6f5e7cb",
+   "values": "fcd4537b034cac939a18e2e5cd36dcbe3e424ab138d2312df3c5e8816bb24da3",
+   "z": "25be98218f6789c19b7b8c782d0521e82f902bba408da59aabff684dbe5d17ec"
+  },
+  "labels_per_position": 193.93023681640625,
+  "dense_equals_prepare_labels": true,
+  "count_z_above_1": 1682007,
+  "nnz": 3177353
+ },
+ "nominal": {
+  "per_text": {
+   "0": {
+    "nominal": 10460,
+    "saturated": 5323,
+    "unsaturated": 5137
+   },
+   "1": {
+    "nominal": 10647,
+    "saturated": 5597,
+    "unsaturated": 5050
+   },
+   "2": {
+    "nominal": 9350,
+    "saturated": 4803,
+    "unsaturated": 4547
+   },
+   "3": {
+    "nominal": 9962,
+    "saturated": 5247,
+    "unsaturated": 4715
+   },
+   "4": {
+    "nominal": 10180,
+    "saturated": 5362,
+    "unsaturated": 4818
+   },
+   "5": {
+    "nominal": 9976,
+    "saturated": 5255,
+    "unsaturated": 4721
+   },
+   "6": {
+    "nominal": 11025,
+    "saturated": 5750,
+    "unsaturated": 5275
+   },
+   "7": {
+    "nominal": 11594,
+    "saturated": 6097,
+    "unsaturated": 5497
+   },
+   "8": {
+    "nominal": 10590,
+    "saturated": 5538,
+    "unsaturated": 5052
+   },
+   "9": {
+    "nominal": 8234,
+    "saturated": 4766,
+    "unsaturated": 3468
+   },
+   "10": {
+    "nominal": 9155,
+    "saturated": 5035,
+    "unsaturated": 4120
+   },
+   "11": {
+    "nominal": 9665,
+    "saturated": 5172,
+    "unsaturated": 4493
+   },
+   "12": {
+    "nominal": 11570,
+    "saturated": 6390,
+    "unsaturated": 5180
+   },
+   "13": {
+    "nominal": 10001,
+    "saturated": 5174,
+    "unsaturated": 4827
+   },
+   "14": {
+    "nominal": 9589,
+    "saturated": 5321,
+    "unsaturated": 4268
+   },
+   "15": {
+    "nominal": 8071,
+    "saturated": 4354,
+    "unsaturated": 3717
+   },
+   "16": {
+    "nominal": 11103,
+    "saturated": 5741,
+    "unsaturated": 5362
+   },
+   "17": {
+    "nominal": 10465,
+    "saturated": 5234,
+    "unsaturated": 5231
+   },
+   "18": {
+    "nominal": 9466,
+    "saturated": 4843,
+    "unsaturated": 4623
+   },
+   "19": {
+    "nominal": 11477,
+    "saturated": 5960,
+    "unsaturated": 5517
+   },
+   "20": {
+    "nominal": 10690,
+    "saturated": 5598,
+    "unsaturated": 5092
+   },
+   "21": {
+    "nominal": 10663,
+    "saturated": 5532,
+    "unsaturated": 5131
+   },
+   "22": {
+    "nominal": 6848,
+    "saturated": 4144,
+    "unsaturated": 2704
+   },
+   "23": {
+    "nominal": 11117,
+    "saturated": 5978,
+    "unsaturated": 5139
+   },
+   "24": {
+    "nominal": 6829,
+    "saturated": 4215,
+    "unsaturated": 2614
+   },
+   "25": {
+    "nominal": 10932,
+    "saturated": 5448,
+    "unsaturated": 5484
+   },
+   "26": {
+    "nominal": 9625,
+    "saturated": 4932,
+    "unsaturated": 4693
+   },
+   "27": {
+    "nominal": 10859,
+    "saturated": 5856,
+    "unsaturated": 5003
+   },
+   "28": {
+    "nominal": 8492,
+    "saturated": 4405,
+    "unsaturated": 4087
+   },
+   "29": {
+    "nominal": 10150,
+    "saturated": 5458,
+    "unsaturated": 4692
+   },
+   "30": {
+    "nominal": 10318,
+    "saturated": 5404,
+    "unsaturated": 4914
+   },
+   "31": {
+    "nominal": 9445,
+    "saturated": 4926,
+    "unsaturated": 4519
+   }
+  },
+  "total": {
+   "nominal": 318548,
+   "saturated": 168858,
+   "unsaturated": 149690
+  },
+  "labels_above_zero": 3177353
+ },
+ "prices_cq": {
+  "sha256_S": "cebe251f3a729675da6b137df7ec07d3bbaf37ff7086de646008868c6a807143",
+  "sha256_per_label": "7a66d0b7e8d12ac7029267e3aa82a228c1e4d0bc6a72e298e28da034d0003915",
+  "per_label_percentiles": {
+   "n": 3177353,
+   "p1": 0.00019769835713833597,
+   "p5": 0.00045527332037879794,
+   "p50": 0.001303663989406835,
+   "p95": 0.001773869475135162
+  }
+ },
+ "price_path_test": {
+  "texts": [
+   {
+    "q_text": 0,
+    "freed_entries": 16679,
+    "S_equal_stored": false,
+    "T_external": 20.428102152861676,
+    "T_stored": 20.428102152861676,
+    "abs_difference": 0.0,
+    "passes": true
+   },
+   {
+    "q_text": 1,
+    "freed_entries": 17341,
+    "S_equal_stored": false,
+    "T_external": 20.79395874504238,
+    "T_stored": 20.79395874504238,
+    "abs_difference": 0.0,
+    "passes": true
+   }
+  ],
+  "passes": true,
+  "rule": "|T_ext - T_stored| <= 1e-9 T + 1e-13"
+ },
+ "environment": {
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "deterministic_algorithms": true,
+  "deterministic_warn_only": false,
+  "cublas_workspace_config": ":4096:8",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": false,
+  "float32_matmul_precision": "highest",
+  "vpd_audit_2_commit": "b26f56d19cee28d50dc4690beb840da007894a97",
+  "vpd_audit_2_dirty": "0"
+ },
+ "function_seconds": 379.05276250839233
+}

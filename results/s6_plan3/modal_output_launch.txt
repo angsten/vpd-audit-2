@@ -1,0 +1,92 @@
+✓ Initialized. View run at 
+https://modal.com/apps/tangst10/main/ap-fQKljq8Z6hszDs1bVjFd5v
+Building image im-TG8yHJkb4wF2OafrkmRGoL
+
+=> Step 0: FROM base
+
+=> Step 1: ENV VPD_AUDIT_2_CACHE_DIR=/cache
+
+=> Step 2: ENV CUBLAS_WORKSPACE_CONFIG=:4096:8
+
+=> Step 3: ENV PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True
+
+=> Step 4: ENV PYTHONUNBUFFERED=1
+
+=> Step 5: ENV VPD_AUDIT_2_COMMIT=bce3e04c51486029128b43cc606d18bfa77b9bdb
+
+=> Step 6: ENV VPD_AUDIT_2_DIRTY=0
+Saving image...
+Image saved, took 1.08s
+
+Built image im-TG8yHJkb4wF2OafrkmRGoL in 1.91s
+
+
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/vpd_audit_
+│   2/modal_s6_plan3.py
+├── 🔨 Created mount PythonPackage:vpd_audit_2
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/provenance
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/pyproject.
+│   toml
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/uv.lock
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/third_part
+│   y/vpd-audit
+├── 🔨 Created function rerun_gpu.
+└── 🔨 Created function variants_gpu.
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
+Renaming init_spd_checkpoint to init_pd_checkpoint
+output_loss_type is deprecated, but has value: kl. Removing from config.
+Migrating pretrained_model_output_attr='idx_0' to output_extract
+Runner failed with exception: code: 'The operation was cancelled', message: "Timeout expired", source: tonic::transport::Error(Transport, TimeoutExpired(())): transport error: Timeout expired
+Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.
+✓ App completed. View run at 
+https://modal.com/apps/tangst10/main/ap-fQKljq8Z6hszDs1bVjFd5v

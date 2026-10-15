@@ -1,0 +1,297 @@
+{
+ "timings_s": {
+  "load": 42.92044019699097,
+  "fp32": 59.12223219871521,
+  "bf16_first": 33.25212240219116,
+  "bf16_second": 17.380408763885498,
+  "total": 161.5277807712555
+ },
+ "environment": {
+  "gpu": "NVIDIA A100-SXM4-40GB",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "cublas_workspace_config": ":4096:8",
+  "deterministic_algorithms": true,
+  "vpd_audit_2_commit": "dcd40fb5d28a9a774a323560cda0f0749cab9de1",
+  "vpd_audit_2_dirty": "0",
+  "cache_dir": "/__modal/volumes/vo-ou9Zl6cDdEd7PUHefsghu0",
+  "vpd_audit_cache_dir": "/__modal/volumes/vo-ou9Zl6cDdEd7PUHefsghu0",
+  "cache_inside_submodule": false
+ },
+ "artifacts": {
+  "s-55ea3f9b/final_config.yaml": {
+   "bytes": 3087,
+   "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+  },
+  "s-55ea3f9b/model_400000.pth": {
+   "bytes": 2908595703,
+   "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+  },
+  "t-9d2b8f02/ckpt/model_step_99999.pt": {
+   "bytes": 267736421,
+   "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+  },
+  "t-9d2b8f02/final_config.yaml": {
+   "bytes": 1318,
+   "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+  },
+  "t-9d2b8f02/model_config.yaml": {
+   "bytes": 323,
+   "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+  },
+  "t-9d2b8f02/tokenizer.json": {
+   "bytes": 3564303,
+   "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+  }
+ },
+ "checkpoints": {
+  "decomposition": "model_400000.pth",
+  "decomposition_step": 400000,
+  "target": "model_step_99999.pt",
+  "target_step": 99999
+ },
+ "fetched_final_config_sha256_equals_committed": true,
+ "model": {
+  "n_matrices": 24,
+  "n_subcomponents": 38912
+ },
+ "texts": {
+  "E": {
+   "rows": [
+    0,
+    1023
+   ],
+   "sha256_ids": "81f8b75b4c31fc95836841062b0c49c4237b3e83dce43397b8ad7e927c18d103",
+   "earlier_project_sha256": "81f8b75b4c31fc95836841062b0c49c4237b3e83dce43397b8ad7e927c18d103",
+   "equal": true
+  },
+  "D_unif": {
+   "rows": [
+    1024,
+    2047
+   ],
+   "sha256_ids": "1807c12e26c0baec8065381127ee9b049d22aa85670680e03ea5e9b56ac8ed20",
+   "earlier_project_sha256": "1807c12e26c0baec8065381127ee9b049d22aa85670680e03ea5e9b56ac8ed20",
+   "equal": true
+  }
+ },
+ "rows_used": {
+  "check_5": [
+   0,
+   1023
+  ],
+  "minimality": [
+   0,
+   63
+  ],
+  "stochastic": [
+   0,
+   127
+  ],
+  "loaded_and_hashed_only": [
+   1024,
+   2047
+  ]
+ },
+ "check_5": {
+  "a_all_on_delta_on_fp32": {
+   "value": -1.550357588064412e-09,
+   "dtype": "float32",
+   "delta": "on (mask 1)",
+   "expected": "< 1e-5"
+  },
+  "a_all_on_delta_on_bf16": {
+   "value": 0.0006230995083908015,
+   "dtype": "bf16 autocast",
+   "delta": "on (mask 1)",
+   "expected": "recorded; the earlier project allowed 1e-3"
+  },
+  "b_at_labels": {
+   "value": 0.341722512771622,
+   "dtype": "bf16 autocast",
+   "delta": "excluded (the first post's)",
+   "expected": 0.3417
+  },
+  "c_repeat": {
+   "value_second": 0.341722512771622,
+   "kl_bitwise_identical": true,
+   "label_fingerprints_identical": true,
+   "label_fingerprint_note": "vpd_audit/fingerprint.py level 3 (F) of the applied masks, per sub-batch of 64; for this condition the masks are the labels",
+   "max_abs_diff_per_position": 0.0
+  },
+  "d_labels_per_position": {
+   "bf16": {
+    "n_positions": 524288,
+    "above_0": 203.41951942443848,
+    "above_0.1": 189.7876377105713
+   },
+   "fp32": {
+    "n_positions": 524288,
+    "above_0": 203.5320224761963,
+    "above_0.1": 189.8849334716797
+   },
+   "expected": {
+    "above_0": 205,
+    "above_0.1": 170
+   },
+   "earlier_project_bf16_above_0": 203.42
+  },
+  "e_zero_ablate_all_24": {
+   "value": 67.10455925282622,
+   "dtype": "bf16 autocast",
+   "delta": "mask 0 (excluded)",
+   "expected": 67.2449,
+   "earlier_project_bf16_on_E": 67.1046
+  }
+ },
+ "check_6": {
+  "minimality": {
+   "p": 0.4,
+   "texts": [
+    0,
+    63
+   ],
+   "precision": "bf16 autocast (training)",
+   "ci_output": "upper_leaky",
+   "readings": [
+    {
+     "sum": "whole batch of 64 (world size 1)",
+     "eps": "eps_1e-12",
+     "beta": "beta_0.5",
+     "value": 1092.94580078125,
+     "within_10pct_of_paper_train_minimality_line_2224": true,
+     "ratio_to_paper_train_minimality_line_2224": 0.9917838482588476,
+     "within_10pct_of_logged_train_minimality_step_400000": true,
+     "ratio_to_logged_train_minimality_step_400000": 0.9841441697719513
+    },
+    {
+     "sum": "per process: 16 shares of 4 texts (world size 16), mean over shares",
+     "eps": "eps_1e-12",
+     "beta": "beta_0.5",
+     "value": 1123.8996772766113,
+     "within_10pct_of_paper_train_minimality_line_2224": true,
+     "ratio_to_paper_train_minimality_line_2224": 1.0198726654052734,
+     "within_10pct_of_logged_train_minimality_step_400000": true,
+     "ratio_to_logged_train_minimality_step_400000": 1.012016619680241
+    },
+    {
+     "sum": "whole batch of 64 (world size 1)",
+     "eps": "eps_1e-12",
+     "beta": "beta_0",
+     "value": 175.07138061523438,
+     "within_10pct_of_paper_train_minimality_line_2224": false,
+     "ratio_to_paper_train_minimality_line_2224": 0.158866951556474,
+     "within_10pct_of_logged_train_minimality_step_400000": false,
+     "ratio_to_logged_train_minimality_step_400000": 0.15764320463398127
+    },
+    {
+     "sum": "per process: 16 shares of 4 texts (world size 16), mean over shares",
+     "eps": "eps_1e-12",
+     "beta": "beta_0",
+     "value": 175.07137966156006,
+     "within_10pct_of_paper_train_minimality_line_2224": false,
+     "ratio_to_paper_train_minimality_line_2224": 0.15886695069107085,
+     "within_10pct_of_logged_train_minimality_step_400000": false,
+     "ratio_to_logged_train_minimality_step_400000": 0.15764320377524427
+    },
+    {
+     "sum": "whole batch of 64 (world size 1)",
+     "eps": "eps_0",
+     "beta": "beta_0.5",
+     "value": 1091.530517578125,
+     "within_10pct_of_paper_train_minimality_line_2224": true,
+     "ratio_to_paper_train_minimality_line_2224": 0.9904995622306034,
+     "within_10pct_of_logged_train_minimality_step_400000": true,
+     "ratio_to_logged_train_minimality_step_400000": 0.9828697765569026
+    },
+    {
+     "sum": "per process: 16 shares of 4 texts (world size 16), mean over shares",
+     "eps": "eps_0",
+     "beta": "beta_0.5",
+     "value": 1122.5614776611328,
+     "within_10pct_of_paper_train_minimality_line_2224": true,
+     "ratio_to_paper_train_minimality_line_2224": 1.0186583281861459,
+     "within_10pct_of_logged_train_minimality_step_400000": true,
+     "ratio_to_logged_train_minimality_step_400000": 1.010811636460924
+    },
+    {
+     "sum": "whole batch of 64 (world size 1)",
+     "eps": "eps_0",
+     "beta": "beta_0",
+     "value": 174.45791625976562,
+     "within_10pct_of_paper_train_minimality_line_2224": false,
+     "ratio_to_paper_train_minimality_line_2224": 0.15831026883826282,
+     "within_10pct_of_logged_train_minimality_step_400000": false,
+     "ratio_to_logged_train_minimality_step_400000": 0.1570908100245085
+    },
+    {
+     "sum": "per process: 16 shares of 4 texts (world size 16), mean over shares",
+     "eps": "eps_0",
+     "beta": "beta_0",
+     "value": 174.45791149139404,
+     "within_10pct_of_paper_train_minimality_line_2224": false,
+     "ratio_to_paper_train_minimality_line_2224": 0.15831026451124686,
+     "within_10pct_of_logged_train_minimality_step_400000": false,
+     "ratio_to_logged_train_minimality_step_400000": 0.1570908057308234
+    }
+   ],
+   "addition_eval_form": {
+    "sum": "whole batch of 128 (world size 1), the logged evaluation's form",
+    "eps": "eps_1e-12",
+    "beta": "beta_0.5",
+    "value": 1179.36279296875,
+    "texts": [
+     0,
+     127
+    ],
+    "within_10pct_of_logged_eval_minimality_step_400000": true,
+    "ratio_to_logged_eval_minimality_step_400000": 1.0181702372155157
+   },
+   "targets": {
+    "paper_train_minimality_line_2224": 1102.0,
+    "logged_train_minimality_step_400000": 1110.5545654296875,
+    "logged_eval_minimality_step_400000": 1158.31591796875
+   },
+   "seconds": 2.707667350769043
+  },
+  "stochastic": {
+   "texts": [
+    0,
+    127
+   ],
+   "seed": 0,
+   "draw_chunk_texts": 8,
+   "precision": "bf16 autocast (evaluation)",
+   "delta_components": "on, uniform source per position",
+   "routing": "uniform_k_subset",
+   "readings": [
+    {
+     "unrouted": "unrouted matrices at their target weights (the code's torch.where)",
+     "value": 0.2453089877963066,
+     "within_10pct_of_paper_eval_stochastic_line_2232": true,
+     "ratio_to_paper_eval_stochastic_line_2232": 1.0302771432016238,
+     "within_10pct_of_logged_eval_stochastic_step_400000": true,
+     "ratio_to_logged_eval_stochastic_step_400000": 1.04315168103135
+    },
+    {
+     "unrouted": "unrouted matrices at their labels: component masks g, delta mask 0",
+     "value": 0.28942265920341015,
+     "within_10pct_of_paper_eval_stochastic_line_2232": false,
+     "ratio_to_paper_eval_stochastic_line_2232": 1.2155508576371699,
+     "within_10pct_of_logged_eval_stochastic_step_400000": false,
+     "ratio_to_logged_eval_stochastic_step_400000": 1.2307406108058891
+    }
+   ],
+   "authors_function_value": 0.2453089877963066,
+   "authors_function_equals_target_weights_reading": true,
+   "mean_fraction_of_matrices_routed_per_position": 0.5218785603841146,
+   "targets": {
+    "paper_eval_stochastic_line_2232": 0.2381,
+    "logged_eval_stochastic_step_400000": 0.23516137897968292
+   },
+   "seconds": 3.531548500061035
+  }
+ },
+ "wall_seconds_in_function": 166.4710235595703,
+ "local_wall_seconds": 173.75776386260986
+}

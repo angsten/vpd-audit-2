@@ -1,0 +1,6 @@
+global:
+  seed:
+    values:
+    - 0
+    - 1
+    - 2

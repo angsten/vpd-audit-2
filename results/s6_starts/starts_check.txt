@@ -1,0 +1,83 @@
+The starts check (session 6, plan 1, Section 2.2). Description only: it reports what it finds and decides nothing.
+
+Files read, with their SHA-256:
+  results/s4_pilot/starts/starts_1_64.npz  dcb53978dc20a18b9aa6e03480cb8590d7c90f15434d3cc485b9804ea81b9f9d
+  results/s4_pilot/starts/starts_1_64.json  c9c83d15b146d05d4e9508594cfca12a1c85e3a18b921f16db16cca793f5289a
+  data/manifest/starts.npz  9278da3466665a963db94012f72931561f9b70481c392397891a095ff406264f
+
+1. Hashes. Each start's SHA-256 recomputed over its module arrays' bytes, concatenated in the layout's order, and compared
+   with the json's `sha256`.
+   Starts checked: 64. Matching: 64. Mismatched: none.
+   Starts 1 to 16 against data/manifest/starts.npz, entry for entry (dtype, shape, and bytes of every module array):
+   equal: 16 of 16. Differing arrays: none.
+
+2. The generator. The json's `generator` field:
+   torch.Generator('cpu').manual_seed(seed); torch.rand(shape, generator, dtype=float32) per module in order
+   Each start's `seed_key` and `seed`:
+   start  seed_key                    seed
+       1  [20261001, "start", 1]      6875797453968651413
+       2  [20261001, "start", 2]      4702526821930334475
+       3  [20261001, "start", 3]      4098375484526717014
+       4  [20261001, "start", 4]      4539821120154786095
+       5  [20261001, "start", 5]      948906274492635429
+       6  [20261001, "start", 6]      6301441773955057311
+       7  [20261001, "start", 7]      2876338914666812213
+       8  [20261001, "start", 8]      7545262499539678416
+       9  [20261001, "start", 9]      1680704475022990979
+      10  [20261001, "start", 10]     3953828769673211229
+      11  [20261001, "start", 11]     6635395253259276309
+      12  [20261001, "start", 12]     7864836533529830761
+      13  [20261001, "start", 13]     2618152277081271610
+   Every seed key above is [20261001, "start", s] with s the start's own index: yes.
+   Every start 1 to 64 drawn again from seed_of("start", s) by that scheme (torch 2.8.0, on this machine's CPU),
+   and compared with the file byte for byte, every module array's dtype, shape, and bytes:
+   bit-identical: 64 of 64. Differing: none.
+   Recorded `seed` equal to seed_of("start", s): 64 of 64. Differing: none.
+
+3. Each start's entries, all of them (the delta entries included), in float64. sd is the population standard deviation
+   (ddof = 0). KS is the Kolmogorov-Smirnov distance from the uniform distribution on [0, 1), sup |F_n(x) - x|.
+   Starts 1 to 8
+   start  entries       mean         sd          min          max  share < 0.5         KS
+       1    38936   0.502060   0.288578   0.00003088   0.99998993     0.495968   0.005489
+       2    38936   0.501335   0.288423   0.00000316   0.99995136     0.498793   0.003396
+       3    38936   0.498699   0.288621   0.00001347   0.99998313     0.502671   0.005442
+       4    38936   0.500834   0.288833   0.00001812   0.99992836     0.500848   0.003216
+       5    38936   0.499412   0.288869   0.00000685   0.99998796     0.499743   0.004046
+       6    38936   0.499948   0.289357   0.00005645   0.99998504     0.500950   0.002533
+       7    38936   0.502430   0.288176   0.00000089   0.99992621     0.495711   0.005425
+       8    38936   0.499430   0.288805   0.00000882   0.99999082     0.502928   0.003654
+   Starts 9 to 13
+   start  entries       mean         sd          min          max  share < 0.5         KS
+       9    38936   0.500059   0.288295   0.00002092   0.99997813     0.500925   0.002741
+      10    38936   0.499329   0.289131   0.00005597   0.99987692     0.501002   0.003224
+      11    38936   0.501356   0.289117   0.00005156   0.99996376     0.497046   0.004653
+      12    38936   0.498485   0.287263   0.00004864   0.99993509     0.503056   0.005565
+      13    38936   0.500078   0.289004   0.00003970   0.99998540     0.500770   0.002590
+   The flag: a start among 9 to 13 whose mean or KS distance lies outside the range spanned by starts 1 to 8 by more than
+   that range's width, that is below lo - width or above hi + width.
+   Mean: starts 1 to 8 span [0.498699, 0.502430], width 0.003731; flagged outside [0.494968, 0.506161]: none.
+   KS distance: starts 1 to 8 span [0.002533, 0.005489], width 0.002957; flagged outside [-0.000424, 0.008446]: none.
+
+4. Each start's 24 delta entries (the last entry of each module's array), in float64: their mean and minimum. A delta
+   entry's mask is the raw setting value, with no label under it.
+   Starts 1 to 8
+   start  entries       mean      minimum
+       1       24   0.560467   0.07349318
+       2       24   0.452193   0.01737988
+       3       24   0.594545   0.02469260
+       4       24   0.484289   0.02697110
+       5       24   0.501663   0.04852307
+       6       24   0.508376   0.00612313
+       7       24   0.556162   0.04604870
+       8       24   0.566263   0.02343804
+   Starts 9 to 13
+   start  entries       mean      minimum
+       9       24   0.473665   0.04316634
+      10       24   0.518001   0.10306513
+      11       24   0.451917   0.01062995
+      12       24   0.463607   0.00742638
+      13       24   0.444365   0.00328857
+
+5. For the record.
+   Entries per start: 38936 (every start 1 to 64); the json's `entries_per_start`: 38936.
+   Modules in the layout: 24. Arrays in starts_1_64.npz: 1536; in data/manifest/starts.npz: 384.

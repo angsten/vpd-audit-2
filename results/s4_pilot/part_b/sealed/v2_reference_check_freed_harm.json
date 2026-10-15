@@ -1,0 +1,13 @@
+{
+ "freed_arm_harm": {
+  "harm_ours": 1.5006676818540385,
+  "harm_theirs": 1.5006676818540385,
+  "precision": "bf16",
+  "form": "fill",
+  "arm": "nominal",
+  "text": "v2477791",
+  "cq_row": 0,
+  "seed": 1,
+  "moved_from": "results/s4_pilot/part_b/prerequisites.json as committed at a3b8ec2 (plan 7, item 1)"
+ }
+}

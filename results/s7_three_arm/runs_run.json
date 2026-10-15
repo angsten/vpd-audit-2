@@ -1,0 +1,397 @@
+{
+ "stage": "s7_three_arm_run",
+ "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+ "app_id": "ap-jpbYOMQEKHsdKpsC7m7hW0",
+ "launch": "ap-jpbYOMQEKHsdKpsC7m7hW0|s7_three_arm_run|1",
+ "summary": {
+  "stage": "s7_three_arm_run",
+  "containers": 6,
+  "finished_units": 6,
+  "expected_units": 6,
+  "stopped": false,
+  "function_seconds": 5862.297852516174,
+  "all_guards_true": true,
+  "complete": true,
+  "errors": {}
+ },
+ "containers": [
+  {
+   "container": "s7_three_arm|run|batch|s1",
+   "units": [
+    {
+     "unit": "run_batch_s1_n1000",
+     "sha256": "314ee194a1f1f62856417433720340e25e51c1c6fdc8162a24f7738010f9d1b9",
+     "guards": {
+      "written": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 958.151638507843,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M4EY0JX7DX7M29V5GH44981R"
+   },
+   "timings": {
+    "arm_run": 941.3138701915741,
+    "arm_run_count": 1000.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  },
+  {
+   "container": "s7_three_arm|run|batch|s2",
+   "units": [
+    {
+     "unit": "run_batch_s2_n1000",
+     "sha256": "1093528aef43deba83d2c2841c616bc6eaeecdfdb8b32c408d49a7b7ea0b0b80",
+     "guards": {
+      "written": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 951.7367737293243,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M4EY0PVJM28Y720EJMC5WVQR"
+   },
+   "timings": {
+    "arm_run": 934.3691828250885,
+    "arm_run_count": 1000.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  },
+  {
+   "container": "s7_three_arm|run|per_document|s1",
+   "units": [
+    {
+     "unit": "run_per_document_s1_n1000",
+     "sha256": "ead75877794ff3c965121a59046626a44188ce344f62434000f0aa8120be103a",
+     "guards": {
+      "written": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 946.3564078807831,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M4EY0JVBEEDCJE0RTYAFG4XR"
+   },
+   "timings": {
+    "arm_run": 932.5551481246948,
+    "arm_run_count": 1000.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  },
+  {
+   "container": "s7_three_arm|run|per_document|s2",
+   "units": [
+    {
+     "unit": "run_per_document_s2_n1000",
+     "sha256": "20eec91853a89199bbf052dc561ed03b10cfe0baf61a4d960667745638594fe5",
+     "guards": {
+      "written": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 946.486358165741,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M4EY0JX7EF6FR9JSX0HN76HR"
+   },
+   "timings": {
+    "arm_run": 932.7313647270203,
+    "arm_run_count": 1000.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  },
+  {
+   "container": "s7_three_arm|run|released|s1",
+   "units": [
+    {
+     "unit": "run_released_s1_n1000",
+     "sha256": "0d4a718628d9b927fba29d463522928d9e03f460ff0151721e4d5181b6e67b7d",
+     "guards": {
+      "written": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 1028.9829487800598,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M4EXFXDBFD7JD420MW99YZ4R"
+   },
+   "timings": {
+    "arm_run": 1000.6823856830597,
+    "arm_run_count": 1000.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  },
+  {
+   "container": "s7_three_arm|run|released|s2",
+   "units": [
+    {
+     "unit": "run_released_s2_n1000",
+     "sha256": "ffab00f612c16532b878147234adcfc98b3346afb6168405d6b7d3499d185881",
+     "guards": {
+      "written": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 1030.583725452423,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M4EXP0V1SE0AKNPRKP5QBF6R"
+   },
+   "timings": {
+    "arm_run": 1002.0105152130127,
+    "arm_run_count": 1000.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  }
+ ]
+}

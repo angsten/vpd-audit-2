@@ -1,0 +1,19 @@
+{
+ "read_at": "2026-10-08T02:02:19+00:00",
+ "latest_interval_posted": "2026-10-08 01:00:00+00:00",
+ "by_app": {
+  "ap-u3NzWGbib9WIfEv5MWvf6t": 10.309688,
+  "ap-g3CoMSLfbkheE7t13Gejzz": 1.45592339,
+  "ap-ROcQ6QhCC7elZJjmSBLKTo": 14.92952213,
+  "ap-o9PvPug65zRmdiKQxQU27l": 0.00088112,
+  "ap-fQKljq8Z6hszDs1bVjFd5v": 4.26474054
+ },
+ "apps": {
+  "ap-u3NzWGbib9WIfEv5MWvf6t": "plan 1, the starts test",
+  "ap-g3CoMSLfbkheE7t13Gejzz": "plan 2, wave 1",
+  "ap-ROcQ6QhCC7elZJjmSBLKTo": "plan 2, wave 2",
+  "ap-o9PvPug65zRmdiKQxQU27l": "plan 2, the (b2) settings on the CPU",
+  "ap-fQKljq8Z6hszDs1bVjFd5v": "plan 3, the rerun and the variants"
+ },
+ "note": "modal_lead._bill as read after plan 3's collect; billing posts by the hour and late"
+}

@@ -1,0 +1,20 @@
+Three intact-background variants on cell set S4 (session 6, plan 3, Section 7). Added after the readings, as description (plan 3, Section 7); no line.
+S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per length. Kept share: the sum over cells of (variant's harm - saved start
+harm) over the sum of (saved carried harm - saved start harm), as the conventions' Section 8(d). V1: entries at exactly 0 stay 0, every other
+entry 1. V2: mask s where the label is zero, 1 where positive, delta entries s. V3: mask l + s(1 - l) where the label is positive, 1 where zero,
+delta entries 1.
+
+The checks, per batch (the full setting on the split's path and the flat path, and the start on the split's path):
+  H1: check|s_everywhere 30.813553 against 30.813553, bit for bit yes; check|s0_everywhere 0.216215 against 0.216215, bit for bit yes; check|flat 30.813553 against 30.813553, bit for bit yes
+  H5: check|s_everywhere 21.348015 against 21.348015, bit for bit yes; check|s0_everywhere 0.219008 against 0.219008, bit for bit yes; check|flat 21.348015 against 21.348015, bit for bit yes
+  H9: check|s_everywhere 34.691792 against 34.691792, bit for bit yes; check|s0_everywhere 0.217920 against 0.217920, bit for bit yes; check|flat 34.691792 against 34.691792, bit for bit yes
+  H13: check|s_everywhere 37.356144 against 37.356144, bit for bit yes; check|s0_everywhere 0.220712 against 0.220712, bit for bit yes; check|flat 37.356144 against 37.356144, bit for bit yes
+
+The all-ones harm on the four batches: 0.0006 nats (H1 0.0006, H5 0.0006, H9 0.0006, H13 0.0006).
+
+    length   cells   V1: kept share, mean harm   V2: kept share, mean harm   V3: kept share, mean harm
+    n20        320   V1:      1.182,     0.672   V2:      0.673,     0.476   V3:      1.254,     0.699
+    n40        320   V1:      0.981,     1.732   V2:      0.488,     0.971   V3:      0.276,     0.644
+    n80        320   V1:      0.810,    13.691   V2:      0.242,     4.244   V3:      0.025,     0.635
+    n160       320   V1:      0.662,    19.161   V2:      0.237,     6.995   V3:      0.014,     0.624
+    n320       320   V1:      0.561,    18.494   V2:      0.264,     8.822   V3:      0.012,     0.612

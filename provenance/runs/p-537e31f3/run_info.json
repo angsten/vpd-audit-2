@@ -1,0 +1,14 @@
+{
+  "commit": "74146b555f3eb3cd2bc639c3789fd3b7a099094a",
+  "created_at": "2026-06-01T22:21:50Z",
+  "id": "p-537e31f3",
+  "name": "jose-replica",
+  "project": "goodfire/spd",
+  "state": "finished",
+  "tags": [
+    "launch-20260601_222041",
+    "lm",
+    "pile_llama_simple_mlp-4L"
+  ],
+  "url": "https://wandb.ai/goodfire/spd/runs/p-537e31f3"
+}

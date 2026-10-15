@@ -1,0 +1,37 @@
+Three cheap controls and the rounding check (session 6, plan 2; conventions, Section 8, with the addendum). Description only.
+Cell set S4: the 400 carried settings on H1, H5, H9, and H13 (320 cells per length).
+
+(a) The delta components' share of carried added harm remaining with the 24 delta entries at 1; from each start alone; and the saved
+    settings' delta entries (80 settings by 24 entries) at exactly 0, exactly 1, and between.
+  n20: 0.98 (by start: s9 0.98, s10 0.98, s11 0.98, s12 0.99, s13 0.98); delta entries at 0 747, at 1 935, between 238.
+  n40: 0.97 (by start: s9 0.98, s10 0.96, s11 0.97, s12 0.98, s13 0.96); delta entries at 0 910, at 1 780, between 230.
+  n80: 0.96 (by start: s9 0.96, s10 0.96, s11 0.95, s12 0.96, s13 0.96); delta entries at 0 1075, at 1 742, between 103.
+  n160: 0.96 (by start: s9 0.96, s10 0.96, s11 0.96, s12 0.96, s13 0.97); delta entries at 0 1051, at 1 758, between 111.
+  n320: 0.97 (by start: s9 0.96, s10 0.97, s11 0.96, s12 0.97, s13 0.97); delta entries at 0 1046, at 1 743, between 131.
+
+(b1) Every mask at its label: mean harm 0.34 over the 32 batches (held-out 0.34, attack 0.34), beside the start's 0.22 and the first post's 0.34 on its own texts.
+
+(b2) The first post's aggregated explanations, drawn from its recipient texts; beside its 0.80, 0.46, and about 4,544 components:
+  64 positions: mean harm 0.80; added above (b1) 0.46; draws' means from 0.75 to 0.87; union size 4393 (4197 to 4753).
+  16 positions: mean harm 0.44; added above (b1) 0.10; draws' means from 0.41 to 0.46; union size 1926 (1738 to 2067).
+
+(c) Two coarser shuffles: the copies' mean harm, beside the start's 0.22 and the run's band-matched 0.30 to 0.32; the share of alive entries moved by more than 0.5; for the whole matrix, the share of zeros landing on never-needed components.
+  within alive and never-needed:
+    n20: mean harm 0.31; alive moved by more than 0.5: 0.46.
+    n40: mean harm 0.31; alive moved by more than 0.5: 0.45.
+    n80: mean harm 0.31; alive moved by more than 0.5: 0.44.
+    n160: mean harm 0.31; alive moved by more than 0.5: 0.44.
+    n320: mean harm 0.30; alive moved by more than 0.5: 0.44.
+  over the whole matrix:
+    n20: mean harm 0.30; alive moved by more than 0.5: 0.45; zeros on never-needed: 0.75.
+    n40: mean harm 0.31; alive moved by more than 0.5: 0.45; zeros on never-needed: 0.75.
+    n80: mean harm 0.31; alive moved by more than 0.5: 0.44; zeros on never-needed: 0.75.
+    n160: mean harm 0.31; alive moved by more than 0.5: 0.44; zeros on never-needed: 0.75.
+    n320: mean harm 0.31; alive moved by more than 0.5: 0.43; zeros on never-needed: 0.75.
+
+(d) Rounding: the share of carried added harm remaining against the saved start; the rounded start's harm 0.32.
+  n20: rounded 1.11; snapped (at most 0.2 to 0, at least 0.8 to 1) 1.03.
+  n40: rounded 1.09; snapped (at most 0.2 to 0, at least 0.8 to 1) 1.03.
+  n80: rounded 1.01; snapped (at most 0.2 to 0, at least 0.8 to 1) 1.02.
+  n160: rounded 1.01; snapped (at most 0.2 to 0, at least 0.8 to 1) 1.05.
+  n320: rounded 1.02; snapped (at most 0.2 to 0, at least 0.8 to 1) 1.07.

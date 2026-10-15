@@ -1,0 +1,30 @@
+The first post's comparison rerun (session 6, plan 3, Section 4; the session 4 checkpoint, Appendix G.2; the freeze file, Part 1, Section 7).
+Pool Q, the first post's 1,024 texts, as eight batches of 128 in the manifest's order; starts 41 to 45; 20 steps; each search scored on its
+own batch only. A cell is the harm (nats) of the setting after step 20 on its batch. 40 cells per arm.
+
+Delta components searched, as the paper does: A = 0.696 nats, beside the paper's 0.83.
+    mean squares: MS_B 0.014403 (7 df), MS_S 0.015741 (4 df), MS_E 0.006406 (28 df)
+    components before truncation: batch 0.001599, start 0.001167; surviving: batch, start
+    variance of the mean: untruncated 0.000593431, after truncation 0.000593431; Welch-Satterthwaite df 6.06
+    95 percent interval: 0.637 to 0.756 nats (half-width 0.059)
+    by batch: QB1 0.693, QB2 0.735, QB3 0.677, QB4 0.673, QB5 0.646, QB6 0.689, QB7 0.648, QB8 0.810
+    by start: s41 0.684, s42 0.683, s43 0.646, s44 0.767, s45 0.702
+
+Delta components held at 0, as the first post's aggregations did: A = 0.690 nats, beside the paper's 0.83.
+    mean squares: MS_B 0.008595 (7 df), MS_S 0.017512 (4 df), MS_E 0.004354 (28 df)
+    components before truncation: batch 0.000848, start 0.001645; surviving: batch, start
+    variance of the mean: untruncated 0.000543815, after truncation 0.000543815; Welch-Satterthwaite df 5.38
+    95 percent interval: 0.631 to 0.749 nats (half-width 0.059)
+    by batch: QB1 0.707, QB2 0.712, QB3 0.673, QB4 0.667, QB5 0.648, QB6 0.693, QB7 0.648, QB8 0.773
+    by start: s41 0.675, s42 0.679, s43 0.637, s44 0.765, s45 0.695
+
+The clause beside the first post's 0.80, from the searched arm: 0.80/A = 1.149; the clause is "about as much".
+  As description, the held-at-0 arm's: 0.80/A = 1.159; its clause would be "about as much".
+
+The delta components: searched 0.696, held at 0 0.690, difference 0.006 nats.
+  Their share, 1 - A_held / A_searched: 0.009.
+  The paired difference (searched - held at 0, cell by cell), its interval by the same construction:
+    mean squares: MS_B 0.001298 (7 df), MS_S 0.000075 (4 df), MS_E 0.000718 (28 df)
+    components before truncation: batch 0.000116, start -0.000080; surviving: batch
+    variance of the mean: untruncated 1.63672e-05, after truncation 3.24411e-05; Welch-Satterthwaite df 7.00
+    95 percent interval: -0.007 to 0.020 nats (half-width 0.013)

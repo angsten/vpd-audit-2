@@ -1,0 +1,36 @@
+A dose-response on the rounded off set, on cell set S4 (session 6, plan 3, Section 9). Added at the PI's request, as description (plan 3, Section 9); no line.
+S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per step. The rounded off set is the setting's entries below one half
+(delta entries included). At fraction f, a random f of the off set is set to 0 and every other entry to 1; f = 1 is the rounded setting
+(plan 2's control (d), not scored again), f = 0 is all ones (plan 2's ones pass).
+Kept share: the sum over cells of (harm - saved start harm) over the sum of (saved carried harm - saved start harm), as Section 8 is read.
+
+The f = 1 hash check: the builder at f = 1 reproduces the hash plan 2 recorded for the rounded pass in 1600 of 1600 cells, and equals the rounded setting in 400 of 400 settings.
+
+The checks, per batch (the full setting on the split's path and the flat path, and the start on the split's path):
+  H1: check|s_everywhere 30.813553 against 30.813553, bit for bit yes; check|s0_everywhere 0.216215 against 0.216215, bit for bit yes; check|flat 30.813553 against 30.813553, bit for bit yes
+  H5: check|s_everywhere 21.348015 against 21.348015, bit for bit yes; check|s0_everywhere 0.219008 against 0.219008, bit for bit yes; check|flat 21.348015 against 21.348015, bit for bit yes
+  H9: check|s_everywhere 34.691792 against 34.691792, bit for bit yes; check|s0_everywhere 0.217920 against 0.217920, bit for bit yes; check|flat 34.691792 against 34.691792, bit for bit yes
+  H13: check|s_everywhere 37.356144 against 37.356144, bit for bit yes; check|s0_everywhere 0.220712 against 0.220712, bit for bit yes; check|flat 37.356144 against 37.356144, bit for bit yes
+
+Kept share, by step and fraction f:
+    step     cells       f = 0    f = 0.25     f = 0.5    f = 0.75     f = 0.9       f = 1
+    n20        320      -0.565       0.419       0.515       0.660       0.878       1.112
+    n40        320      -0.141       0.098       0.140       0.298       0.673       1.087
+    n80        320      -0.013       0.008       0.011       0.046       0.414       1.011
+    n160       320      -0.008       0.005       0.006       0.041       0.408       1.007
+    n320       320      -0.007       0.004       0.005       0.040       0.424       1.021
+
+Mean harm in nats, by step and fraction f:
+    step     cells       f = 0    f = 0.25     f = 0.5    f = 0.75     f = 0.9       f = 1
+    n20        320       0.001       0.379       0.415       0.471       0.555       0.644
+    n40        320       0.001       0.368       0.434       0.678       1.256       1.895
+    n80        320       0.001       0.357       0.401       0.984       7.102      17.024
+    n160       320       0.001       0.351       0.395       1.381      11.893      29.054
+    n320       320       0.001       0.347       0.392       1.520      14.028      33.524
+
+At 320 steps, the kept share per batch (80 cells each):
+    batch           f = 0    f = 0.25     f = 0.5    f = 0.75     f = 0.9       f = 1
+    H1             -0.007       0.004       0.006       0.041       0.425       1.024
+    H5             -0.007       0.004       0.005       0.039       0.423       1.020
+    H9             -0.007       0.004       0.005       0.040       0.422       1.022
+    H13            -0.007       0.004       0.005       0.039       0.425       1.020

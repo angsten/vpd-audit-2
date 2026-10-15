@@ -1,0 +1,22 @@
+✓ Initialized. View run at 
+https://modal.com/apps/tangst10/main/ap-1hcBPrx77ntdzJqKcsEdHc
+✓ Created objects.
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/vpd_audit_
+│   2/modal_s6_plan3.py
+├── 🔨 Created mount PythonPackage:vpd_audit_2
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/provenance
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/pyproject.
+│   toml
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/uv.lock
+├── 🔨 Created mount 
+│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/third_part
+│   y/vpd-audit
+├── 🔨 Created function rerun_gpu.
+└── 🔨 Created function variants_gpu.
+Stopping app - local entrypoint completed.
+✓ App completed. View run at 
+https://modal.com/apps/tangst10/main/ap-1hcBPrx77ntdzJqKcsEdHc

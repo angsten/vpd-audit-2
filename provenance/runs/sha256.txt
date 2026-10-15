@@ -1,0 +1,86 @@
+3796f8a5694e2d1c5018f72c14c2183ab9a229668cc4d2d830f01db7799a6125  .cache/wandb_logs/s-55ea3f9b/config.yaml (not committed)
+07089dec704e9e8feb74941bc31a9cb86d5bdad2373ad520fefa6d378c799680  .cache/wandb_logs/s-55ea3f9b/output.log (not committed)
+75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc  provenance/runs/s-55ea3f9b/final_config.yaml
+8b1fa34ad4573ac1ecbdb042263c1bf078523d5148b338127cebf91a442ec5a9  provenance/runs/s-55ea3f9b/requirements.txt
+51bcdb9a4cc5ac42b47d9f5f3e34837b6403fa44887659c02551edaeca84cac1  provenance/runs/s-55ea3f9b/run_info.json (API, written here)
+cfbabfd7ea755ff968f8c395fe1c02caf2f2bd18c1b916317a64344ee4bd6901  provenance/runs/s-55ea3f9b/summary.json (API, written here)
+30601a04d804740783f92d38d34119b47d92c76397a65930cbf82fce4bd814f9  provenance/runs/s-55ea3f9b/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/s-55ea3f9b/wandb_metadata.json (API, written here)
+d117d377f6153f5bad38ae39713ed229e582b33fd921082df503779b9179505c  .cache/wandb_logs/s-05ef623e/config.yaml (not committed)
+72d684bf172837e83ae02e3d8ef50d6ecda8b72f561f3d85843a2322593b26de  .cache/wandb_logs/s-05ef623e/output.log (not committed)
+3848905f7b51de98970b7319e088e44bc0449df6d54fbe10bbac2e1833aaae73  provenance/runs/s-05ef623e/final_config.yaml
+253556b49038e2b75ca49b627ab1de79e6a35d364e8d848a45328ef9b26146d0  provenance/runs/s-05ef623e/requirements.txt
+220b1cd54afdb24a6720458e372f80609af85650fcfece996003c91653212d5c  provenance/runs/s-05ef623e/run_info.json (API, written here)
+d28d7a8d8991d464681e3e91813aad95600a352ba6609d454b9640367f4f4fbe  provenance/runs/s-05ef623e/summary.json (API, written here)
+ad6f545bfd1f6a421650ce4ab203f7fadb06069142d277aa238e3f9f1e9bf98b  provenance/runs/s-05ef623e/sweep_params.yaml
+2a6b8a3d97674ed06d32379eabae10e057b23ccac0ec83e37d971cd3279ad5b2  provenance/runs/s-05ef623e/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/s-05ef623e/wandb_metadata.json (API, written here)
+7398ed36847c4e590a51d232dcf703a18fdd838540c51b8ab179b04ab86d9e30  .cache/wandb_logs/t-9d2b8f02/config.yaml (not committed)
+1a8b52d542ee6d615825412b579f398efa84a8760163481165c55e674d65d2ca  .cache/wandb_logs/t-9d2b8f02/output.log (not committed)
+565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7  provenance/runs/t-9d2b8f02/final_config.yaml
+9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d  provenance/runs/t-9d2b8f02/model_config.yaml
+33f2dd54c43015ae207bf3fd0010263e5d77101458784b4d07fc677ce09e0488  provenance/runs/t-9d2b8f02/requirements.txt
+f188ebaed96815565a5de02b6423e23e57b244636f9714769003fb327a9df3a4  provenance/runs/t-9d2b8f02/run_info.json (API, written here)
+e32655dff3cffed18801bdf03574062d7502a837ee65bebf473db414d2939c29  provenance/runs/t-9d2b8f02/summary.json (API, written here)
+853787c2d2705377d839766a77b37678fba847ca861dc3c6210800bbff7a74b9  provenance/runs/t-9d2b8f02/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/t-9d2b8f02/wandb_metadata.json (API, written here)
+efeec2a7d39f58a9f5e23f90ff4495aa0d685ed6681ee13dcde5b615a6ff177d  .cache/wandb_logs/p-8383f5e5/config.yaml (not committed)
+100a79b560df153cf6839208ccd3be1fcc300d56c6e56b8e8e3461612ec5d13d  .cache/wandb_logs/p-8383f5e5/output.log (not committed)
+e4d5f8b7affaf42cb32d4859d42d17dc4152fd569c62c1bfd4a010d1861c29ae  provenance/runs/p-8383f5e5/requirements.txt
+183a186a363aba31ea7d97cb7be4739d2c1e405f069ddd08f68ace66f5de5d51  provenance/runs/p-8383f5e5/run_info.json (API, written here)
+61bc1fa3b117469a58adcd8f5e8a2bc5c98077b51e76561c540287b790adc74f  provenance/runs/p-8383f5e5/summary.json (API, written here)
+00fb75004cafcfd16d43f8d4748635424a0d9e64854597c06506fde351fa43c9  provenance/runs/p-8383f5e5/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/p-8383f5e5/wandb_metadata.json (API, written here)
+19d7d5c8456c171d052c636a56806f5aec3516bf1d93f3fde5470948a5f2f5e7  .cache/wandb_logs/s-e8bde534/config.yaml (not committed)
+9cf4129e0e1913071cbed7a9113d921d71576bd6a59b2b68827e6b0e201ea33f  .cache/wandb_logs/s-e8bde534/output.log (not committed)
+5ac35758dc5f6c2e915252a5e388f22d10de9247030455a5762547235ca4e688  provenance/runs/s-e8bde534/final_config.yaml
+d8eb16cc5b78bbb5c25b93531cf14ac815d4fd40a920e243a8efca34419ff641  provenance/runs/s-e8bde534/requirements.txt
+77f83f8bc051be129fceb601ef3346e392858b91c83ef3ec291b78cf60f7cbab  provenance/runs/s-e8bde534/run_info.json (API, written here)
+a11b3c94057fa84da19e424886a6bda55a70fc7b1174126f46cde5c191d11ee6  provenance/runs/s-e8bde534/summary.json (API, written here)
+5e1e736e962034d7f333c7adf22ec18d75d06bdfc2f37b0aa94675bc97385290  provenance/runs/s-e8bde534/sweep_params.yaml
+fa15bc77cac1e13f44bd4dbc495f4f83c90debd4295418cb9869503e7fe0530d  provenance/runs/s-e8bde534/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/s-e8bde534/wandb_metadata.json (API, written here)
+877a209d8918211ab0cd079a5c6db764db0481919387a69a3693b5ddd924991e  .cache/wandb_logs/s-73d2385c/config.yaml (not committed)
+1f358448f3a93f635443f76e30e94acf7ff56c330d6b9f471b9325ecaaf34e1a  .cache/wandb_logs/s-73d2385c/output.log (not committed)
+0f864b3df9a5fcb3bb41d8313e8d6e3be33ce10eb17879d1d95ed3cb5ab86969  provenance/runs/s-73d2385c/final_config.yaml
+534bba97609003ba588cef2242b21cc21f09d0b364e297ddd2ee0770811ea941  provenance/runs/s-73d2385c/requirements.txt
+e647b31127dca5384d51cfeb9c74127ba0d94b5643d2f52bc07d6c78263b5c7e  provenance/runs/s-73d2385c/run_info.json (API, written here)
+918aea909b288403f1c762d423318f6c8f83edc08be2c21e8fac50955c1cc624  provenance/runs/s-73d2385c/summary.json (API, written here)
+5e1e736e962034d7f333c7adf22ec18d75d06bdfc2f37b0aa94675bc97385290  provenance/runs/s-73d2385c/sweep_params.yaml
+a384c85e2c3a61bdb10bf1ed3b648ea081894df4ac2687a3923ebca1ceb85783  provenance/runs/s-73d2385c/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/s-73d2385c/wandb_metadata.json (API, written here)
+61b461c10f12d9dbb66766d38061b66931fab6f42805fb198b01cee5f6c9a0be  .cache/wandb_logs/s-aac60aec/config.yaml (not committed)
+d527b50872d09291b0869ef407dee3636c558a32dfe035649ac27bb398e1559d  .cache/wandb_logs/s-aac60aec/output.log (not committed)
+3364fb2a734ddc9cc16521446538d757a6959e97e5a309c3e6b90ea721214dda  provenance/runs/s-aac60aec/final_config.yaml
+1e5a9a6026fe7760ed0a63173b55461d0ec52356bb5616c869069a25140ad0e1  provenance/runs/s-aac60aec/requirements.txt
+66981549aba35b29c70b94c6b239f236ad9f3f7459685942942749a0bf3daa72  provenance/runs/s-aac60aec/run_info.json (API, written here)
+c46af33af3c59e1fb798ea58969cf8896bd26c4bbfdda25111ff33b6a173c38b  provenance/runs/s-aac60aec/summary.json (API, written here)
+5e1e736e962034d7f333c7adf22ec18d75d06bdfc2f37b0aa94675bc97385290  provenance/runs/s-aac60aec/sweep_params.yaml
+cbb00279deda47e590cdbe0214c9b0d50814957f6d6ff36f32d50d0ffe84179b  provenance/runs/s-aac60aec/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/s-aac60aec/wandb_metadata.json (API, written here)
+0334baac02aabfed9fd28a00489cf655354fe1e84bcf93b9138424ead4d2c9bb  .cache/wandb_logs/s-2d14f6c0/config.yaml (not committed)
+ba5194dddfeccff62100ee174d107d8d817f853e5833058a073c3f88911b11da  .cache/wandb_logs/s-2d14f6c0/output.log (not committed)
+c1862c37711500b3cf28f6b9fcac95abfc3bd68f99229ff8832700f3d2f47ae9  provenance/runs/s-2d14f6c0/final_config.yaml
+7b288b18bea9dc0d78db47458024228ea471eab333af6e778557dd42283aaffd  provenance/runs/s-2d14f6c0/requirements.txt
+8bfd7a6b8d8999f8a7c01239b4fb91bfd4a4822566e67aea97522c1e0080f796  provenance/runs/s-2d14f6c0/run_info.json (API, written here)
+5ae176ea076ef7204f9654f1a17f2c615ab26fa48cf60c37ae09e01afc0fffac  provenance/runs/s-2d14f6c0/summary.json (API, written here)
+5e1e736e962034d7f333c7adf22ec18d75d06bdfc2f37b0aa94675bc97385290  provenance/runs/s-2d14f6c0/sweep_params.yaml
+227ed23753b6e3c2466bbb4336030e623b146662b1f1dba96901edfaca77b222  provenance/runs/s-2d14f6c0/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/s-2d14f6c0/wandb_metadata.json (API, written here)
+6e695fe3bd7bbc589a950bad90e2cef0d3941f2de0dee9deaa30e3c047f0733e  .cache/wandb_logs/s-6a33629b/config.yaml (not committed)
+bcd1df28ace98bcc8abec04882558dba698aad15a4abd54df2ca72bdf3d4abaf  .cache/wandb_logs/s-6a33629b/output.log (not committed)
+a7914d99588dacf07d94c4b807312b07c3cb749d90f7796e961da7c8b1c79de9  provenance/runs/s-6a33629b/final_config.yaml
+86ed07169f8df32727176eb1d4f4e77003928080efa18739f1228152cab9d0d6  provenance/runs/s-6a33629b/requirements.txt
+6c315253b77d9fc7e833c9ccaad90959298fbfbcf28ce9c9d9886153b122b998  provenance/runs/s-6a33629b/run_info.json (API, written here)
+43a03908422f65d2bc4f19e0a4f654aa86f34f804ec47ebde8167689ff9094c9  provenance/runs/s-6a33629b/summary.json (API, written here)
+5e1e736e962034d7f333c7adf22ec18d75d06bdfc2f37b0aa94675bc97385290  provenance/runs/s-6a33629b/sweep_params.yaml
+05adc4bcae9e51a913d8315c0de4264cf9e7fd35e8b1a095eb441bf6074ed7fa  provenance/runs/s-6a33629b/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/s-6a33629b/wandb_metadata.json (API, written here)
+ba87e2f565b6374bcefeeaa71efa4c027c8ef9e729d27b9b78a9f8927c3ad64f  .cache/wandb_logs/p-537e31f3/config.yaml (not committed)
+ca410df24b6f3831936f4b99b495bb27c4613ee17fee316dbe6c086ab6c5237e  .cache/wandb_logs/p-537e31f3/output.log (not committed)
+fd82801a3f946802d65d74bbe650dec03672ecd45e3ebc4203d6da5d706ad056  provenance/runs/p-537e31f3/final_config.yaml
+afba91f5546f80ae29baf9f75a6b22a9f8936fb8f236d58f908d547e346db5c1  provenance/runs/p-537e31f3/requirements.txt
+06453264b0b0b8392291186492d651d0724d29c51d5e96abe3e3b00a058f907e  provenance/runs/p-537e31f3/run_info.json (API, written here)
+7e68b31b04190c6343653b21517e6e26e396a1077e077f473f20e7a39db44153  provenance/runs/p-537e31f3/summary.json (API, written here)
+948778bdad0a764b000774ea97a0dbec4e4bbea31ba28b999ff2b2f4fa537786  provenance/runs/p-537e31f3/wandb-summary.json
+44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a  provenance/runs/p-537e31f3/wandb_metadata.json (API, written here)

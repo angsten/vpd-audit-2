@@ -1,0 +1,28 @@
+{
+ "arm": "rehearsal_delta_on",
+ "files": [
+  {
+   "name": "table_core.npz",
+   "sha256": "2821e62f5eb9e2928d792486feb48cd77714f1f4c9ecfda797764db5b223ba79"
+  },
+  {
+   "name": "table_per_text_01.npz",
+   "sha256": "cb5895502bc1c2aa61060d890cc5be98becd34ab3cf8925454d40accc95a378a"
+  },
+  {
+   "name": "table_per_text_02.npz",
+   "sha256": "90ec5d8f8d98a6015ab3cf27980c0e378630581f21a346a2847e867dc7f39ead"
+  }
+ ],
+ "shapes": {
+  "K_A": 1,
+  "K_H": 1,
+  "n_s": 1,
+  "Q": 5,
+  "n_shuffles": 8,
+  "n_texts": 128,
+  "n_record": 21
+ },
+ "complete": true,
+ "run_commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e"
+}

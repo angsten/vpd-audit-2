@@ -1,0 +1,24 @@
+{
+ "arm": "rehearsal",
+ "files": [
+  {
+   "name": "table_core.npz",
+   "sha256": "a8fe2051a71c746b720071ca72d2f70029e3f288856dc8e422f6155815f00cd1"
+  },
+  {
+   "name": "table_per_text_01.npz",
+   "sha256": "6b0cf6908393958fa7bc7ca65e8239b1da4e9818c804209ccf9c4aef3cc899ac"
+  }
+ ],
+ "shapes": {
+  "K_A": 1,
+  "K_H": 1,
+  "n_s": 1,
+  "Q": 10,
+  "n_shuffles": 8,
+  "n_texts": 128,
+  "n_record": 321
+ },
+ "complete": true,
+ "run_commit": "e41dc952b961f496f99925b64f07d50e0f328820"
+}

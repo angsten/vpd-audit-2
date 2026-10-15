@@ -1,0 +1,817 @@
+{
+ "stages": {
+  "s7_three_arm_gate": {
+   "launches": [
+    {
+     "launch": "ap-7umM8jeQDGcprVuUvym501|s7_three_arm_gate|1",
+     "app_id": "ap-7umM8jeQDGcprVuUvym501",
+     "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+     "began": "2026-10-08T23:17:57+00:00",
+     "last_alive": 1791501719.1422532,
+     "ended": "2026-10-08T23:21:59+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "gate": 1791501477.444624
+     },
+     "calls": {
+      "gate": {
+       "outcome": "returned",
+       "wait_seconds": 241.69777011871338,
+       "returned_seconds": 24.3416748046875,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 24.3416748046875,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      }
+     },
+     "function_seconds": 24.3416748046875,
+     "container_lives": 1
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "s7_three_arm_gate",
+    "containers": 1,
+    "finished_units": 1,
+    "expected_units": 1,
+    "stopped": false,
+    "function_seconds": 24.3416748046875,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "s7_three_arm_rehearsal": {
+   "launches": [
+    {
+     "launch": "ap-Su5P4Iq4epu6NZYzHdZuwV|s7_three_arm_rehearsal|1",
+     "app_id": "ap-Su5P4Iq4epu6NZYzHdZuwV",
+     "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+     "began": "2026-10-08T23:22:46+00:00",
+     "last_alive": 1791501876.0852952,
+     "ended": "2026-10-08T23:24:36+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "rehearsal": 1791501767.121897
+     },
+     "calls": {
+      "rehearsal": {
+       "outcome": "returned",
+       "wait_seconds": 108.96359705924988,
+       "returned_seconds": 89.19351363182068,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 89.19351363182068,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      }
+     },
+     "function_seconds": 89.19351363182068,
+     "container_lives": 1
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "s7_three_arm_rehearsal",
+    "containers": 1,
+    "finished_units": 1,
+    "expected_units": 1,
+    "stopped": false,
+    "function_seconds": 89.19351363182068,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "s7_three_arm_run": {
+   "launches": [
+    {
+     "launch": "ap-jpbYOMQEKHsdKpsC7m7hW0|s7_three_arm_run|1",
+     "app_id": "ap-jpbYOMQEKHsdKpsC7m7hW0",
+     "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+     "began": "2026-10-08T23:25:11+00:00",
+     "last_alive": 1791503561.990546,
+     "ended": "2026-10-08T23:52:41+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "released|s1": 1791501911.6051462,
+      "released|s2": 1791501911.692909,
+      "per_document|s1": 1791501911.794463,
+      "per_document|s2": 1791501911.875006,
+      "batch|s1": 1791501911.950836,
+      "batch|s2": 1791501912.051606
+     },
+     "calls": {
+      "released|s1": {
+       "outcome": "returned",
+       "wait_seconds": 1193.9042048454285,
+       "returned_seconds": 1028.9829487800598,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1028.9829487800598,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      },
+      "released|s2": {
+       "outcome": "returned",
+       "wait_seconds": 1378.1523888111115,
+       "returned_seconds": 1030.583725452423,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 1030.583725452423,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      },
+      "per_document|s1": {
+       "outcome": "returned",
+       "wait_seconds": 1642.8692660331726,
+       "returned_seconds": 946.3564078807831,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 946.3564078807831,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      },
+      "per_document|s2": {
+       "outcome": "returned",
+       "wait_seconds": 1642.8463411331177,
+       "returned_seconds": 946.486358165741,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 946.486358165741,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      },
+      "batch|s1": {
+       "outcome": "returned",
+       "wait_seconds": 1649.9682302474976,
+       "returned_seconds": 958.151638507843,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 958.151638507843,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      },
+      "batch|s2": {
+       "outcome": "returned",
+       "wait_seconds": 1649.9402859210968,
+       "returned_seconds": 951.7367737293243,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 951.7367737293243,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      }
+     },
+     "function_seconds": 5862.297852516174,
+     "container_lives": 6
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "s7_three_arm_run",
+    "containers": 6,
+    "finished_units": 6,
+    "expected_units": 6,
+    "stopped": false,
+    "function_seconds": 5862.297852516174,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "s7_three_arm_extension": {
+   "launches": [
+    {
+     "launch": "ap-xafbAWoEW4ctH4ZZtbCZmI|s7_three_arm_extension|1",
+     "app_id": "ap-xafbAWoEW4ctH4ZZtbCZmI",
+     "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+     "began": "2026-10-08T23:53:42+00:00",
+     "last_alive": 1791504654.676543,
+     "ended": "2026-10-09T00:10:54+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "released|s1|x": 1791503622.903816
+     },
+     "calls": {
+      "released|s1|x": {
+       "outcome": "error",
+       "wait_seconds": 1031.7128100395203,
+       "returned_seconds": null,
+       "attempts": null,
+       "lives": 1,
+       "counted_seconds": 1031.7128100395203,
+       "error": "RemoteError outside the container's own code",
+       "stopped": null,
+       "finished_units": null,
+       "expected_units": null
+      }
+     },
+     "function_seconds": 1031.7128100395203,
+     "container_lives": 1
+    },
+    {
+     "launch": "ap-QgZaXS3iwO7xBd9LQigPT3|s7_three_arm_extension|2",
+     "app_id": "ap-QgZaXS3iwO7xBd9LQigPT3",
+     "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+     "began": "2026-10-09T00:28:37+00:00",
+     "last_alive": 1791507074.6898901,
+     "ended": "2026-10-09T00:51:14+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "released|s1|x": 1791505717.567845
+     },
+     "calls": {
+      "released|s1|x": {
+       "outcome": "returned",
+       "wait_seconds": 1357.122395992279,
+       "returned_seconds": 1261.4633257389069,
+       "attempts": 2,
+       "lives": 2,
+       "counted_seconds": 1357.122395992279,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      }
+     },
+     "function_seconds": 1357.122395992279,
+     "container_lives": 2
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "s7_three_arm_extension",
+    "containers": 1,
+    "finished_units": 1,
+    "expected_units": 1,
+    "stopped": false,
+    "function_seconds": 1261.4633257389069,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  },
+  "s7_three_arm_carry": {
+   "launches": [
+    {
+     "launch": "ap-X8E6tJdzF0PpqFnDwkOGS0|s7_three_arm_carry|1",
+     "app_id": "ap-X8E6tJdzF0PpqFnDwkOGS0",
+     "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+     "began": "2026-10-09T00:51:57+00:00",
+     "last_alive": 1791507193.4311922,
+     "ended": "2026-10-09T00:53:13+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "carry": 1791507134.859751
+     },
+     "calls": {
+      "carry": {
+       "outcome": "returned",
+       "wait_seconds": 58.57189178466797,
+       "returned_seconds": 50.346338748931885,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 50.346338748931885,
+       "error": null,
+       "stopped": false,
+       "finished_units": 1,
+       "expected_units": 1
+      }
+     },
+     "function_seconds": 50.346338748931885,
+     "container_lives": 1
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "s7_three_arm_carry",
+    "containers": 1,
+    "finished_units": 1,
+    "expected_units": 1,
+    "stopped": false,
+    "function_seconds": 50.346338748931885,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "before_gate",
+   "stage": "gate",
+   "parts": [
+    {
+     "stage": "gate",
+     "containers": [
+      {
+       "container": "gate",
+       "seconds": 900.0
+      }
+     ],
+     "seconds": 900.0,
+     "lives": 1
+    },
+    {
+     "stage": "rehearsal",
+     "containers": [
+      {
+       "container": "rehearsal",
+       "seconds": 1200.0
+      }
+     ],
+     "seconds": 1200.0,
+     "lives": 1
+    }
+   ],
+   "remaining": {
+    "function_seconds": 2100.0,
+    "container_lives": 2.0,
+    "at_the_flat_rate": 3.966666666666667,
+    "at_the_listed_price_with_boot": 4.004308,
+    "billed": null,
+    "dollars": 4.004308
+   },
+   "spent": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "spent_dollars": 0.0,
+   "remaining_dollars": 4.004308,
+   "projected_dollars": 4.004308,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "listed_hourly_price": 6.552504,
+   "at": "2026-10-08T23:17:57+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 24.3416748046875,
+    "container_lives": 1.0,
+    "at_the_flat_rate": 0.045978719075520834,
+    "at_the_listed_price_with_boot": 0.1353122559790039,
+    "billed": null,
+    "dollars": 0.1353122559790039
+   },
+   "spent_dollars": 0.1353122559790039,
+   "remaining": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "remaining_dollars": 0.0,
+   "projected_dollars": 0.1353122559790039,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "at": "2026-10-08T23:21:59+00:00",
+   "after_stage": "s7_three_arm_gate",
+   "bill_read_at": "2026-10-08T23:21:59+00:00",
+   "measured_seconds": {
+    "s7_three_arm_gate": 24.3416748046875
+   }
+  },
+  {
+   "check": "before_rehearsal",
+   "stage": "rehearsal",
+   "parts": [
+    {
+     "stage": "rehearsal",
+     "containers": [
+      {
+       "container": "rehearsal",
+       "seconds": 1200.0
+      }
+     ],
+     "seconds": 1200.0,
+     "lives": 1
+    }
+   ],
+   "remaining": {
+    "function_seconds": 1200.0,
+    "container_lives": 1.0,
+    "at_the_flat_rate": 2.2666666666666666,
+    "at_the_listed_price_with_boot": 2.275175,
+    "billed": null,
+    "dollars": 2.275175
+   },
+   "spent": {
+    "function_seconds": 24.3416748046875,
+    "container_lives": 1.0,
+    "at_the_flat_rate": 0.045978719075520834,
+    "at_the_listed_price_with_boot": 0.1353122559790039,
+    "billed": null,
+    "dollars": 0.1353122559790039
+   },
+   "spent_dollars": 0.1353122559790039,
+   "remaining_dollars": 2.275175,
+   "projected_dollars": 2.410487255979004,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "listed_hourly_price": 6.552504,
+   "at": "2026-10-08T23:22:46+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 113.53518843650818,
+    "container_lives": 2.0,
+    "at_the_flat_rate": 0.21445535593562656,
+    "at_the_listed_price_with_boot": 0.388663937880826,
+    "billed": null,
+    "dollars": 0.388663937880826
+   },
+   "spent_dollars": 0.388663937880826,
+   "remaining": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "remaining_dollars": 0.0,
+   "projected_dollars": 0.388663937880826,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "at": "2026-10-08T23:24:36+00:00",
+   "after_stage": "s7_three_arm_rehearsal",
+   "bill_read_at": "2026-10-08T23:24:36+00:00",
+   "measured_seconds": {
+    "s7_three_arm_rehearsal": 89.19351363182068
+   }
+  },
+  {
+   "check": "before_run",
+   "stage": "run",
+   "parts": [
+    {
+     "stage": "run",
+     "containers": [
+      {
+       "container": "released|s1",
+       "seconds": 1049.8394921885597
+      },
+      {
+       "container": "released|s2",
+       "seconds": 1049.8394921885597
+      },
+      {
+       "container": "per_document|s1",
+       "seconds": 991.4071250756582
+      },
+      {
+       "container": "per_document|s2",
+       "seconds": 991.4071250756582
+      },
+      {
+       "container": "batch|s1",
+       "seconds": 990.2680803140005
+      },
+      {
+       "container": "batch|s2",
+       "seconds": 990.2680803140005
+      }
+     ],
+     "seconds": 6063.029395156436,
+     "lives": 6
+    },
+    {
+     "stage": "carry",
+     "containers": [
+      {
+       "container": "carry",
+       "seconds": 300.0
+      }
+     ],
+     "seconds": 300.0,
+     "lives": 1
+    }
+   ],
+   "remaining": {
+    "function_seconds": 6363.029395156436,
+    "container_lives": 7.0,
+    "at_the_flat_rate": 12.01905552418438,
+    "at_the_listed_price_with_boot": 12.218653323300035,
+    "billed": null,
+    "dollars": 12.218653323300035
+   },
+   "spent": {
+    "function_seconds": 113.53518843650818,
+    "container_lives": 2.0,
+    "at_the_flat_rate": 0.21445535593562656,
+    "at_the_listed_price_with_boot": 0.388663937880826,
+    "billed": null,
+    "dollars": 0.388663937880826
+   },
+   "spent_dollars": 0.388663937880826,
+   "remaining_dollars": 12.218653323300035,
+   "projected_dollars": 12.607317261180862,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "listed_hourly_price": 6.552504,
+   "at": "2026-10-08T23:25:11+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 5975.8330409526825,
+    "container_lives": 8.0,
+    "at_the_flat_rate": 11.287684632910622,
+    "at_the_listed_price_with_boot": 11.604908751159616,
+    "billed": null,
+    "dollars": 11.604908751159616
+   },
+   "spent_dollars": 11.604908751159616,
+   "remaining": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "remaining_dollars": 0.0,
+   "projected_dollars": 11.604908751159616,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "at": "2026-10-08T23:52:42+00:00",
+   "after_stage": "s7_three_arm_run",
+   "bill_read_at": "2026-10-08T23:52:41+00:00",
+   "measured_seconds": {
+    "s7_three_arm_run": 5862.297852516174
+   }
+  },
+  {
+   "check": "before_extension",
+   "stage": "extension",
+   "parts": [
+    {
+     "stage": "extension",
+     "containers": [
+      {
+       "container": "released|x",
+       "seconds": 1278.941600004832
+      }
+     ],
+     "seconds": 1278.941600004832,
+     "lives": 1
+    }
+   ],
+   "remaining": {
+    "function_seconds": 1278.941600004832,
+    "container_lives": 1.0,
+    "at_the_flat_rate": 2.415778577786905,
+    "at_the_listed_price_with_boot": 2.4188597638327947,
+    "billed": null,
+    "dollars": 2.4188597638327947
+   },
+   "spent": {
+    "function_seconds": 5975.8330409526825,
+    "container_lives": 8.0,
+    "at_the_flat_rate": 11.287684632910622,
+    "at_the_listed_price_with_boot": 11.604908751159616,
+    "billed": null,
+    "dollars": 11.604908751159616
+   },
+   "spent_dollars": 11.604908751159616,
+   "remaining_dollars": 2.4188597638327947,
+   "projected_dollars": 14.023768514992412,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "listed_hourly_price": 6.552504,
+   "at": "2026-10-08T23:53:42+00:00"
+  },
+  {
+   "check": "before_extension",
+   "stage": "extension",
+   "parts": [
+    {
+     "stage": "extension",
+     "containers": [
+      {
+       "container": "released|x",
+       "seconds": 1278.941600004832
+      }
+     ],
+     "seconds": 1278.941600004832,
+     "lives": 1
+    }
+   ],
+   "remaining": {
+    "function_seconds": 1278.941600004832,
+    "container_lives": 1.0,
+    "at_the_flat_rate": 2.415778577786905,
+    "at_the_listed_price_with_boot": 2.4188597638327947,
+    "billed": null,
+    "dollars": 2.4188597638327947
+   },
+   "spent": {
+    "function_seconds": 7007.545850992203,
+    "container_lives": 9.0,
+    "at_the_flat_rate": 13.236475496318604,
+    "at_the_listed_price_with_boot": 13.573777505224948,
+    "billed": 11.78205425,
+    "dollars": 13.573777505224948
+   },
+   "spent_dollars": 13.573777505224948,
+   "remaining_dollars": 2.4188597638327947,
+   "projected_dollars": 15.992637269057742,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "listed_hourly_price": 6.552504,
+   "at": "2026-10-09T00:28:37+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 8364.668246984482,
+    "container_lives": 11.0,
+    "at_the_flat_rate": 15.799928910970687,
+    "at_the_listed_price_with_boot": 16.225944263066335,
+    "billed": 11.78205425,
+    "dollars": 16.225944263066335
+   },
+   "spent_dollars": 16.225944263066335,
+   "remaining": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "remaining_dollars": 0.0,
+   "projected_dollars": 16.225944263066335,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "at": "2026-10-09T00:51:15+00:00",
+   "after_stage": "s7_three_arm_extension",
+   "bill_read_at": "2026-10-09T00:51:14+00:00",
+   "measured_seconds": {
+    "s7_three_arm_extension": 2388.8352060317993
+   }
+  },
+  {
+   "check": "before_carry",
+   "stage": "carry",
+   "parts": [
+    {
+     "stage": "carry",
+     "containers": [
+      {
+       "container": "carry",
+       "seconds": 300.0
+      }
+     ],
+     "seconds": 300.0,
+     "lives": 1
+    }
+   ],
+   "remaining": {
+    "function_seconds": 300.0,
+    "container_lives": 1.0,
+    "at_the_flat_rate": 0.5666666666666667,
+    "at_the_listed_price_with_boot": 0.637049,
+    "billed": null,
+    "dollars": 0.637049
+   },
+   "spent": {
+    "function_seconds": 8364.668246984482,
+    "container_lives": 11.0,
+    "at_the_flat_rate": 15.799928910970687,
+    "at_the_listed_price_with_boot": 16.225944263066335,
+    "billed": 11.78205425,
+    "dollars": 16.225944263066335
+   },
+   "spent_dollars": 16.225944263066335,
+   "remaining_dollars": 0.637049,
+   "projected_dollars": 16.862993263066336,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "listed_hourly_price": 6.552504,
+   "at": "2026-10-09T00:51:57+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 8415.014585733414,
+    "container_lives": 12.0,
+    "at_the_flat_rate": 15.895027550829782,
+    "at_the_listed_price_with_boot": 16.408588648076815,
+    "billed": 11.78205425,
+    "dollars": 16.408588648076815
+   },
+   "spent_dollars": 16.408588648076815,
+   "remaining": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "remaining_dollars": 0.0,
+   "projected_dollars": 16.408588648076815,
+   "cap": 35.0,
+   "exceeds_cap": false,
+   "at": "2026-10-09T00:53:13+00:00",
+   "after_stage": "s7_three_arm_carry",
+   "bill_read_at": "2026-10-09T00:53:13+00:00",
+   "measured_seconds": {
+    "s7_three_arm_carry": 50.346338748931885
+   }
+  }
+ ],
+ "bills": [
+  {
+   "read_at": "2026-10-08T23:21:59+00:00",
+   "latest_interval_posted": "2026-10-08 22:00:00+00:00",
+   "by_app": {},
+   "error": null
+  },
+  {
+   "read_at": "2026-10-08T23:24:36+00:00",
+   "latest_interval_posted": "2026-10-08 22:00:00+00:00",
+   "by_app": {},
+   "error": null
+  },
+  {
+   "read_at": "2026-10-08T23:52:41+00:00",
+   "latest_interval_posted": "2026-10-08 22:00:00+00:00",
+   "by_app": {},
+   "error": null
+  },
+  {
+   "read_at": "2026-10-09T00:51:14+00:00",
+   "latest_interval_posted": "2026-10-08 23:00:00+00:00",
+   "by_app": {
+    "ap-7umM8jeQDGcprVuUvym501": 0.04733541,
+    "ap-Su5P4Iq4epu6NZYzHdZuwV": 0.16452491,
+    "ap-jpbYOMQEKHsdKpsC7m7hW0": 10.98859319,
+    "ap-xafbAWoEW4ctH4ZZtbCZmI": 0.58160074
+   },
+   "error": null
+  },
+  {
+   "read_at": "2026-10-09T00:53:13+00:00",
+   "latest_interval_posted": "2026-10-08 23:00:00+00:00",
+   "by_app": {
+    "ap-7umM8jeQDGcprVuUvym501": 0.04733541,
+    "ap-Su5P4Iq4epu6NZYzHdZuwV": 0.16452491,
+    "ap-jpbYOMQEKHsdKpsC7m7hW0": 10.98859319,
+    "ap-xafbAWoEW4ctH4ZZtbCZmI": 0.58160074
+   },
+   "error": null
+  }
+ ],
+ "guards_pass": null,
+ "stopped_by": null,
+ "stops": []
+}

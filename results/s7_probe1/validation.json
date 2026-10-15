@@ -1,0 +1,129 @@
+{
+ "commit": "363742912eee4da48b95d8fafb976ec50fb63eef",
+ "pairs": 1600,
+ "bottom_decile_cut": 2.299810791015625,
+ "pairs_above": 1440,
+ "sign_share_above": 0.9527777777777777,
+ "sign_share_all": 0.93125,
+ "spearman_all": 0.9175440097828164,
+ "spearman_above": 0.9184043660321982,
+ "pearson_all": 0.7259780241326032,
+ "rule": {
+  "sign_share_at_least": 0.9,
+  "spearman_at_least": 0.8
+ },
+ "passes": true,
+ "by_component_decile": {
+  "0": {
+   "pairs": 160,
+   "sign_share": 0.95625,
+   "median_abs_first": 4.335600852966309,
+   "median_abs_exact": 4.653658830139648
+  },
+  "1": {
+   "pairs": 160,
+   "sign_share": 0.9625,
+   "median_abs_first": 8.579686164855957,
+   "median_abs_exact": 8.892724994986565
+  },
+  "2": {
+   "pairs": 160,
+   "sign_share": 0.9375,
+   "median_abs_first": 12.136162281036377,
+   "median_abs_exact": 12.976164542284096
+  },
+  "3": {
+   "pairs": 160,
+   "sign_share": 0.95625,
+   "median_abs_first": 16.238280296325684,
+   "median_abs_exact": 17.3397011578636
+  },
+  "4": {
+   "pairs": 160,
+   "sign_share": 0.9125,
+   "median_abs_first": 15.719985961914062,
+   "median_abs_exact": 16.136795973725384
+  },
+  "5": {
+   "pairs": 160,
+   "sign_share": 0.94375,
+   "median_abs_first": 20.49057388305664,
+   "median_abs_exact": 19.21759901435871
+  },
+  "6": {
+   "pairs": 160,
+   "sign_share": 0.96875,
+   "median_abs_first": 19.8482666015625,
+   "median_abs_exact": 20.610595964360982
+  },
+  "7": {
+   "pairs": 160,
+   "sign_share": 0.89375,
+   "median_abs_first": 33.30658721923828,
+   "median_abs_exact": 32.75710707649705
+  },
+  "8": {
+   "pairs": 160,
+   "sign_share": 0.9,
+   "median_abs_first": 37.72222709655762,
+   "median_abs_exact": 42.01667397894198
+  },
+  "9": {
+   "pairs": 160,
+   "sign_share": 0.88125,
+   "median_abs_first": 96.46366119384766,
+   "median_abs_exact": 101.44670791254612
+  }
+ },
+ "null_spread_max": 0.0,
+ "texts": [
+  17,
+  19,
+  86,
+  93,
+  99,
+  113,
+  120,
+  125
+ ],
+ "components_left_out_as_zero": 0,
+ "candidates": 17815,
+ "pattern_kl_whole_batch_fp32": 31.75685602864518,
+ "s6_rounded_bf16": 31.833560943603516,
+ "lead_carried_bf16": 30.813552856445312,
+ "intact_against_target": [
+  {
+   "max_abs_logit_difference": 0.0005183219909667969,
+   "max_text_kl": 1.13239576601332e-08
+  },
+  {
+   "max_abs_logit_difference": 0.0005869865417480469,
+   "max_text_kl": 1.0258676116708595e-08
+  }
+ ],
+ "timings": {
+  "cell_intact": 5.516754865646362,
+  "cell_intact_count": 10.0,
+  "cell_intact_pattern": 8.177584409713745,
+  "cell_intact_pattern_count": 10.0,
+  "device_gib": 178.3511962890625,
+  "intact_graph": 0.5188171863555908,
+  "intact_graph_count": 2.0,
+  "peak_gib_allocated": 90.6864538192749,
+  "peak_gib_reserved": 91.939453125,
+  "prep_batch": 1.265439510345459,
+  "prep_batch_count": 1.0,
+  "to_job": 12.143249988555908,
+  "to_ready": 13.408958196640015,
+  "unit_write_intact": 0.18121814727783203,
+  "unit_write_intact_count": 10.0,
+  "unit_write_intact_pattern": 0.3549513816833496,
+  "unit_write_intact_pattern_count": 10.0,
+  "validation_check": 7.4218590259552,
+  "validation_check_count": 1.0,
+  "volume_commit": 8.559652090072632,
+  "volume_commit_count": 1.0
+ },
+ "setting_sha": "3f7c9ec58cbdfb4286a5796a0eab2e81234276ce8c2fde369620d39becd55f67",
+ "at": "2026-10-08T21:59:07+00:00"
+}

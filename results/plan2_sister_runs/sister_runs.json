@@ -1,0 +1,1115 @@
+{
+ "paper_values": {
+  "train/loss/ImportanceMinimalityLoss": 1102.0,
+  "train/loss/StochasticReconSubsetLoss": 0.2419,
+  "train/loss/PersistentPGDReconLoss": 0.5733,
+  "eval/loss/StochasticReconSubsetLoss": 0.2381,
+  "eval/loss/PGDReconLoss": 0.9268,
+  "eval/loss/StochasticHiddenActsReconLoss": 0.413,
+  "eval/loss/CIHiddenActsReconLoss": 0.8464
+ },
+ "paper_adversarial_20_step": 0.828,
+ "match_rule": "a logged value matches when it rounds to the paper's value at the paper's printed decimals",
+ "runs": {
+  "s-e8bde534": {
+   "name": "pile_llama_simple_mlp-4L-seed-0",
+   "commit": "e577c4b4298a6da2a09e58b74be7aba15d7c49c8",
+   "state": "finished",
+   "created_at": "2026-03-11T11:07:15Z",
+   "config_vs_released": {
+    "final_config_present": true,
+    "n_fields_released": 119,
+    "n_fields_here": 121,
+    "differences": {
+     "loss_metric_configs[PersistentPGDReconLoss].n_samples": {
+      "released": "<absent>",
+      "s-e8bde534": 1
+     },
+     "task_config.dataset_seed": {
+      "released": "<absent>",
+      "s-e8bde534": null
+     },
+     "wandb_run_name": {
+      "released": null,
+      "s-e8bde534": "pile_llama_simple_mlp-4L-seed-0"
+     }
+    },
+    "equal_apart_from_seed": false
+   },
+   "paper_tables": {
+    "train/loss/ImportanceMinimalityLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       379400,
+       1102.02587890625
+      ]
+     ],
+     "nearest": [
+      379400,
+      1102.02587890625
+     ],
+     "value_at_step_400000": 1075.960693359375
+    },
+    "train/loss/StochasticReconSubsetLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       159800,
+       0.24191762506961823
+      ],
+      [
+       170800,
+       0.24188551306724548
+      ],
+      [
+       183800,
+       0.24192233383655548
+      ],
+      [
+       397400,
+       0.24192532896995544
+      ]
+     ],
+     "nearest": [
+      170800,
+      0.24188551306724548
+     ],
+     "value_at_step_400000": 0.23242269456386566
+    },
+    "train/loss/PersistentPGDReconLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       289000,
+       0.5733283162117004
+      ],
+      [
+       387400,
+       0.5733041167259216
+      ]
+     ],
+     "nearest": [
+      387400,
+      0.5733041167259216
+     ],
+     "value_at_step_400000": 0.5718225836753845
+    },
+    "eval/loss/StochasticReconSubsetLoss": {
+     "n_logged": 401,
+     "matching_steps": [],
+     "nearest": [
+      245000,
+      0.2380094975233078
+     ],
+     "value_at_step_400000": 0.23780255019664764
+    },
+    "eval/loss/PGDReconLoss": {
+     "n_logged": 401,
+     "matching_steps": [],
+     "nearest": [
+      119000,
+      0.9288334846496582
+     ],
+     "value_at_step_400000": 0.6224380731582642
+    },
+    "eval/loss/StochasticHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [
+      [
+       210000,
+       0.41297510266304016
+      ]
+     ],
+     "nearest": [
+      210000,
+      0.41297510266304016
+     ],
+     "value_at_step_400000": 0.4241620600223541
+    },
+    "eval/loss/CIHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      250000,
+      0.8447662591934204
+     ],
+     "value_at_step_400000": 0.8749923706054688
+    }
+   },
+   "adversarial_20_step_0.8280": {
+    "n_logged": 401,
+    "matching_steps": [],
+    "nearest": [
+     296000,
+     0.8281170725822449
+    ],
+    "value_at_step_400000": 0.6224380731582642
+   }
+  },
+  "s-73d2385c": {
+   "name": "pile_llama_simple_mlp-4L-seed-1",
+   "commit": "e577c4b4298a6da2a09e58b74be7aba15d7c49c8",
+   "state": "finished",
+   "created_at": "2026-03-11T11:07:14Z",
+   "config_vs_released": {
+    "final_config_present": true,
+    "n_fields_released": 119,
+    "n_fields_here": 121,
+    "differences": {
+     "loss_metric_configs[PersistentPGDReconLoss].n_samples": {
+      "released": "<absent>",
+      "s-73d2385c": 1
+     },
+     "seed": {
+      "released": 0,
+      "s-73d2385c": 1
+     },
+     "task_config.dataset_seed": {
+      "released": "<absent>",
+      "s-73d2385c": null
+     },
+     "wandb_run_name": {
+      "released": null,
+      "s-73d2385c": "pile_llama_simple_mlp-4L-seed-1"
+     }
+    },
+    "equal_apart_from_seed": false
+   },
+   "paper_tables": {
+    "train/loss/ImportanceMinimalityLoss": {
+     "n_logged": 2001,
+     "matching_steps": [],
+     "nearest": [
+      268200,
+      1102.0721435546875
+     ],
+     "value_at_step_400000": 1068.72265625
+    },
+    "train/loss/StochasticReconSubsetLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       190000,
+       0.24194449186325073
+      ]
+     ],
+     "nearest": [
+      190000,
+      0.24194449186325073
+     ],
+     "value_at_step_400000": 0.24482542276382446
+    },
+    "train/loss/PersistentPGDReconLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       381000,
+       0.5733089447021484
+      ]
+     ],
+     "nearest": [
+      381000,
+      0.5733089447021484
+     ],
+     "value_at_step_400000": 0.5774459838867188
+    },
+    "eval/loss/StochasticReconSubsetLoss": {
+     "n_logged": 401,
+     "matching_steps": [
+      [
+       186000,
+       0.23809534311294556
+      ],
+      [
+       386000,
+       0.23810508847236633
+      ]
+     ],
+     "nearest": [
+      186000,
+      0.23809534311294556
+     ],
+     "value_at_step_400000": 0.24316459894180298
+    },
+    "eval/loss/PGDReconLoss": {
+     "n_logged": 401,
+     "matching_steps": [],
+     "nearest": [
+      257000,
+      0.9255987405776978
+     ],
+     "value_at_step_400000": 0.9364749193191528
+    },
+    "eval/loss/StochasticHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      260000,
+      0.41076502203941345
+     ],
+     "value_at_step_400000": 0.388179212808609
+    },
+    "eval/loss/CIHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      30000,
+      0.8434815406799316
+     ],
+     "value_at_step_400000": 0.7919957041740417
+    }
+   },
+   "adversarial_20_step_0.8280": {
+    "n_logged": 401,
+    "matching_steps": [],
+    "nearest": [
+     187000,
+     0.8295671939849854
+    ],
+    "value_at_step_400000": 0.9364749193191528
+   }
+  },
+  "s-aac60aec": {
+   "name": "pile_llama_simple_mlp-4L-seed-2",
+   "commit": "e577c4b4298a6da2a09e58b74be7aba15d7c49c8",
+   "state": "finished",
+   "created_at": "2026-03-11T14:52:26Z",
+   "config_vs_released": {
+    "final_config_present": true,
+    "n_fields_released": 119,
+    "n_fields_here": 121,
+    "differences": {
+     "loss_metric_configs[PersistentPGDReconLoss].n_samples": {
+      "released": "<absent>",
+      "s-aac60aec": 1
+     },
+     "seed": {
+      "released": 0,
+      "s-aac60aec": 2
+     },
+     "task_config.dataset_seed": {
+      "released": "<absent>",
+      "s-aac60aec": null
+     },
+     "wandb_run_name": {
+      "released": null,
+      "s-aac60aec": "pile_llama_simple_mlp-4L-seed-2"
+     }
+    },
+    "equal_apart_from_seed": false
+   },
+   "paper_tables": {
+    "train/loss/ImportanceMinimalityLoss": {
+     "n_logged": 2001,
+     "matching_steps": [],
+     "nearest": [
+      130800,
+      1102.0677490234375
+     ],
+     "value_at_step_400000": 1133.0592041015625
+    },
+    "train/loss/StochasticReconSubsetLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       159600,
+       0.24194100499153137
+      ],
+      [
+       179600,
+       0.24194490909576416
+      ]
+     ],
+     "nearest": [
+      159600,
+      0.24194100499153137
+     ],
+     "value_at_step_400000": 0.25818443298339844
+    },
+    "train/loss/PersistentPGDReconLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       232200,
+       0.5732592344284058
+      ],
+      [
+       379200,
+       0.573337733745575
+      ]
+     ],
+     "nearest": [
+      379200,
+      0.573337733745575
+     ],
+     "value_at_step_400000": 0.585685670375824
+    },
+    "eval/loss/StochasticReconSubsetLoss": {
+     "n_logged": 401,
+     "matching_steps": [
+      [
+       269000,
+       0.23812812566757202
+      ],
+      [
+       362000,
+       0.23806467652320862
+      ]
+     ],
+     "nearest": [
+      269000,
+      0.23812812566757202
+     ],
+     "value_at_step_400000": 0.227855384349823
+    },
+    "eval/loss/PGDReconLoss": {
+     "n_logged": 401,
+     "matching_steps": [],
+     "nearest": [
+      313000,
+      0.9260510802268982
+     ],
+     "value_at_step_400000": 0.6367195248603821
+    },
+    "eval/loss/StochasticHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      170000,
+      0.41314929723739624
+     ],
+     "value_at_step_400000": 0.42512452602386475
+    },
+    "eval/loss/CIHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      30000,
+      0.8456727266311646
+     ],
+     "value_at_step_400000": 0.8752484321594238
+    }
+   },
+   "adversarial_20_step_0.8280": {
+    "n_logged": 401,
+    "matching_steps": [],
+    "nearest": [
+     202000,
+     0.8278882503509521
+    ],
+    "value_at_step_400000": 0.6367195248603821
+   }
+  },
+  "s-2d14f6c0": {
+   "name": "pile_llama_simple_mlp-4L-seed-3",
+   "commit": "e577c4b4298a6da2a09e58b74be7aba15d7c49c8",
+   "state": "finished",
+   "created_at": "2026-03-11T14:52:26Z",
+   "config_vs_released": {
+    "final_config_present": true,
+    "n_fields_released": 119,
+    "n_fields_here": 121,
+    "differences": {
+     "loss_metric_configs[PersistentPGDReconLoss].n_samples": {
+      "released": "<absent>",
+      "s-2d14f6c0": 1
+     },
+     "seed": {
+      "released": 0,
+      "s-2d14f6c0": 3
+     },
+     "task_config.dataset_seed": {
+      "released": "<absent>",
+      "s-2d14f6c0": null
+     },
+     "wandb_run_name": {
+      "released": null,
+      "s-2d14f6c0": "pile_llama_simple_mlp-4L-seed-3"
+     }
+    },
+    "equal_apart_from_seed": false
+   },
+   "paper_tables": {
+    "train/loss/ImportanceMinimalityLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       120600,
+       1101.978271484375
+      ],
+      [
+       151400,
+       1102.0029296875
+      ],
+      [
+       154000,
+       1101.973388671875
+      ]
+     ],
+     "nearest": [
+      151400,
+      1102.0029296875
+     ],
+     "value_at_step_400000": 1121.159912109375
+    },
+    "train/loss/StochasticReconSubsetLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       192600,
+       0.24193605780601501
+      ],
+      [
+       232400,
+       0.24191656708717346
+      ],
+      [
+       375200,
+       0.24187181890010834
+      ],
+      [
+       397800,
+       0.24190552532672882
+      ]
+     ],
+     "nearest": [
+      397800,
+      0.24190552532672882
+     ],
+     "value_at_step_400000": 0.2437991201877594
+    },
+    "train/loss/PersistentPGDReconLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       276800,
+       0.5733199119567871
+      ]
+     ],
+     "nearest": [
+      276800,
+      0.5733199119567871
+     ],
+     "value_at_step_400000": 0.5822378993034363
+    },
+    "eval/loss/StochasticReconSubsetLoss": {
+     "n_logged": 401,
+     "matching_steps": [
+      [
+       388000,
+       0.23811157047748566
+      ]
+     ],
+     "nearest": [
+      388000,
+      0.23811157047748566
+     ],
+     "value_at_step_400000": 0.23580878973007202
+    },
+    "eval/loss/PGDReconLoss": {
+     "n_logged": 401,
+     "matching_steps": [],
+     "nearest": [
+      310000,
+      0.9260344505310059
+     ],
+     "value_at_step_400000": 1.5830472707748413
+    },
+    "eval/loss/StochasticHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      150000,
+      0.4127540588378906
+     ],
+     "value_at_step_400000": 0.4162723124027252
+    },
+    "eval/loss/CIHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      370000,
+      0.8474400043487549
+     ],
+     "value_at_step_400000": 0.86224365234375
+    }
+   },
+   "adversarial_20_step_0.8280": {
+    "n_logged": 401,
+    "matching_steps": [],
+    "nearest": [
+     128000,
+     0.8285967111587524
+    ],
+    "value_at_step_400000": 1.5830472707748413
+   }
+  },
+  "s-6a33629b": {
+   "name": "pile_llama_simple_mlp-4L-seed-4",
+   "commit": "e577c4b4298a6da2a09e58b74be7aba15d7c49c8",
+   "state": "finished",
+   "created_at": "2026-03-11T14:52:25Z",
+   "config_vs_released": {
+    "final_config_present": true,
+    "n_fields_released": 119,
+    "n_fields_here": 121,
+    "differences": {
+     "loss_metric_configs[PersistentPGDReconLoss].n_samples": {
+      "released": "<absent>",
+      "s-6a33629b": 1
+     },
+     "seed": {
+      "released": 0,
+      "s-6a33629b": 4
+     },
+     "task_config.dataset_seed": {
+      "released": "<absent>",
+      "s-6a33629b": null
+     },
+     "wandb_run_name": {
+      "released": null,
+      "s-6a33629b": "pile_llama_simple_mlp-4L-seed-4"
+     }
+    },
+    "equal_apart_from_seed": false
+   },
+   "paper_tables": {
+    "train/loss/ImportanceMinimalityLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       127600,
+       1101.96826171875
+      ],
+      [
+       399200,
+       1101.9947509765625
+      ]
+     ],
+     "nearest": [
+      399200,
+      1101.9947509765625
+     ],
+     "value_at_step_400000": 1111.28369140625
+    },
+    "train/loss/StochasticReconSubsetLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       173200,
+       0.24192766845226288
+      ],
+      [
+       292600,
+       0.2418673038482666
+      ],
+      [
+       324600,
+       0.2418917417526245
+      ]
+     ],
+     "nearest": [
+      324600,
+      0.2418917417526245
+     ],
+     "value_at_step_400000": 0.23001942038536072
+    },
+    "train/loss/PersistentPGDReconLoss": {
+     "n_logged": 2001,
+     "matching_steps": [
+      [
+       309200,
+       0.5732725858688354
+      ],
+      [
+       373200,
+       0.5732711553573608
+      ]
+     ],
+     "nearest": [
+      309200,
+      0.5732725858688354
+     ],
+     "value_at_step_400000": 0.5495251417160034
+    },
+    "eval/loss/StochasticReconSubsetLoss": {
+     "n_logged": 401,
+     "matching_steps": [
+      [
+       290000,
+       0.2381366789340973
+      ],
+      [
+       321000,
+       0.2381366491317749
+      ]
+     ],
+     "nearest": [
+      321000,
+      0.2381366491317749
+     ],
+     "value_at_step_400000": 0.2457670420408249
+    },
+    "eval/loss/PGDReconLoss": {
+     "n_logged": 401,
+     "matching_steps": [],
+     "nearest": [
+      84000,
+      0.9302389621734619
+     ],
+     "value_at_step_400000": 0.8551112413406372
+    },
+    "eval/loss/StochasticHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      330000,
+      0.4130733907222748
+     ],
+     "value_at_step_400000": 0.41130349040031433
+    },
+    "eval/loss/CIHiddenActsReconLoss": {
+     "n_logged": 41,
+     "matching_steps": [],
+     "nearest": [
+      50000,
+      0.8468204140663147
+     ],
+     "value_at_step_400000": 0.8275479674339294
+    }
+   },
+   "adversarial_20_step_0.8280": {
+    "n_logged": 401,
+    "matching_steps": [],
+    "nearest": [
+     203000,
+     0.8289974331855774
+    ],
+    "value_at_step_400000": 0.8551112413406372
+   }
+  }
+ },
+ "by_value": {
+  "train/loss/ImportanceMinimalityLoss": {
+   "paper": 1102.0,
+   "matches": [
+    {
+     "run": "s-e8bde534",
+     "step": 379400,
+     "value": 1102.02587890625
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 120600,
+     "value": 1101.978271484375
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 151400,
+     "value": 1102.0029296875
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 154000,
+     "value": 1101.973388671875
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 127600,
+     "value": 1101.96826171875
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 399200,
+     "value": 1101.9947509765625
+    }
+   ],
+   "matches_at_step_400000": []
+  },
+  "train/loss/StochasticReconSubsetLoss": {
+   "paper": 0.2419,
+   "matches": [
+    {
+     "run": "s-e8bde534",
+     "step": 159800,
+     "value": 0.24191762506961823
+    },
+    {
+     "run": "s-e8bde534",
+     "step": 170800,
+     "value": 0.24188551306724548
+    },
+    {
+     "run": "s-e8bde534",
+     "step": 183800,
+     "value": 0.24192233383655548
+    },
+    {
+     "run": "s-e8bde534",
+     "step": 397400,
+     "value": 0.24192532896995544
+    },
+    {
+     "run": "s-73d2385c",
+     "step": 190000,
+     "value": 0.24194449186325073
+    },
+    {
+     "run": "s-aac60aec",
+     "step": 159600,
+     "value": 0.24194100499153137
+    },
+    {
+     "run": "s-aac60aec",
+     "step": 179600,
+     "value": 0.24194490909576416
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 192600,
+     "value": 0.24193605780601501
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 232400,
+     "value": 0.24191656708717346
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 375200,
+     "value": 0.24187181890010834
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 397800,
+     "value": 0.24190552532672882
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 173200,
+     "value": 0.24192766845226288
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 292600,
+     "value": 0.2418673038482666
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 324600,
+     "value": 0.2418917417526245
+    }
+   ],
+   "matches_at_step_400000": []
+  },
+  "train/loss/PersistentPGDReconLoss": {
+   "paper": 0.5733,
+   "matches": [
+    {
+     "run": "s-e8bde534",
+     "step": 289000,
+     "value": 0.5733283162117004
+    },
+    {
+     "run": "s-e8bde534",
+     "step": 387400,
+     "value": 0.5733041167259216
+    },
+    {
+     "run": "s-73d2385c",
+     "step": 381000,
+     "value": 0.5733089447021484
+    },
+    {
+     "run": "s-aac60aec",
+     "step": 232200,
+     "value": 0.5732592344284058
+    },
+    {
+     "run": "s-aac60aec",
+     "step": 379200,
+     "value": 0.573337733745575
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 276800,
+     "value": 0.5733199119567871
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 309200,
+     "value": 0.5732725858688354
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 373200,
+     "value": 0.5732711553573608
+    }
+   ],
+   "matches_at_step_400000": []
+  },
+  "eval/loss/StochasticReconSubsetLoss": {
+   "paper": 0.2381,
+   "matches": [
+    {
+     "run": "s-73d2385c",
+     "step": 186000,
+     "value": 0.23809534311294556
+    },
+    {
+     "run": "s-73d2385c",
+     "step": 386000,
+     "value": 0.23810508847236633
+    },
+    {
+     "run": "s-aac60aec",
+     "step": 269000,
+     "value": 0.23812812566757202
+    },
+    {
+     "run": "s-aac60aec",
+     "step": 362000,
+     "value": 0.23806467652320862
+    },
+    {
+     "run": "s-2d14f6c0",
+     "step": 388000,
+     "value": 0.23811157047748566
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 290000,
+     "value": 0.2381366789340973
+    },
+    {
+     "run": "s-6a33629b",
+     "step": 321000,
+     "value": 0.2381366491317749
+    }
+   ],
+   "matches_at_step_400000": []
+  },
+  "eval/loss/PGDReconLoss": {
+   "paper": 0.9268,
+   "matches": [],
+   "matches_at_step_400000": []
+  },
+  "eval/loss/StochasticHiddenActsReconLoss": {
+   "paper": 0.413,
+   "matches": [
+    {
+     "run": "s-e8bde534",
+     "step": 210000,
+     "value": 0.41297510266304016
+    }
+   ],
+   "matches_at_step_400000": []
+  },
+  "eval/loss/CIHiddenActsReconLoss": {
+   "paper": 0.8464,
+   "matches": [],
+   "matches_at_step_400000": []
+  },
+  "eval/loss/PGDReconLoss (adversarial table, 20 steps)": {
+   "paper": 0.828,
+   "matches": [],
+   "matches_at_step_400000": []
+  }
+ },
+ "replica": {
+  "run": "p-537e31f3",
+  "name": "jose-replica",
+  "commit": "74146b555f3eb3cd2bc639c3789fd3b7a099094a",
+  "state": "finished",
+  "created_at": "2026-06-01T22:21:50Z",
+  "n_files": 614,
+  "checkpoints": [
+   {
+    "bytes": 2908595703,
+    "md5": "X2t4pzs8aG0RXec3ftMjBA==",
+    "name": "model_400000.pth",
+    "updated_at": "2026-06-03T10:17:01Z"
+   }
+  ],
+  "summary_step": 400000,
+  "config_vs_released": {
+   "final_config_present": true,
+   "n_fields_released": 119,
+   "n_fields_here": 128,
+   "differences": {
+    "ci_config.block_groups": {
+     "released": null,
+     "p-537e31f3": "<absent>"
+    },
+    "ci_config.d_resid_ci_fn": {
+     "released": null,
+     "p-537e31f3": "<absent>"
+    },
+    "ci_config.reader_hidden_dims": {
+     "released": null,
+     "p-537e31f3": "<absent>"
+    },
+    "ci_config.transition_attn_config": {
+     "released": null,
+     "p-537e31f3": "<absent>"
+    },
+    "ci_config.transition_hidden_dim": {
+     "released": null,
+     "p-537e31f3": "<absent>"
+    },
+    "ci_fn_optimizer.betas[0]": {
+     "released": "<absent>",
+     "p-537e31f3": 0.9
+    },
+    "ci_fn_optimizer.betas[1]": {
+     "released": "<absent>",
+     "p-537e31f3": 0.999
+    },
+    "ci_fn_optimizer.grad_clip_norm": {
+     "released": "<absent>",
+     "p-537e31f3": null
+    },
+    "ci_fn_optimizer.lr_schedule.final_val_frac": {
+     "released": "<absent>",
+     "p-537e31f3": 0.1
+    },
+    "ci_fn_optimizer.lr_schedule.fn_type": {
+     "released": "<absent>",
+     "p-537e31f3": "cosine"
+    },
+    "ci_fn_optimizer.lr_schedule.start_val": {
+     "released": "<absent>",
+     "p-537e31f3": 5e-05
+    },
+    "ci_fn_optimizer.lr_schedule.warmup_pct": {
+     "released": "<absent>",
+     "p-537e31f3": 0.0
+    },
+    "ci_fn_optimizer.type": {
+     "released": "<absent>",
+     "p-537e31f3": "AdamW"
+    },
+    "ci_fn_optimizer.weight_decay": {
+     "released": "<absent>",
+     "p-537e31f3": 0.0
+    },
+    "components_optimizer.betas[0]": {
+     "released": "<absent>",
+     "p-537e31f3": 0.9
+    },
+    "components_optimizer.betas[1]": {
+     "released": "<absent>",
+     "p-537e31f3": 0.999
+    },
+    "components_optimizer.grad_clip_norm": {
+     "released": "<absent>",
+     "p-537e31f3": 0.01
+    },
+    "components_optimizer.lr_schedule.final_val_frac": {
+     "released": "<absent>",
+     "p-537e31f3": 0.1
+    },
+    "components_optimizer.lr_schedule.fn_type": {
+     "released": "<absent>",
+     "p-537e31f3": "cosine"
+    },
+    "components_optimizer.lr_schedule.start_val": {
+     "released": "<absent>",
+     "p-537e31f3": 5e-05
+    },
+    "components_optimizer.lr_schedule.warmup_pct": {
+     "released": "<absent>",
+     "p-537e31f3": 0.0
+    },
+    "components_optimizer.type": {
+     "released": "<absent>",
+     "p-537e31f3": "AdamW"
+    },
+    "components_optimizer.weight_decay": {
+     "released": "<absent>",
+     "p-537e31f3": 0.0
+    },
+    "grad_clip_norm_ci_fns": {
+     "released": null,
+     "p-537e31f3": "<absent>"
+    },
+    "grad_clip_norm_components": {
+     "released": 0.01,
+     "p-537e31f3": "<absent>"
+    },
+    "init_pd_checkpoint": {
+     "released": "<absent>",
+     "p-537e31f3": null
+    },
+    "init_spd_checkpoint": {
+     "released": null,
+     "p-537e31f3": "<absent>"
+    },
+    "loss_metric_configs[PersistentPGDReconLoss].n_samples": {
+     "released": "<absent>",
+     "p-537e31f3": 1
+    },
+    "loss_metric_configs[PersistentPGDReconLoss].start_frac": {
+     "released": "<absent>",
+     "p-537e31f3": 0.0
+    },
+    "lr_schedule.final_val_frac": {
+     "released": 0.1,
+     "p-537e31f3": "<absent>"
+    },
+    "lr_schedule.fn_type": {
+     "released": "cosine",
+     "p-537e31f3": "<absent>"
+    },
+    "lr_schedule.start_val": {
+     "released": 5e-05,
+     "p-537e31f3": "<absent>"
+    },
+    "lr_schedule.warmup_pct": {
+     "released": 0.0,
+     "p-537e31f3": "<absent>"
+    },
+    "output_extract": {
+     "released": "<absent>",
+     "p-537e31f3": 0
+    },
+    "output_loss_type": {
+     "released": "kl",
+     "p-537e31f3": "<absent>"
+    },
+    "pretrained_model_class": {
+     "released": "spd.pretrain.models.llama_simple_mlp.LlamaSimpleMLP",
+     "p-537e31f3": "param_decomp.pretrain.models.llama_simple_mlp.LlamaSimpleMLP"
+    },
+    "pretrained_model_output_attr": {
+     "released": "idx_0",
+     "p-537e31f3": "<absent>"
+    },
+    "task_config.dataset_seed": {
+     "released": "<absent>",
+     "p-537e31f3": null
+    }
+   },
+   "equal_apart_from_seed": false
+  }
+ },
+ "released_kl_ci_masked": {
+  "key": "eval/ce_kl/kl_ci_masked",
+  "delta_components": "excluded (make_mask_infos(ci), ce_and_kl_losses.py)",
+  "final_step": 400000,
+  "final_value": 0.34315478801727295,
+  "n_last": 41,
+  "steps": [
+   360000,
+   400000
+  ],
+  "mean": 0.3336769785822892,
+  "sd": 0.010920574937481348,
+  "min": 0.3035942614078522,
+  "max": 0.35628360509872437,
+  "geometric_mean": 0.3335016030137701,
+  "log_sd": 0.03288494132814334,
+  "first_post_value": 0.3417
+ }
+}

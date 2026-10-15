@@ -1,0 +1,154 @@
+{
+ "stages": {
+  "s6_dose": {
+   "launches": [
+    {
+     "launch": "ap-7S7XgyDxbi1FAClwWVYZka|s6_dose|1",
+     "app_id": "ap-7S7XgyDxbi1FAClwWVYZka",
+     "commit": "63c6b68b25534bb48b1ea579eff9461635eb37c2",
+     "began": "2026-10-08T02:26:46+00:00",
+     "last_alive": 1791426704.1133199,
+     "ended": "2026-10-08T02:31:44+00:00",
+     "trigger": null,
+     "accepted_expected_refusals": false,
+     "spawned": {
+      "H1": 1791426413.591966,
+      "H5": 1791426419.113801,
+      "H9": 1791426424.983843,
+      "H13": 1791426430.951597
+     },
+     "calls": {
+      "H9": {
+       "outcome": "returned",
+       "wait_seconds": 265.9369258880615,
+       "returned_seconds": 260.01219487190247,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 260.01219487190247,
+       "error": null,
+       "stopped": false,
+       "finished_units": 81,
+       "expected_units": 81
+      },
+      "H1": {
+       "outcome": "returned",
+       "wait_seconds": 284.279531955719,
+       "returned_seconds": 268.35387682914734,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 268.35387682914734,
+       "error": null,
+       "stopped": false,
+       "finished_units": 81,
+       "expected_units": 81
+      },
+      "H5": {
+       "outcome": "returned",
+       "wait_seconds": 278.93126010894775,
+       "returned_seconds": 270.210312128067,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 270.210312128067,
+       "error": null,
+       "stopped": false,
+       "finished_units": 81,
+       "expected_units": 81
+      },
+      "H13": {
+       "outcome": "returned",
+       "wait_seconds": 273.1620922088623,
+       "returned_seconds": 269.65943813323975,
+       "attempts": 1,
+       "lives": 1,
+       "counted_seconds": 269.65943813323975,
+       "error": null,
+       "stopped": false,
+       "finished_units": 81,
+       "expected_units": 81
+      }
+     },
+     "function_seconds": 1068.2358219623566,
+     "container_lives": 4
+    }
+   ],
+   "complete": true,
+   "summary": {
+    "stage": "s6_dose",
+    "containers": 4,
+    "finished_units": 324,
+    "expected_units": 324,
+    "stopped": false,
+    "function_seconds": 1068.2358219623566,
+    "all_guards_true": true,
+    "complete": true,
+    "errors": {}
+   }
+  }
+ },
+ "checks": [
+  {
+   "check": "C0",
+   "listed_hourly_price": 6.552504,
+   "containers": 4,
+   "passes": 4812,
+   "seconds_to_ready": 19.07778376340866,
+   "seconds_per_pass": 0.1957936690747738,
+   "seconds_per_check_unit": 1.911880910396576,
+   "seconds_per_volume_commit": 2.1240623593330383,
+   "function_seconds": 1100.2345151901245,
+   "container_lives": 4.0,
+   "at_the_flat_rate": 2.0782207509146797,
+   "at_the_listed_price_with_boot": 2.366608850478153,
+   "billed": null,
+   "dollars": 2.366608850478153,
+   "projected_dollars": 2.366608850478153,
+   "cap": 8.0,
+   "exceeds_cap": false,
+   "at": "2026-10-08T02:26:46+00:00"
+  },
+  {
+   "check": "C1",
+   "flat_rate": 6.8,
+   "listed_hourly_price": 6.552504,
+   "boot_seconds": 50.0,
+   "spent": {
+    "function_seconds": 1068.2358219623566,
+    "container_lives": 4.0,
+    "at_the_flat_rate": 2.0177787748177844,
+    "at_the_listed_price_with_boot": 2.3083667489865634,
+    "billed": null,
+    "dollars": 2.3083667489865634
+   },
+   "spent_dollars": 2.3083667489865634,
+   "remaining": {
+    "function_seconds": 0.0,
+    "container_lives": 0.0,
+    "at_the_flat_rate": 0.0,
+    "at_the_listed_price_with_boot": 0.0,
+    "billed": null,
+    "dollars": 0.0
+   },
+   "remaining_dollars": 0.0,
+   "projected_dollars": 2.3083667489865634,
+   "cap": 8.0,
+   "exceeds_cap": false,
+   "at": "2026-10-08T02:31:44+00:00",
+   "after_stage": "s6_dose",
+   "bill_read_at": "2026-10-08T02:31:44+00:00",
+   "measured_seconds": {
+    "s6_dose": 1068.2358219623566
+   }
+  }
+ ],
+ "bills": [
+  {
+   "read_at": "2026-10-08T02:31:44+00:00",
+   "latest_interval_posted": "2026-10-08 01:00:00+00:00",
+   "by_app": {},
+   "error": null
+  }
+ ],
+ "guards_pass": null,
+ "stopped_by": null,
+ "stops": []
+}

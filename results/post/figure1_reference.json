@@ -1,0 +1,44 @@
+{
+  "benchmark": {
+    "value": 0.7491346046328544,
+    "definition": "own_H[:, :, n20].mean(): the paper's 20-step adversary run on each unseen (held-out) batch itself, mean over the 16 held-out batches and 5 starts, raw nats per token"
+  },
+  "random_start": {
+    "value": 0.21659007538110017,
+    "definition": "init_H.mean(): the random starting point's harm on the unseen batches, mean over the 16 held-out batches and 5 starts, raw nats per token"
+  },
+  "paper_table": {
+    "source": "the paper's PGD table, tab:vpd-pgd-ce (literature/original/bushnaq2026_vpd.txt, lines 395-399)",
+    "kl_after_steps": {
+      "20": 0.828,
+      "40": 1.3539,
+      "80": 3.8381,
+      "160": 25.256,
+      "320": 40.22
+    }
+  },
+  "points": 637,
+  "points_per_row": {
+    "n20": 80,
+    "n40": 80,
+    "n80": 80,
+    "n160": 80,
+    "n320": 80,
+    "h2": 80,
+    "h5": 79,
+    "h10": 78
+  },
+  "points_in_post_figure": 559,
+  "points_in_variant_a": 400,
+  "distinct_searches": 80,
+  "note": "The points are 80 searches (16 attack batches by 5 starts) read at up to eight moments each (five search lengths and three harm levels), not 637 independent masks. A harm-level point can be the same setting as a step point when the level's crossing fell on a saved step.",
+  "level_points_same_setting_as_a_step_point": {
+    "h2": 2,
+    "h5": 5,
+    "h10": 0
+  },
+  "table": "results/s5_lead/lead/sealed",
+  "run_commit": "8522c18156c6c9023aedffe9061a56838898e960",
+  "analysis_commit": "f4e667b48b556dfaf45427caecdc261dec4e427d",
+  "analysis_module_as_committed": true
+}

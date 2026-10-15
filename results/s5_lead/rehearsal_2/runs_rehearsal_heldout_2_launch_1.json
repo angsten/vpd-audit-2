@@ -1,0 +1,131 @@
+{
+ "stage": "rehearsal_heldout_2",
+ "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+ "app_id": "ap-8mcTtty2kYGYLHtQTCPIHs",
+ "launch": "ap-8mcTtty2kYGYLHtQTCPIHs|rehearsal_heldout_2|1",
+ "summary": {
+  "stage": "rehearsal_heldout_2",
+  "containers": 1,
+  "finished_units": 2,
+  "expected_units": 2,
+  "stopped": false,
+  "function_seconds": 174.02741169929504,
+  "all_guards_true": true,
+  "complete": true,
+  "errors": {}
+ },
+ "containers": [
+  {
+   "container": "rehearsal|heldout|C2",
+   "units": [
+    {
+     "unit": "search|rehearsal|C2|s1",
+     "sha256": "04c4ce4f23c2909ff1d0585f911f92aa4e25789634909b78f358a2cf24490aee",
+     "guards": {
+      "G4": true,
+      "G5": true,
+      "G7": true,
+      "wrapper_equals_authors": true
+     },
+     "skipped": false
+    },
+    {
+     "unit": "block|rehearsal|C2|C2|s1",
+     "sha256": "f00eecb961937f85810fb7c85eb62291859ecc6ba233468e15c53b105b766a5c",
+     "guards": {
+      "G5": true,
+      "G8": true,
+      "G10": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 2,
+   "expected_units": 2,
+   "stopped": false,
+   "seconds": 174.02741169929504,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M493RF1J9HB1QPGXAFE5CV4R"
+   },
+   "timings": {
+    "labels_and_targets": 1.8395161628723145,
+    "labels_and_targets_count": 1.0,
+    "fingerprint": 0.2693939208984375,
+    "fingerprint_count": 1.0,
+    "to_ready": 27.948812246322632,
+    "to_ready_count": 1.0,
+    "to_first_search_step": 27.992193937301636,
+    "search": 124.69616651535034,
+    "search_count": 320.0,
+    "search_iteration_0": 2.7757511138916016,
+    "search_iteration_0_count": 1.0,
+    "search_iterations_warm": 3.4389472007751465,
+    "search_iterations_warm_count": 9.0,
+    "search_iterations_after_warm": 118.29353785514832,
+    "search_iterations_after_warm_count": 310.0,
+    "search_final_harm": 0.18594574928283691,
+    "search_final_harm_count": 1.0,
+    "search_tail": 0.0019845962524414062,
+    "search_tail_count": 1.0,
+    "scoring": 15.662176609039307,
+    "scoring_count": 85.0,
+    "scoring_in_search_units": 2.0255777835845947,
+    "scoring_in_search_units_count": 11.0,
+    "peak_scoring_gib": 95.75679206848145,
+    "wrapper_check": 2.0240752696990967,
+    "wrapper_check_count": 11.0,
+    "search_unit_whole": 128.79288744926453,
+    "search_unit_whole_count": 1.0,
+    "volume_commit_after_search": 1.4031100273132324,
+    "volume_commit_after_search_count": 1.0,
+    "scoring_in_blocks": 13.63660979270935,
+    "scoring_in_blocks_count": 74.0,
+    "making_shuffles": 0.4940299987792969,
+    "making_shuffles_count": 64.0,
+    "block_whole": 14.65584945678711,
+    "block_whole_count": 1.0,
+    "volume_commit_after_blocks": 1.0881223678588867,
+    "volume_commit_after_blocks_count": 1.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  }
+ ]
+}

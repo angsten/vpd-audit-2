@@ -1,0 +1,75 @@
+{
+ "b3_1": {
+  "text": 0,
+  "positions": [
+   0,
+   31
+  ],
+  "background": "all on, float32",
+  "sweep": {
+   "removals": 7886,
+   "seconds": 151.21608471870422,
+   "seconds_per_removal": 0.01917525801657421
+  },
+  "pruning": {
+   "removals": 7886,
+   "seconds": 169.86394262313843,
+   "seconds_per_removal": 0.02153993692913244
+  },
+  "extrapolated_hours_for_16_texts_x_512_positions": 22.832357499864365,
+  "note": "times only: no effect, set, or share is kept"
+ },
+ "b3_3_float64": {
+  "at_labels|rows2": {
+   "seconds_per_pass": 0.03858232498168945,
+   "seconds_per_removal": 0.03858232498168945
+  },
+  "at_labels|rows16": {
+   "seconds_per_pass": 0.30536437034606934,
+   "seconds_per_removal": 0.020357624689737955
+  },
+  "stochastic|rows2": {
+   "seconds_per_pass": 0.04069876670837402,
+   "seconds_per_removal": 0.04069876670837402
+  },
+  "stochastic|rows16": {
+   "seconds_per_pass": 0.3134775161743164,
+   "seconds_per_removal": 0.02089850107828776
+  }
+ },
+ "n8": {
+  "seconds_per_step": 0.5174185276031494,
+  "steps_timed": 10
+ },
+ "environment": {
+  "gpu": "NVIDIA A100 80GB PCIe",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "deterministic_algorithms": true,
+  "deterministic_warn_only": false,
+  "cublas_workspace_config": ":4096:8",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": false,
+  "float32_matmul_precision": "highest",
+  "vpd_audit_2_commit": "b26f56d19cee28d50dc4690beb840da007894a97",
+  "vpd_audit_2_dirty": "0"
+ },
+ "n8_B200": {
+  "seconds_per_step": 0.15533528327941895,
+  "steps_timed": 10,
+  "environment": {
+   "gpu": "NVIDIA B200",
+   "torch": "2.8.0+cu128",
+   "cuda": "12.8",
+   "deterministic_algorithms": true,
+   "deterministic_warn_only": false,
+   "cublas_workspace_config": ":4096:8",
+   "allow_tf32_matmul": false,
+   "allow_tf32_cudnn": false,
+   "float32_matmul_precision": "highest",
+   "vpd_audit_2_commit": "b26f56d19cee28d50dc4690beb840da007894a97",
+   "vpd_audit_2_dirty": "0"
+  },
+  "function_seconds": 20.876846075057983
+ }
+}

@@ -1,0 +1,43 @@
+The three-arm experiment (session 7, plan 6; Riku's specification with the plan's eight amendments): training's persistent
+adversary against the released decomposition held frozen, 1,000 batches of 64 unused attack-side texts per arm and seed.
+Breakout: the two-batch mean of the harm reaches 5 nats. The governing series is the harm on the fresh batch before its
+ascents (amendment 5); training's own loss is beside it.
+
+Gate: passed. Released scope, our step against the authors' training sequence: loss bit for bit True, sources bit for bit True; scaled gradient mismatches 0 of 1272135829; per-document loss bit for bit True.
+
+THE READING (governing series): READING 2.
+  Reading 2: within 1230 batches, arm 1 did not reach the pattern that the yardstick reached at batch 123. Training had 400,000 batches; the post never says "cannot reach". (1230 batches = 10.0 times 123; seed 1.)
+  Reading 2: within 1000 batches, arm 1 did not reach the pattern that the yardstick reached at batch 88. Training had 400,000 batches; the post never says "cannot reach". (1000 batches = 11.4 times 88; seed 2.)
+  Arm 2 (per document): seed 1 batch 374, seed 2 batch 325; arm 4 was not run.
+  On training's own loss series instead, the rule would give reading 2 (beside it, not the reading).
+
+Breakout batch by arm and seed (governing series before; training's loss; after all three ascents), and the run's length:
+  arm 1 (released: per text slot and position), seed 1: before never; loss never; after never; 1230 batches (extended; its first 1,000 reproduce the run); final before 0.264, loss 0.482; max before 0.286.
+  arm 1 (released: per text slot and position), seed 2: before never; loss never; after never; 1000 batches; final before 0.252, loss 0.462; max before 0.285.
+  arm 2 (per document), seed 1: before batch 374; loss batch 349; after batch 349; 1000 batches; final before 25.892, loss 27.755; max before 27.709.
+  arm 2 (per document), seed 2: before batch 325; loss batch 316; after batch 305; 1000 batches; final before 27.691, loss 29.266; max before 28.723.
+  arm 3 (yardstick: one source for the batch), seed 1: before batch 123; loss batch 123; after batch 122; 1000 batches; final before 49.803, loss 49.858; max before 51.424.
+  arm 3 (yardstick: one source for the batch), seed 2: before batch 88; loss batch 87; after batch 87; 1000 batches; final before 37.898, loss 37.951; max before 39.450.
+
+Arm 1's trend over its last 200 batches (amendment 6):
+  seed 1, before: slope +0.0003 nats per 100 batches; mean of the first 200 0.2318, of the last 200 0.2634 (of 1230).
+  seed 1, loss: slope +0.0010 nats per 100 batches; mean of the first 200 0.4225, of the last 200 0.4713 (of 1230).
+  seed 2, before: slope +0.0008 nats per 100 batches; mean of the first 200 0.2318, of the last 200 0.2609 (of 1000).
+  seed 2, loss: slope +0.0027 nats per 100 batches; mean of the first 200 0.4225, of the last 200 0.4662 (of 1000).
+
+Amendment 1, recomputed from the committed training history (`train/loss/PersistentPGDReconLoss`, every 200 steps):
+  2001 points; maximum 5.215 at step 0; reached 5 nats: True (steps [0]); after step 40,000 the maximum is 1.814 at step 360600; share of points above 2 nats 0.031, of them after step 40,000: 0; last 0.584.
+  Mean by tenth of training: 1.780, 0.858, 0.721, 0.661, 0.630, 0.615, 0.595, 0.593, 0.603, 0.618.
+
+Arm 3's settings carried to H1, H5, H9 and H13 (description; the lead's scoring path):
+  seed 1, breakout_before (batch 123): H1 5.146, H13 5.276, H5 5.292, H9 5.270; mean 5.246 nats.
+  seed 1, breakout_loss (batch 123): H1 5.146, H13 5.276, H5 5.292, H9 5.270; mean 5.246 nats.
+  seed 1, last (batch 1000): H1 49.080, H13 50.661, H5 50.381, H9 49.866; mean 49.997 nats.
+  seed 2, breakout_before (batch 88): H1 5.377, H13 5.900, H5 5.649, H9 5.796; mean 5.681 nats.
+  seed 2, breakout_loss (batch 87): H1 4.829, H13 5.267, H5 5.056, H9 5.186; mean 5.085 nats.
+  seed 2, last (batch 1000): H1 37.170, H13 38.737, H5 38.587, H9 37.824; mean 38.079 nats.
+
+Rehearsal (calibration rows, 20 batches per arm): released 0.996 s per batch, peak 86.2 GiB; per_document 0.938 s per batch, peak 67.2 GiB; batch 0.937 s per batch, peak 67.2 GiB.
+Checkpoint check (amendment 2): the released checkpoint holds persistent sources or their Adam state: False (159 keys); so arm 1 has no resumed start.
+Extension (amendment 6): yardstick seed 1 breakout batch 123; extended: {'released': 1230}.
+Arm 4 (the authors' newer pooled-particle recipe): not run; nothing we hold fixes its mechanics.

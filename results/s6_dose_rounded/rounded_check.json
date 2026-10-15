@@ -1,0 +1,10 @@
+{
+ "compared": 1600,
+ "equal": 1600,
+ "settings_equal_to_rounded": 400,
+ "settings": 400,
+ "mismatches": [],
+ "all_equal": true,
+ "at": "2026-10-08T15:11:17+00:00",
+ "commit": "a87fdb8d308ee00ee02e4abc47bab9a825029512"
+}

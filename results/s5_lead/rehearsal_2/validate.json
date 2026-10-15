@@ -1,0 +1,137 @@
+{
+ "at": "2026-10-06T17:31:40+00:00",
+ "tables": {
+  "C1_rehearsal": {
+   "loaded": true,
+   "parts": 2,
+   "checks": {
+    "metadata": true,
+    "complete_flag": true,
+    "arrays_present_with_declared_shapes": true,
+    "axis_labels": false,
+    "no_other_nan_or_infinite": true,
+    "fixed_steps": true,
+    "missing_steps_only_at_levels": true,
+    "level_steps_equal_crossing_rule": true,
+    "nan_exactly_where_setting_missing": true,
+    "setting_hashes_present": true,
+    "shuffle_hashes_present": true,
+    "shuffle_descriptions": true,
+    "scoring_pass_count": true,
+    "block_ids_match_heldout_ids": true,
+    "heldout_ids_differ_from_attack_ids": false,
+    "own_equals_record_at_step": true,
+    "init_equals_record_start": true,
+    "per_text_matches_core": true,
+    "carried_differs_from_own_batch_values": false,
+    "per_text_parts_in_attack_order": true,
+    "per_text_files_match_core_metadata": true
+   },
+   "failed": [
+    "axis_labels",
+    "heldout_ids_differ_from_attack_ids",
+    "carried_differs_from_own_batch_values"
+   ]
+  },
+  "C1_rehearsal_delta_on": {
+   "loaded": true,
+   "parts": 2,
+   "checks": {
+    "metadata": true,
+    "complete_flag": true,
+    "arrays_present_with_declared_shapes": true,
+    "axis_labels": false,
+    "no_other_nan_or_infinite": true,
+    "fixed_steps": false,
+    "missing_steps_only_at_levels": false,
+    "level_steps_equal_crossing_rule": true,
+    "nan_exactly_where_setting_missing": true,
+    "setting_hashes_present": true,
+    "shuffle_hashes_present": true,
+    "shuffle_descriptions": true,
+    "scoring_pass_count": true,
+    "block_ids_match_heldout_ids": true,
+    "heldout_ids_differ_from_attack_ids": false,
+    "own_equals_record_at_step": true,
+    "init_equals_record_start": true,
+    "per_text_matches_core": true,
+    "carried_differs_from_own_batch_values": false,
+    "per_text_parts_in_attack_order": true,
+    "per_text_files_match_core_metadata": true
+   },
+   "failed": [
+    "axis_labels",
+    "fixed_steps",
+    "missing_steps_only_at_levels",
+    "heldout_ids_differ_from_attack_ids",
+    "carried_differs_from_own_batch_values"
+   ]
+  },
+  "C2_rehearsal": {
+   "loaded": true,
+   "parts": 2,
+   "checks": {
+    "metadata": true,
+    "complete_flag": true,
+    "arrays_present_with_declared_shapes": true,
+    "axis_labels": false,
+    "no_other_nan_or_infinite": true,
+    "fixed_steps": true,
+    "missing_steps_only_at_levels": true,
+    "level_steps_equal_crossing_rule": true,
+    "nan_exactly_where_setting_missing": true,
+    "setting_hashes_present": true,
+    "shuffle_hashes_present": true,
+    "shuffle_descriptions": true,
+    "scoring_pass_count": true,
+    "block_ids_match_heldout_ids": true,
+    "heldout_ids_differ_from_attack_ids": false,
+    "own_equals_record_at_step": true,
+    "init_equals_record_start": true,
+    "per_text_matches_core": true,
+    "carried_differs_from_own_batch_values": false,
+    "per_text_parts_in_attack_order": true,
+    "per_text_files_match_core_metadata": true
+   },
+   "failed": [
+    "axis_labels",
+    "heldout_ids_differ_from_attack_ids",
+    "carried_differs_from_own_batch_values"
+   ]
+  },
+  "C2_rehearsal_delta_on": {
+   "loaded": true,
+   "parts": 2,
+   "checks": {
+    "metadata": true,
+    "complete_flag": true,
+    "arrays_present_with_declared_shapes": true,
+    "axis_labels": false,
+    "no_other_nan_or_infinite": true,
+    "fixed_steps": false,
+    "missing_steps_only_at_levels": false,
+    "level_steps_equal_crossing_rule": true,
+    "nan_exactly_where_setting_missing": true,
+    "setting_hashes_present": true,
+    "shuffle_hashes_present": true,
+    "shuffle_descriptions": true,
+    "scoring_pass_count": true,
+    "block_ids_match_heldout_ids": true,
+    "heldout_ids_differ_from_attack_ids": false,
+    "own_equals_record_at_step": true,
+    "init_equals_record_start": true,
+    "per_text_matches_core": true,
+    "carried_differs_from_own_batch_values": false,
+    "per_text_parts_in_attack_order": true,
+    "per_text_files_match_core_metadata": true
+   },
+   "failed": [
+    "axis_labels",
+    "fixed_steps",
+    "missing_steps_only_at_levels",
+    "heldout_ids_differ_from_attack_ids",
+    "carried_differs_from_own_batch_values"
+   ]
+  }
+ }
+}

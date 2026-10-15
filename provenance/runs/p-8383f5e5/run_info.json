@@ -1,0 +1,15 @@
+{
+  "commit": "669b95e341d5f341f9fe7097a32f59fefa6405eb",
+  "created_at": "2026-08-28T17:36:09Z",
+  "id": "p-8383f5e5",
+  "name": "pile4l-ref6m-freq6p6em5-baseline-800k",
+  "project": "goodfire/param-decomp",
+  "state": "finished",
+  "tags": [
+    "baseline-800k",
+    "freq6p6em5",
+    "ref6m",
+    "task-1274"
+  ],
+  "url": "https://wandb.ai/goodfire/param-decomp/runs/p-8383f5e5"
+}

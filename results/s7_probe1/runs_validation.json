@@ -1,0 +1,102 @@
+{
+ "stage": "s7_probe1_validation",
+ "commit": "363742912eee4da48b95d8fafb976ec50fb63eef",
+ "app_id": "ap-U6pLONtTpOb9NZy1ZU1zce",
+ "launch": "ap-U6pLONtTpOb9NZy1ZU1zce|s7_probe1_validation|1",
+ "summary": {
+  "stage": "s7_probe1_validation",
+  "containers": 1,
+  "finished_units": 1,
+  "expected_units": 1,
+  "stopped": false,
+  "function_seconds": 46.620256423950195,
+  "all_guards_true": true,
+  "complete": true,
+  "errors": {}
+ },
+ "containers": [
+  {
+   "container": "s7_probe1|validation|heldout|H1",
+   "units": [
+    {
+     "unit": "validation_H1_A1_s9_n320",
+     "sha256": "3159f46eafc9d5416dcb8048771dde426ceba9ed1b3a67c6799bb655212c529d",
+     "guards": {
+      "prep_fp_is_the_runs": true,
+      "intact_is_the_target": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 46.620256423950195,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "363742912eee4da48b95d8fafb976ec50fb63eef",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M4ERBTG1TAG6ZKFVNP3R0D1R"
+   },
+   "timings": {
+    "device_gib": 178.3511962890625,
+    "to_job": 12.143249988555908,
+    "prep_batch": 1.265439510345459,
+    "prep_batch_count": 1.0,
+    "to_ready": 13.408958196640015,
+    "validation_check": 7.4218590259552,
+    "validation_check_count": 1.0,
+    "intact_graph": 0.5188171863555908,
+    "intact_graph_count": 2.0,
+    "cell_intact_pattern": 8.177584409713745,
+    "cell_intact_pattern_count": 10.0,
+    "unit_write_intact_pattern": 0.3549513816833496,
+    "unit_write_intact_pattern_count": 10.0,
+    "cell_intact": 5.516754865646362,
+    "cell_intact_count": 10.0,
+    "unit_write_intact": 0.18121814727783203,
+    "unit_write_intact_count": 10.0,
+    "peak_gib_allocated": 90.6864538192749,
+    "peak_gib_reserved": 91.939453125,
+    "volume_commit": 8.559652090072632,
+    "volume_commit_count": 1.0
+   },
+   "removed_unfinished": 0,
+   "attempts": 1
+  }
+ ]
+}

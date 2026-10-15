@@ -1,0 +1,58 @@
+{"container": "delta_on|A1", "count": 0, "event": "container_started"}
+{"container": "delta_attack", "count": 8, "event": "stage_started"}
+{"container": "delta_on|A2", "count": 0, "event": "container_started"}
+{"container": "delta_on|A3", "count": 0, "event": "container_started"}
+{"event": "unit_finished", "sha256": "d928fa264aeb11428cf06402485955ba307e97161ba9533910c761b20fc60d2e", "unit": "search|delta_on|A1|s9"}
+{"container": "delta_on|A4", "count": 0, "event": "container_started"}
+{"event": "unit_finished", "sha256": "a332a35580e4199f3a6e9f4acffc7a504859ebcb3e1c5c1c4098eae2b20154fe", "unit": "search|delta_on|A2|s9"}
+{"event": "unit_finished", "sha256": "e3a7619cdc82b744fb2cf3bfe1fd0d38aba8689f0014ac22401c15a1132dc8fb", "unit": "search|delta_on|A3|s9"}
+{"event": "unit_finished", "sha256": "5fd5c84ad44aa486704f6cfbf626f9da1c52b46467e91c3bf56e8198b77396ae", "unit": "search|delta_on|A1|s10"}
+{"event": "unit_finished", "sha256": "c639245a831888b81da5daf4ed0b57fe21ce85f0626161f4149a7debc1c2f0d1", "unit": "search|delta_on|A4|s9"}
+{"event": "unit_finished", "sha256": "91cbad65265d4b883e4428f01e58bdc0349415eb6d2dff03544695f91f80ead2", "unit": "search|delta_on|A2|s10"}
+{"event": "unit_finished", "sha256": "7d0fde6ec7ca54cbf5ed25ee0c4d26acb1f82ee9dc3f57d8fec7fece777108ab", "unit": "search|delta_on|A3|s10"}
+{"event": "unit_finished", "sha256": "6b4720210f3f9c3412cf9fcf52353573f2f9faeaa965be041a0e76bc62b1de7c", "unit": "search|delta_on|A1|s11"}
+{"container": "delta_on|A5", "count": 0, "event": "container_started"}
+{"event": "unit_finished", "sha256": "51f18f2e6ebb68532da89d971a9e87c59e92aa992d8fe0d1687fc1cf13ef5351", "unit": "search|delta_on|A4|s10"}
+{"container": "delta_on|A6", "count": 0, "event": "container_started"}
+{"container": "delta_on|A7", "count": 0, "event": "container_started"}
+{"container": "delta_on|A8", "count": 0, "event": "container_started"}
+{"event": "unit_finished", "sha256": "ea7b428f186657d26f0a4df13a98ef505393ba94254e29e068026c35c649b049", "unit": "search|delta_on|A2|s11"}
+{"event": "unit_finished", "sha256": "88666139c550679fbd865c15f62a30b97c4f9bd74236f83204af40ee486be616", "unit": "search|delta_on|A3|s11"}
+{"event": "unit_finished", "sha256": "d89eac9d00156e6fde22065f16e4518fc5f8fbd7f912a4c09b99a28fc8cff875", "unit": "search|delta_on|A1|s12"}
+{"event": "unit_finished", "sha256": "503c7c317e1480362c98f22eba05cc9b30430eb1bea3f01d06bafe7d52629c05", "unit": "search|delta_on|A5|s9"}
+{"event": "unit_finished", "sha256": "cfb8c32c5acc4286aae3e1694bfc5c34d453694a90fe605fa8552e5bbd37f5f5", "unit": "search|delta_on|A4|s11"}
+{"event": "unit_finished", "sha256": "1beb7fa3aa6727741a860111ab44971347822cc7eaa69567279ac8cc95a24e33", "unit": "search|delta_on|A6|s9"}
+{"event": "unit_finished", "sha256": "c41a3910d029c7220da8dcc0e4e067eb2ddd4c346d90116ccfa55bdbfd39ab94", "unit": "search|delta_on|A7|s9"}
+{"event": "unit_finished", "sha256": "5694950b9a33a848d28d56a371c83a771b57f0d1c609650f2482bb0ed61c20f0", "unit": "search|delta_on|A8|s9"}
+{"event": "unit_finished", "sha256": "ee5f6eeaf6f71c8fa25e29250813c012183609e4c37697e559de26f78b0be63b", "unit": "search|delta_on|A2|s12"}
+{"event": "unit_finished", "sha256": "b5c56bfec4f9c878002d517e700d02c36ff8a3babee10a76c93f602a2120747a", "unit": "search|delta_on|A3|s12"}
+{"event": "unit_finished", "sha256": "14edef29d85b186e0eabfb541039013b47b745d0fdcc58843faee4ea7924d509", "unit": "search|delta_on|A1|s13"}
+{"container": "delta_on|attack|A1", "count": 5, "event": "container_finished", "seconds": 643.3849382400513}
+{"event": "unit_finished", "sha256": "e71cb0800536f21fc874188ddef56eb35c80fcb5d74af9894b5a459483c661ce", "unit": "search|delta_on|A5|s10"}
+{"event": "unit_finished", "sha256": "771f9e4c19348b0f8aa588d42cbf37265b94a081ba8d6cc4b543a74182dc0473", "unit": "search|delta_on|A4|s12"}
+{"event": "unit_finished", "sha256": "15187c5d6fbf7b3f2ca16d185d64c8fcd125d79d980a4dd02e5579499c420ccc", "unit": "search|delta_on|A6|s10"}
+{"event": "unit_finished", "sha256": "3cfc9506095715b3212bec368b840b8ebf6ad78c41fb3b2dba0792a83e94ef80", "unit": "search|delta_on|A7|s10"}
+{"event": "unit_finished", "sha256": "79f32177b0f804d984c5235a02a263f65440ecf8c38c15fde465ead1be52955b", "unit": "search|delta_on|A8|s10"}
+{"event": "unit_finished", "sha256": "60971ab35f132ee8effc72b125b07f0ffa5e01f60f0b89c3d3ed9d75d6b97e11", "unit": "search|delta_on|A2|s13"}
+{"container": "delta_on|attack|A2", "count": 5, "event": "container_finished", "seconds": 651.7136812210083}
+{"event": "unit_finished", "sha256": "dbb6be53d9d536ad43019646e41fcfb094e81261f9ec68686c76290379bdc2f8", "unit": "search|delta_on|A3|s13"}
+{"container": "delta_on|attack|A3", "count": 5, "event": "container_finished", "seconds": 660.3404815196991}
+{"event": "unit_finished", "sha256": "a985005119c219271f1144adf02f12d4ea8fe8a5a8f203e19627ca5a33045d94", "unit": "search|delta_on|A5|s11"}
+{"event": "unit_finished", "sha256": "2922bf2ed70827f9b4a594247d52ec4a8868ec99ff25d95a6d5ebd077d7c070e", "unit": "search|delta_on|A4|s13"}
+{"container": "delta_on|attack|A4", "count": 5, "event": "container_finished", "seconds": 654.3825607299805}
+{"event": "unit_finished", "sha256": "8b37ac715a9b4246436b77fbe3b1e6b361ce8dfc9ec7fddabb44179045040341", "unit": "search|delta_on|A6|s11"}
+{"event": "unit_finished", "sha256": "295e23061e8b21a24457039ed43ac53e8eb8a7e4d3ccd41d8b23a1cd8509a51d", "unit": "search|delta_on|A7|s11"}
+{"event": "unit_finished", "sha256": "79e78ccb64fa69c4a9ca922eab2570e66da0cfa7aa15de662ca832c19131d777", "unit": "search|delta_on|A8|s11"}
+{"event": "unit_finished", "sha256": "792629552c946e3c749d3f9483dfe9b300c0ca6dcb0ec1d587072a033fb80256", "unit": "search|delta_on|A5|s12"}
+{"event": "unit_finished", "sha256": "417758a91359cc57bbc2f7524d0392ae8b4cbed84787c657b53f8e6004a9e533", "unit": "search|delta_on|A6|s12"}
+{"event": "unit_finished", "sha256": "53972fc447b84a9286b0a576096ff3803d05e14eb130c4d2b2bde089aa827f3d", "unit": "search|delta_on|A7|s12"}
+{"event": "unit_finished", "sha256": "441c4021e8cd671f86e4641d383bc0ccb59d3e3eb44435e2227980135179c85a", "unit": "search|delta_on|A8|s12"}
+{"event": "unit_finished", "sha256": "fbf20e55512e6a0d12013c79b3a9bce7583d081207892b201d45e928c5eb8400", "unit": "search|delta_on|A5|s13"}
+{"container": "delta_on|attack|A5", "count": 5, "event": "container_finished", "seconds": 641.4071342945099}
+{"event": "unit_finished", "sha256": "f3671851c4116757ba4396227fe3c516c93b7df8a9e1cab1d11cc09362599db9", "unit": "search|delta_on|A6|s13"}
+{"container": "delta_on|attack|A6", "count": 5, "event": "container_finished", "seconds": 642.389452457428}
+{"event": "unit_finished", "sha256": "699cfe422c18dd43f0c96087bd77a0b9cb52a79fd9524e7980831879eacd8591", "unit": "search|delta_on|A7|s13"}
+{"container": "delta_on|attack|A7", "count": 5, "event": "container_finished", "seconds": 665.8986954689026}
+{"event": "unit_finished", "sha256": "4dfc00349fab8ae8e86511e8a11370f8ce0af006624218e7e3e0c06ae657a70c", "unit": "search|delta_on|A8|s13"}
+{"container": "delta_on|attack|A8", "count": 5, "event": "container_finished", "seconds": 662.1511082649231}
+{"container": "delta_attack", "count": 40, "event": "stage_finished", "ok": true}

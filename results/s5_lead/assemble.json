@@ -1,0 +1,110 @@
+{
+ "commit": "8522c18156c6c9023aedffe9061a56838898e960",
+ "app_id": "ap-l87uyRMA0NEUO8wLEYTb4C",
+ "at": "2026-10-06T21:28:03+00:00",
+ "arms": {
+  "lead": {
+   "receipt": {
+    "arm": "lead",
+    "files": [
+     {
+      "name": "table_core.npz",
+      "sha256": "2d0ad069b158c9ba444edb8472f93abcc8d16f1683e906c5240d108a1b65bc6d"
+     },
+     {
+      "name": "table_per_text_01.npz",
+      "sha256": "4707be186eda699992cde664e513749c6707bb307f04c30ba8633b4dd03b0c0b"
+     },
+     {
+      "name": "table_per_text_02.npz",
+      "sha256": "12d296284ead9b11fb930ae8dddbfdcea95bcca2dacbeee93aa9d965649ab49e"
+     }
+    ],
+    "shapes": {
+     "K_A": 16,
+     "K_H": 16,
+     "n_s": 5,
+     "Q": 10,
+     "n_shuffles": 8,
+     "n_texts": 128,
+     "n_record": 321
+    },
+    "complete": true,
+    "run_commit": "8522c18156c6c9023aedffe9061a56838898e960"
+   },
+   "outcomes": {
+    "G6": true,
+    "G10": true,
+    "G11_setting_is_the_attack_searchs": true,
+    "G11_differs_from_the_heldout_batchs_own": true,
+    "shuffles_the_same_in_every_container": true,
+    "one_commit": true,
+    "block_prep_fp_is_the_heldout_batchs": true,
+    "units_are_the_ones_their_containers_returned": true,
+    "table_checks_failed": []
+   },
+   "prep_fp_equal_to_lead": null,
+   "seconds": 830.9256680011749
+  },
+  "delta_on": {
+   "receipt": {
+    "arm": "delta_on",
+    "files": [
+     {
+      "name": "table_core.npz",
+      "sha256": "be206b3560c0aa705acdd8a1ec62eba536292d4bbbd9149255bd071f70e397a6"
+     },
+     {
+      "name": "table_per_text_01.npz",
+      "sha256": "204095d728921feb792fd61f9128bba99748f25ccf7181d5b74ca746ad93b1c3"
+     }
+    ],
+    "shapes": {
+     "K_A": 8,
+     "K_H": 8,
+     "n_s": 5,
+     "Q": 5,
+     "n_shuffles": 8,
+     "n_texts": 128,
+     "n_record": 321
+    },
+    "complete": true,
+    "run_commit": "8522c18156c6c9023aedffe9061a56838898e960"
+   },
+   "outcomes": {
+    "G6": true,
+    "G10": true,
+    "G11_setting_is_the_attack_searchs": true,
+    "G11_differs_from_the_heldout_batchs_own": true,
+    "shuffles_the_same_in_every_container": true,
+    "one_commit": true,
+    "block_prep_fp_is_the_heldout_batchs": true,
+    "units_are_the_ones_their_containers_returned": true,
+    "table_checks_failed": []
+   },
+   "prep_fp_equal_to_lead": {
+    "attack": {
+     "A1": true,
+     "A2": true,
+     "A3": true,
+     "A4": true,
+     "A5": true,
+     "A6": true,
+     "A7": true,
+     "A8": true
+    },
+    "heldout": {
+     "H1": true,
+     "H2": true,
+     "H3": true,
+     "H4": true,
+     "H5": true,
+     "H6": true,
+     "H7": true,
+     "H8": true
+    }
+   },
+   "seconds": 256.7546203136444
+  }
+ }
+}

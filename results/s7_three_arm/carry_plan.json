@@ -1,0 +1,54 @@
+{
+ "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+ "settings": [
+  {
+   "key": "s1|breakout_before|123",
+   "seed": 1,
+   "label": "breakout_before",
+   "batch": 123,
+   "unit": "run_batch_s1_n1000",
+   "sha256": "314ee194a1f1f62856417433720340e25e51c1c6fdc8162a24f7738010f9d1b9"
+  },
+  {
+   "key": "s1|breakout_loss|123",
+   "seed": 1,
+   "label": "breakout_loss",
+   "batch": 123,
+   "unit": "run_batch_s1_n1000",
+   "sha256": "314ee194a1f1f62856417433720340e25e51c1c6fdc8162a24f7738010f9d1b9"
+  },
+  {
+   "key": "s1|last|1000",
+   "seed": 1,
+   "label": "last",
+   "batch": 1000,
+   "unit": "run_batch_s1_n1000",
+   "sha256": "314ee194a1f1f62856417433720340e25e51c1c6fdc8162a24f7738010f9d1b9"
+  },
+  {
+   "key": "s2|breakout_before|88",
+   "seed": 2,
+   "label": "breakout_before",
+   "batch": 88,
+   "unit": "run_batch_s2_n1000",
+   "sha256": "1093528aef43deba83d2c2841c616bc6eaeecdfdb8b32c408d49a7b7ea0b0b80"
+  },
+  {
+   "key": "s2|breakout_loss|87",
+   "seed": 2,
+   "label": "breakout_loss",
+   "batch": 87,
+   "unit": "run_batch_s2_n1000",
+   "sha256": "1093528aef43deba83d2c2841c616bc6eaeecdfdb8b32c408d49a7b7ea0b0b80"
+  },
+  {
+   "key": "s2|last|1000",
+   "seed": 2,
+   "label": "last",
+   "batch": 1000,
+   "unit": "run_batch_s2_n1000",
+   "sha256": "1093528aef43deba83d2c2841c616bc6eaeecdfdb8b32c408d49a7b7ea0b0b80"
+  }
+ ],
+ "at": "2026-10-08T23:53:45+00:00"
+}

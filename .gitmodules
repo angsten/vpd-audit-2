@@ -1,0 +1,3 @@
+[submodule "third_party/vpd-audit"]
+	path = third_party/vpd-audit
+	url = https://github.com/angsten/vpd-audit

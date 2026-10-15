@@ -1,0 +1,276 @@
+{
+ "what": "The repeat rehearsal of the lead run on calibration batches C1 and C2 with pilot start 1 (plan 4, Section 6). Each batch was scored on itself only. Its sealed values stay sealed; this file holds outcomes as true or false, hashes, and timings.",
+ "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
+ "attempt": 2,
+ "written": "2026-10-06T17:31:58+00:00",
+ "volume_root": "/cache/s5_lead/rehearsal/28ea3b660c5a_2",
+ "required_outcomes": {
+  "row_1_two_containers_at_once_in_each_role": true,
+  "row_3_stop_then_relaunch": true,
+  "row_2_kill_inside_a_unit": true,
+  "row_4_two_waves_and_the_guards_only_pass": true,
+  "row_5_assemble_and_backup": true,
+  "row_6_two_per_text_parts": true,
+  "row_7_validate_only": true,
+  "row_8_timings": true,
+  "row_9_search_equal_to_the_pilots": true,
+  "heldout_role_equal_to_the_pilots_and_to_the_attack_role": true,
+  "every_units_guards_true": true,
+  "delta_entries_held_in_the_delta_on_searches": true,
+  "assemblers_required_guards_true": true
+ },
+ "all_required_outcomes_met": true,
+ "guards_only_pass": {
+  "at": "2026-10-06T17:20:22+00:00",
+  "app_id": "ap-YtjOV2gu7EcE2pHpkQP7N4",
+  "outcomes": {
+   "G6": false,
+   "G10": true,
+   "G11_setting_is_the_attack_searchs": true,
+   "G11_differs_from_the_heldout_batchs_own": false,
+   "shuffles_the_same_in_every_container": true,
+   "one_commit": true,
+   "block_prep_fp_is_the_heldout_batchs": true,
+   "G6_reports_every_carried_vector_equal": true,
+   "G11_reports_every_carried_vector_equal_to_the_heldout_own": true
+  },
+  "seconds": 2.010091543197632,
+  "error": null
+ },
+ "stops": [
+  {
+   "at": "2026-10-06T17:20:28+00:00",
+   "after_stage": "rehearsal_heldout_1",
+   "by": [
+    "the guards-only pass: G11_differs_from_the_heldout_batchs_own, G6"
+   ]
+  }
+ ],
+ "spend_checks_of_the_rehearsal_itself": [
+  {
+   "check": "C1",
+   "after_stage": "rehearsal_attack",
+   "spent_dollars": 0.732574577536621,
+   "remaining_dollars": 1.6353392631005597,
+   "projected_dollars": 2.367913840637181,
+   "cap": 6.0,
+   "exceeds_cap": false
+  },
+  {
+   "check": "C2",
+   "after_stage": "rehearsal_heldout_1",
+   "spent_dollars": 1.1372647514669467,
+   "remaining_dollars": 1.3386472754215095,
+   "projected_dollars": 2.475912026888456,
+   "cap": 6.0,
+   "exceeds_cap": false
+  },
+  {
+   "check": "C3",
+   "after_stage": "rehearsal_heldout_2",
+   "spent_dollars": 1.5486846526187372,
+   "remaining_dollars": 0.8599593677941902,
+   "projected_dollars": 2.4086440204129276,
+   "cap": 6.0,
+   "exceeds_cap": false
+  }
+ ],
+ "timings": {
+  "seconds_per_search_step": 0.3824592846055185,
+  "seconds_per_search_step_delta_on": 0.3842949867248535,
+  "seconds_per_scoring_pass": 0.18403499697645506,
+  "seconds_to_ready": 20.367768621444704,
+  "seconds_first_search_extra": 1.6750926884912674,
+  "seconds_per_search_fixed": 0.1881604790687561,
+  "seconds_per_commit_after_search": 3.026501625776291,
+  "seconds_per_commit_after_blocks": 1.839984118938446,
+  "seconds_per_shuffle": 0.006744697690010071,
+  "seconds_per_search_unit_other": 0.0406915545463562,
+  "seconds_per_block_other": 0.923546314239502,
+  "observations": {
+   "seconds_to_ready": [
+    12.706653833389282,
+    23.842843532562256,
+    22.878852367401123,
+    27.948812246322632,
+    12.889695644378662,
+    27.103971242904663,
+    26.08823823928833,
+    23.391714572906494,
+    13.041085958480835,
+    13.785818576812744
+   ],
+   "seconds_first_search_extra": [
+    1.2316822832630523,
+    1.9819073504017242,
+    1.607852918486441,
+    2.390105468611563,
+    1.2673423290252686,
+    1.8448612689971924,
+    1.4323723316192627,
+    1.6446175575256348
+   ],
+   "seconds_per_search_fixed": [
+    0.18826866149902344,
+    0.18833518028259277,
+    0.18810772895812988,
+    0.18793034553527832
+   ],
+   "seconds_per_search_step_by_search": [
+    0.3849898499827231,
+    0.3821219321220152,
+    0.38113329872008295,
+    0.3815920575972526
+   ],
+   "seconds_per_search_step_delta_on_by_search": [
+    0.3814887762069702,
+    0.3866903781890869,
+    0.38281028270721434,
+    0.38619050979614256
+   ],
+   "seconds_of_the_first_iteration": [
+    1.5942692756652832,
+    2.369764804840088,
+    2.000375986099243,
+    2.7757511138916016,
+    1.674525260925293,
+    2.206597328186035,
+    1.8239221572875977,
+    2.01125431060791
+   ],
+   "seconds_per_iteration_in_the_rest_of_the_first_ten": [
+    0.3846673170725505,
+    0.3818594879574246,
+    0.3813410864935981,
+    0.3821052445305718,
+    0.3817518817053901,
+    0.3868015342288547,
+    0.38348889350891113,
+    0.38625701268513996
+   ],
+   "of_the_delta_on_arm": [
+    false,
+    false,
+    false,
+    false,
+    true,
+    true,
+    true,
+    true
+   ]
+  }
+ },
+ "delta_on_step": {
+  "steady_seconds_per_step_lead": 0.3824592846055185,
+  "steady_seconds_per_step_delta_on": 0.3842949867248535,
+  "delta_on_over_lead": 1.0047997321367905,
+  "slower_step": false,
+  "rule": "a slower step if the delta-on searches' steady rate, over their iterations after the first ten, exceeds the lead's by more than 5 percent; otherwise the first rehearsal's 0.493 s per step over 20 steps was warm-up"
+ },
+ "listed_prices": {
+  "read_on": "2026-10-06",
+  "source": "https://modal.com/pricing",
+  "gpu_b200_per_second": 0.001736,
+  "cpu_core_per_second": 1.31e-05,
+  "memory_gib_per_second": 2.22e-06,
+  "notes": "base prices; the page lists a minimum of 0.125 cores per container, 1.15 to 1.75 times base for region selection, and 3 times base for non-preemptible execution, none of which this run requests",
+  "container": {
+   "gpu": "B200",
+   "memory_mib": 32768,
+   "cpu_cores_assumed": 1.0
+  },
+  "hourly_price_of_the_configuration": 6.552504
+ },
+ "bill": {
+  "read_at": "2026-10-06T17:31:58+00:00",
+  "latest_interval_posted": "2026-10-06 16:00:00+00:00",
+  "by_app": {
+   "ap-QVqGxUKzmYt8lAppjeVX7Z": 0.75090995
+  },
+  "error": null
+ },
+ "money_spent_on_rehearsals": {
+  "function_seconds": 1316.2724061012268,
+  "container_lives": 14.0,
+  "billed": 0.75090995,
+  "app_ids": [
+   "ap-8mcTtty2kYGYLHtQTCPIHs",
+   "ap-954m6ongllLvCLrRPo5UIf",
+   "ap-KGrphlvrsfGgH5nKA8TAhP",
+   "ap-QVqGxUKzmYt8lAppjeVX7Z",
+   "ap-S3EsA6tt7pk4gD6kSqcQOC",
+   "ap-YtjOV2gu7EcE2pHpkQP7N4",
+   "ap-fl6Ua3fj4EYaOp1oLCRkzr",
+   "ap-sa8oDIrHION5UGkwgubjjH"
+  ]
+ },
+ "this_rehearsal": {
+  "function_seconds": 879.0604889392853,
+  "container_lives": 11.0,
+  "billed": null
+ },
+ "check_C0": {
+  "check": "C0",
+  "flat_rate": 6.8,
+  "listed_hourly_price": 6.552504,
+  "boot_seconds": 50.0,
+  "stages": {
+   "lead_attack": {
+    "search": 9790.957685901272,
+    "scoring": 161.95079733928046,
+    "overhead": 613.1140737102878,
+    "total": 10566.02255695084
+   },
+   "lead_heldout_1": {
+    "search": 611.9348553688295,
+    "scoring": 1099.609106934319,
+    "overhead": 176.17593282191984,
+    "total": 1887.7198951250682
+   },
+   "lead_heldout_2": {
+    "search": 9179.022830532444,
+    "scoring": 16494.136604014784,
+    "overhead": 2642.638992328798,
+    "total": 28315.798426876023
+   },
+   "delta_attack": {
+    "search": 4918.975830078125,
+    "scoring": 44.16839927434921,
+    "overhead": 306.5570368551439,
+    "total": 5269.701266207618
+   },
+   "delta_heldout": {
+    "search": 4918.975830078125,
+    "scoring": 2694.272355735302,
+    "overhead": 806.182971455974,
+    "total": 8419.4311572694
+   }
+  },
+  "assemble_seconds": 5.559345722198486,
+  "function_hours": 15.128953513375318,
+  "run": {
+   "function_seconds": 54464.23264815115,
+   "container_lives": 48.0,
+   "at_the_flat_rate": 102.87688389095216,
+   "at_the_listed_price_with_boot": 103.50086441220583,
+   "billed": null,
+   "dollars": 103.50086441220583
+  },
+  "run_dollars": 103.50086441220583,
+  "spent": {
+   "function_seconds": 1316.2724061012268,
+   "container_lives": 14.0,
+   "at_the_flat_rate": 2.4862923226356504,
+   "at_the_listed_price_with_boot": 3.6698980572410864,
+   "billed": 0.75090995,
+   "dollars": 3.6698980572410864
+  },
+  "spent_dollars": 3.6698980572410864,
+  "projected_dollars": 107.17076246944691,
+  "cap": 150.0,
+  "exceeds_cap": false
+ },
+ "killed_tasks": {
+  "killed|rehearsal_2|28ea3b660c5a|rehearsal_delta_heldout|C1": "ta-01M49472XJ4JX3A6HBDC2PNR4R"
+ }
+}

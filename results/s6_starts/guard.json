@@ -1,0 +1,11 @@
+{
+ "search": "C1 from start 1",
+ "against": "results/s4_pilot/part_a/runs.json, a1, C1, 1",
+ "outcomes": {
+  "record_equals_pilot": true,
+  "saved_settings_equal_pilot": true,
+  "hook_steps_equal_pilot": true
+ },
+ "all_equal": true,
+ "at": "2026-10-07T22:34:00+00:00"
+}

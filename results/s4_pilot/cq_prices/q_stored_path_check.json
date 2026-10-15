@@ -1,0 +1,50 @@
+{
+ "texts": [
+  {
+   "q_text": 0,
+   "text_id": "v0",
+   "freed_entries": 16679,
+   "T_stored_path": 20.428102152861676,
+   "T_stored_path_sub_cache_delta": 20.428102152861676,
+   "components_equal": true,
+   "delta_full_equals_sub_cache": true,
+   "delta_entries_unequal": 0,
+   "refused_on_external_path": true,
+   "T_expected": 20.428102152861676,
+   "equals_expected": true,
+   "sub_cache_equals_expected": true
+  },
+  {
+   "q_text": 1,
+   "text_id": "v1",
+   "freed_entries": 17341,
+   "T_stored_path": 20.79395874504238,
+   "T_stored_path_sub_cache_delta": 20.79395874504238,
+   "components_equal": true,
+   "delta_full_equals_sub_cache": true,
+   "delta_entries_unequal": 0,
+   "refused_on_external_path": true,
+   "T_expected": 20.79395874504238,
+   "equals_expected": true,
+   "sub_cache_equals_expected": true
+  }
+ ],
+ "passes": true,
+ "rows_verified_by_ids_sha256": true,
+ "rule": "T from the stored path (stored S, Delta from Q's full cache) equals the pilot's stored-path T exactly",
+ "environment": {
+  "gpu": "NVIDIA A100-SXM4-80GB",
+  "torch": "2.8.0+cu128",
+  "cuda": "12.8",
+  "deterministic_algorithms": false,
+  "deterministic_warn_only": false,
+  "cublas_workspace_config": ":4096:8",
+  "allow_tf32_matmul": false,
+  "allow_tf32_cudnn": true,
+  "float32_matmul_precision": "highest",
+  "vpd_audit_2_commit": "6abb15ec3bf5d0420f29b3105daa11e15a37d497",
+  "vpd_audit_2_dirty": "0"
+ },
+ "function_seconds": 23.388234853744507,
+ "app_id": "ap-3NnWmxe69apcaKFzMoGUcg"
+}

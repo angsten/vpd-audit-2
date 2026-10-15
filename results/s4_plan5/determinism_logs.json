@@ -1,0 +1,176 @@
+{
+ "pattern": "does not have a deterministic implementation",
+ "runs": [
+  {
+   "app": "ap-GVsHBwgpR0y5VY3Ujhk9tY",
+   "run": "prices --stage inputs",
+   "results": [
+    "s4_plan1_prices/price_inputs.json"
+   ],
+   "marker": "[prices] bf16 pass",
+   "log_lines": 29,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-7ZxpAgC0VLIV13b4lXMWaX",
+   "run": "prices --stage prices",
+   "results": [
+    "s4_plan1_prices/prices.json"
+   ],
+   "marker": "[prices] Q_fp32",
+   "log_lines": 21,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-6fRfwOPYMOfl8LqFewo7XU",
+   "run": "check7_diagnostic",
+   "results": [
+    "s4_plan1_prices/check7_diagnostic.json"
+   ],
+   "marker": null,
+   "log_lines": 22,
+   "log_complete": true,
+   "marker_found": null,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-LiKm6cNUbuYt8KrAHJYDcH",
+   "run": "check7_amended",
+   "results": [
+    "s4_plan1_prices/check7_amended.json"
+   ],
+   "marker": null,
+   "log_lines": 22,
+   "log_complete": true,
+   "marker_found": null,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-tXip4Eu4Wmt0o7JvrNLz8m",
+   "run": "g3",
+   "results": [
+    "s4_plan1_g3/g3.json"
+   ],
+   "marker": "[g3] all_on",
+   "log_lines": 32,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-MoeDszy67M9EdldbA9nEii",
+   "run": "g2",
+   "results": [
+    "s4_plan1_g2/g2.json"
+   ],
+   "marker": "[g2] step 0",
+   "log_lines": 10,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-zx9PavnAoHEYP5m4pZ2D2S",
+   "run": "recorded",
+   "results": [
+    "s4_plan1_g2/recorded_320.json"
+   ],
+   "marker": "[recorded]",
+   "log_lines": 35,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-b5YUL8GwY8YtcTup4bMvHS",
+   "run": "g3_float64",
+   "results": [
+    "s4_plan1_g3/g3_float64_diagnostic.json"
+   ],
+   "marker": "[g3-f64]",
+   "log_lines": 28,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-avrdqSLc58CbAHoqsuFZBn",
+   "run": "diagnose --stage d1",
+   "results": [
+    "s4_plan4/d1.json"
+   ],
+   "marker": "[d1]",
+   "log_lines": 28,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-bjr0iC5RgW45PnlwhuaPbl",
+   "run": "diagnose --stage d5",
+   "results": [
+    "s4_plan4/d5.json"
+   ],
+   "marker": "[d5]",
+   "log_lines": 11,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-W306RULBuY5Dek6q1j5wCY",
+   "run": "diagnose --stage d234",
+   "results": [
+    "s4_plan4/d2.json",
+    "s4_plan4/d3.json",
+    "s4_plan4/d4.json"
+   ],
+   "marker": "[diag] D4|perm8",
+   "log_lines": 77,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  },
+  {
+   "app": "ap-LO3tnGQJPgBjaCnGAIANVc",
+   "run": "diagnose --stage d4void",
+   "results": [
+    "s4_plan4/d4_void_case.json"
+   ],
+   "marker": "[diag] D4void",
+   "log_lines": 64,
+   "log_complete": true,
+   "marker_found": true,
+   "determinism_warnings": 0,
+   "warning_lines_of_any_kind": 0
+  }
+ ],
+ "positive_control": {
+  "app": "ap-pk94FyyIFTq6OiPVioEB0X",
+  "run": "positive control: torch.histc on CUDA under warn_only=True",
+  "marker": "[warncheck]",
+  "log_lines": 26,
+  "log_complete": true,
+  "marker_found": true,
+  "determinism_warnings": 2,
+  "warning_lines_of_any_kind": 1
+ },
+ "any_determinism_warning_in_the_runs": false,
+ "every_log_complete_and_identified": true,
+ "positive_control_warning_seen": true
+}

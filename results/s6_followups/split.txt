@@ -1,0 +1,70 @@
+The token-level split (session 6, plan 2; conventions, Section 2). The signed line: one half.
+A part's share: its mean added harm over the cells divided by the full carried setting's; the signed 95 percent interval
+beside it. Above half or below half when the interval lies wholly on one side of 0.5; undetermined otherwise.
+
+n20: 1,280 carried cells; the carried setting's mean added harm 0.38 nats.
+  Part Z (the setting where the label is zero): share 0.63 [0.60, 0.65], above half; per-cell median 0.63; mean added harm 0.24 nats.
+  Part P (the setting where the label is above zero): share 0.08 [0.07, 0.08], below half; per-cell median 0.08; mean added harm 0.03 nats.
+  Reading: Part Z above half and Part P below half: the harm comes from components the labels call free.
+
+n40: 1,280 carried cells; the carried setting's mean added harm 1.55 nats.
+  Part Z (the setting where the label is zero): share 0.55 [0.49, 0.61], undetermined; per-cell median 0.57; mean added harm 0.85 nats.
+  Part P (the setting where the label is above zero): share 0.02 [0.01, 0.02], below half; per-cell median 0.02; mean added harm 0.02 nats.
+  Reading: A part is undetermined: the split is undetermined.
+
+n80: 1,280 carried cells; the carried setting's mean added harm 16.56 nats.
+  Part Z (the setting where the label is zero): share 0.43 [0.38, 0.47], below half; per-cell median 0.43; mean added harm 7.08 nats.
+  Part P (the setting where the label is above zero): share 0.00 [0.00, 0.00], below half; per-cell median 0.00; mean added harm 0.02 nats.
+  Reading: Both parts below half: no single attribution; the harm needs both kinds of position together.
+
+n160: 1,280 carried cells; the carried setting's mean added harm 28.55 nats.
+  Part Z (the setting where the label is zero): share 0.45 [0.39, 0.50], undetermined; per-cell median 0.44; mean added harm 12.74 nats.
+  Part P (the setting where the label is above zero): share 0.00 [0.00, 0.00], below half; per-cell median 0.00; mean added harm 0.02 nats.
+  Reading: A part is undetermined: the split is undetermined.
+
+n320: 1,280 carried cells; the carried setting's mean added harm 32.57 nats.
+  Part Z (the setting where the label is zero): share 0.48 [0.41, 0.55], undetermined; per-cell median 0.45; mean added harm 15.51 nats.
+  Part P (the setting where the label is above zero): share 0.00 [0.00, 0.00], below half; per-cell median 0.00; mean added harm 0.01 nats.
+  Reading: A part is undetermined: the split is undetermined.
+
+The own-batch version (description): each attack search on its own batch, 80 cells per length; pooled share, then by start.
+  n20: Part Z 0.66 (s9 0.67, s10 0.64, s11 0.67, s12 0.67, s13 0.66); Part P 0.06 (s9 0.07, s10 0.06, s11 0.06, s12 0.06, s13 0.07).
+  n40: Part Z 0.60 (s9 0.63, s10 0.59, s11 0.61, s12 0.67, s13 0.55); Part P 0.01 (s9 0.01, s10 0.01, s11 0.02, s12 0.02, s13 0.01).
+  n80: Part Z 0.46 (s9 0.52, s10 0.48, s11 0.41, s12 0.51, s13 0.44); Part P 0.00 (s9 0.00, s10 0.00, s11 0.00, s12 0.00, s13 0.00).
+  n160: Part Z 0.48 (s9 0.47, s10 0.54, s11 0.40, s12 0.48, s13 0.49); Part P 0.00 (s9 0.00, s10 0.00, s11 0.00, s12 0.00, s13 0.00).
+  n320: Part Z 0.51 (s9 0.47, s10 0.58, s11 0.44, s12 0.55, s13 0.52); Part P 0.00 (s9 0.00, s10 0.00, s11 0.00, s12 0.00, s13 0.00).
+
+Each batch's labels: per position, the mean count of positive labels below 1e-3, and of labels exactly zero; and whether the split's
+path reproduced the saved harms bit for bit (they must, and did, within the run's per-text tolerance).
+  H1: positive below 1e-3 0.53; exactly zero 38706.18; bit for bit yes.
+  H2: positive below 1e-3 0.53; exactly zero 38705.12; bit for bit yes.
+  H3: positive below 1e-3 0.52; exactly zero 38708.55; bit for bit yes.
+  H4: positive below 1e-3 0.53; exactly zero 38702.43; bit for bit yes.
+  H5: positive below 1e-3 0.53; exactly zero 38706.66; bit for bit yes.
+  H6: positive below 1e-3 0.52; exactly zero 38706.09; bit for bit yes.
+  H7: positive below 1e-3 0.54; exactly zero 38704.18; bit for bit yes.
+  H8: positive below 1e-3 0.53; exactly zero 38705.49; bit for bit yes.
+  H9: positive below 1e-3 0.52; exactly zero 38709.32; bit for bit yes.
+  H10: positive below 1e-3 0.53; exactly zero 38707.28; bit for bit yes.
+  H11: positive below 1e-3 0.53; exactly zero 38707.06; bit for bit yes.
+  H12: positive below 1e-3 0.51; exactly zero 38709.67; bit for bit yes.
+  H13: positive below 1e-3 0.54; exactly zero 38705.55; bit for bit yes.
+  H14: positive below 1e-3 0.52; exactly zero 38707.03; bit for bit yes.
+  H15: positive below 1e-3 0.51; exactly zero 38710.85; bit for bit yes.
+  H16: positive below 1e-3 0.54; exactly zero 38703.97; bit for bit yes.
+  A1: positive below 1e-3 0.54; exactly zero 38702.91; bit for bit yes.
+  A2: positive below 1e-3 0.53; exactly zero 38705.52; bit for bit yes.
+  A3: positive below 1e-3 0.52; exactly zero 38707.52; bit for bit yes.
+  A4: positive below 1e-3 0.52; exactly zero 38711.65; bit for bit yes.
+  A5: positive below 1e-3 0.52; exactly zero 38706.43; bit for bit yes.
+  A6: positive below 1e-3 0.52; exactly zero 38706.69; bit for bit yes.
+  A7: positive below 1e-3 0.54; exactly zero 38703.30; bit for bit yes.
+  A8: positive below 1e-3 0.53; exactly zero 38706.26; bit for bit yes.
+  A9: positive below 1e-3 0.53; exactly zero 38707.54; bit for bit yes.
+  A10: positive below 1e-3 0.53; exactly zero 38707.44; bit for bit yes.
+  A11: positive below 1e-3 0.53; exactly zero 38705.81; bit for bit yes.
+  A12: positive below 1e-3 0.52; exactly zero 38706.44; bit for bit yes.
+  A13: positive below 1e-3 0.53; exactly zero 38705.12; bit for bit yes.
+  A14: positive below 1e-3 0.53; exactly zero 38706.07; bit for bit yes.
+  A15: positive below 1e-3 0.53; exactly zero 38703.97; bit for bit yes.
+  A16: positive below 1e-3 0.53; exactly zero 38707.95; bit for bit yes.

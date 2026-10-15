@@ -1,0 +1,15 @@
+{
+  "commit": "85c6b702d2accf5bfcf02e52b753acd0fcbcf6c5",
+  "created_at": "2026-02-25T15:20:52Z",
+  "id": "s-55ea3f9b",
+  "name": "jose-s-55ea3f9b",
+  "project": "goodfire/spd",
+  "state": "finished",
+  "tags": [
+    "launch-20260225_151714",
+    "lm",
+    "pile_llama_simple_mlp-4L",
+    "slurm-array-job-id_311644"
+  ],
+  "url": "https://wandb.ai/goodfire/spd/runs/s-55ea3f9b"
+}

@@ -1,0 +1,297 @@
+Agreement between settings (conventions, Section 7, and the addendum's item 3). Description; no line.
+Settings read: 160 run searches (A1-A16, H1-H16 from starts 9-13), 40 starts-test searches (C1-C8 from starts 9-13, loaded by name; the guard search not read), 64 pilot searches (C1-C8 from starts 1-8, values only); every file or array matched its recorded SHA-256.
+Entries: 38,912 rank-one (9,948 alive, 28,964 never-needed) and 24 delta. Strata file SHA-256 12ce906776467e6faffeea6c5d86130e907a8e25a0109ec1d2fc013ec5110af2.
+Agree: both below one half or both at or above. Chance levels: independence within the shuffle's 264 strata (different starts); crossing from the start within the same strata (same start); crossing within start-value decile by alive or never-needed (same start; the addendum's level, not defined for the 24 delta entries). The delta entries are one group for the chance levels. Kappa = (mean agreement - mean chance) / (1 - mean chance) over a family's pairs.
+Top 3,000: plan 2's ranking a_c = G_c (s_c - s0_c) over all 38,936 entries, pairs whose settings both have saved gradients (starts 9-13); O and E are means over pairs, beyond chance = (O - E)/(3000 - E), the same-side share pooled over the family's overlapping entries.
+
+320 steps (n320): 264 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          4124  rank-one      0.600   crossing 0.501  kappa 0.199   decile 0.514  kappa 0.178
+                                               alive         0.610   crossing 0.503  kappa 0.214   decile 0.505  kappa 0.210
+                                               never-needed  0.597   crossing 0.500  kappa 0.194   decile 0.517  kappa 0.166
+                                               delta         0.700   crossing 0.509  kappa 0.388   decile n/a  kappa n/a
+  different starts, same batch            944  rank-one      0.567   independence 0.535  kappa 0.068
+                                               alive         0.581   independence 0.539  kappa 0.091
+                                               never-needed  0.562   independence 0.534  kappa 0.060
+                                               delta         0.663   independence 0.509  kappa 0.314
+  different starts, different batches   29648  rank-one      0.555   independence 0.531  kappa 0.052
+                                               alive         0.566   independence 0.533  kappa 0.071
+                                               never-needed  0.551   independence 0.530  kappa 0.045
+                                               delta         0.644   independence 0.506  kappa 0.280
+  Top-3,000 overlap:
+  same start, different batches          3900  O  1105.1  E   626.0  beyond chance 0.202  same side among overlapping 0.901
+  different starts, same batch            400  O   793.8  E   627.0  beyond chance 0.070  same side among overlapping 0.757
+  different starts, different batches   15600  O   740.3  E   613.6  beyond chance 0.053  same side among overlapping 0.714
+  Same start, entries untouched in both settings left out: 0 entries left out over 4124 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          4124  rank-one      0.600   crossing 0.501  kappa 0.199   decile 0.514  kappa 0.178
+                                               alive         0.610   crossing 0.503  kappa 0.214   decile 0.505  kappa 0.210
+                                               never-needed  0.597   crossing 0.500  kappa 0.194   decile 0.517  kappa 0.166
+                                               delta         0.700   crossing 0.509  kappa 0.388   decile n/a  kappa n/a
+
+  At 320 steps, the same-start family by start (rank-one entries in full; kappa by group; the overlap where defined):
+    start 1                               28  0.576  crossing 0.501 kappa 0.150  decile 0.510 kappa 0.135  | kappa (crossing): alive 0.165, never-needed 0.145, delta 0.285  | top 3,000: no pair with gradients
+    start 2                               28  0.539  crossing 0.500 kappa 0.076  decile 0.512 kappa 0.054  | kappa (crossing): alive 0.095, never-needed 0.070, delta 0.059  | top 3,000: no pair with gradients
+    start 3                               28  0.637  crossing 0.501 kappa 0.273  decile 0.513 kappa 0.255  | kappa (crossing): alive 0.282, never-needed 0.270, delta 0.436  | top 3,000: no pair with gradients
+    start 4                               28  0.561  crossing 0.500 kappa 0.122  decile 0.528 kappa 0.071  | kappa (crossing): alive 0.124, never-needed 0.121, delta 0.325  | top 3,000: no pair with gradients
+    start 5                               28  0.703  crossing 0.502 kappa 0.403  decile 0.515 kappa 0.387  | kappa (crossing): alive 0.405, never-needed 0.403, delta 0.596  | top 3,000: no pair with gradients
+    start 6                               28  0.586  crossing 0.501 kappa 0.172  decile 0.514 kappa 0.149  | kappa (crossing): alive 0.180, never-needed 0.169, delta 0.241  | top 3,000: no pair with gradients
+    start 7                               28  0.599  crossing 0.501 kappa 0.197  decile 0.519 kappa 0.167  | kappa (crossing): alive 0.209, never-needed 0.193, delta 0.498  | top 3,000: no pair with gradients
+    start 8                               28  0.549  crossing 0.501 kappa 0.097  decile 0.520 kappa 0.061  | kappa (crossing): alive 0.097, never-needed 0.097, delta 0.145  | top 3,000: no pair with gradients
+    start 9                              780  0.615  crossing 0.501 kappa 0.229  decile 0.507 kappa 0.219  | kappa (crossing): alive 0.234, never-needed 0.227, delta 0.399  | top 3,000: 780 pairs, O 1169.3, E 623.6, beyond 0.230, same side 0.910
+    start 10                             780  0.601  crossing 0.501 kappa 0.200  decile 0.521 kappa 0.166  | kappa (crossing): alive 0.222, never-needed 0.192, delta 0.436  | top 3,000: 780 pairs, O 1081.8, E 617.1, beyond 0.195, same side 0.908
+    start 11                             780  0.610  crossing 0.501 kappa 0.220  decile 0.509 kappa 0.207  | kappa (crossing): alive 0.255, never-needed 0.207, delta 0.340  | top 3,000: 780 pairs, O 1182.8, E 633.5, beyond 0.232, same side 0.915
+    start 12                             780  0.587  crossing 0.501 kappa 0.172  decile 0.518 kappa 0.143  | kappa (crossing): alive 0.174, never-needed 0.171, delta 0.369  | top 3,000: 780 pairs, O 1008.6, E 616.8, beyond 0.164, same side 0.879
+    start 13                             780  0.590  crossing 0.501 kappa 0.180  decile 0.514 kappa 0.158  | kappa (crossing): alive 0.189, never-needed 0.176, delta 0.414  | top 3,000: 780 pairs, O 1082.9, E 638.9, beyond 0.188, same side 0.889
+  At 320 steps, the same-start family by batch set:
+    within deciding (starts 9-13)       2480  0.611  crossing 0.501 kappa 0.221  decile 0.513 kappa 0.201  | kappa (crossing): alive 0.237, never-needed 0.215, delta 0.427  | top 3,000: 2480 pairs, O 1166.3, E 635.4, beyond 0.225, same side 0.910
+    within calibration (starts 9-13)     140  0.565  crossing 0.501 kappa 0.130  decile 0.515 kappa 0.103  | kappa (crossing): alive 0.142, never-needed 0.126, delta 0.308  | top 3,000: 140 pairs, O 899.5, E 594.0, beyond 0.127, same side 0.862
+    across the two (starts 9-13)        1280  0.584  crossing 0.501 kappa 0.167  decile 0.514 kappa 0.144  | kappa (crossing): alive 0.180, never-needed 0.162, delta 0.333  | top 3,000: 1280 pairs, O 1008.9, E 611.2, beyond 0.166, same side 0.885
+    within calibration (starts 1-8)      224  0.594  crossing 0.501 kappa 0.186  decile 0.516 kappa 0.160  | kappa (crossing): alive 0.194, never-needed 0.184, delta 0.323  | top 3,000: no pair with gradients
+  At 320 steps, the different-starts, same-batch family by start pair:
+    starts 1-2                             8  0.565  independence 0.530 kappa 0.074  | kappa: alive 0.099, never-needed 0.066, delta 0.141  | top 3,000: no pair with gradients
+    starts 1-3                             8  0.589  independence 0.542 kappa 0.102  | kappa: alive 0.134, never-needed 0.091, delta 0.396  | top 3,000: no pair with gradients
+    starts 1-4                             8  0.550  independence 0.532 kappa 0.039  | kappa: alive 0.066, never-needed 0.030, delta 0.098  | top 3,000: no pair with gradients
+    starts 1-5                             8  0.578  independence 0.543 kappa 0.077  | kappa: alive 0.107, never-needed 0.067, delta 0.165  | top 3,000: no pair with gradients
+    starts 1-6                             8  0.591  independence 0.546 kappa 0.101  | kappa: alive 0.127, never-needed 0.092, delta 0.386  | top 3,000: no pair with gradients
+    starts 1-7                             8  0.577  independence 0.541 kappa 0.078  | kappa: alive 0.107, never-needed 0.068, delta 0.285  | top 3,000: no pair with gradients
+    starts 1-8                             8  0.564  independence 0.530 kappa 0.072  | kappa: alive 0.091, never-needed 0.066, delta 0.136  | top 3,000: no pair with gradients
+    starts 1-9                             8  0.558  independence 0.528 kappa 0.064  | kappa: alive 0.091, never-needed 0.055, delta 0.165  | top 3,000: no pair with gradients
+    starts 1-10                            8  0.582  independence 0.527 kappa 0.116  | kappa: alive 0.143, never-needed 0.107, delta 0.425  | top 3,000: no pair with gradients
+    starts 1-11                            8  0.566  independence 0.535 kappa 0.065  | kappa: alive 0.102, never-needed 0.052, delta 0.304  | top 3,000: no pair with gradients
+    starts 1-12                            8  0.599  independence 0.535 kappa 0.137  | kappa: alive 0.164, never-needed 0.128, delta 0.318  | top 3,000: no pair with gradients
+    starts 1-13                            8  0.566  independence 0.527 kappa 0.083  | kappa: alive 0.097, never-needed 0.079, delta 0.294  | top 3,000: no pair with gradients
+    starts 2-3                             8  0.573  independence 0.534 kappa 0.083  | kappa: alive 0.104, never-needed 0.076, delta 0.294  | top 3,000: no pair with gradients
+    starts 2-4                             8  0.562  independence 0.541 kappa 0.047  | kappa: alive 0.072, never-needed 0.038, delta 0.199  | top 3,000: no pair with gradients
+    starts 2-5                             8  0.554  independence 0.534 kappa 0.044  | kappa: alive 0.064, never-needed 0.037, delta 0.040  | top 3,000: no pair with gradients
+    starts 2-6                             8  0.576  independence 0.538 kappa 0.082  | kappa: alive 0.109, never-needed 0.073, delta 0.279  | top 3,000: no pair with gradients
+    starts 2-7                             8  0.557  independence 0.533 kappa 0.053  | kappa: alive 0.079, never-needed 0.044, delta 0.201  | top 3,000: no pair with gradients
+    starts 2-8                             8  0.577  independence 0.536 kappa 0.090  | kappa: alive 0.119, never-needed 0.080, delta 0.268  | top 3,000: no pair with gradients
+    starts 2-9                             8  0.578  independence 0.531 kappa 0.100  | kappa: alive 0.117, never-needed 0.095, delta 0.319  | top 3,000: no pair with gradients
+    starts 2-10                            8  0.555  independence 0.527 kappa 0.058  | kappa: alive 0.078, never-needed 0.052, delta 0.213  | top 3,000: no pair with gradients
+    starts 2-11                            8  0.582  independence 0.536 kappa 0.099  | kappa: alive 0.125, never-needed 0.091, delta 0.320  | top 3,000: no pair with gradients
+    starts 2-12                            8  0.563  independence 0.530 kappa 0.071  | kappa: alive 0.094, never-needed 0.063, delta 0.241  | top 3,000: no pair with gradients
+    starts 2-13                            8  0.547  independence 0.524 kappa 0.048  | kappa: alive 0.065, never-needed 0.042, delta 0.266  | top 3,000: no pair with gradients
+    starts 3-4                             8  0.566  independence 0.542 kappa 0.052  | kappa: alive 0.084, never-needed 0.041, delta 0.448  | top 3,000: no pair with gradients
+    starts 3-5                             8  0.572  independence 0.546 kappa 0.056  | kappa: alive 0.080, never-needed 0.047, delta 0.168  | top 3,000: no pair with gradients
+    starts 3-6                             8  0.589  independence 0.550 kappa 0.086  | kappa: alive 0.112, never-needed 0.077, delta 0.473  | top 3,000: no pair with gradients
+    starts 3-7                             8  0.605  independence 0.550 kappa 0.124  | kappa: alive 0.160, never-needed 0.111, delta 0.457  | top 3,000: no pair with gradients
+    starts 3-8                             8  0.580  independence 0.537 kappa 0.093  | kappa: alive 0.112, never-needed 0.086, delta 0.319  | top 3,000: no pair with gradients
+    starts 3-9                             8  0.564  independence 0.535 kappa 0.064  | kappa: alive 0.089, never-needed 0.055, delta 0.273  | top 3,000: no pair with gradients
+    starts 3-10                            8  0.550  independence 0.527 kappa 0.048  | kappa: alive 0.070, never-needed 0.040, delta 0.405  | top 3,000: no pair with gradients
+    starts 3-11                            8  0.569  independence 0.539 kappa 0.066  | kappa: alive 0.098, never-needed 0.054, delta 0.388  | top 3,000: no pair with gradients
+    starts 3-12                            8  0.582  independence 0.544 kappa 0.083  | kappa: alive 0.108, never-needed 0.075, delta 0.431  | top 3,000: no pair with gradients
+    starts 3-13                            8  0.546  independence 0.527 kappa 0.041  | kappa: alive 0.057, never-needed 0.035, delta 0.411  | top 3,000: no pair with gradients
+    starts 4-5                             8  0.563  independence 0.541 kappa 0.047  | kappa: alive 0.072, never-needed 0.039, delta 0.201  | top 3,000: no pair with gradients
+    starts 4-6                             8  0.558  independence 0.540 kappa 0.039  | kappa: alive 0.059, never-needed 0.032, delta 0.308  | top 3,000: no pair with gradients
+    starts 4-7                             8  0.577  independence 0.547 kappa 0.067  | kappa: alive 0.102, never-needed 0.055, delta 0.388  | top 3,000: no pair with gradients
+    starts 4-8                             8  0.565  independence 0.543 kappa 0.048  | kappa: alive 0.060, never-needed 0.044, delta 0.326  | top 3,000: no pair with gradients
+    starts 4-9                             8  0.564  independence 0.538 kappa 0.057  | kappa: alive 0.080, never-needed 0.050, delta 0.333  | top 3,000: no pair with gradients
+    starts 4-10                            8  0.546  independence 0.532 kappa 0.029  | kappa: alive 0.055, never-needed 0.020, delta 0.261  | top 3,000: no pair with gradients
+    starts 4-11                            8  0.556  independence 0.539 kappa 0.037  | kappa: alive 0.062, never-needed 0.028, delta 0.224  | top 3,000: no pair with gradients
+    starts 4-12                            8  0.571  independence 0.539 kappa 0.069  | kappa: alive 0.088, never-needed 0.063, delta 0.319  | top 3,000: no pair with gradients
+    starts 4-13                            8  0.546  independence 0.531 kappa 0.033  | kappa: alive 0.045, never-needed 0.028, delta 0.186  | top 3,000: no pair with gradients
+    starts 5-6                             8  0.585  independence 0.551 kappa 0.076  | kappa: alive 0.090, never-needed 0.071, delta 0.211  | top 3,000: no pair with gradients
+    starts 5-7                             8  0.559  independence 0.542 kappa 0.037  | kappa: alive 0.071, never-needed 0.026, delta 0.221  | top 3,000: no pair with gradients
+    starts 5-8                             8  0.548  independence 0.532 kappa 0.035  | kappa: alive 0.055, never-needed 0.028, delta 0.189  | top 3,000: no pair with gradients
+    starts 5-9                             8  0.573  independence 0.537 kappa 0.077  | kappa: alive 0.088, never-needed 0.074, delta 0.249  | top 3,000: no pair with gradients
+    starts 5-10                            8  0.536  independence 0.527 kappa 0.018  | kappa: alive 0.050, never-needed 0.007, delta 0.301  | top 3,000: no pair with gradients
+    starts 5-11                            8  0.573  independence 0.542 kappa 0.069  | kappa: alive 0.091, never-needed 0.062, delta 0.186  | top 3,000: no pair with gradients
+    starts 5-12                            8  0.556  independence 0.535 kappa 0.043  | kappa: alive 0.060, never-needed 0.038, delta 0.266  | top 3,000: no pair with gradients
+    starts 5-13                            8  0.541  independence 0.529 kappa 0.026  | kappa: alive 0.045, never-needed 0.019, delta 0.213  | top 3,000: no pair with gradients
+    starts 6-7                             8  0.566  independence 0.541 kappa 0.054  | kappa: alive 0.080, never-needed 0.045, delta 0.367  | top 3,000: no pair with gradients
+    starts 6-8                             8  0.554  independence 0.533 kappa 0.044  | kappa: alive 0.059, never-needed 0.039, delta 0.241  | top 3,000: no pair with gradients
+    starts 6-9                             8  0.577  independence 0.538 kappa 0.084  | kappa: alive 0.105, never-needed 0.077, delta 0.297  | top 3,000: no pair with gradients
+    starts 6-10                            8  0.553  independence 0.531 kappa 0.048  | kappa: alive 0.075, never-needed 0.038, delta 0.247  | top 3,000: no pair with gradients
+    starts 6-11                            8  0.588  independence 0.546 kappa 0.093  | kappa: alive 0.120, never-needed 0.083, delta 0.322  | top 3,000: no pair with gradients
+    starts 6-12                            8  0.574  independence 0.540 kappa 0.074  | kappa: alive 0.106, never-needed 0.063, delta 0.326  | top 3,000: no pair with gradients
+    starts 6-13                            8  0.555  independence 0.532 kappa 0.050  | kappa: alive 0.069, never-needed 0.044, delta 0.325  | top 3,000: no pair with gradients
+    starts 7-8                             8  0.568  independence 0.539 kappa 0.064  | kappa: alive 0.084, never-needed 0.056, delta 0.337  | top 3,000: no pair with gradients
+    starts 7-9                             8  0.555  independence 0.532 kappa 0.048  | kappa: alive 0.072, never-needed 0.039, delta 0.252  | top 3,000: no pair with gradients
+    starts 7-10                            8  0.556  independence 0.530 kappa 0.057  | kappa: alive 0.079, never-needed 0.049, delta 0.437  | top 3,000: no pair with gradients
+    starts 7-11                            8  0.554  independence 0.535 kappa 0.041  | kappa: alive 0.072, never-needed 0.031, delta 0.285  | top 3,000: no pair with gradients
+    starts 7-12                            8  0.572  independence 0.541 kappa 0.068  | kappa: alive 0.093, never-needed 0.059, delta 0.329  | top 3,000: no pair with gradients
+    starts 7-13                            8  0.556  independence 0.530 kappa 0.055  | kappa: alive 0.068, never-needed 0.051, delta 0.366  | top 3,000: no pair with gradients
+    starts 8-9                             8  0.541  independence 0.522 kappa 0.039  | kappa: alive 0.053, never-needed 0.035, delta 0.304  | top 3,000: no pair with gradients
+    starts 8-10                            8  0.559  independence 0.532 kappa 0.057  | kappa: alive 0.079, never-needed 0.049, delta 0.274  | top 3,000: no pair with gradients
+    starts 8-11                            8  0.546  independence 0.526 kappa 0.042  | kappa: alive 0.059, never-needed 0.036, delta 0.363  | top 3,000: no pair with gradients
+    starts 8-12                            8  0.585  independence 0.540 kappa 0.099  | kappa: alive 0.112, never-needed 0.095, delta 0.368  | top 3,000: no pair with gradients
+    starts 8-13                            8  0.559  independence 0.530 kappa 0.062  | kappa: alive 0.071, never-needed 0.059, delta 0.362  | top 3,000: no pair with gradients
+    starts 9-10                           40  0.553  independence 0.525 kappa 0.059  | kappa: alive 0.088, never-needed 0.049, delta 0.324  | top 3,000: 40 pairs, O 768.6, E 617.2, beyond 0.064, same side 0.745
+    starts 9-11                           40  0.605  independence 0.549 kappa 0.125  | kappa: alive 0.141, never-needed 0.119, delta 0.307  | top 3,000: 40 pairs, O 867.6, E 632.3, beyond 0.099, same side 0.814
+    starts 9-12                           40  0.566  independence 0.535 kappa 0.067  | kappa: alive 0.092, never-needed 0.059, delta 0.267  | top 3,000: 40 pairs, O 792.2, E 630.0, beyond 0.068, same side 0.747
+    starts 9-13                           40  0.573  independence 0.535 kappa 0.083  | kappa: alive 0.110, never-needed 0.074, delta 0.328  | top 3,000: 40 pairs, O 824.5, E 636.0, beyond 0.080, same side 0.767
+    starts 10-11                          40  0.546  independence 0.529 kappa 0.036  | kappa: alive 0.065, never-needed 0.027, delta 0.329  | top 3,000: 40 pairs, O 730.1, E 608.3, beyond 0.051, same side 0.721
+    starts 10-12                          40  0.553  independence 0.530 kappa 0.047  | kappa: alive 0.070, never-needed 0.040, delta 0.370  | top 3,000: 40 pairs, O 728.4, E 614.1, beyond 0.048, same side 0.720
+    starts 10-13                          40  0.597  independence 0.536 kappa 0.131  | kappa: alive 0.142, never-needed 0.127, delta 0.467  | top 3,000: 40 pairs, O 899.5, E 649.2, beyond 0.106, same side 0.825
+    starts 11-12                          40  0.563  independence 0.537 kappa 0.056  | kappa: alive 0.081, never-needed 0.048, delta 0.318  | top 3,000: 40 pairs, O 773.8, E 618.3, beyond 0.065, same side 0.736
+    starts 11-13                          40  0.563  independence 0.539 kappa 0.052  | kappa: alive 0.087, never-needed 0.041, delta 0.400  | top 3,000: 40 pairs, O 778.9, E 634.2, beyond 0.061, same side 0.747
+    starts 12-13                          40  0.565  independence 0.534 kappa 0.066  | kappa: alive 0.088, never-needed 0.059, delta 0.368  | top 3,000: 40 pairs, O 774.2, E 630.4, beyond 0.061, same side 0.730
+
+20 steps (n20): 264 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          4124  rank-one      0.709   crossing 0.516  kappa 0.399   decile 0.531  kappa 0.380
+                                               alive         0.749   crossing 0.561  kappa 0.429   decile 0.551  kappa 0.441
+                                               never-needed  0.695   crossing 0.501  kappa 0.390   decile 0.524  kappa 0.361
+                                               delta         0.818   crossing 0.530  kappa 0.612   decile n/a  kappa n/a
+  different starts, same batch            944  rank-one      0.604   independence 0.551  kappa 0.117
+                                               alive         0.591   independence 0.532  kappa 0.126
+                                               never-needed  0.608   independence 0.558  kappa 0.114
+                                               delta         0.705   independence 0.502  kappa 0.407
+  different starts, different batches   29648  rank-one      0.588   independence 0.550  kappa 0.083
+                                               alive         0.570   independence 0.530  kappa 0.086
+                                               never-needed  0.594   independence 0.557  kappa 0.082
+                                               delta         0.692   independence 0.500  kappa 0.385
+  Top-3,000 overlap:
+  same start, different batches          3900  O  1961.3  E  1246.8  beyond chance 0.408  same side among overlapping 0.905
+  different starts, same batch            400  O  1374.3  E  1238.6  beyond chance 0.077  same side among overlapping 0.710
+  different starts, different batches   15600  O  1315.7  E  1231.4  beyond chance 0.048  same side among overlapping 0.668
+  Same start, entries untouched in both settings left out: 0 entries left out over 4124 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          4124  rank-one      0.709   crossing 0.516  kappa 0.399   decile 0.531  kappa 0.380
+                                               alive         0.749   crossing 0.561  kappa 0.429   decile 0.551  kappa 0.441
+                                               never-needed  0.695   crossing 0.501  kappa 0.390   decile 0.524  kappa 0.361
+                                               delta         0.818   crossing 0.530  kappa 0.612   decile n/a  kappa n/a
+
+40 steps (n40): 264 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          4124  rank-one      0.645   crossing 0.505  kappa 0.282   decile 0.504  kappa 0.284
+                                               alive         0.672   crossing 0.518  kappa 0.318   decile 0.512  kappa 0.327
+                                               never-needed  0.635   crossing 0.500  kappa 0.270   decile 0.501  kappa 0.269
+                                               delta         0.734   crossing 0.529  kappa 0.435   decile n/a  kappa n/a
+  different starts, same batch            944  rank-one      0.577   independence 0.532  kappa 0.095
+                                               alive         0.589   independence 0.534  kappa 0.118
+                                               never-needed  0.573   independence 0.531  kappa 0.088
+                                               delta         0.646   independence 0.504  kappa 0.287
+  different starts, different batches   29648  rank-one      0.560   independence 0.529  kappa 0.067
+                                               alive         0.568   independence 0.531  kappa 0.080
+                                               never-needed  0.558   independence 0.529  kappa 0.062
+                                               delta         0.626   independence 0.501  kappa 0.250
+  Top-3,000 overlap:
+  same start, different batches          3900  O  1476.3  E   872.6  beyond chance 0.284  same side among overlapping 0.902
+  different starts, same batch            400  O  1038.8  E   872.9  beyond chance 0.078  same side among overlapping 0.746
+  different starts, different batches   15600  O   962.1  E   856.0  beyond chance 0.049  same side among overlapping 0.700
+  Same start, entries untouched in both settings left out: 0 entries left out over 4124 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          4124  rank-one      0.645   crossing 0.505  kappa 0.282   decile 0.504  kappa 0.284
+                                               alive         0.672   crossing 0.518  kappa 0.318   decile 0.512  kappa 0.327
+                                               never-needed  0.635   crossing 0.500  kappa 0.270   decile 0.501  kappa 0.269
+                                               delta         0.734   crossing 0.529  kappa 0.435   decile n/a  kappa n/a
+
+80 steps (n80): 264 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          4124  rank-one      0.610   crossing 0.501  kappa 0.217   decile 0.509  kappa 0.205
+                                               alive         0.620   crossing 0.505  kappa 0.232   decile 0.505  kappa 0.233
+                                               never-needed  0.606   crossing 0.500  kappa 0.212   decile 0.510  kappa 0.196
+                                               delta         0.716   crossing 0.514  kappa 0.415   decile n/a  kappa n/a
+  different starts, same batch            944  rank-one      0.567   independence 0.534  kappa 0.071
+                                               alive         0.580   independence 0.537  kappa 0.093
+                                               never-needed  0.563   independence 0.533  kappa 0.064
+                                               delta         0.651   independence 0.509  kappa 0.289
+  different starts, different batches   29648  rank-one      0.553   independence 0.530  kappa 0.050
+                                               alive         0.563   independence 0.532  kappa 0.067
+                                               never-needed  0.550   independence 0.529  kappa 0.044
+                                               delta         0.640   independence 0.507  kappa 0.269
+  Top-3,000 overlap:
+  same start, different batches          3900  O  1207.3  E   698.6  beyond chance 0.221  same side among overlapping 0.894
+  different starts, same batch            400  O   858.1  E   697.7  beyond chance 0.070  same side among overlapping 0.742
+  different starts, different batches   15600  O   795.8  E   682.3  beyond chance 0.049  same side among overlapping 0.700
+  Same start, entries untouched in both settings left out: 0 entries left out over 4124 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          4124  rank-one      0.610   crossing 0.501  kappa 0.217   decile 0.509  kappa 0.205
+                                               alive         0.620   crossing 0.505  kappa 0.232   decile 0.505  kappa 0.233
+                                               never-needed  0.606   crossing 0.500  kappa 0.212   decile 0.510  kappa 0.196
+                                               delta         0.716   crossing 0.514  kappa 0.415   decile n/a  kappa n/a
+
+160 steps (n160): 264 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          4124  rank-one      0.603   crossing 0.501  kappa 0.204   decile 0.512  kappa 0.187
+                                               alive         0.611   crossing 0.504  kappa 0.217   decile 0.505  kappa 0.216
+                                               never-needed  0.600   crossing 0.500  kappa 0.200   decile 0.514  kappa 0.177
+                                               delta         0.708   crossing 0.511  kappa 0.403   decile n/a  kappa n/a
+  different starts, same batch            944  rank-one      0.567   independence 0.535  kappa 0.069
+                                               alive         0.580   independence 0.537  kappa 0.092
+                                               never-needed  0.562   independence 0.534  kappa 0.061
+                                               delta         0.664   independence 0.511  kappa 0.313
+  different starts, different batches   29648  rank-one      0.554   independence 0.530  kappa 0.051
+                                               alive         0.565   independence 0.532  kappa 0.070
+                                               never-needed  0.551   independence 0.530  kappa 0.045
+                                               delta         0.648   independence 0.507  kappa 0.285
+  Top-3,000 overlap:
+  same start, different batches          3900  O  1139.2  E   648.7  beyond chance 0.209  same side among overlapping 0.897
+  different starts, same batch            400  O   813.8  E   648.5  beyond chance 0.070  same side among overlapping 0.752
+  different starts, different batches   15600  O   758.8  E   635.6  beyond chance 0.052  same side among overlapping 0.708
+  Same start, entries untouched in both settings left out: 0 entries left out over 4124 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          4124  rank-one      0.603   crossing 0.501  kappa 0.204   decile 0.512  kappa 0.187
+                                               alive         0.611   crossing 0.504  kappa 0.217   decile 0.505  kappa 0.216
+                                               never-needed  0.600   crossing 0.500  kappa 0.200   decile 0.514  kappa 0.177
+                                               delta         0.708   crossing 0.511  kappa 0.403   decile n/a  kappa n/a
+
+harm level 2 nats (h2): 264 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          4124  rank-one      0.646   crossing 0.504  kappa 0.287   decile 0.504  kappa 0.287
+                                               alive         0.673   crossing 0.516  kappa 0.325   decile 0.511  kappa 0.332
+                                               never-needed  0.637   crossing 0.500  kappa 0.274   decile 0.502  kappa 0.271
+                                               delta         0.750   crossing 0.529  kappa 0.470   decile n/a  kappa n/a
+  different starts, same batch            944  rank-one      0.577   independence 0.532  kappa 0.095
+                                               alive         0.591   independence 0.535  kappa 0.120
+                                               never-needed  0.571   independence 0.531  kappa 0.086
+                                               delta         0.663   independence 0.505  kappa 0.319
+  different starts, different batches   29648  rank-one      0.562   independence 0.530  kappa 0.069
+                                               alive         0.573   independence 0.533  kappa 0.086
+                                               never-needed  0.559   independence 0.529  kappa 0.063
+                                               delta         0.648   independence 0.503  kappa 0.292
+  Top-3,000 overlap:
+  same start, different batches          3900  O  1491.9  E   861.5  beyond chance 0.295  same side among overlapping 0.906
+  different starts, same batch            400  O  1028.9  E   856.5  beyond chance 0.080  same side among overlapping 0.752
+  different starts, different batches   15600  O   958.1  E   844.0  beyond chance 0.053  same side among overlapping 0.708
+  Same start, entries untouched in both settings left out: 0 entries left out over 4124 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          4124  rank-one      0.646   crossing 0.504  kappa 0.287   decile 0.504  kappa 0.287
+                                               alive         0.673   crossing 0.516  kappa 0.325   decile 0.511  kappa 0.332
+                                               never-needed  0.637   crossing 0.500  kappa 0.274   decile 0.502  kappa 0.271
+                                               delta         0.750   crossing 0.529  kappa 0.470   decile n/a  kappa n/a
+
+harm level 5 nats (h5): 258 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          3988  rank-one      0.624   crossing 0.502  kappa 0.246   decile 0.508  kappa 0.236
+                                               alive         0.641   crossing 0.506  kappa 0.274   decile 0.506  kappa 0.274
+                                               never-needed  0.618   crossing 0.500  kappa 0.236   decile 0.509  kappa 0.222
+                                               delta         0.714   crossing 0.518  kappa 0.407   decile n/a  kappa n/a
+  different starts, same batch            889  rank-one      0.571   independence 0.534  kappa 0.080
+                                               alive         0.588   independence 0.539  kappa 0.107
+                                               never-needed  0.565   independence 0.533  kappa 0.070
+                                               delta         0.649   independence 0.508  kappa 0.286
+  different starts, different batches   28276  rank-one      0.558   independence 0.531  kappa 0.058
+                                               alive         0.572   independence 0.535  kappa 0.079
+                                               never-needed  0.553   independence 0.529  kappa 0.051
+                                               delta         0.636   independence 0.506  kappa 0.263
+  Top-3,000 overlap:
+  same start, different batches          3784  O  1301.6  E   734.3  beyond chance 0.250  same side among overlapping 0.902
+  different starts, same batch            388  O   906.6  E   734.5  beyond chance 0.076  same side among overlapping 0.751
+  different starts, different batches   15134  O   839.5  E   717.3  beyond chance 0.054  same side among overlapping 0.709
+  Same start, entries untouched in both settings left out: 0 entries left out over 3988 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          3988  rank-one      0.624   crossing 0.502  kappa 0.246   decile 0.508  kappa 0.236
+                                               alive         0.641   crossing 0.506  kappa 0.274   decile 0.506  kappa 0.274
+                                               never-needed  0.618   crossing 0.500  kappa 0.236   decile 0.509  kappa 0.222
+                                               delta         0.714   crossing 0.518  kappa 0.407   decile n/a  kappa n/a
+
+harm level 10 nats (h10): 241 settings
+  family                                pairs  entries       agree   chance level and kappa
+  same start, different batches          3536  rank-one      0.627   crossing 0.501  kappa 0.253   decile 0.509  kappa 0.241
+                                               alive         0.640   crossing 0.505  kappa 0.273   decile 0.505  kappa 0.274
+                                               never-needed  0.623   crossing 0.500  kappa 0.246   decile 0.510  kappa 0.230
+                                               delta         0.730   crossing 0.515  kappa 0.442   decile n/a  kappa n/a
+  different starts, same batch            749  rank-one      0.576   independence 0.538  kappa 0.082
+                                               alive         0.591   independence 0.541  kappa 0.108
+                                               never-needed  0.570   independence 0.537  kappa 0.072
+                                               delta         0.664   independence 0.515  kappa 0.307
+  different starts, different batches   24635  rank-one      0.562   independence 0.534  kappa 0.062
+                                               alive         0.576   independence 0.537  kappa 0.084
+                                               never-needed  0.558   independence 0.532  kappa 0.054
+                                               delta         0.648   independence 0.513  kappa 0.278
+  Top-3,000 overlap:
+  same start, different batches          3370  O  1306.3  E   712.9  beyond chance 0.259  same side among overlapping 0.909
+  different starts, same batch            355  O   883.3  E   710.0  beyond chance 0.076  same side among overlapping 0.757
+  different starts, different batches   13480  O   827.2  E   696.2  beyond chance 0.057  same side among overlapping 0.719
+  Same start, entries untouched in both settings left out: 0 entries left out over 3536 pairs (0 pair-groups affected); these rows equal the first:
+  same start, different batches          3536  rank-one      0.627   crossing 0.501  kappa 0.253   decile 0.509  kappa 0.241
+                                               alive         0.640   crossing 0.505  kappa 0.273   decile 0.505  kappa 0.274
+                                               never-needed  0.623   crossing 0.500  kappa 0.246   decile 0.510  kappa 0.230
+                                               delta         0.730   crossing 0.515  kappa 0.442   decile n/a  kappa n/a
+

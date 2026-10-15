@@ -1,0 +1,44 @@
+{
+ "commit": "d25cfb69b8bb19c16e1f94e3112d9a40335cf939",
+ "arms": {
+  "batch": {
+   "authors_loss": 0.22022022306919098,
+   "before": 0.2135814130306244,
+   "loss_bits_equal": true,
+   "our_loss": 0.22022022306919098,
+   "sources_bits_equal": true,
+   "start_equal": true
+  },
+  "per_document": {
+   "authors_loss": 0.23196080327033997,
+   "before": 0.2128174901008606,
+   "loss_bits_equal": true,
+   "our_loss": 0.23196080327033997,
+   "sources_bits_equal": true,
+   "start_equal": true
+  },
+  "released": {
+   "authors_loss": 0.30607205629348755,
+   "before": 0.210340678691864,
+   "loss_bits_equal": true,
+   "our_loss": 0.30607205629348755,
+   "sources_bits_equal": true,
+   "start_equal": true
+  }
+ },
+ "passes": true,
+ "per_document_loss_bits_equal": true,
+ "process_emulation": {
+  "max_abs_source_difference": 0.04911187291145325,
+  "share_equal": 0.02033339767503082
+ },
+ "scaled_gradient": {
+  "entries": 1275854848,
+  "entries_compared": 1272135829,
+  "mismatches": 0,
+  "scale": 16.0,
+  "share_below_eps_scaled": 0.4560586385764159,
+  "share_below_eps_unscaled": 0.9175887130383032
+ },
+ "at": "2026-10-08T23:22:17+00:00"
+}

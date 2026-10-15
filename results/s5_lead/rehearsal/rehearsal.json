@@ -1,0 +1,408 @@
+{
+ "what": "The rehearsal of the lead run on calibration batch C1 with pilot start 1 (plan 2, Section 7). No setting was scored on a batch other than C1. Its sealed values stay sealed; this file holds outcomes as true or false, hashes, and timings.",
+ "commit": "e41dc952b961f496f99925b64f07d50e0f328820",
+ "attempt": 1,
+ "app_id": "ap-QVqGxUKzmYt8lAppjeVX7Z",
+ "volume_root": "/cache/s5_lead/rehearsal/e41dc952b961_1",
+ "batch": "C1",
+ "start": 1,
+ "kill_and_restart": {
+  "killed_task": "ta-01M48VWZ1YSX47WVK3PNE1GNRR",
+  "returned_by_task": "ta-01M48W1HPH3DZWNKNA7F8BPABR",
+  "a_new_container": true,
+  "resubmitted_by_the_launcher": false,
+  "unit_skipped": true,
+  "G3_passed": true
+ },
+ "container_1_attack_role": {
+  "main": {
+   "container": "rehearsal|attack|C1",
+   "units": [
+    {
+     "unit": "search|rehearsal|C1|s1",
+     "sha256": "57c201968c81eb941a13efd09838ae1af34d517482ab6056bc96afdcff656790",
+     "guards": {
+      "G3": true
+     },
+     "skipped": true
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 57.12347435951233,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "e41dc952b961f496f99925b64f07d50e0f328820",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M48W1HPH3DZWNKNA7F8BPABR"
+   },
+   "timings": {
+    "labels_and_targets": 1.0887534618377686,
+    "labels_and_targets_count": 1.0,
+    "fingerprint": 0.2502591609954834,
+    "fingerprint_count": 1.0,
+    "volume_commit": 0.0651998519897461,
+    "volume_commit_count": 1.0
+   }
+  },
+  "delta_on_20_steps": {
+   "container": "rehearsal_delta_on|attack|C1",
+   "units": [
+    {
+     "unit": "search|rehearsal_delta_on|C1|s1",
+     "sha256": "77842f65b7ca2982adbaf04fdff0f9a48a452ccc4b3ce290ffaa0b3f55b7d5d1",
+     "guards": {
+      "G4": true,
+      "G5": true,
+      "G7": true,
+      "wrapper_equals_authors": true,
+      "delta_entries_held": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 1,
+   "expected_units": 1,
+   "stopped": false,
+   "seconds": 72.37475156784058,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "e41dc952b961f496f99925b64f07d50e0f328820",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M48W1HPH3DZWNKNA7F8BPABR"
+   },
+   "timings": {
+    "labels_and_targets": 0.30081796646118164,
+    "labels_and_targets_count": 1.0,
+    "fingerprint": 0.21454954147338867,
+    "fingerprint_count": 1.0,
+    "to_first_search_step": 57.86879110336304,
+    "search": 9.861418962478638,
+    "search_count": 20.0,
+    "scoring": 0.36899328231811523,
+    "scoring_count": 2.0,
+    "scoring_in_search_units": 0.3690006732940674,
+    "scoring_in_search_units_count": 2.0,
+    "peak_scoring_gib": 95.75699615478516,
+    "search_unit_whole": 10.619490385055542,
+    "search_unit_whole_count": 1.0,
+    "volume_commit": 3.887436628341675,
+    "volume_commit_count": 1.0
+   }
+  },
+  "checks": {
+   "record_equals_pilot": true,
+   "saved_settings_equal_pilot": true,
+   "hook_steps_equal_pilot": true
+  },
+  "killed_task": "ta-01M48VWZ1YSX47WVK3PNE1GNRR",
+  "wall_seconds": 230.22386407852173
+ },
+ "container_2_heldout_role": {
+  "main": {
+   "container": "rehearsal|heldout|C1",
+   "units": [
+    {
+     "unit": "search|rehearsal|C1|s1",
+     "sha256": "ec38874db6de6a8a4efa1bfed694dc6f3ddc1733b82adcb86acaca5100db312a",
+     "guards": {
+      "G4": true,
+      "G5": true,
+      "G7": true,
+      "wrapper_equals_authors": true
+     },
+     "skipped": false
+    },
+    {
+     "unit": "block|rehearsal|C1|C1|s1",
+     "sha256": "9f742ab9327cce82112de7042ec0f5e805ad70da00efa4fed985165008ecf7eb",
+     "guards": {
+      "G5": true,
+      "G8": true,
+      "G10": true
+     },
+     "skipped": false
+    }
+   ],
+   "finished_units": 2,
+   "expected_units": 2,
+   "stopped": false,
+   "seconds": 187.32671761512756,
+   "environment": {
+    "gpu": "NVIDIA B200",
+    "torch": "2.8.0+cu128",
+    "cuda": "12.8",
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false,
+    "float32_matmul_precision": "highest",
+    "vpd_audit_2_commit": "e41dc952b961f496f99925b64f07d50e0f328820",
+    "vpd_audit_2_dirty": "0",
+    "checkpoints": {
+     "s-55ea3f9b/final_config.yaml": {
+      "bytes": 3087,
+      "sha256": "75af17e6813ad0e939c18221fa188a757911e292141323cd375b8aa5d06a4ffc"
+     },
+     "s-55ea3f9b/model_400000.pth": {
+      "bytes": 2908595703,
+      "sha256": "fdd794abda8ca79e98f4644590c0c6e696261d9b84b34c8e83f94a2cc3607a93"
+     },
+     "t-9d2b8f02/ckpt/model_step_99999.pt": {
+      "bytes": 267736421,
+      "sha256": "650f2eb603fe9fe649671c0c89b86746655bc49c96aa1ad00fbb4c1bf3c6c3b6"
+     },
+     "t-9d2b8f02/final_config.yaml": {
+      "bytes": 1318,
+      "sha256": "565f88480dacaa6131309a9f6abe88e8fd7ee3a8bb6bb493bcc0745eb00584d7"
+     },
+     "t-9d2b8f02/model_config.yaml": {
+      "bytes": 323,
+      "sha256": "9664c12d3492ee58520f89703e67ea2790ea13de1f88bf8e3c4594943e0cc59d"
+     },
+     "t-9d2b8f02/tokenizer.json": {
+      "bytes": 3564303,
+      "sha256": "d4c0d99d84af59e9126913fafe5210822963e9a3065ee43e6833b358b0c2f825"
+     }
+    },
+    "task": "ta-01M48W41ZV0S56M7043BFR185R"
+   },
+   "timings": {
+    "labels_and_targets": 1.1458656787872314,
+    "labels_and_targets_count": 1.0,
+    "fingerprint": 0.23830175399780273,
+    "fingerprint_count": 1.0,
+    "to_first_search_step": 34.68303918838501,
+    "search": 124.05217838287354,
+    "search_count": 320.0,
+    "scoring": 15.66091012954712,
+    "scoring_count": 85.0,
+    "scoring_in_search_units": 2.031709671020508,
+    "scoring_in_search_units_count": 11.0,
+    "peak_scoring_gib": 95.75679206848145,
+    "search_unit_whole": 128.16427993774414,
+    "search_unit_whole_count": 1.0,
+    "volume_commit": 9.732166528701782,
+    "volume_commit_count": 2.0,
+    "scoring_in_blocks": 13.629213094711304,
+    "scoring_in_blocks_count": 74.0,
+    "making_shuffles": 0.47408366203308105,
+    "making_shuffles_count": 64.0,
+    "block_whole": 14.121450424194336,
+    "block_whole_count": 1.0
+   }
+  },
+  "checks": {
+   "record_equals_pilot": true,
+   "saved_settings_equal_pilot": true,
+   "hook_steps_equal_pilot": true,
+   "equals_container_1_record_equal": true,
+   "equals_container_1_saved_settings_equal": true,
+   "equals_container_1_prep_fp_equal": true
+  },
+  "wall_seconds": 196.39263796806335
+ },
+ "assembler": {
+  "arm": "rehearsal",
+  "files": [
+   {
+    "name": "table_core.npz",
+    "sha256": "a8fe2051a71c746b720071ca72d2f70029e3f288856dc8e422f6155815f00cd1"
+   },
+   {
+    "name": "table_per_text_01.npz",
+    "sha256": "6b0cf6908393958fa7bc7ca65e8239b1da4e9818c804209ccf9c4aef3cc899ac"
+   }
+  ],
+  "design": {
+   "K_A": 1,
+   "K_H": 1,
+   "n_s": 1,
+   "Q": 10,
+   "n_shuffles": 8,
+   "n_texts": 128,
+   "n_record": 321
+  },
+  "complete": true,
+  "run_commit": "e41dc952b961f496f99925b64f07d50e0f328820",
+  "outcomes": {
+   "G6": false,
+   "G10": true,
+   "G11_setting_is_the_attack_searchs": true,
+   "G11_differs_from_the_heldout_batchs_own": false,
+   "shuffles_the_same_in_every_container": true,
+   "one_commit": true,
+   "G6_reports_every_carried_vector_equal": true,
+   "G11_reports_every_carried_vector_equal_to_the_heldout_own": true,
+   "table_checks_failed": [
+    "axis_labels",
+    "heldout_ids_differ_from_attack_ids"
+   ],
+   "containers_agree": {
+    "record_equal": true,
+    "saved_settings_equal": true,
+    "prep_fp_equal": true
+   }
+  },
+  "seconds": 11.04805040359497
+ },
+ "receipt": {
+  "arm": "rehearsal",
+  "files": [
+   {
+    "name": "table_core.npz",
+    "sha256": "a8fe2051a71c746b720071ca72d2f70029e3f288856dc8e422f6155815f00cd1"
+   },
+   {
+    "name": "table_per_text_01.npz",
+    "sha256": "6b0cf6908393958fa7bc7ca65e8239b1da4e9818c804209ccf9c4aef3cc899ac"
+   }
+  ],
+  "shapes": {
+   "K_A": 1,
+   "K_H": 1,
+   "n_s": 1,
+   "Q": 10,
+   "n_shuffles": 8,
+   "n_texts": 128,
+   "n_record": 321
+  },
+  "complete": true,
+  "run_commit": "e41dc952b961f496f99925b64f07d50e0f328820"
+ },
+ "timings": {
+  "seconds_per_search_step": 0.3876630574464798,
+  "seconds_per_search_step_delta_on_20": 0.4930709481239319,
+  "seconds_per_scoring_pass": 0.18424600152408374,
+  "seconds_to_first_search_step": 34.68303918838501,
+  "seconds_per_volume_commit": 3.2657887935638428,
+  "seconds_per_shuffle": 0.0074075572192668915,
+  "seconds_per_search_unit_other": 2.0803918838500977,
+  "seconds_per_block_other": 0.018153667449951172
+ },
+ "listed_prices": {
+  "read_on": "2026-10-06",
+  "source": "https://modal.com/pricing",
+  "gpu_b200_per_second": 0.001736,
+  "cpu_core_per_second": 1.31e-05,
+  "memory_gib_per_second": 2.22e-06,
+  "notes": "base prices; the page lists a minimum of 0.125 cores per container, 1.15 to 1.75 times base for region selection, and 3 times base for non-preemptible execution, none of which this run requests",
+  "container": {
+   "gpu": "B200",
+   "memory_mib": 32768,
+   "cpu_cores_assumed": 1.0
+  },
+  "hourly_price_of_the_configuration": 6.552504
+ },
+ "function_seconds": 428.59863209724426,
+ "billed_dollars_so_far": 0.0,
+ "check_C0": {
+  "check": "C0",
+  "base_rate": 6.8,
+  "pilot_rate": 6.8,
+  "listed_hourly_price": 6.552504,
+  "stages": {
+   "lead_attack": {
+    "search": 9924.174270629883,
+    "scoring": 162.1364813411937,
+    "overhead": 982.6230812072754,
+    "total": 11068.933833178351
+   },
+   "lead_heldout": {
+    "search": 9924.174270629883,
+    "scoring": 17613.917745702405,
+    "overhead": 2448.7287940979004,
+    "total": 29986.82081043019
+   },
+   "delta_attack": {
+    "search": 4962.087135314941,
+    "scoring": 44.219040365780096,
+    "overhead": 491.3115406036377,
+    "total": 5497.61771628436
+   },
+   "delta_heldout": {
+    "search": 4962.087135314941,
+    "scoring": 2697.361462312586,
+    "overhead": 800.9479293823242,
+    "total": 8460.396527009852
+   }
+  },
+  "assemble_seconds": 22.09610080718994,
+  "function_hours": 15.287740274363872,
+  "run_dollars": 103.95663386567433,
+  "rehearsal_billed": 0.0,
+  "projected_dollars": 103.95663386567433,
+  "cap": 105.0,
+  "exceeds_cap": false
+ }
+}
