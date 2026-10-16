@@ -1,4 +1,4 @@
-"""Session 6, plan 2, Section 3: the GPU re-scoring of the run's saved settings, and its local side, with no cloud call.
+"""Plan 2 of the research log, Section 3: the GPU re-scoring of the run's saved settings, and its local side, with no cloud call.
 
 What a container does (`heldout_job`, `attack_job`), for its batch, in units that a restart skips once finished:
 
@@ -18,7 +18,7 @@ a stop on failure:
   - exploited components: k = 0 gives the saved start harm and k = n the saved carried harm, bit for bit;
   - on H1 and H5, the starts with their delta entries reset to 1 give the delta-on arm's saved start harms bit for bit.
 
-The settings are read from the run's search units on the volume, each checked against the hash session 5's backup
+The settings are read from the run's search units on the volume, each checked against the hash the earlier backup
 recorded; the starts against the signed file. Each unit file holds its passes' ids, batch harms, per-text harms, and
 what each pass records beside its harm. Nothing is sealed.
 """
@@ -66,7 +66,7 @@ ATTACK_PAIRS = tuple((ATTACK[2 * k], ATTACK[2 * k + 1]) for k in range(8))
 DELTA_FREE_CHECK = ("H1", "H5")  # the delta-on arm saved its starts' harms on these S4 batches
 CHECK_ROW = "n320"
 COMMIT_EVERY = 10  # units between volume commits
-CAP_DOLLARS = 45.0  # plan 2, Section 5: over $45, do not launch
+CAP_DOLLARS = 45.0  # plan 2 of the research log, Section 5: over $45, do not launch
 WAVES = {1: ("H1",), 2: tuple(h for h in HELDOUT if h != "H1") + tuple(f"{a}+{b}" for a, b in ATTACK_PAIRS)}
 READING_FILES = ("vpd_audit_2/s6_build.py", "vpd_audit_2/s6_run.py", "vpd_audit_2/modal_s6.py", "vpd_audit_2/s6_split.py",
                  "vpd_audit_2/s6_exploited.py", "vpd_audit_2/s6_controls.py", "results/s6_followups/CONVENTIONS.md",
@@ -361,7 +361,7 @@ def run_units(model: Any, ctx: Context, batch: str, units: list[tuple[str, str, 
             for pid, flat, rec in B.control_passes(s_by_row, inputs.starts[params["start"]], lay, coarse, alive, never, params["attack"], params["start"]):
                 flat_pass(pid, flat, rec)
         elif kind == "variants_check":
-            # plan 3, Section 7: plan 2's check of the split's path (the full setting and the start, within the run's
+            # plan 3 of the research log, Section 7: plan 2 of the research log's check of the split's path (the full setting and the start, within the run's
             # per-text tolerance, its bit equality recorded), and the flat path's: the full setting, bit for bit
             first = sorted(inputs.starts)[0]
             s, _ = B.saved(get(refs["check_attack"], first), CHECK_ROW)
@@ -383,14 +383,14 @@ def run_units(model: Any, ctx: Context, batch: str, units: list[tuple[str, str, 
                     h, t = score_sources(model, split_sources(zero, *args, lay, ctx.device), prep)
                     scored.append((f"{v}|{row}", h, t, {"setting_sha": B.sha(s)}))
         elif kind == "dose":
-            # plan 3, Section 8: the dose-response on an intact model
+            # plan 3 of the research log, Section 8: the dose-response on an intact model
             unit = get(params["attack"], params["start"])
             for row in B.SPLIT_ROWS:
                 s, _ = B.saved(unit, row)
                 for pid, flat, rec in B.dose_passes(s, params["attack"], params["start"], row):
                     flat_pass(pid, flat, rec)
         elif kind == "dose_rounded":
-            # plan 3, Section 9: the dose-response on the rounded off set
+            # plan 3 of the research log, Section 9: the dose-response on the rounded off set
             unit = get(params["attack"], params["start"])
             for row in B.SPLIT_ROWS:
                 s, _ = B.saved(unit, row)
@@ -542,7 +542,7 @@ def flat_starts() -> dict[int, np.ndarray]:
 
 
 def run_unit_hashes() -> dict[str, str]:
-    """Each run search unit's SHA-256 as session 5's backup recorded it, by file name."""
+    """Each run search unit's SHA-256 as the earlier backup recorded it, by file name."""
     return {k.split("/", 1)[1]: v for k, v in json.load(open(RUN_BACKUP))["files"].items() if k.startswith("lead/")}
 
 
@@ -585,7 +585,7 @@ def passes_of(spec: dict[str, Any]) -> dict[str, int]:
 
 def projection(listed_hourly_price: float, *, split_factor: float = 2.0, wave: int | None = None, ledger_path: Path | None = None,
                rehearsal_path: Path | None = None) -> dict[str, Any]:
-    """The cost before launch (plan 2, Section 5), from the run's per-pass timing: the held-out containers of the lead's
+    """The cost before launch (plan 2 of the research log, Section 5), from the run's per-pass timing: the held-out containers of the lead's
     second wave (first lives only), each 5 searches and 80 scoring blocks of 74 passes (5,920), less the time to ready
     and the 5 searches at the attack containers' measured rate (each with its own 11 re-scores), over the blocks' passes. A split pass, whose source is built per position, is taken at
     `split_factor` times a flat one, since nothing has measured it. Per container: the time to ready, once per batch,
@@ -631,7 +631,7 @@ def launch_command(commit: str, wave: int, cloud: LL.Cloud, *, listed_hourly_pri
         raise LL.LaunchRefusal("wave 1 is not complete")
     earlier = LL.began_at(ledger_path)
     if earlier is not None and earlier != commit:
-        raise LL.LaunchRefusal("plan 2's run began at another commit")
+        raise LL.LaunchRefusal("plan 2 of the research log's run began at another commit")
     if earlier is None:
         LL.record_c0(ledger_path, projection(listed_hourly_price))
     lead = load_table_checked(LEAD_TABLE, LEAD_RECEIPT)

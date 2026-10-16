@@ -1,10 +1,10 @@
-"""Session 4, plan 6, Section 4, item 5, and plan 7, item 8: prices routed by pool (Riku's reviews).
+"""Plan 6 of the research log, Section 4, item 5, and plan 7 of the research log, item 8: prices routed by pool (the price specification's reviews).
 
 Texts in Q (the deciding sets Q1 among them) are priced from the stored path (`QPrices`): the stored S row of `prices.Pricer`
 and each label's Delta read from Q's full cache, the arrays the stored S was summed from, so the pruning stop rule and Pi
 use identical numbers.
 
-Texts outside Q (CQ; next session's re-test) are priced by `ExternalPricer`, exactly as a text of Q is, with their own
+Texts outside Q (CQ; a later re-test) are priced by `ExternalPricer`, exactly as a text of Q is, with their own
 per-text sums S_i computed from their own label cache (the float32 fresh path, with z), the companions' sums X_ck from Q's
 stored S and Q's committed W = 16, K = 256 tuples, and every tuple valid (no tuple contains a text outside Q). A Q text
 that reaches the external path is refused with an error: its recomputed S_i need not equal the stored row bit for bit.
@@ -28,7 +28,7 @@ from vpd_audit_2 import prices as P
 
 
 class QTextOnExternalPath(ValueError):
-    """A text in Q reached the external path; Q texts are priced from the stored path (plan 7, item 8)."""
+    """A text in Q reached the external path; Q texts are priced from the stored path (plan 7 of the research log, item 8)."""
 
 
 class ExternalPricer:
@@ -57,7 +57,7 @@ class ExternalPricer:
         return self.inner.C.lam * d.mean(dim=1)
 
     def price_labels(self, S_i: np.ndarray, comp: np.ndarray, delta: np.ndarray, *, text_id: str) -> np.ndarray:
-        """Each label's own price (Riku's rule 3), every other label at its value."""
+        """Each label's own price (the price specification's rule 3), every other label at its value."""
         self.refuse_q(text_id)
         return self._expect(S_i, comp, delta).cpu().numpy() if np.asarray(comp).size else np.zeros(0)
 
@@ -114,7 +114,7 @@ class QPrices:
 
 
 class Router:
-    """T_i by pool: a text in Q from the stored path, any other from the external path (plan 7, item 8). `own` is the
+    """T_i by pool: a text in Q from the stored path, any other from the external path (plan 7 of the research log, item 8). `own` is the
     outside text's (cache, meta, row) for the external path."""
 
     def __init__(self, q_text_ids: list[str], stored: QPrices | None = None, external: ExternalPricer | None = None, C: P.Constants | None = None):

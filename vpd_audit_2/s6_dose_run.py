@@ -1,4 +1,4 @@
-"""Session 6, plan 3, Section 8: the dose-response on an intact model, on the GPU, and its local side, with no cloud call
+"""Plan 3 of the research log, Section 8: the dose-response on an intact model, on the GPU, and its local side, with no cloud call
 in it. Added after the readings, as description.
 
 Cell set S4 (H1, H5, H9, H13), one container each, as the variants ran (`s6_plan3_run`): the batch's labels and targets
@@ -42,7 +42,7 @@ UNITS = "units"
 BATCHES = B.S4
 STAGE = LG.Stage("s6_dose", ARM, "heldout", len(BATCHES), 0, 0, 0, 0, 0, False)
 DESIGN = (STAGE,)
-CAP_DOLLARS = 8.0  # plan 3, Section 8: launch at or under $8; over it, stop and report
+CAP_DOLLARS = 8.0  # plan 3 of the research log, Section 8: launch at or under $8; over it, stop and report
 READING_FILES = ("vpd_audit_2/s6_dose_run.py", "vpd_audit_2/modal_s6_dose.py", "vpd_audit_2/s6_dose.py", "vpd_audit_2/s6_build.py", "vpd_audit_2/s6_run.py")
 
 
@@ -117,14 +117,14 @@ def check_launch_commit(commit: str) -> None:
 
 
 def projection(listed_hourly_price: float, *, plan3_record: Path | None = None) -> dict[str, Any]:
-    """The cost before the launch, from plan 3's four variants containers, which ran the same check unit and 80 units of
+    """The cost before the launch, from plan 3 of the research log's four variants containers, which ran the same check unit and 80 units of
     15 passes on the same batches: their mean time to ready; their check unit's mean seconds; every pass at their
     variant units' mean seconds per pass (two thirds of those passes were split passes, about 7 percent slower than a
     flat pass, so this leans high); and a volume commit every ten units. Every container life adds 50 seconds of boot."""
     record = json.load(open(R3.RESULTS / "runs_s6_plan3.json" if plan3_record is None else plan3_record))
     t = [c["timings"] for c in record["containers"] if c["container"].startswith(f"{R3.VARIANT_ARM}|")]
     if len(t) != len(BATCHES):
-        raise LL.LaunchRefusal("plan 3's record does not hold its four variants containers")
+        raise LL.LaunchRefusal("plan 3 of the research log's record does not hold its four variants containers")
     ready = float(np.mean([x["to_ready"] for x in t]))
     per_pass = R3._mean_rate(t, "unit_variants")
     check = float(np.mean([x["unit_variants_check"] for x in t]))

@@ -33,7 +33,7 @@
    "eps": 1e-12,
    "p": 0.4,
    "W": 16,
-   "branch": "W = 16 confirmed (plan 2's world-size test)",
+   "branch": "W = 16 confirmed (plan 2 of the research log's world-size test)",
    "B_loc": 4,
    "K": 256
   },
@@ -397,7 +397,7 @@
   },
   "check3": {
    "labels": 200,
-   "rule": "|pi_ref - pi_work| <= 1e-9 pi_ref + 1e-13 summed nats, per label (plan 2, item 6)",
+   "rule": "|pi_ref - pi_work| <= 1e-9 pi_ref + 1e-13 summed nats, per label (plan 2 of the research log, item 6)",
    "passes": true,
    "n_failing": 0,
    "max_relative_difference": 7.077850203543243e-13,
@@ -13918,7 +13918,7 @@
    "eps": 1e-12,
    "p": 0.4,
    "W": 16,
-   "branch": "W = 16 confirmed (plan 2's world-size test)",
+   "branch": "W = 16 confirmed (plan 2 of the research log's world-size test)",
    "B_loc": 4,
    "K": 256
   },

@@ -1,4 +1,4 @@
-"""Session 4, plan 6, Part B: question 1's nuisance scales on the 32 calibration texts CQ (`sessions/004/engineering/plan_6.md`,
+"""Plan 6 of the research log, Part B: question 1's nuisance scales on the 32 calibration texts CQ (plan 6 of the research log,
 Sections 4 and 6). The container jobs:
 
   - `prep_job`: CQ's float32 labels with z (the fresh path); the nominal sets; CQ's sums, per-label prices, and T_i per arm
@@ -62,7 +62,7 @@ def arm_entries(nominal: dict[str, Any], texts: list[int]) -> dict[str, np.ndarr
     return out
 
 
-# ----------------------------------------------------------------------------- prices for Q texts (plan 7, item 8)
+# ----------------------------------------------------------------------------- prices for Q texts (plan 7 of the research log, item 8)
 
 
 def q_stored_path_check(cache_dir: Path, S_Q: np.ndarray, tuples: np.ndarray, C: Any, q_text_ids: list[str], q_free_texts: list[int],
@@ -103,7 +103,7 @@ def q_stored_path_check(cache_dir: Path, S_Q: np.ndarray, tuples: np.ndarray, C:
             "rule": "T from the stored path (stored S, Delta from Q's full cache) equals the pilot's stored-path T exactly"}
 
 
-# ----------------------------------------------------------------------------- sealing the prerequisites (plan 7, item 1)
+# ----------------------------------------------------------------------------- sealing the prerequisites (plan 7 of the research log, item 1)
 
 SEALED_PREREQ = "v2_reference_check_freed_harm.json"
 _ARM_KEYS = ("freed", "nominal", "saturated", "unsaturated")
@@ -213,7 +213,7 @@ def prep_job(model: Any, cq_ids: np.ndarray, cq_texts: list[str], q_free_texts: 
     out["T"] = T
     out["prices_cq"] = {"sha256_S": prices.sha256_array(np.stack(S_CQ)), "sha256_per_label": prices.sha256_array(per_label),
                         "per_label_percentiles": prices.percentiles(per_label, (1, 5, 50, 95))}
-    # 4. Q texts outside Q1 from the stored path (plan 7, item 8). The pilot ran this step at b26f56d as a comparison of the
+    # 4. Q texts outside Q1 from the stored path (plan 7 of the research log, item 8). The pilot ran this step at b26f56d as a comparison of the
     #    external path with the stored path on these texts; a Q text on the external path is now refused.
     out["price_path_test"] = q_stored_path_check(cache_dir, S_Q, tuples, C, q_text_ids, q_free_texts, None, device)
     log(f"[pilot-b] prices: Q texts from the stored path, external path refused: {out['price_path_test']['passes']}")
@@ -452,7 +452,7 @@ def b2_job(model: Any, cq_ids: np.ndarray, cq_texts: list[str], vol: Path, alive
             "weight_norms": nmeta, "removal_value": {"all_on": 0.0, "at_labels": 1.0, "stochastic": 0.0}}
 
 
-# ----------------------------------------------------------------------------- report 3: Daniel's check
+# ----------------------------------------------------------------------------- the pre-registration check
 
 
 def original_arm_check(model: Any, cq_ids: np.ndarray, vol: Path, start: dict[str, np.ndarray], lay: list[tuple[str, int]],

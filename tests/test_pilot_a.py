@@ -1,4 +1,4 @@
-"""Plan 6, Part A: the extended starts, stage crossings, the frequency strata and shuffles, the no-carry-over guard, the
+"""Plan 6 of the research log, Part A: the extended starts, stage crossings, the frequency strata and shuffles, the no-carry-over guard, the
 whole batch job on the tiny model (CPU), and A4's estimators on synthetic tables."""
 
 from __future__ import annotations
@@ -129,7 +129,7 @@ def test_batch_job_runs_every_part_and_checks_the_diagonal(tiny_job):
         assert acc["start_key"][:4] == [20261001, "pilot-perturb", "C1", 1]
     assert all(a["batch_in_C1_to_C8"] and a["start_in_1_to_8"] for a in out["assertions"])
     assert len(out["assertions"]) == 8 + sum(len(v["draws"]) for v in out["a2"].values())
-    # plan 7, item 5: the sealed harms are in their file only; the job returns the file's path and hash
+    # plan 7 of the research log, item 5: the sealed harms are in their file only; the job returns the file's path and hash
     import hashlib
     from pathlib import Path
 
@@ -177,7 +177,7 @@ def test_width_and_cost_reproduce_the_plans_worked_numbers():
 
 
 def test_width_with_a_nonzero_start_term():
-    """Plan 7, item 9 (Lena, Daniel): the pilot's 40-step components (batch 0.5806, pairing 0.8194, start 0.0820, mean
+    """Plan 7 of the research log, item 9: the pilot's 40-step components (batch 0.5806, pairing 0.8194, start 0.0820, mean
     1.9487) at 16 batches and 5 starts give w40 = 0.356 with nu = 18.59, the start term in play; the committed design row
     for 16 by 5 agrees."""
     w = T.width(1.9487, 0.5806, 0.8194, 0.0820, 16, 5)

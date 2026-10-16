@@ -1,4 +1,4 @@
-"""Question (k) and gate G5 of plan 1: where the validation rows come from, on the CPU, with no model.
+"""Question (k) and gate G5 of plan 1 of the research log: where the validation rows come from, on the CPU, with no model.
 
     uv run python -m vpd_audit_2.data_check
 

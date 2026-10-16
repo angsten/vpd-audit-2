@@ -1,10 +1,10 @@
-"""The Modal app for session 4's plan 6, the pilot (`sessions/004/engineering/plan_6.md`).
+"""The Modal app for plan 6 of the research log, the pilot.
 
     uv run modal run vpd_audit_2/modal_pilot.py::strata    (item 4's frequency strata from Q's float32 cache; CPU)
     uv run modal run vpd_audit_2/modal_pilot.py::part_a    (A1 to A3: one B200 per batch C1 to C8)
 
 The image, the volume, and the model loader are the earlier stages'. Every GPU stage loads the model through
-`modal_gates._load_model`, which sets strict deterministic algorithms (plan 5); each container's environment records it.
+`modal_gates._load_model`, which sets strict deterministic algorithms (plan 5 of the research log); each container's environment records it.
 Raw per-run records go to `results/s4_pilot/part_a/`; the hook's sources stay on the volume, their SHA-256 recorded; A3's
 shuffle harms go to `results/s4_pilot/part_a/sealed/` and are never printed.
 """
@@ -128,7 +128,7 @@ def part_a(batches: str = "C1,C2,C3,C4,C5,C6,C7,C8") -> None:
         else:
             runs["a2"][b] = res["a2"]
             runs["a3"][b] = res["a3"]
-            # the sealed shuffle harms: copied from the volume as bytes, hash-checked, never loaded here (plan 7, item 5)
+            # the sealed shuffle harms: copied from the volume as bytes, hash-checked, never loaded here (plan 7 of the research log, item 5)
             data = b"".join(volume.read_file(str(Path(res["a3_sealed"]["file"]).relative_to(CACHE))))
             assert hashlib.sha256(data).hexdigest() == res["a3_sealed"]["sha256"], f"{b}: the sealed file's hash differs"
             (PART_A / "sealed" / Path(res["a3_sealed"]["file"]).name).write_bytes(data)
@@ -252,7 +252,7 @@ def part_b_b2_gpu(ids: np.ndarray, sha512: list[str], texts: list[str], alive_gl
 
 @app.function(volumes={CACHE: volume}, gpu="A100-80GB", timeout=1800, memory=65536)
 def part_b_qprice_gpu(q_text_ids: list[str], q_free: list[int], tuples_sha: str, expected: dict, q_ids_sha256: str) -> dict:
-    """Plan 7, item 8's test: Q texts outside Q1 priced from the stored path, against the pilot's stored-path values,
+    """Plan 7 of the research log, item 8's test: Q texts outside Q1 priced from the stored path, against the pilot's stored-path values,
     on the GPU type that computed them (prep, A100-80GB). Prices only: no model is loaded."""
     t0 = time.time()
     from vpd_audit_2 import pilot_b, prices
@@ -287,13 +287,13 @@ def _pinned(stage: str, gpu: str, fixed: str) -> None:
 
 @app.local_entrypoint()
 def part_b(gpu: str, stage: str = "prep", n_per: int = 20) -> None:
-    """`--gpu` is required, with no default (plan 7, item 7): no stage takes a GPU type silently.
+    """`--gpu` is required, with no default (plan 7 of the research log, item 7): no stage takes a GPU type silently.
 
     stage prep: CQ's labels and prices, the price-path test, version (ii)'s reference check, G3's controls, B3's timings;
     A100-80GB by design. stage n8: [N8], the other GPU type's step time; B200 by design. stage b1: B1 on `--gpu`.
-    stage b2: B2 with n_per removals per stratum, on `--gpu`. stage check: report 3's check of the harness's original arm
+    stage b2: B2 with n_per removals per stratum, on `--gpu`. stage check: report 3 of the research log's check of the harness's original arm
     against the plain loop, partition 1's first set, seed 1; `--gpu` must be the GPU type B1 recorded (reads only the
-    original arm's stored values from the sealed file). stage qprice: plan 7, item 8's test, Q texts 0 and 1 from the stored
+    original arm's stored values from the sealed file). stage qprice: plan 7 of the research log, item 8's test, Q texts 0 and 1 from the stored
     path against the pilot's stored-path values; A100-80GB, where those were computed."""
     from vpd_audit_2 import pilot as P
     from vpd_audit_2.manifest import load_start

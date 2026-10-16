@@ -1,4 +1,4 @@
-Three cheap controls and the rounding check (session 6, plan 2; conventions, Section 8, with the addendum). Description only.
+Three cheap controls and the rounding check (plan 2 of the research log; conventions, Section 8, with the addendum). Description only.
 Cell set S4: the 400 carried settings on H1, H5, H9, and H13 (320 cells per length).
 
 (a) The delta components' share of carried added harm remaining with the 24 delta entries at 1; from each start alone; and the saved

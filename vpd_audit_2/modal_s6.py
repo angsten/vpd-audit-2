@@ -1,6 +1,6 @@
-"""The Modal app for session 6's plan 2 (`sessions/006/engineering/plan_2.md`, Section 3).
+"""The Modal app for plan 2 of the research log, Section 3.
 
-In this order, the GPU waves on the head's go:
+In this order, the GPU waves on the go-ahead:
 
     uv run modal run vpd_audit_2/modal_s6.py::build_b2                         (CPU: the sixteen (b2) settings, before the hold)
     uv run modal run vpd_audit_2/modal_s6.py::launch --commit <c> --wave 1     (H1 alone, an S4 batch: every kind of unit)
@@ -118,7 +118,7 @@ def b2_cpu(lay: list) -> dict:
 
 
 def _no_guards_pass(spec: dict[str, Any]) -> dict[str, Any]:
-    raise LL.LaunchRefusal("plan 2 has no guards-only pass")
+    raise LL.LaunchRefusal("plan 2 of the research log has no guards-only pass")
 
 
 @app.local_entrypoint()

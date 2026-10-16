@@ -1,19 +1,22 @@
-"""Session 7, plan 2: the post's Figure 1, the carry-over scatter, read from the saved lead-experiment table. No model runs,
+"""Plan 2 of the research log: the post's Figure 1, the carry-over scatter, read from the saved lead-experiment table. No model runs,
 no GPU, no new measurement.
 
     uv run python -m vpd_audit_2.post_figure
 
-For every mask the adversary found on an attack batch (one search, one attack batch and one start, read at a search length
-or at a harm level), the figure plots the damage the mask does on the 16 held-out batches it never saw against the damage it
-did on the batch it was found on, with the mask's shuffled copies beside it. Five files go to `results/post/`, and each
-PNG also as a copy at 75 percent of its pixel size, named with the suffix _75 (`post_small`):
+For every source the adversary found on an attack batch (one search, one attack batch and one start, read at a search
+length), the figure plots the damage the source does on the 16 held-out batches it never saw against the damage it did on
+the batch it was found on, with the source's shuffled copies beside it. Four files go to `results/post/`, each PNG also as
+reduced copies (`post_small`):
 
-  - `figure1_carry_over.png`, the post's figure (variant B of plan 1): the five step rows as mask points, the `h2` and `h5`
-    rows highlighted, and every drawn mask's shuffled copies; `h10` is left out. Raw harm, in nats per token.
-  - `figure1_carry_over_a.png`, variant A, for comparison only: the five step rows and their shuffled copies.
-  - `figure1_registered.png`, the scatter as session 4 registered it (freeze file Part 1, Section 8): all eight rows, in
-    added harm (harm minus the random start's), one marker and colour per row. For the record and the appendix.
-  - `figure1_carry_over.csv`, one row per point of the full set (637), the numbers behind all three figures.
+  - `figure1_carry_over.png`, the post's figure, with copies at 75 and 62 percent (the post shows the 62): the five step
+    rows as points coloured by search length, with a key; every drawn source's shuffled copies as dots at the parent's
+    own-batch damage; the diagonal and the benchmark line. Raw harm, in nats per token. The benchmark's value is in the
+    caption, not on the figure.
+  - `figure1_registered.png`, with a 75 percent copy: the scatter as registered in freeze file Part 1, Section 8: all
+    eight rows, in added harm (harm minus the random start's), one marker and colour per row. For the record and the
+    appendix.
+  - `figure1_carry_over.csv`, one row per point of the full set (637), the numbers behind both figures. Its column
+    `in_post_figure` marks the five step rows and `h2` and `h5`, the set an earlier form of the post's figure drew.
   - `figure1_reference.json`, the reference values, the paper's table values, the counts, and the commits.
 
 The data step (`figure_points`, `reference_values`) is kept apart from the drawing (`draw_carry_over`, `draw_registered`), as
@@ -43,8 +46,9 @@ from vpd_audit_2.post_small import save_small_copy, small_path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 TABLE = REPO_ROOT / "results" / "s5_lead" / "lead" / "sealed"
 OUT_DIR = REPO_ROOT / "results" / "post"
-OUT_NAMES = {"b": "figure1_carry_over.png", "a": "figure1_carry_over_a.png", "registered": "figure1_registered.png",
+OUT_NAMES = {"carry_over": "figure1_carry_over.png", "registered": "figure1_registered.png",
              "csv": "figure1_carry_over.csv", "reference": "figure1_reference.json"}
+COPIES = {"carry_over": (0.75, 0.62), "registered": (0.75,)}  # the reduced copies of each PNG, as shares of its size
 
 # ----------------------------------------------------------------------------- copied from the first post's figure code
 
@@ -96,10 +100,10 @@ COLUMNS = ("row", "attack_batch", "start", "step", "own_batch_harm", "unseen_har
            "shuffled_harm_mean", "in_post_figure", "attack_start_harm")
 
 # The paper's PGD table (KL divergence to the target model after n adversarial steps, on the authors' batch of 128 sequences
-# of length 512): table `tab:vpd-pgd-ce`, literature/original/bushnaq2026_vpd.txt, lines 395-399; the same constants as
+# of length 512): table `tab:vpd-pgd-ce`; the same constants as
 # vpd_audit_2/g1_readings.py.
 PAPER_TABLE = {20: 0.8280, 40: 1.3539, 80: 3.8381, 160: 25.2560, 320: 40.2200}
-PAPER_TABLE_SOURCE = "the paper's PGD table, tab:vpd-pgd-ce (literature/original/bushnaq2026_vpd.txt, lines 395-399)"
+PAPER_TABLE_SOURCE = "the paper's PGD table, tab:vpd-pgd-ce"
 SEARCHES_NOTE = ("The points are 80 searches (16 attack batches by 5 starts) read at up to eight moments each (five search lengths "
                  "and three harm levels), not 637 independent masks. A harm-level point can be the same setting as a step point "
                  "when the level's crossing fell on a saved step.")
@@ -168,37 +172,34 @@ RAW_LIMITS = (0.15, 80.0)
 RAW_TICKS = (0.2, 0.5, 1, 2, 5, 10, 20, 50)
 ADDED_LIMITS = (0.05, 80.0)
 ADDED_TICKS = (0.1, 0.2, 0.5, 1, 2, 5, 10, 20, 50)
-BAND = (PAPER_TABLE[20], PAPER_TABLE[160])
-# On one line each, centred on their ticks, the two labels overlap (the ticks are about 0.9 inches apart): two lines each.
-BAND_TICKS = ((PAPER_TABLE[40], "paper's\n40 steps"), (PAPER_TABLE[80], "paper's\n80 steps"))
-BAND_COLOUR = "#f0f0f0"
-# The plan's words; the line breaks are a drawing decision (on one line the labels and legend entries are wider than the axes).
-X_LABEL = "Damage on the batch the mask was found on\n(KL from original model, nats)"
-Y_LABEL = "Damage on unseen text\n(KL from original model, nats)"
+# The post's figure, in its settled words. The line breaks are a drawing decision (on one line the labels are wider than
+# the axes).
+X_LABEL = "Damage to the Batch Searched\nKL from Original Model (nats)"
+Y_LABEL = "Damage to Unseen Text\nKL from Original Model (nats)"
 X_LABEL_ADDED = "Added damage on the batch the mask was found on\n(KL from original model less the random start's, nats)"
 Y_LABEL_ADDED = "Added damage on unseen text\n(KL from original model less the random start's, nats)"
-LABELS = {"mask": "Mask the adversary found,\napplied to unseen text",
-          "highlight": "The same searches, read when they had\ndone 2 or 5 nats on their own batch",
-          "shuffled": "Same mask with its components shuffled\nwithin weight matrix and usage band,\nplotted at the mask's own-batch damage",
-          "diagonal": "Same damage as on the batch searched",
+LABELS = {"mask": "Source the Adversary Found",
+          "shuffled": "Same Source, Randomly Shuffled",
           "diagonal_added": "Same added damage as on the batch searched",
-          "benchmark": "Paper's 20-step adversary, our run\non the unseen batch itself ({:.2f})",  # the benchmark's value, from the table
-          "random_start": "Random starting point",
-          "band": "Paper's table: the range where it neither\nclaims nor concedes robustness"}
-# Where the carry-over figure's labels sit (drawing decisions; see the plan's report). The benchmark's label is below its
-# line at the right, where no point lies (at the left it would cross the 20-step points), and the legend is in the empty
-# upper left, below the band's label (lower right it would cover the shuffled copies and the random start's label).
+          # the benchmark's value is in the caption; on two lines the label clears the points at the right
+          "benchmark": "Paper's 20-Step Search,\nRun on the Unseen Text"}
+# The benchmark's label is below its line at the right, where no point lies (at the left it would cross the 20-step
+# points); the legend, on a card, is in the empty upper left, above the search lengths' colour key.
 BENCHMARK_LABEL_X = 75.0  # the label's right end
-RANDOM_START_LABEL_X = 0.23  # the label's left end, right of where the diagonal and the 0.2 tick would cross it
-DIAGONAL_LABEL_X = 62.0  # the diagonal label's right end, near the top right corner and inside the axes
-CARRY_OVER_LEGEND = {"loc": "upper left", "bbox_to_anchor": (0.0, 0.91), "borderaxespad": 0.3}
+STEP_ORDER = (20, 40, 80, 160, 320)  # the step rows' search lengths, one colour each
+STEP_CMAP = "YlGnBu"
+STEP_SHADES = (0.3, 0.45, 0.6, 0.78, 0.95)  # where on the colour map each search length's colour is taken
+KEY_BOX = (0.06, 0.70, 0.30, 0.025)  # axes fraction: x, y, width, height of the colour key
+KEY_LABEL = "Search Steps"
+LEGEND_FACE = "#fbfbfb"  # just off white, so that it reads as a card on the white axes
+LEGEND_EDGE = MUTED
+CARRY_OVER_LEGEND = {"loc": "upper left", "bbox_to_anchor": (0.055, 0.945), "borderaxespad": 0.0}
 REGISTERED_DIAGONAL_LABEL_X = 60.0  # the registered form's own, unchanged by the carry-over figure's label changes
 REGISTERED_LEGEND = {"loc": "lower right"}
 REGISTERED_STYLE = {  # row: (colour, marker, legend label)
     "n20": (SKY, "o", "20 steps"), "n40": (BLUE, "s", "40 steps"), "n80": (GREEN, "^", "80 steps"),
     "n160": (ORANGE, "D", "160 steps"), "n320": (PURPLE, "v", "320 steps"),
     "h2": (VERMILLION, "P", "2 nats"), "h5": (INK, "X", "5 nats"), "h10": (ORANGE_DARK, "*", "10 nats")}
-VARIANTS = ("b", "a")
 
 
 def _within(values: np.ndarray, limits: tuple[float, float], what: str) -> None:
@@ -243,69 +244,63 @@ def _legend(ax, handles: list[Any], labels: list[str], placement: dict[str, Any]
         t.set_color(INK)
 
 
-def draw_carry_over(points: pd.DataFrame, refs: dict[str, float], path: Path, variant: str = "b") -> Path:
-    """The post's figure (`variant` "b") or its comparison (`variant` "a"), in raw harm: mask points for the five step rows,
-    their shuffled copies at the parent mask's own-batch harm, and in "b" the h2 and h5 rows highlighted with their shuffled
-    copies; the paper's range as a band, the diagonal, the benchmark, and the random start."""
-    if variant not in VARIANTS:
-        raise ValueError(f"variant must be one of {VARIANTS}")
+def draw_carry_over(points: pd.DataFrame, refs: dict[str, float], path: Path) -> Path:
+    """The post's figure, in raw harm: a point for each source of the five step rows, coloured by search length, with a
+    key; its shuffled copies as dots at the parent's own-batch harm; the diagonal and the benchmark line. Writes the
+    reduced copies of `COPIES["carry_over"]` beside it."""
+    import matplotlib
+    from matplotlib.colors import BoundaryNorm, ListedColormap
     from matplotlib.lines import Line2D
-    from matplotlib.ticker import NullLocator
 
     plt = _plt()
     steps = points[points["row"].isin(STEP_ROWS)]
-    high = points[points["row"].isin(HIGHLIGHT_ROWS)] if variant == "b" else points.iloc[0:0]
-    drawn = pd.concat([steps, high])
     for col in ("own_batch_harm", "unseen_harm_mean", "shuffled_harm_mean"):
-        _within(drawn[col].to_numpy(), RAW_LIMITS, col)
-    _within(np.array([refs["benchmark"], refs["random_start"]]), RAW_LIMITS, "reference values")
-    hi = RAW_LIMITS[1]
+        _within(steps[col].to_numpy(), RAW_LIMITS, col)
+    _within(np.array([refs["benchmark"]]), RAW_LIMITS, "the benchmark")
     with plt.rc_context(RC):
         fig, ax = plt.subplots(figsize=(WIDTH, HEIGHT), dpi=DPI)
         _log_axes(ax, RAW_LIMITS, RAW_TICKS)
-        # the paper's table: the range where it neither claims nor concedes robustness, with its 40- and 80-step values
-        ax.axvspan(*BAND, color=BAND_COLOUR, linewidth=0, zorder=0)
-        ax.text(float(np.sqrt(BAND[0] * BAND[1])), hi / 1.12, LABELS["band"], color=MUTED, fontsize=9, ha="center", va="top",
-                linespacing=1.15, zorder=1)
-        top = ax.secondary_xaxis("top")  # two small ticks on the top axis, labelled above it
-        top.set_xticks([x for x, _ in BAND_TICKS], labels=[t for _, t in BAND_TICKS])
-        top.xaxis.set_minor_locator(NullLocator())
-        top.tick_params(colors=MUTED, direction="in", length=4, width=1.1, labelsize=8, pad=2)
-        top.spines["top"].set_visible(False)  # the main axes' top spine stays
-        # the reference lines
-        _diagonal(ax, RAW_LIMITS, LABELS["diagonal"], at=DIAGONAL_LABEL_X)
+        # the reference lines: the diagonal, unlabelled, and the benchmark
+        ax.plot(RAW_LIMITS, RAW_LIMITS, color=MUTED, linewidth=1.3, linestyle="-", zorder=1)
         ax.axhline(refs["benchmark"], color=MUTED, linewidth=1.0, linestyle=(0, (5, 3)), zorder=1)
-        _label_below(ax, BENCHMARK_LABEL_X, refs["benchmark"], LABELS["benchmark"].format(refs["benchmark"]), ha="right")
-        ax.axhline(refs["random_start"], color=MUTED, linewidth=1.0, linestyle=(0, (1, 2)), zorder=1)
-        _label_below(ax, RANDOM_START_LABEL_X, refs["random_start"], LABELS["random_start"])
-        # the points: shuffled copies, then the masks above the lines, then the highlighted rows above the others
-        ax.scatter(drawn["own_batch_harm"], drawn["shuffled_harm_mean"], s=12, marker="s", color=VERMILLION, alpha=0.55,
+        _label_below(ax, BENCHMARK_LABEL_X, refs["benchmark"], LABELS["benchmark"], ha="right")
+        # the shuffled copies, then the sources above them, one colour per search length
+        ax.scatter(steps["own_batch_harm"], steps["shuffled_harm_mean"], s=22, marker="o", color=VERMILLION, alpha=0.55,
                    linewidths=0, zorder=2)
-        ax.scatter(steps["own_batch_harm"], steps["unseen_harm_mean"], s=14, marker="o", color=BLUE, alpha=0.55,
-                   linewidths=0, zorder=3)
-        if len(high):
-            ax.scatter(high["own_batch_harm"], high["unseen_harm_mean"], s=16, marker="o", facecolor=BLUE_DARK,
-                       edgecolor="black", linewidths=0.4, alpha=0.8, zorder=4)
+        shades = [matplotlib.colormaps[STEP_CMAP](v) for v in STEP_SHADES]
+        norm = BoundaryNorm([i - 0.5 for i in range(len(STEP_ORDER) + 1)], len(STEP_ORDER))
+        idx = steps["step"].map({s: i for i, s in enumerate(STEP_ORDER)})
+        sc = ax.scatter(steps["own_batch_harm"], steps["unseen_harm_mean"], s=22, marker="o", c=idx, cmap=ListedColormap(shades),
+                        norm=norm, alpha=0.75, linewidths=0, zorder=3)
+        cb = fig.colorbar(sc, cax=ax.inset_axes(KEY_BOX), orientation="horizontal", ticks=range(len(STEP_ORDER)))
+        cb.ax.set_xticklabels([str(s) for s in STEP_ORDER])
+        cb.ax.tick_params(colors=MUTED, labelsize=8, length=0, pad=2)
+        cb.outline.set_edgecolor(MUTED)
+        cb.outline.set_linewidth(0.6)
+        cb.set_label(KEY_LABEL, color=MUTED, fontsize=9, labelpad=3)
+        cb.solids.set_alpha(1.0)
         ax.set_xlabel(X_LABEL, color=INK)
         ax.set_ylabel(Y_LABEL, color=INK)
         style_axes(ax)
-        mask = Line2D([], [], linestyle="none", marker="o", markersize=5, color=BLUE, markeredgewidth=0)
-        dark = Line2D([], [], linestyle="none", marker="o", markersize=5.5, markerfacecolor=BLUE_DARK, markeredgecolor="black",
-                      markeredgewidth=0.4)
-        shuf = Line2D([], [], linestyle="none", marker="s", markersize=4.5, color=VERMILLION, markeredgewidth=0)
-        if variant == "b":
-            _legend(ax, [mask, dark, shuf], [LABELS["mask"], LABELS["highlight"], LABELS["shuffled"]], CARRY_OVER_LEGEND)
-        else:
-            _legend(ax, [mask, shuf], [LABELS["mask"], LABELS["shuffled"]], CARRY_OVER_LEGEND)
+        # the legend's source dot in the 80-step shade, the key's middle, so that legend and key agree
+        mask = Line2D([], [], linestyle="none", marker="o", markersize=6, color=shades[2], markeredgewidth=0)
+        shuf = Line2D([], [], linestyle="none", marker="o", markersize=6, color=VERMILLION, markeredgewidth=0)
+        leg = ax.legend([mask, shuf], [LABELS["mask"], LABELS["shuffled"]], frameon=True, fontsize=9, handlelength=1.0,
+                        handletextpad=0.5, labelspacing=0.6, borderpad=0.7, fancybox=False, framealpha=1.0,
+                        facecolor=LEGEND_FACE, edgecolor=LEGEND_EDGE, **CARRY_OVER_LEGEND)
+        leg.get_frame().set_linewidth(0.8)
+        for t in leg.get_texts():
+            t.set_color(INK)
         tight_layout_at_pixel_ratio(fig)
         fig.savefig(path, facecolor="white")
         plt.close(fig)
-    save_small_copy(path)
+    for scale in COPIES["carry_over"]:
+        save_small_copy(path, scale)
     return Path(path)
 
 
 def draw_registered(points: pd.DataFrame, refs: dict[str, float], path: Path) -> Path:
-    """The scatter as session 4 registered it: all eight rows, in added harm on both axes (own-batch harm less the search's
+    """The scatter as registered in freeze file Part 1, Section 8: all eight rows, in added harm on both axes (own-batch harm less the search's
     own start's harm on its attack batch; mean unseen harm less the random start's mean harm on the unseen batches), one
     marker and colour per row, with the diagonal and no other reference."""
     from matplotlib.lines import Line2D
@@ -333,7 +328,8 @@ def draw_registered(points: pd.DataFrame, refs: dict[str, float], path: Path) ->
         tight_layout_at_pixel_ratio(fig)
         fig.savefig(path, facecolor="white")
         plt.close(fig)
-    save_small_copy(path)
+    for scale in COPIES["registered"]:
+        save_small_copy(path, scale)
     return Path(path)
 
 
@@ -382,10 +378,11 @@ def write_all(table_dir: Path = TABLE, out_dir: Path = OUT_DIR) -> dict[str, Any
     refs = reference_values(table)
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
-    paths = {v: draw_carry_over(points, refs, out_dir / OUT_NAMES[v], v) for v in VARIANTS}
-    paths["registered"] = draw_registered(points, refs, out_dir / OUT_NAMES["registered"])
-    for key in (*VARIANTS, "registered"):  # each drawing also wrote its 75 percent copy
-        paths[f"{key}_75"] = small_path(paths[key])
+    paths = {"carry_over": draw_carry_over(points, refs, out_dir / OUT_NAMES["carry_over"]),
+             "registered": draw_registered(points, refs, out_dir / OUT_NAMES["registered"])}
+    for key in ("carry_over", "registered"):  # each drawing also wrote its reduced copies
+        for scale in COPIES[key]:
+            paths[f"{key}_{round(100 * scale)}"] = small_path(paths[key], scale)
     paths["csv"] = out_dir / OUT_NAMES["csv"]
     points.to_csv(paths["csv"], index=False, lineterminator="\n")
     record = reference_record(table, points, refs, Path(table_dir) / LT.CORE_FILE)

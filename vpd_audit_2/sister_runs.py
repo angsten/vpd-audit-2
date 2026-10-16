@@ -1,4 +1,4 @@
-"""Plan 2, step 3 (section 5): two log checks, with no GPU.
+"""Plan 2 of the research log, step 3 (section 5): two log checks, with no GPU.
 
     uv run python -m vpd_audit_2.sister_runs
 

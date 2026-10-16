@@ -1,5 +1,5 @@
-"""Version (ii) of the freed-label test: the paper's pruning adversary (Lena's `sessions/004/notes/lena/version_ii_pruning_adversary.md`;
-plan 6, Section 4, item 6).
+"""Version (ii) of the freed-label test: the paper's pruning adversary (the version (ii) specification, research log;
+plan 6 of the research log, Section 4, item 6).
 
 The search mirrors the authors' `run_adv_pgd` (`param_decomp/app/backend/optim_cis.py:262-304`) line for line:
 per-position sources [1, T, C_l] per layer in the labels dict's order, non-alive sources set to 0 before the first step and
@@ -167,7 +167,7 @@ def text_run(model: Any, tokens: Any, labels_orig: dict[str, Any], arms: dict[st
     return out
 
 
-# ----------------------------------------------------------------------------- the reference check (Lena's Section 5)
+# ----------------------------------------------------------------------------- the reference check (the version (ii) specification's Section 5)
 
 
 def authors_run(model: Any, tokens: Any, ci: dict[str, Any], alive: dict[str, Any], target_out: Any, seed: int) -> dict[str, Any]:
@@ -232,8 +232,8 @@ def _equal(a: dict[str, Any], b: dict[str, Any]) -> bool:
 
 def reference_check(model: Any, tokens: Any, labels_orig: dict[str, Any], freed_mask: dict[str, Any], target_out: Any, seed: int,
                     fill_seed: int) -> dict[str, Any]:
-    """Lena's Section 5, bf16 autocast on both sides, on one text. The freed arm's harms (ours and theirs) are returned
-    under "sealed" only, never in the "freed" record: beside the original arm they would give the text's G (plan 7)."""
+    """The version (ii) specification's Section 5, bf16 autocast on both sides, on one text. The freed arm's harms (ours and theirs) are returned
+    under "sealed" only, never in the "freed" record: beside the original arm they would give the text's G (plan 7 of the research log)."""
     import torch
 
     dev = str(tokens.device)
@@ -266,7 +266,7 @@ def reference_check(model: Any, tokens: Any, labels_orig: dict[str, Any], freed_
             rec["fill_equal"] = _equal(m_ours, m_theirs)
             h_ours = evaluate(model, tokens, m_ours, target_out, "bf16")
             h_theirs = evaluate(model, tokens, m_theirs, target_out, "bf16")
-            # a freed-arm harm: sealed (plan 7, item 1). Only the difference and the flag stay in the open record.
+            # a freed-arm harm: sealed (plan 7 of the research log, item 1). Only the difference and the flag stay in the open record.
             out["sealed"] = {"freed_arm_harm": {"harm_ours": h_ours, "harm_theirs": h_theirs, "precision": "bf16", "form": "fill"}}
             rec["harm_difference_ours_minus_theirs"] = h_ours - h_theirs
             rec["passes"] = bool(rec["passes"] and rec["fill_equal"] and abs(h_ours - h_theirs) <= 1e-5)

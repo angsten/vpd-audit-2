@@ -1,4 +1,4 @@
-"""Session 6, plan 3, Section 7: three intact-background variants on cell set S4. Added after the readings, as
+"""Plan 3 of the research log, Section 7: three intact-background variants on cell set S4. Added after the readings, as
 description; nothing here has a line. Committed before the launch.
 
     uv run python -m vpd_audit_2.s6_variants > results/s6_followups/variants.txt
@@ -15,7 +15,7 @@ H13, 320 cells per length. Each setting scored three ways (`s6_build`):
 Per variant and length: the pooled share of carried added harm kept, measured above the saved start as Section 8(d)
 of the conventions measures it, the sum over cells of (the variant's harm - the saved start's harm) over the sum of
 (the saved carried harm - the saved start's harm); and the variant's mean harm in nats over the cells, beside the
-all-ones harm (plan 2's `ones` pass on the same four batches, their mean). The check units' outcomes are printed first.
+all-ones harm (plan 2 of the research log's `ones` pass on the same four batches, their mean). The check units' outcomes are printed first.
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ from vpd_audit_2 import s6_plan3_run as R3
 from vpd_audit_2 import s6_read as R
 from vpd_audit_2 import s6_run as SR
 
-NOTE = "Added after the readings, as description (plan 3, Section 7); no line."
+NOTE = "Added after the readings, as description (plan 3 of the research log, Section 7); no line."
 
 
 def checked_units(folder: Path, receipt: dict[str, str], names: list[str], prefix: str = "") -> R.Units:
@@ -83,7 +83,7 @@ def variants(units: R.Units, plan2: R.Units, lead: dict[str, Any]) -> dict[str, 
 
 
 def report(res: dict[str, Any], chk: dict[str, Any]) -> str:
-    L = ["Three intact-background variants on cell set S4 (session 6, plan 3, Section 7). " + NOTE,
+    L = ["Three intact-background variants on cell set S4 (plan 3 of the research log, Section 7). " + NOTE,
          "S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per length. Kept share: the sum over cells of (variant's harm - saved start",
          "harm) over the sum of (saved carried harm - saved start harm), as the conventions' Section 8(d). V1: entries at exactly 0 stay 0, every other",
          "entry 1. V2: mask s where the label is zero, 1 where positive, delta entries s. V3: mask l + s(1 - l) where the label is positive, 1 where zero,",

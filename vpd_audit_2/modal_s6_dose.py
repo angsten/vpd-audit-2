@@ -1,4 +1,4 @@
-"""The Modal app for session 6's plan 3, Section 8: the dose-response on an intact model, on cell set S4. Added after the
+"""The Modal app for plan 3 of the research log, Section 8: the dose-response on an intact model, on cell set S4. Added after the
 readings, as description.
 
     uv run modal run vpd_audit_2/modal_s6_dose.py::launch --commit <c>    (4 containers at once: H1, H5, H9, H13)

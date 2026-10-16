@@ -1,4 +1,4 @@
-"""Session 6, plan 3, Section 4: the reading of the first post's comparison rerun, as the session 4 checkpoint's
+"""Plan 3 of the research log, Section 4: the reading of the first post's comparison rerun, as the research log's
 Appendix G.2 and the freeze file's Part 1, Section 7 fix it. Committed before the launch.
 
     uv run python -m vpd_audit_2.s6_rerun > results/s6_followups/rerun.txt
@@ -20,7 +20,7 @@ search's record at step 20 bit for bit; checked). It is the harm, not the harm a
     when it is positive, and otherwise the difference is printed and said to be harm added by holding the deltas at 0.
     Beside it, the freeze file's "paired difference's interval": the same construction on the 40 cells of
     (searched - held at 0), each cell's two searches sharing a batch and a start.
-  - The clause beside the first post's 0.80, from the searched arm (plan 3 fixes the arm before the data, since the
+  - The clause beside the first post's 0.80, from the searched arm (plan 3 of the research log fixes the arm before the data, since the
     paper's 0.83 came with the delta components searched): "about as much" if 0.80/A lies within a factor of 1.25 of 1
     (from 1/1.25 to 1.25, both included), "less" if below 1/1.25, "more" if above 1.25; 0.80/A printed to three
     decimals. The held-at-0 arm's clause beside it, as description.
@@ -150,7 +150,7 @@ def _interval_lines(x: dict[str, Any], unit: str = "nats") -> list[str]:
 
 def report(res: dict[str, Any]) -> str:
     a, d = res["arms"], res["delta"]
-    L = ["The first post's comparison rerun (session 6, plan 3, Section 4; the session 4 checkpoint, Appendix G.2; the freeze file, Part 1, Section 7).",
+    L = ["The first post's comparison rerun (plan 3 of the research log, Section 4; the research log, Appendix G.2; the freeze file, Part 1, Section 7).",
          "Pool Q, the first post's 1,024 texts, as eight batches of 128 in the manifest's order; starts 41 to 45; 20 steps; each search scored on its",
          "own batch only. A cell is the harm (nats) of the setting after step 20 on its batch. 40 cells per arm.", ""]
     for arm, label in (("searched", "Delta components searched, as the paper does"), ("held_at_0", "Delta components held at 0, as the first post's aggregations did")):

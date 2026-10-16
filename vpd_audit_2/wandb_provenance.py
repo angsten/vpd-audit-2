@@ -39,7 +39,7 @@ RUNS: dict[str, str] = {
     "s-05ef623e": "goodfire/spd",  # trained without the adversarial loss
     "t-9d2b8f02": "goodfire/spd",  # the target model
     "p-8383f5e5": "goodfire/param-decomp",  # the authors' newer reference run (listing and logs only)
-    # plan 2, section 5: the five likely seed runs of provenance C.2 and the tag-commit replica (listing and logs only)
+    # plan 2 of the research log, section 5: the five likely seed runs of provenance C.2 and the tag-commit replica (listing and logs only)
     "s-e8bde534": "goodfire/spd",
     "s-73d2385c": "goodfire/spd",
     "s-aac60aec": "goodfire/spd",

@@ -1,4 +1,4 @@
-"""Session 6, plan 1, Section 2.3: the starts test's driver, without the cloud.
+"""Plan 1 of the research log, Section 2.3: the starts test's driver, without the cloud.
 
 The specs, the checks a container makes, and that `lead_run`'s own refusals still hold against this test; the checks
 before the launch, in a small repository; the cost projection; and the whole test on the tiny model through the same

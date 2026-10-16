@@ -1,4 +1,4 @@
-"""Session 6, plan 3, Section 8: the dose-response on an intact model. Added after the readings, as description; nothing
+"""Plan 3 of the research log, Section 8: the dose-response on an intact model. Added after the readings, as description; nothing
 here has a line. Committed before the launch.
 
     uv run python -m vpd_audit_2.s6_dose > results/s6_followups/dose.txt
@@ -12,7 +12,7 @@ since `seed_of` takes ints and strings only.
 
 Read as `s6_variants` reads V1. Per length and fraction: the pooled kept share, the sum over cells of (the harm - the
 saved start's harm) over the sum of (the saved carried harm - the saved start's harm), and the mean harm in nats over the
-cells. Beside them, as f = 1, V1's figures from plan 3's variants units, and as f = 0, the all-ones harm (plan 2's
+cells. Beside them, as f = 1, V1's figures from plan 3 of the research log's variants units, and as f = 0, the all-ones harm (plan 2 of the research log's
 `ones` pass, one value per batch, the same on each of its cells). At 320 steps, the kept share per batch at each f. The
 check units' outcomes are printed first.
 """
@@ -32,7 +32,7 @@ from vpd_audit_2 import s6_read as R
 from vpd_audit_2 import s6_run as SR
 from vpd_audit_2 import s6_variants as V
 
-NOTE = "Added after the readings, as description (plan 3, Section 8); no line."
+NOTE = "Added after the readings, as description (plan 3 of the research log, Section 8); no line."
 FRACTIONS = (0.0,) + B.DOSE_FRACTIONS + (1.0,)
 PER_BATCH_ROW = "n320"
 
@@ -86,9 +86,9 @@ def dose(units: R.Units, variants: R.Units, plan2: R.Units, lead: dict[str, Any]
 
 def report(res: dict[str, Any], chk: dict[str, Any]) -> str:
     keys = [B.dose_key(f) for f in FRACTIONS]
-    L = ["A dose-response on an intact model, on cell set S4 (session 6, plan 3, Section 8). " + NOTE,
+    L = ["A dose-response on an intact model, on cell set S4 (plan 3 of the research log, Section 8). " + NOTE,
          "S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per length. At fraction f, a random f of the setting's entries at exactly 0",
-         "(delta entries included) stays 0 and every other entry is 1; f = 1 is V1 (plan 3's variants units), f = 0 is all ones (plan 2's ones pass).",
+         "(delta entries included) stays 0 and every other entry is 1; f = 1 is V1 (plan 3 of the research log's variants units), f = 0 is all ones (plan 2 of the research log's ones pass).",
          "Kept share: the sum over cells of (harm - saved start harm) over the sum of (saved carried harm - saved start harm), as V1 is read.", "",
          "The checks, per batch (the full setting on the split's path and the flat path, and the start on the split's path):"]
     for h, x in chk.items():

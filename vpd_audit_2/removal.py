@@ -1,4 +1,4 @@
-"""The removal-effect harness for B2 and B3 (plan 6, Section 4, item 8), on G3's machinery.
+"""The removal-effect harness for B2 and B3 (plan 6 of the research log, Section 4, item 8), on G3's machinery.
 
 A batch is a list of rows, each a text with a list of changes (position, module, component, new mask value); a row with no
 change is that text's base. One forward per batch. A change's effect is G3's
@@ -6,14 +6,14 @@ change is that text's base. One forward per batch. A change's effect is G3's
 in float64 (`g3.effect`), d the logit difference between the changed row and the base row, summed over the change's
 position and every later one.
 
-Backgrounds (G3's, with plan 6's precisions): all on in float32 (masks 1, delta masks 1); at labels in float64 (masks at
+Backgrounds (G3's, with plan 6 of the research log's precisions): all on in float32 (masks 1, delta masks 1); at labels in float64 (masks at
 the labels, delta masks 0); stochastic in float64 (masks g + (1 - g) u, delta masks u_delta, from (master, "stoch", 1,
 text_id, 0), all 24 matrices). The float64 passes run the model cast to float64 with the float32 labels and draws cast to
-float64, never recomputed (Ruth), and the target recomputed in float64, as G3's diagnostic did. The authors'
+float64, never recomputed, and the target recomputed in float64, as G3's diagnostic did. The authors'
 `LlamaRMSNorm` still computes in float32 inside a float64 model (D5); it is left as it is.
 
 B2's removals put a label-zero component's mask to 0 in all on and stochastic, and to 1 at labels, where its mask already
-sits at 0 (session 1's label-zero reference). In the pilot's B2 every batch carries its own base row, so a change and its
+sits at 0 (the earlier label-zero reference). In the pilot's B2 every batch carries its own base row, so a change and its
 base share one forward and one grouping.
 """
 
@@ -111,7 +111,7 @@ class Harness:
 
 
 def reproduce_g3_controls(h: Harness, controls: list[dict[str, Any]], stored: dict[str, Any]) -> dict[str, Any]:
-    """Plan 6, item 8's test: G3's positive controls through this harness, at G3's grouping (one batch of all 32 texts for
+    """Plan 6 of the research log, item 8's test: G3's positive controls through this harness, at G3's grouping (one batch of all 32 texts for
     the base, one with each text's control), in float32, against `g3.json`'s effects, for all on and stochastic."""
     h.set_precision("fp32")
     out = {}

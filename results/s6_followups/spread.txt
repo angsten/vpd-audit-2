@@ -1,4 +1,4 @@
-How the harm is spread over texts (session 6, plan 2; conventions, Section 6). Description only; no interval.
+How the harm is spread over texts (plan 2 of the research log; conventions, Section 6). Description only; no interval.
 Each statistic: its median over cells, with the 10th and 90th percentiles over cells in parentheses. Added harm is the
 text's harm under the setting less its harm under the same start. Statistics 1 and 2 are on the harm (0.75 nats is a
 harm level); the two concentration measures are on the added harm, negative values counted as zero. A text's harm is

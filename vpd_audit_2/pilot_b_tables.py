@@ -1,4 +1,4 @@
-"""Session 4, plan 6, B4: Part B's derived tables (`sessions/004/engineering/plan_6.md`, Section 6; Daniel's amendments).
+"""Plan 6 of the research log, B4: Part B's derived tables (plan 6 of the research log, Section 6; the pre-registration check's amendments).
 
     uv run python -m vpd_audit_2.pilot_b_tables      (reads results/s4_pilot/part_b/ and cq_prices/, writes part_b/tables.json)
 
@@ -9,7 +9,7 @@ Per text i, for a version, a reading, and a freed arm a (paired with the origina
   - the adversarial difference X: G (freed minus original harm) or J, per seed s (and partition p for versions (i), (iii));
   - the stochastic difference St, per draw d;
   - V = 0.5 X + 0.5 St; V-bar_i averages X over seeds (and partitions) and St over draws.
-sigma2_seed and sigma2_route are on V's scale (each half times 0.5, plan 6 answer 2).
+sigma2_seed and sigma2_route are on V's scale (each half times 0.5, plan 6 of the research log answer 2).
 """
 
 from __future__ import annotations

@@ -1,4 +1,4 @@
-"""Session 6, plan 2: the one machine-readable record of the follow-up analyses, `results/s6_followups/record.json`.
+"""Plan 2 of the research log: the one machine-readable record of the follow-up analyses, `results/s6_followups/record.json`.
 Each reading script writes its own section and leaves the others as they are."""
 
 from __future__ import annotations

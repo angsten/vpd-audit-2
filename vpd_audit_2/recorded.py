@@ -1,4 +1,4 @@
-"""The recorded 320-step runs of session 4 (plan 1, item 6; plan 2, item 5; plan 3, Section 3). Not gating.
+"""The recorded 320-step runs of the research log (plan 1 of the research log, item 6; plan 2 of the research log, item 5; plan 3 of the research log, Section 3). Not gating.
 
 Our micro-batched loop in bf16 autocast on all 128 texts of C1 from start (master, "start", 1), step 0.1, labels, target,
 and weight deltas computed once on the whole batch under bf16 autocast (as G1 computed them), then sliced per micro-batch.
@@ -99,7 +99,7 @@ def first_relative_difference(a: list[float], b: list[float], tol: float = 0.01)
 
 
 def readings(runs_by_name: dict[str, list[float]], g1: list[float]) -> dict[str, Any]:
-    """Plan 1, item 6, and plan 2's odd steps: harm at the budgets and at the steps before them; the first step above
+    """Plan 1 of the research log, item 6, and plan 2 of the research log's odd steps: harm at the budgets and at the steps before them; the first step above
     5 nats; the first step each run differs from G1's by more than 1 percent; and the first step the runs differ from each
     other by more than 1 percent."""
     allr = {"G1 (authors' loop, whole batch, B200)": g1, **runs_by_name}

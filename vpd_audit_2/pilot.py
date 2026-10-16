@@ -1,4 +1,4 @@
-"""Session 4, plan 6: the pilot's shared pieces (`sessions/004/engineering/plan_6.md`, Section 4).
+"""Plan 6 of the research log: the pilot's shared pieces (plan 6 of the research log, Section 4).
 
   - Item 1, the extended starts: starts 1 to 64 by the manifest's keyed scheme (seed (master, "start", s); U[0, 1) on the
     CPU in float32, one torch generator per start, module by module in the manifest's layout, shape [1, 1, C_l + 1]);
@@ -145,7 +145,7 @@ def strata_by_module(stratum_global: np.ndarray, meta: dict[str, Any], lay: list
 def shuffle_source(flat: np.ndarray, lay: list[tuple[str, int]], strata: dict[str, np.ndarray], key: tuple[Any, ...],
                    label: str = "pilot-shuffle") -> np.ndarray:
     """A frequency-stratified shuffle of one flattened source; `key` = (batch, start, tag, r) after "pilot-shuffle".
-    The lead run passes a seed label of its own (session 5, plan 2, Section 5.1); the pilot's seeds are unchanged."""
+    The lead run passes a seed label of its own (plan 2 of the research log, Section 5.1); the pilot's seeds are unchanged."""
     from vpd_audit_2.manifest import seed_of
 
     rng = np.random.default_rng(seed_of(label, *key))

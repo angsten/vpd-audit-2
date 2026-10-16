@@ -1,6 +1,6 @@
 """A sparse label cache (fresh_cache's layout) as dense label tensors and entry masks, for Part B's harnesses.
 
-Question 1's labels are the cache's float32 values (plan 3, decision 7; plan 6, Section 6). The harnesses take their
+Question 1's labels are the cache's float32 values (plan 3 of the research log, decision 7; plan 6 of the research log, Section 6). The harnesses take their
 labels from here, never by recomputing them on another batch, so a freed set given as cache entry indices zeroes exactly
 the labels its prices were computed from. Dense tensors follow the cache's module order (sorted), which is the order of the
 labels dict the CI function returns and in which the stochastic draws are made.

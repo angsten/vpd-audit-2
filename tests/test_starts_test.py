@@ -1,6 +1,6 @@
-"""Session 6, plan 1, Section 2.4: the starts test's reading script, checked before any GPU result exists.
+"""Plan 1 of the research log, Section 2.4: the starts test's reading script, checked before any GPU result exists.
 
-  - On the pilot's 64 records alone it reproduces the session 5 checkpoint's Appendix G figures. Four of the 25 printed
+  - On the pilot's 64 records alone it reproduces the research log's Appendix G figures. Four of the 25 printed
     there were rounded twice, to two decimals and then to one; the exact values are pinned here, and every figure equals
     the exact value rounded that way (see `APPENDIX_G` and the report).
   - Its analysis of variance on the pilot's 8 by 8 tables is the pilot's own (`results/s4_pilot/part_a/tables.json`).
@@ -19,7 +19,7 @@ import pytest
 
 from vpd_audit_2 import starts_test as ST
 
-# Appendix G of sessions/005/checkpoint.md: the pilot's by-start mean added harm, starts 1 to 8, and its mean at 320 steps.
+# Appendix G of the research log: the pilot's by-start mean added harm, starts 1 to 8, and its mean at 320 steps.
 APPENDIX_G = {80: [8.8, 6.8, 9.3, 11.1, 11.5, 9.3, 7.9, 13.5], 160: [23.4, 16.9, 23.1, 22.4, 24.3, 21.4, 24.2, 21.1],
               320: [27.4, 22.1, 27.5, 26.5, 25.0, 22.3, 29.5, 23.3]}
 APPENDIX_G_MEAN_320 = 25.5
@@ -40,7 +40,7 @@ def pilot():
 
 
 def test_the_pilot_alone_reproduces_appendix_g(pilot):
-    """Plan 1, Section 2.4, the verification before any GPU result: the by-start means at 80, 160, and 320 steps and the
+    """Plan 1 of the research log, Section 2.4, the verification before any GPU result: the by-start means at 80, 160, and 320 steps and the
     pilot's mean at 320. 21 of the 24 by-start figures, rounded once to one decimal, equal the Appendix's; the three others
     and the mean are the Appendix's when rounded as it was, twice."""
     singles_differ = []
@@ -62,9 +62,9 @@ def test_the_pilot_only_printout(pilot, capsys):
     out = capsys.readouterr().out
     assert "over its 64 searches of C1 to C8 from starts 1 to 8: 25.4485 nats." in out and "Reading:" not in out
     assert "the pilot's 25.5 (C1 to C8 from starts 1 to 8; exactly 25.4485 from runs.json); the run's 34.5" in out
-    assert "The checkpoint's 25.5 was rounded twice (25.4485 to 25.45, then to 25.5); rounded once it is 25.4. The thresholds, 31 and 29, are untouched." in out
+    assert "The earlier figure 25.5 was rounded twice (25.4485 to 25.45, then to 25.5); rounded once it is 25.4. The thresholds, 31 and 29, are untouched." in out
     # Section 7's 12.5 percent for the pilot is 8 of 64, by the harm after step 320; by the final level it is 7
-    assert "by the harm after step 320 (as the checkpoint's Section 7 counted its 12.5 and 31 percent): 8 of 64 (12.5 percent)." in out
+    assert "by the harm after step 320 (as the research log's Section 7 counted its 12.5 and 31 percent): 8 of 64 (12.5 percent)." in out
     assert "At or above 40.2 nats, by the final level: 7 of 64 (10.9 percent)." in out
     assert out.index("5. Description") < out.index("6. Description: the breakout step.")
     assert "       C1      83       -      64      45      78      54      44       -\n" in out  # C1's breakout steps, starts 1 to 8
@@ -150,7 +150,7 @@ def test_a_complete_set_is_read_in_the_order_fixed(pilot, tmp_path, capsys):
     f = ST.finals(test, [(b, s) for b in ST.BATCHES for s in ST.TEST_STARTS])
     assert f["n"] == 40 and f["at_or_above_paper_by_final"] == sum(1 for key in f["by_search"] if f["by_search"][key] >= 40.2)
     assert f["at_or_above_paper_by_320"] == sum(1 for key in test if test[key][320] >= 40.2)
-    assert f"by the harm after step 320 (as the checkpoint's Section 7 counted its 12.5 and 31 percent): {f['at_or_above_paper_by_320']} of 40" in out
+    assert f"by the harm after step 320 (as the research log's Section 7 counted its 12.5 and 31 percent): {f['at_or_above_paper_by_320']} of 40" in out
     assert f"At or above 40.2 nats, by the final level: {f['at_or_above_paper_by_final']} of 40" in out
 
 

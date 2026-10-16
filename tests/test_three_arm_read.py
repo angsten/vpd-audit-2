@@ -1,4 +1,4 @@
-"""Session 7, plan 6: the breakout rule on constructed series, the readings on constructed outcomes, the extension
+"""Plan 6 of the research log: the breakout rule on constructed series, the readings on constructed outcomes, the extension
 rule, the trend, and amendment 1's recomputation (`vpd_audit_2/three_arm_read.py`, `three_arm_run.extension_lengths`)."""
 
 from __future__ import annotations

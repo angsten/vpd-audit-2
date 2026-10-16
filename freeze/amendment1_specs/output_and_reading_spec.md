@@ -1,6 +1,6 @@
 # What the Analysis Script Prints, and How Intervals Become Verdict Words
 
-*Session 5, Riku. A binding specification for the engineer, written before any deciding run. It implements the signed rules, `sessions/004/freeze_file_part1_q2.md`, and the head's pre-run decisions, `sessions/005/prerun_decisions_draft_1.md` (items R1 to R12). Where this note and the signed rules differ, the signed rules govern.*
+*The output and reading specification, binding, written before any deciding run. It implements the signed rules, `freeze/part1.md`, and the pre-run decisions (research log; items R1 to R12). Where this note and the signed rules differ, the signed rules govern.*
 
 ## 1. Purpose and Scope
 
@@ -10,10 +10,10 @@ This note specifies four things:
 
 1. the decision logic from intervals to verdict words (Section 3);
 2. the printed row: which numbers appear, in what order (Section 4);
-3. known-answer cases the engineer can turn into tests (Section 5);
+3. known-answer cases to turn into tests (Section 5);
 4. the delta-on run's printed summary (Section 6).
 
-Two neighbouring specifications cover the rest. Daniel's `sessions/005/notes/daniel/interval_spec.md` defines how every estimate and interval is computed, including the convention for missing searches. Lena's `sessions/005/notes/lena/table_and_run_spec.md` defines the file the script reads. This note states only what it needs from each (Section 2).
+Two neighbouring specifications cover the rest. `interval_spec.md` defines how every estimate and interval is computed, including the convention for missing searches. `table_and_run_spec.md` defines the file the script reads. This note states only what it needs from each (Section 2).
 
 **Two design rules run through everything below.**
 
@@ -46,7 +46,7 @@ The "scored setting" is the setting after step $n$ in a step row, and the settin
 
 ### 2.2 The Statistics and Their Intervals
 
-Write a bar for a mean over the row's cells, and $S_{ijs}$ for the mean of the 8 shuffled harms of one cell. The row needs nine statistics. Each comes from Daniel's interval routine, which takes the cell-level numerator, and for a ratio the cell-level denominator, and returns an estimate and intervals.
+Write a bar for a mean over the row's cells, and $S_{ijs}$ for the mean of the 8 shuffled harms of one cell. The row needs nine statistics. Each comes from the interval specification's interval routine, which takes the cell-level numerator, and for a ratio the cell-level denominator, and returns an estimate and intervals.
 
 | # | Statistic | Formula | Cell-level numerator | Cell-level denominator |
 |---|---|---|---|---|
@@ -133,7 +133,7 @@ This is the signed rule that a straddling interval "names only the part of the t
 
 ### 3.5 Harm-Level Rows
 
-The same three verdicts and the same shuffled reading are computed from the level's scored settings, by Daniel's convention for missing searches. No step-table cell is printed; the signed rules define cell sentences for the step table only. Three additions:
+The same three verdicts and the same shuffled reading are computed from the level's scored settings, by the interval specification's convention for missing searches. No step-table cell is printed; the signed rules define cell sentences for the step table only. Three additions:
 
 - **The missing count decides first.** If more than 10 of the 80 attack searches, or more than 10 of the 80 held-out searches, are missing at the level, all three verdicts print `undetermined`, the shuffled reading prints `not read: level Undetermined`, and flag F10 is raised. Exactly 10 missing on a side is read normally; 11 is Undetermined. The row's numbers and intervals are still printed in full, computed from the available cells.
 - **Each `yes` is tagged** `confirmatory`.
@@ -302,7 +302,7 @@ The signed sentences stand as written. A reader of the row sees beside them that
 
 **Once, above the step table:**
 - the provenance the signed rules require (commit, clean tree, GPU, environment, seed keys);
-- per side, each batch's mean own-search added harm at 20 steps, sorted, so a reader can see whether any batch breaks out early; and the count of early-breakout batches per side, by whatever definition Daniel's specification fixes (E4).
+- per side, each batch's mean own-search added harm at 20 steps, sorted, so a reader can see whether any batch breaks out early; and the count of early-breakout batches per side, by whatever definition the interval specification fixes (E4).
 
 **Under the step table,** verbatim from the signed rules: "A straddling 40- or 80-step cell stays Undetermined, and nothing outside the step table resolves it."
 
@@ -393,7 +393,7 @@ There are two layers. The first tests the decision function alone, on intervals 
 
 Expected: carry-over ratio $(0.2 \times 18 + 0.8 \times 0.9)/(0.2 \times 20 + 0.8 \times 3) = 4.32/6.40 = 0.675$. Retention: 16 settings past 5 nats with pooled value and median 0.90; 64 settings not past with pooled value and median 0.30; all 80 pooled at 0.675. Share past 5 nats: 0.20 on each side. The pooled ratio reads "carries over" at 0.675 while four settings in five keep 0.30, and the row must show both.
 
-**Where these cases come from.** R2 to R7 are cases A to E of `sessions/005/notes/riku/shuffled_ratio_claims.md`, and R2 and R8 are Ruth's collision. R3 stands for her case 2A. R14 covers her item 10 and Lena's 4.3 and 4.4. R10 to R13 are Lena's 4.4 to 4.8. R15 is Lena's 4.10 with Ruth's batch-clustered missing searches. R17 is Ruth's item 9. Coverage under realistic noise, the digits table, and the transposition checks belong to Daniel's and Lena's specifications and are not repeated here.
+**Where these cases come from.** R2 to R7 are cases A to E of the shuffled-ratio analysis (research log), and R2 and R8 are the review's collision case. R3 stands for its case 2A. R14 covers one review's item 10 and another's items 4.3 and 4.4 (research log). R10 to R13 are that review's items 4.4 to 4.8. R15 is its item 4.10 with the review's batch-clustered missing searches. R17 is review item 9. Coverage under realistic noise, the digits table, and the transposition checks belong to the interval and table specifications and are not repeated here.
 
 ## 6. The Delta-On Run's Printed Summary
 
@@ -422,14 +422,14 @@ The script reads line 7's range from the committed report of the made-up-data te
 
 So that nothing in the signed rules' Section 8 is lost, the script also writes:
 
-- **The scatter's data:** for every scored setting, its carried-over added harm averaged over held-out batches and its added harm on its own batch, marked by search length or harm level. Whether the 80-step settings lie on the harm-level curve is a judgement for the team, made from this file.
+- **The scatter's data:** for every scored setting, its carried-over added harm averaged over held-out batches and its added harm on its own batch, marked by search length or harm level. Whether the 80-step settings lie on the harm-level curve is a judgement made from this file.
 - **Long-search levels as a distribution:** over all 160 lead searches, the mean harm over steps 301 to 320, with its minimum, quartiles, and maximum, and the share of searches at or above the paper's 40.2 after step 320.
 
 The share of searches past each level, the share of cycling settings, and the step $n - 1$ readings are in the rows (lines 10 and 13).
 
 ## 8. Choices Made Here That the Draft Leaves Open
 
-Each is for the head to confirm or strike before the specification binds.
+Each was put for confirmation before the specification bound; where Amendment 1 differs, Amendment 1 governs (its Section 9).
 
 1. **R2 is narrowed.** The draft prints "large, with low retention" when the ratio's interval lies below or straddles 0.2. A straddling interval does not show low retention, so this note prints that phrase only when the interval lies below (F1), and "large; carry-over ratio undetermined" when it straddles (F1b).
 2. **R4 needs a three-way verdict.** With the shuffled interval wholly below zero, the reading is `no reading defined`, and "depends on the choice" is `no`, since the interval lies below 0.2 as the plan's wording requires. The alternative, leaving the column unsettled, would be the script choosing against the literal rule.
@@ -437,4 +437,4 @@ Each is for the head to confirm or strike before the specification binds.
 4. **A harm level made Undetermined still prints its numbers.** Its verdict words are all `undetermined`. Suppressing the numbers would contradict "printed in full".
 5. **Three sentences are printed always, in place of warnings that fire at a threshold.** D1 to D3 put the composition, the own search's margin, and the yardstick comparison in words in every row. A warning triggered by, say, $\kappa$ above one half would have been a new line.
 6. **Two additions beyond the draft.** Line 2b shows the attack side's own-search harm, so a reader can see when one side has broken out more than the other. Line 9 gives the pooled retention an interval (statistic 9). Both are description. The second deserves a deliberate yes or no: it is likely the steadiest number at 40 and 80 steps, and for that reason it could tempt a reader to resolve an undetermined cell with it, which the signed rules forbid.
-7. **What this note needs from the others.** From Lena's table: `attack_own` and `attack_start` for every scored setting, and the two shuffle-displacement numbers per setting, over alive entries. From Daniel's routine: intervals for all nine statistics of Section 2.2, including plain differences and the ratio whose denominator varies with the attack batch.
+7. **What this note needs from the others.** From the table specification's table: `attack_own` and `attack_start` for every scored setting, and the two shuffle-displacement numbers per setting, over alive entries. From the interval specification's routine: intervals for all nine statistics of Section 2.2, including plain differences and the ratio whose denominator varies with the attack batch.

@@ -1,5 +1,5 @@
-"""Session 6, plan 2: every setting the GPU re-scoring scores, built on the CPU from saved data
-(`results/s6_followups/CONVENTIONS.md`, Sections 2, 4, 5, and 8; `sessions/006/engineering/plan_2.md`, Section 3).
+"""Plan 2 of the research log: every setting the GPU re-scoring scores, built on the CPU from saved data
+(`results/s6_followups/CONVENTIONS.md`, Sections 2, 4, 5, and 8; plan 2 of the research log, Section 3).
 
 A setting is flat: C_l + 1 float32 entries per module in the layout's order, the delta entry last (`pilot.layout`). The
 start s0 is the search's own starting setting; s is the setting the search saved at a step; G is its saved signed
@@ -328,7 +328,7 @@ def attack_units(batch: str, starts: list[int]) -> list[tuple[str, str, dict[str
             + [(f"b1_{batch}", "b1", {})])
 
 
-# ----------------------------------------------------------------------------- plan 3, Section 7: intact-background variants
+# ----------------------------------------------------------------------------- plan 3 of the research log, Section 7: intact-background variants
 # Added after the readings, as description. On cell set S4, three variants of each carried setting with an intact
 # background, per length; V1 is a flat setting, V2 and V3 per-position sources built by `s6_run.split_sources`.
 
@@ -359,7 +359,7 @@ def variant_units(batch: str, attack_batches: list[str], starts: list[int]) -> l
             + [(f"variants_{batch}_{a}_s{s}", "variants", {"attack": a, "start": s}) for a in attack_batches for s in starts])
 
 
-# ----------------------------------------------------------------------------- plan 3, Section 8: the dose-response
+# ----------------------------------------------------------------------------- plan 3 of the research log, Section 8: the dose-response
 # Added after the readings, as description. On cell set S4, for each carried setting, length, and fraction f, a random
 # fraction f of the setting's entries at exactly 0 stays 0 and every other entry is 1; f = 1 is V1, f = 0 all ones.
 
@@ -405,8 +405,8 @@ def dose_units(batch: str, attack_batches: list[str], starts: list[int]) -> list
             + [(f"dose_{batch}_{a}_s{s}", "dose", {"attack": a, "start": s}) for a in attack_batches for s in starts])
 
 
-# ----------------------------------------------------------------------------- plan 3, Section 9: the dose-response on the rounded off set
-# Added at the PI's request, as description. The off set is every entry below one half (the delta entries included); a
+# ----------------------------------------------------------------------------- plan 3 of the research log, Section 9: the dose-response on the rounded off set
+# Added at the author's request, as description. The off set is every entry below one half (the delta entries included); a
 # random fraction f of it is set to 0 and every other entry to 1. At f = 1 this is the rounded setting of control (d).
 
 DOSE_ROUNDED_FRACTIONS = (0.25, 0.5, 0.75, 0.9)

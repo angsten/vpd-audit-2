@@ -1,10 +1,10 @@
-A dose-response on the rounded off set, on cell set S4 (session 6, plan 3, Section 9). Added at the PI's request, as description (plan 3, Section 9); no line.
+A dose-response on the rounded off set, on cell set S4 (plan 3 of the research log, Section 9). Added at the author's request, as description (plan 3 of the research log, Section 9); no line.
 S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per step. The rounded off set is the setting's entries below one half
 (delta entries included). At fraction f, a random f of the off set is set to 0 and every other entry to 1; f = 1 is the rounded setting
-(plan 2's control (d), not scored again), f = 0 is all ones (plan 2's ones pass).
+(plan 2 of the research log's control (d), not scored again), f = 0 is all ones (plan 2 of the research log's ones pass).
 Kept share: the sum over cells of (harm - saved start harm) over the sum of (saved carried harm - saved start harm), as Section 8 is read.
 
-The f = 1 hash check: the builder at f = 1 reproduces the hash plan 2 recorded for the rounded pass in 1600 of 1600 cells, and equals the rounded setting in 400 of 400 settings.
+The f = 1 hash check: the builder at f = 1 reproduces the hash plan 2 of the research log recorded for the rounded pass in 1600 of 1600 cells, and equals the rounded setting in 400 of 400 settings.
 
 The checks, per batch (the full setting on the split's path and the flat path, and the start on the split's path):
   H1: check|s_everywhere 30.813553 against 30.813553, bit for bit yes; check|s0_everywhere 0.216215 against 0.216215, bit for bit yes; check|flat 30.813553 against 30.813553, bit for bit yes

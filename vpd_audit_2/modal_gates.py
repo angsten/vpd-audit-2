@@ -1,6 +1,6 @@
-"""The Modal app for plan 2: the world-size metrics, the fresh labels and gate G4, and gate G1.
+"""The Modal app for plan 2 of the research log: the world-size metrics, the fresh labels and gate G4, and gate G1.
 
-The image, the volume `vpd-audit-2-cache`, and the cache paths are plan 1's (`modal_app.py`). Token ids are passed
+The image, the volume `vpd-audit-2-cache`, and the cache paths are plan 1 of the research log's (`modal_app.py`). Token ids are passed
 in from the local machine, and every function re-hashes what it receives against the hashes the caller records.
 The earlier project's volume `vpd-audit-cache` is mounted read-only, and only for gate G4.
 
@@ -50,7 +50,7 @@ def _load_model():
 
     from vpd_audit import artifacts
 
-    # Strict: an operation with no deterministic implementation raises instead of warning (session 4, plan 5, item 1).
+    # Strict: an operation with no deterministic implementation raises instead of warning (plan 5 of the research log, item 1).
     # Each result file's environment records deterministic_warn_only = False.
     torch.use_deterministic_algorithms(True)
     torch.backends.cuda.matmul.allow_tf32 = False
@@ -342,7 +342,7 @@ def g1_run(phase: str = "check_a") -> None:
         print(f"[local] Check A: harms {[round(x, 4) for x in ca['harms']]}; geometric mean {ca['geometric_mean']:.4f} vs logged {ca['logged']:.4f}; "
               f"|gap| {ca['abs_log_gap']:.4f} <= {ca['half_width_used']:.4f}: {ca['passes']}")
         return
-    if phase == "start_spread":  # the head's follow-up: starts 1 to 8 at 20 steps on C1, C2, C3
+    if phase == "start_spread":  # the follow-up: starts 1 to 8 at 20 steps on C1, C2, C3
         spread = {}
         for b in g1_readings.SPREAD_BATCHES:
             ids, texts, sha = pool_ids(b)

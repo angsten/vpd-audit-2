@@ -1,4 +1,4 @@
-"""Session 4, plan 4: why our 320-step runs end higher (`sessions/004/engineering/plan_4.md`).
+"""Plan 4 of the research log: why our 320-step runs end higher (plan 4 of the research log).
 
 All runs: bf16 autocast, constant step 0.1, 320 steps, labels, target, and weight deltas computed once on the (possibly
 permuted) whole batch under bf16 autocast (`adversary.prepare`, the same calls as G1's `labels_once`). The plateau of a
@@ -175,7 +175,7 @@ def perturbed_start(start: dict[str, np.ndarray], k: int | tuple[Any, ...]) -> t
     The perturbation is exactly representable in float32.
 
     `k` an int is D4's void-case key ("perturb-start", k); a tuple is the key's parts after the master seed, as the
-    pilot's ("pilot-perturb", batch, start, r) (plan 6, Section 4, item 3)."""
+    pilot's ("pilot-perturb", batch, start, r) (plan 6 of the research log, Section 4, item 3)."""
     from vpd_audit_2.manifest import seed_of
 
     parts = ("perturb-start", k) if isinstance(k, int) else tuple(k)
@@ -201,7 +201,7 @@ def perturbed_start(start: dict[str, np.ndarray], k: int | tuple[Any, ...]) -> t
 
 
 def departure(perturbed: dict[str, Any], twin: dict[str, Any], perturbed_entry: int | None = None) -> dict[str, Any]:
-    """Whether a perturbed run's trajectory departs from its unperturbed twin (plan 5, item 11), so the pilot can assert it.
+    """Whether a perturbed run's trajectory departs from its unperturbed twin (plan 5 of the research log, item 11), so the pilot can assert it.
 
     Each run is a dict with `record` (the harm after every step) and, optionally, `source_record` (the flattened sources
     at every step). The run departs at the first step where the harms differ, or where the sources differ at any entry
@@ -254,7 +254,7 @@ def d4_reading(authors: list[dict[str, Any]], ours: list[dict[str, Any]]) -> dic
     harm_identical = all(a["record"][:41] == authors[0]["record"][:41] for a in authors[1:])
     # The void case: the permutations did not perturb the authors' loop, read on its sources. The harm readout sums the
     # KL in the permuted order, so it may differ in its last bits while the search itself is unchanged (the case that
-    # occurred; the team's interpretation, registered after the result, session 4, plans 4 and 5).
+    # occurred; our interpretation, registered after the result, plans 4 and 5 of the research log).
     identical_to_40 = sources_identical
     return {"authors_sources_identical_through_step_40": bool(sources_identical), "authors_harm_identical_through_step_40": bool(harm_identical),
             "authors_distinct_final_sources": len({a["final_sources_sha256"] for a in authors}),

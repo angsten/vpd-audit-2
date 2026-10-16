@@ -1,4 +1,4 @@
-"""Session 5, plan 1, Part E: the committed list of held-out texts that share a 50-token span with an attack text.
+"""Plan 1 of the research log, Part E: the committed list of held-out texts that share a 50-token span with an attack text.
 
 The list itself is checked without the dataset: 11 entries, equal to the manifest's recorded count, all in held-out
 pools. The computation is checked on a made-up input with a known answer. Recomputing the list from the token ids is

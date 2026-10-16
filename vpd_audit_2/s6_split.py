@@ -1,4 +1,4 @@
-"""Session 6, plan 2: the token-level split (`results/s6_followups/CONVENTIONS.md`, Section 2). The signed line: one half.
+"""Plan 2 of the research log: the token-level split (`results/s6_followups/CONVENTIONS.md`, Section 2). The signed line: one half.
 
     uv run python -m vpd_audit_2.s6_split
 
@@ -109,7 +109,7 @@ def labels_and_checks(units: R.Units) -> dict[str, Any]:
 
 
 def report(res: dict[str, Any], own: dict[str, Any], labels: dict[str, Any]) -> str:
-    L = ["The token-level split (session 6, plan 2; conventions, Section 2). The signed line: one half.",
+    L = ["The token-level split (plan 2 of the research log; conventions, Section 2). The signed line: one half.",
          "A part's share: its mean added harm over the cells divided by the full carried setting's; the signed 95 percent interval",
          "beside it. Above half or below half when the interval lies wholly on one side of 0.5; undetermined otherwise.", ""]
     for row, r in res.items():

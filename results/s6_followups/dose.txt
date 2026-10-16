@@ -1,6 +1,6 @@
-A dose-response on an intact model, on cell set S4 (session 6, plan 3, Section 8). Added after the readings, as description (plan 3, Section 8); no line.
+A dose-response on an intact model, on cell set S4 (plan 3 of the research log, Section 8). Added after the readings, as description (plan 3 of the research log, Section 8); no line.
 S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per length. At fraction f, a random f of the setting's entries at exactly 0
-(delta entries included) stays 0 and every other entry is 1; f = 1 is V1 (plan 3's variants units), f = 0 is all ones (plan 2's ones pass).
+(delta entries included) stays 0 and every other entry is 1; f = 1 is V1 (plan 3 of the research log's variants units), f = 0 is all ones (plan 2 of the research log's ones pass).
 Kept share: the sum over cells of (harm - saved start harm) over the sum of (saved carried harm - saved start harm), as V1 is read.
 
 The checks, per batch (the full setting on the split's path and the flat path, and the start on the split's path):

@@ -1,5 +1,5 @@
 ✓ Initialized. View run at 
-https://modal.com/apps/tangst10/main/ap-7S7XgyDxbi1FAClwWVYZka
+https://modal.com/apps/<workspace>/main/<app>
 Building image im-wKhZDY6VeESGGxSX0yXoNL
 
 => Step 0: FROM base
@@ -23,18 +23,18 @@ Built image im-wKhZDY6VeESGGxSX0yXoNL in 1.70s
 
 ✓ Created objects.
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/vpd_audit_
+│   <repo>/vpd_audit_
 │   2/modal_s6_dose.py
 ├── 🔨 Created mount PythonPackage:vpd_audit_2
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/provenance
+│   <repo>/provenance
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/pyproject.
+│   <repo>/pyproject.
 │   toml
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/uv.lock
+│   <repo>/uv.lock
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/third_part
+│   <repo>/third_part
 │   y/vpd-audit
 └── 🔨 Created function dose_gpu.
 Migrating top-level lr_schedule/grad_clip_norm_* to components_optimizer/ci_fn_optimizer
@@ -55,4 +55,4 @@ output_loss_type is deprecated, but has value: kl. Removing from config.
 Migrating pretrained_model_output_attr='idx_0' to output_extract
 Stopping app - local entrypoint completed.
 ✓ App completed. View run at 
-https://modal.com/apps/tangst10/main/ap-7S7XgyDxbi1FAClwWVYZka
+https://modal.com/apps/<workspace>/main/<app>

@@ -1,6 +1,6 @@
-"""The Modal app for the starts test (`sessions/006/engineering/plan_1.md`, Section 2.3).
+"""The Modal app for the starts test (plan 1 of the research log, Section 2.3).
 
-On the head's go, at the commit it names, in this order:
+On the go-ahead, at the commit it names, in this order:
 
     uv run modal run vpd_audit_2/modal_starts.py::launch --commit <c>    (8 containers at once, one per calibration batch)
     uv run modal run vpd_audit_2/modal_starts.py::collect --commit <c>   (the 41 unit files, the guard, then records.json)

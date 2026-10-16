@@ -1,4 +1,4 @@
-"""Session 6, plan 1, Section 2.2: the starts check. The hash recomputation on the committed starts, a changed entry
+"""Plan 1 of the research log, Section 2.2: the starts check. The hash recomputation on the committed starts, a changed entry
 caught, the Kolmogorov-Smirnov distance against known answers and against scipy, and the flag rule."""
 
 from __future__ import annotations

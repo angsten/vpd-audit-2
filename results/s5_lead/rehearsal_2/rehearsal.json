@@ -1,5 +1,5 @@
 {
- "what": "The repeat rehearsal of the lead run on calibration batches C1 and C2 with pilot start 1 (plan 4, Section 6). Each batch was scored on itself only. Its sealed values stay sealed; this file holds outcomes as true or false, hashes, and timings.",
+ "what": "The repeat rehearsal of the lead run on calibration batches C1 and C2 with pilot start 1 (plan 4 of the research log, Section 6). Each batch was scored on itself only. Its sealed values stay sealed; this file holds outcomes as true or false, hashes, and timings.",
  "commit": "28ea3b660c5ae02eaceda2945ff5466ab3271d6e",
  "attempt": 2,
  "written": "2026-10-06T17:31:58+00:00",

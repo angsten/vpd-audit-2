@@ -1,4 +1,4 @@
-The starts check (session 6, plan 1, Section 2.2). Description only: it reports what it finds and decides nothing.
+The starts check (plan 1 of the research log, Section 2.2). Description only: it reports what it finds and decides nothing.
 
 Files read, with their SHA-256:
   results/s4_pilot/starts/starts_1_64.npz  dcb53978dc20a18b9aa6e03480cb8590d7c90f15434d3cc485b9804ea81b9f9d

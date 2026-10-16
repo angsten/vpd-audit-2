@@ -1,4 +1,4 @@
-"""Session 6, plan 1, Section 2.2: the starts check. How starts 9 to 13 were drawn, beside starts 1 to 8.
+"""Plan 1 of the research log, Section 2.2: the starts check. How starts 9 to 13 were drawn, beside starts 1 to 8.
 
 One command prints a short report; its output is committed to `results/s6_starts/starts_check.txt`:
 
@@ -168,7 +168,7 @@ def check(npz: Path = STARTS_NPZ, meta_json: Path = STARTS_JSON, manifest_npz: P
 def report(r: dict[str, Any]) -> str:
     L: list[str] = []
     add = L.append
-    add("The starts check (session 6, plan 1, Section 2.2). Description only: it reports what it finds and decides nothing.")
+    add("The starts check (plan 1 of the research log, Section 2.2). Description only: it reports what it finds and decides nothing.")
     add("")
     add("Files read, with their SHA-256:")
     for name, sha in r["files"].items():

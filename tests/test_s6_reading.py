@@ -1,4 +1,4 @@
-"""Session 6, plan 2: the reading scripts on made-up units, before any GPU result exists.
+"""Plan 2 of the research log: the reading scripts on made-up units, before any GPU result exists.
 
 A small design (attack batches A1 to A4, held-out H1 to H4, starts 9 and 10; H1 is S4's) with harms built from formulas,
 so that each pooled share, count, and outcome is known by hand: the split's Part Z keeps about 0.6 of the carried added
@@ -165,7 +165,7 @@ def test_exploited_components_and_off_or_on(made_up, design):
 
 
 def test_the_full_off_or_on_curves_at_every_k(made_up, design):
-    """Plan 3, Section 7: the off and on parts, the background of 1, and at 320 steps the near parts, at every grid k."""
+    """Plan 3 of the research log, Section 7: the off and on parts, the background of 1, and at 320 steps the near parts, at every grid k."""
     units = R.Units(made_up["folder"])
     res = E.exploited(units, made_up["lead"], layout=None)
     for row in B.OFFON_ROWS:

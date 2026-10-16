@@ -267,7 +267,7 @@
     },
     "max_abs_relative_difference": 0.0,
     "all_within_0.05pct": true,
-    "rule": "the 24 L0 values equal plan 2's exactly, or each lies within 0.05 percent (plan 2, item 7)",
+    "rule": "the 24 L0 values equal plan 2 of the research log's exactly, or each lies within 0.05 percent (plan 2 of the research log, item 7)",
     "passes": true
    },
    "within_0.1pct": {
@@ -314,7 +314,7 @@
   "forms_within_0.1pct": [
    "whole"
   ],
-  "rule": "either bf16 form within 0.1 percent of the logged 1158.32, the labels tied to plan 2's by the 24 L0 values",
+  "rule": "either bf16 form within 0.1 percent of the logged 1158.32, the labels tied to plan 2 of the research log's by the 24 L0 values",
   "passes": true
  },
  "seconds": 190.52220129966736,

@@ -51,7 +51,7 @@ def test_g3_runs_and_its_controls_are_label_zero_low_norm_and_causal(tiny_run):
     assert out["backgrounds"]["all_on"]["base_kl_mean_nats"] < out["backgrounds"]["at_labels"]["base_kl_mean_nats"]
     for c in out["controls"]["chosen"]:
         assert c["candidates"] >= 1
-    # Plan 5, item 12: each control's label is exactly 0 at its position, and its weight norm ranks among the lowest
+    # Plan 5 of the research log, item 12: each control's label is exactly 0 at its position, and its weight norm ranks among the lowest
     # tenth of its own matrix (max(1, C_l // 10) smallest; on the tiny model, the single smallest).
     from vpd_audit.sources import module_offsets
     from vpd_audit.weight_norms import weight_norms

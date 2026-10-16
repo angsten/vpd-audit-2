@@ -1,25 +1,25 @@
-"""Session 7, plan 6: the three-arm experiment's reading, committed before the run (`sessions/007/notes/riku/
-three_arm_spec_v2.md`, its readings, with the plan's amendments 1 and 5 to 8). No GPU.
+"""Plan 6 of the research log: the three-arm experiment's reading, committed before the run (the experiment's
+specification (research log), its readings, with the plan's amendments 1 and 5 to 8). No GPU.
 
     uv run python -m vpd_audit_2.three_arm_read results/s7_three_arm
 
 It reads the collected unit files (`.cache/s7_three_arm/units/`, each checked against the receipt `backup.json`),
 refuses unless the gate passed and all six runs are present, and writes `reading.txt` and `record.json`.
 
-Breakout (session 6's rule): the first batch b >= 2, batches numbered from 1, whose two-batch mean
+Breakout (the earlier rule): the first batch b >= 2, batches numbered from 1, whose two-batch mean
 (h[b - 1] + h[b]) / 2 reaches 5 nats. It is applied to three series per arm and seed:
   - "before": the harm on the fresh batch before its ascents. It governs the readings (amendment 5).
   - "loss": training's own loss, after the two warm-up ascents, on which the outer ascent is taken; this is the
-    after-ascent series of amendment 5 and the note, and it is reported beside the governing one.
+    after-ascent series of amendment 5 and the specification, and it is reported beside the governing one.
   - "after": the harm after all three ascents, as description.
 Where amendment 6's extension ran (seed 1), that arm and seed are read on the extended series, and its first 1,000
 batches must equal the run's records exactly.
 
-The readings, on the governing series, fixed now (the note's, with amendments 6 to 8):
+The readings, on the governing series, fixed now (the specification's, with amendments 6 to 8):
   - Reading 3 when arm 1 breaks out in both seeds: "co-training stopped the adversary, by the decomposition moving away
     or by its optimizer trapping it (the paper's line 2036); weakness per step alone does not explain the flaw".
   - Otherwise reading 1 when neither the yardstick (arm 3) nor arm 1 breaks out in either seed: undetermined; extend
-    only with the PI's approval.
+    only with the author's approval.
   - Otherwise reading 2 when the yardstick breaks out in both seeds and arm 1 in neither: "within N batches, arm 1 did
     not reach the pattern that the yardstick reached at batch b", with N as a multiple of b, per seed; arm 2 then says
     whether sharing alone reaches it. The post never says "cannot reach": training had 400,000 batches.
@@ -56,7 +56,7 @@ HISTORY = Path(__file__).resolve().parent.parent / "provenance" / "runs" / "s-55
 ARM_LABEL = {"released": "arm 1 (released: per text slot and position)", "per_document": "arm 2 (per document)",
              "batch": "arm 3 (yardstick: one source for the batch)"}
 SENTENCES = {
-    1: "Reading 1: the yardstick never broke out. Undetermined; extend only with the PI's approval.",
+    1: "Reading 1: the yardstick never broke out. Undetermined; extend only with the author's approval.",
     2: ("Reading 2: within {n} batches, arm 1 did not reach the pattern that the yardstick reached at batch {b}. Training had 400,000 "
         "batches; the post never says \"cannot reach\"."),
     3: ("Reading 3: arm 1 broke out. Co-training stopped the adversary, by the decomposition moving away or by its optimizer trapping "
@@ -206,7 +206,7 @@ def _b(x: int | None) -> str:
 
 
 def report(r: dict[str, Any]) -> str:
-    L = ["The three-arm experiment (session 7, plan 6; Riku's specification with the plan's eight amendments): training's persistent",
+    L = ["The three-arm experiment (plan 6 of the research log; the experiment's specification with the plan's eight amendments): training's persistent",
          "adversary against the released decomposition held frozen, 1,000 batches of 64 unused attack-side texts per arm and seed.",
          "Breakout: the two-batch mean of the harm reaches 5 nats. The governing series is the harm on the fresh batch before its",
          "ascents (amendment 5); training's own loss is beside it.", ""]

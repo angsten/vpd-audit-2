@@ -1,6 +1,6 @@
 # Provenance of the Released VPD Decomposition: Code, Configuration, and Data
 
-Written for plan 1 of session 3 (1 October 2026). One entry per question: the answer, its source, a short verbatim excerpt, and what is uncertain. Every config answer is read from the raw text of a downloaded `final_config.yaml`, never from the authors' config classes.
+Written for plan 1 of the research log (1 October 2026). One entry per question: the answer, its source, a short verbatim excerpt, and what is uncertain. Every config answer is read from the raw text of a downloaded `final_config.yaml`, never from the authors' config classes.
 
 ## How to Read the Citations
 
@@ -19,7 +19,7 @@ The earlier project's code is cited as `vpd_audit/<file>:lines @ b6d3bac` (`thir
 
 **WandB values** are cited as `run_id: field path`. Raw files are in `provenance/runs/<run_id>/`; their SHA-256 are in `provenance/runs/sha256.txt`. Two files are kept in the cache only and quoted: WandB's own `config.yaml` (it carries an author's email and internal host addresses) and `output.log` (21 MB).
 
-**Paper** line numbers refer to `literature/text_only/bushnaq2026_vpd.md` in the project folder.
+**Paper** line numbers refer to a plain-text copy of the paper kept with the research log, which is not public.
 
 ---
 
@@ -179,7 +179,7 @@ Nothing found here decides between them.
 
 **Later code only, which is weak evidence.** At `later` (`5ffc73d`, 7 Sep 2026), `param_decomp/experiments/lm/configs/pile_llama_simple_mlp-4L.yaml:51-108` runs `SlowPGDReconLoss` at `n_steps` 40, 80, 160, 320, 640, and 1,280, all with `step_size: 0.1`, beside the 20-step probe. `docs/skill.md:133` there reads: "The canonical 4L block carries a ladder of them (`PGDReconLoss_40step` … `PGDReconLoss_1280step`, powers of two, `step_size: 0.1`) ... every probe in one pass shares the random init". This config first appears in public history at `5ffc73d`. The newer reference run `p-8383f5e5` itself logged only the 20-step probe (see (l)).
 
-**For plan 2.** The paper's own heuristic (line 2100) points the other way, toward step size ≈ 2/n. Gate G1 has to decide by experiment.
+**For plan 2 of the research log.** The paper's own heuristic (line 2100) points the other way, toward step size ≈ 2/n. Gate G1 has to decide by experiment.
 
 ## (f) Routing of Each Training Term
 
@@ -188,7 +188,7 @@ Nothing found here decides between them.
 | Stochastic reconstruction | `StochasticReconSubsetLoss`, `routing: {type: uniform_k_subset}` (lines 52-55) | `UniformKSubsetRouter` via `get_subset_router` (`metrics/stochastic_recon_subset_loss.py`, `losses.py:133-144`, `routing.py:135-140`) | **Per position.** `mask_shape = (B, T)`. For each (sequence, position), k is uniform on {1, …, 24} (`torch.randint(1, 25, size=(B, T))`), then a uniformly random k-subset of the 24 matrices (`rand_perm` over the module axis), drawn independently at each position (`routing.py:97-132`). Each matrix is routed with probability 12.5/24 on average. |
 | Adversarial reconstruction | **`PersistentPGDReconLoss`** (line 71), with no routing field | **`AllLayersRouter`**, all 24 matrices at every position (`persistent_pgd.py:254-262`: `case PersistentPGDReconLossConfig(): return AllLayersRouter()`) | Nothing drawn |
 
-**Paper line 2169 is wrong for the adversarial term.** The text: "Stochastic and adversarial reconstruction losses both use uniform-$k$-subset routing". The released run's adversarial term is `PersistentPGDReconLoss`, not the subset class, and routes to all matrices, as Lena read it. The subset variant is present but commented out in the run's experiment YAML (F7). The stochastic term is subset-routed as the paper says.
+**Paper line 2169 is wrong for the adversarial term.** The text: "Stochastic and adversarial reconstruction losses both use uniform-$k$-subset routing". The released run's adversarial term is `PersistentPGDReconLoss`, not the subset class, and routes to all matrices. The subset variant is present but commented out in the run's experiment YAML (F7). The stochastic term is subset-routed as the paper says.
 
 **What an unrouted matrix receives: the target weights**, at that position. `models/component_model.py:535-539 @ run`: `final_out = components_out if mask_info.routing_mask == "all" else torch.where(mask_info.routing_mask[..., None], components_out, output)`. `output` is the target module's own output. Tag: `component_model.py:474-476`, the same.
 
@@ -243,7 +243,7 @@ One float32 ulp of the total moves this by ±1.7e-9. Over all 2,001 logged train
 
 This is an observation about this run's logs. It leaves the same two hypotheses open as the adversarial table in (e): the tables were computed separately from this run's checkpoint, or from a sister run such as a seed run (C.2). The single match of 1102.0 at step 175,000, one of 2,001 logged steps, is weak evidence either way.
 
-Source: `provenance/runs/s-55ea3f9b/loss_history.csv`. **For plan 2,** the logged final values of this run are the ones known to be taken at p = 0.4, on this run's weights.
+Source: `provenance/runs/s-55ea3f9b/loss_history.csv`. **For plan 2 of the research log,** the logged final values of this run are the ones known to be taken at p = 0.4, on this run's weights.
 
 **Pre-sigmoid values.** The released run logged **histogram images** of the pre-sigmoid values per module, from `CIHistograms` (configured `n_batches_accum: 1`, line 95-96; `spd/metrics/ci_histograms.py:15-61` plots `ci.pre_sigmoid`). They are `media/images/eval/figures/causal_importance_values_pre_sigmoid_<step>_<hash>.png`, 41 files at steps 0 and every 10,000 to 400,000 (`wandb_file_listing.json`). These are PNG only; no numeric values or summaries are logged. The tag has the same metric (identical file).
 
@@ -295,7 +295,7 @@ The workspace path is the pattern of the launcher's multi-node branch only: `spd
 1. `monology/pile-uncopyrighted` split `"train"` becomes `danbraunai/pile-uncopyrighted` @ `188e502a`: "last 100K rows → test, preceding 1M → val, rest → train". The `"train"` split resolves to `train/00…29.jsonl.zst` only; monology's `val.jsonl.zst` and `test.jsonl.zst` are not in it (`data_check.json: monology_train_split_files`).
 2. That split becomes `danbraunai/pile-uncopyrighted-tok` @ `234360bc` through `tokenize_and_concatenate(..., max_length=513, num_proc=10)`. Each batch of 1,000 documents is joined by EOS, the text is cut into 20 character chunks that are encoded separately, the tokens are reshaped into 513-token rows, and each batch's tail is dropped.
 
-   **Correction (plan 2, full recovery).** The card's `num_proc=10` does not reproduce the split past document 6,000. The rows are reproduced exactly, all 2,775,651 by hash, by `map` over **160 contiguous shards of 6,250 documents**, each cut into six batches of 1,000 and one of 250: 1,120 batches in all. A batch never crosses a shard, so the boundaries are not all at multiples of 1,000. Evidence and checks: `data/doc_recovery/recovery.json`; code: `vpd_audit_2/recovery.py`.
+   **Correction (plan 2 of the research log, full recovery).** The card's `num_proc=10` does not reproduce the split past document 6,000. The rows are reproduced exactly, all 2,775,651 by hash, by `map` over **160 contiguous shards of 6,250 documents**, each cut into six batches of 1,000 and one of 250: 1,120 batches in all. A batch never crosses a shard, so the boundaries are not all at multiples of 1,000. Evidence and checks: `data/doc_recovery/recovery.json`; code: `vpd_audit_2/recovery.py`.
 3. That dataset is globally shuffled with `Dataset.shuffle(seed=42)` into the shuffled split.
 
 So the validation rows come from **1,000,000 contiguous documents of monology's training split**, as scouting said.
@@ -384,7 +384,7 @@ So the validation rows come from **1,000,000 contiguous documents of monology's 
 
 The global RNG of each process is set once by `seed_per_rank(seed)` = `seed · world_size + rank` (`run_spd.py:165`, `distributed_utils.py:259-271`). It then advances through every training and evaluation draw, so no evaluation draw of the run can be replayed from the config.
 
-**For paired runs in plan 2.** Seed the global generator before each adversary call, or pass explicit generators to a re-implementation. The authors' functions accept none.
+**For paired runs in plan 2 of the research log.** Seed the global generator before each adversary call, or pass explicit generators to a re-implementation. The authors' functions accept none.
 
 ## (o) The Authors' Label Re-Fitting Procedure
 
@@ -442,4 +442,4 @@ Compute: one 512-token text per call, a few hundred steps, each one stochastic a
 
 m is dominated by a few very long documents. The dropped batch tails (under 513 tokens in each of 1,000 batches) are left out of the token total, a 0.02 % effect.
 
-**The scale each carry-over ratio sees (plan 2).** Between one attack batch and one held-out batch of 128 rows each, drawn at random by row, the expected number of row pairs sharing a document is 128 × 128 × (m − 1)/N = 16,384 × 40.83 / 2,775,651 ≈ **0.24**. Pools built by tokenization batch (plan 2, Section 6) make it exactly zero.
+**The scale each carry-over ratio sees (plan 2 of the research log).** Between one attack batch and one held-out batch of 128 rows each, drawn at random by row, the expected number of row pairs sharing a document is 128 × 128 × (m − 1)/N = 16,384 × 40.83 / 2,775,651 ≈ **0.24**. Pools built by tokenization batch (plan 2 of the research log, Section 6) make it exactly zero.

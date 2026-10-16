@@ -1,17 +1,17 @@
 # The Interval Code and Its Made-Up-Data Test: Binding Specification
 
-Daniel, session 5, round 2. Written before any deciding run, for the engineer.
+The interval specification. Written before any deciding run.
 
 ## 1. Purpose and Scope
 
-The lead experiment scores settings found by an adversary on 16 attack batches against 16 held-out batches, from 5 shared starting points. Every verdict in the post is read from an error bar ("interval") on a mean or a ratio of means over that table. The signed rules, `sessions/004/freeze_file_part1_q2.md`, Section 5, define the interval but leave several computational choices open. This note fixes them, so that the analysis script and its test can be written without further discussion. It has four parts:
+The lead experiment scores settings found by an adversary on 16 attack batches against 16 held-out batches, from 5 shared starting points. Every verdict in the post is read from an error bar ("interval") on a mean or a ratio of means over that table. The signed rules, `freeze/part1.md`, Section 5, define the interval but leave several computational choices open. This note fixes them, so that the analysis script and its test can be written without further discussion. It has four parts:
 
 1. the interval, step by step, for six statistics (Sections 2 to 4);
 2. what to compute when some searches never reach a harm level (Section 5);
 3. the generator of made-up experiments and the fixed list of scenarios (Sections 6 and 7);
 4. the pass criterion, the repair, and what the test report prints (Sections 8 and 9).
 
-Section 10 lists where I differ from Ines's draft, `sessions/005/prerun_decisions_draft_1.md`. This note does not define the verdict words; those are the signed rules' Section 4 and the draft's R1 to R8. It supersedes the generator in my round 1 note, `sessions/005/notes/daniel/interval_stress_test_design.md`.
+Section 10 lists where this specification differs from the pre-run decisions draft (research log). This note does not define the verdict words; those are the signed rules' Section 4 and the draft's R1 to R8. It supersedes the generator in an earlier design note (research log).
 
 ## 2. Inputs and Notation
 
@@ -89,7 +89,7 @@ $$
 V_{\mathrm{closed}} = \frac{1}{K^2}\sum_i \alpha_i^2 + \frac{1}{K^2}\sum_j \beta_j^2 + \frac{1}{K^4}\sum_{i,j}\gamma_{ij}^2,
 $$
 
-with row effects $\alpha_i = \bar W_{i\bullet} - \bar W$, column effects $\beta_j = \bar W_{\bullet j} - \bar W$, and residuals $\gamma_{ij} = \bar W_{ij} - \bar W_{i\bullet} - \bar W_{\bullet j} + \bar W$, where $\bar W_{i\bullet}$, $\bar W_{\bullet j}$, and $\bar W$ are the row, column, and grand means of the table. This is Owen's Theorem 2 [`literature/text_only/owen2007_pigeonhole_bootstrap.md`] for a complete table, rearranged; I checked it against a direct derivation and against the enumeration in Section 4.7.
+with row effects $\alpha_i = \bar W_{i\bullet} - \bar W$, column effects $\beta_j = \bar W_{\bullet j} - \bar W$, and residuals $\gamma_{ij} = \bar W_{ij} - \bar W_{i\bullet} - \bar W_{\bullet j} + \bar W$, where $\bar W_{i\bullet}$, $\bar W_{\bullet j}$, and $\bar W$ are the row, column, and grand means of the table. This is Owen's Theorem 2 [Owen (2007), The pigeonhole bootstrap] for a complete table, rearranged; we checked it against a direct derivation and against the enumeration in Section 4.7.
 
 **Check in the script:** print $\mathrm{SE}^{*2}/V_{\mathrm{closed}}$ for every interval and raise an error if it is outside 0.90 to 1.10. At $B = 10{,}000$ its Monte Carlo standard error is about 1.4 percent.
 
@@ -181,7 +181,7 @@ The carry-over ratio with $K = 2$ and $n_s = 2$. Added harms, that is $x - k$ an
 
 **Beside it.** Start 1 alone gives $1.64/3 = 0.547$ and start 2 gives $2.36/5 = 0.472$. In the replicate that draws attack batch 1 twice and held-out batch 1 twice, the linearized value is $0.5 + 0.06 = 0.56$ and the recomputed ratio is $1.74/3 = 0.58$: the two differ, which is why the percentile interval is a separate description.
 
-The session 4 checkpoint's example (Appendix D.1: $K = 8$, $n_s = 3$, mean squares 0.40, 0.10, 0.10, 0.04, $V_{\mathrm{PB}} = 0.002857$, giving $\nu = 6.2$ and a half-width of 0.156) must also be reproduced. For that, the function that turns $V_{\mathrm{PB}}$ and four mean squares into an interval should be callable on its own.
+The research log's example (Appendix D.1: $K = 8$, $n_s = 3$, mean squares 0.40, 0.10, 0.10, 0.04, $V_{\mathrm{PB}} = 0.002857$, giving $\nu = 6.2$ and a half-width of 0.156) must also be reproduced. For that, the function that turns $V_{\mathrm{PB}}$ and four mean squares into an interval should be callable on its own.
 
 ## 5. Missing Searches at a Harm Level
 
@@ -240,7 +240,7 @@ The draft's starting proposal drops a carried-over cell when the held-out batch'
 
 **Why this design.** The interval's weak points come from the shape of real searches: breakouts, alternation, stalls, and one batch in eight that rises early. The pilot's 64 searches have that shape and are calibration data. Carried-over harm does not exist yet, so it is invented, with a truth known exactly.
 
-**Source.** `vpd-audit-2/results/s4_pilot/part_a/runs.json`, key `a1`: for each pilot batch $c \in \{\mathrm{C1}, \dots, \mathrm{C8}\}$ and pilot start $p \in \{1, \dots, 8\}$, the list `record` of 321 raw harms $R_{cp}[0..320]$, entry $t$ being the harm after $t$ steps. No other pilot file is read; the sealed shuffle file stays sealed.
+**Source.** `results/s4_pilot/part_a/runs.json`, key `a1`: for each pilot batch $c \in \{\mathrm{C1}, \dots, \mathrm{C8}\}$ and pilot start $p \in \{1, \dots, 8\}$, the list `record` of 321 raw harms $R_{cp}[0..320]$, entry $t$ being the harm after $t$ steps. No other pilot file is read; the sealed shuffle file stays sealed.
 
 **One made-up experiment** ($K = 16$, $n_s = 5$):
 
@@ -271,7 +271,7 @@ Worked example: at a row where $\mu_k = 0.215$, $\mu_{Y+} = 0.59$, $\mu_Y = 0.80
 
 ## 7. The Scenario List, Fixed
 
-No scenario is added once the test has run; a new idea waits for a later session. Unless stated, $w_c = 1/8$, $S_0 = 0.40$ raw nats (the team's central prediction), and all eight rows are evaluated.
+No scenario is added once the test has run; a new idea waits for later work. Unless stated, $w_c = 1/8$, $S_0 = 0.40$ raw nats (our central prediction), and all eight rows are evaluated.
 
 **Core scenarios** decide pass or fail and set the repair.
 
@@ -282,7 +282,7 @@ No scenario is added once the test has run; a new idea waits for a later session
 | P7, P8 | per row, $(\mu_q - \mu_k)/\mu_{O}$ | 0, 0.09 | "Large" with its truth at zero |
 | P9, P10 | per row, $\left(S_0 + 0.2(\mu_Y - S_0) - \mu_k\right)/\mu_O$ | 0, 0.09 | $\tau^{\mathrm{shuf}}$ with its truth at 0.2 |
 | P11, P12 | per row, $(S_0 - \mu_k)/\mu_O$ | 0, 0.09 | $\tau^{\mathrm{shuf}}$ and $\kappa$ with their truths at zero |
-| P13 | 0.3 if the attack setting's own raw harm is under 5 nats, else 0.9 | 0.09 | Two kinds of setting carrying over differently (Riku's mixture, Lena's two kinds) |
+| P13 | 0.3 if the attack setting's own raw harm is under 5 nats, else 0.9 | 0.09 | Two kinds of setting carrying over differently (two reviews' mixture scenarios) |
 
 Here $\mu_O$ is the population mean of own added harm at the row. The value 0.09 is the square root of the pilot's start component for the log of the 2-nat crossing step.
 
@@ -291,12 +291,12 @@ Here $\mu_O$ is the population mean of own added harm at the row. The value 0.09
 | ID | Change from P5 ($\rho = 0.6$, $\sigma_\delta = 0.09$) | What it tests |
 |---|---|---|
 | T1, T2 | Type C5's weight is $1/16$, then $1/4$, the other types sharing the rest equally | Rarer and commoner early-breakout batches |
-| T3 | $\rho = 0.4$ for settings found on type-C5 attack batches, 0.8 otherwise | Ruth's item 4. Coverage is reported by the number of type-C5 batches on each side (0, 1, 2, 3 or more) |
+| T3 | $\rho = 0.4$ for settings found on type-C5 attack batches, 0.8 otherwise | Review item 4. Coverage is reported by the number of type-C5 batches on each side (0, 1, 2, 3 or more) |
 | T4 | $\sigma_\delta = 0.25$ | The truncated start term at its worst |
 | T5 | Each attack search, with probability 0.02, carries 40 raw nats to every held-out batch; each remaining cell, with probability 0.01, is set to 40 raw nats. The truth's $\mu_k + \mu_C$ becomes $0.9702(\mu_k + \mu_C) + 0.0298 \times 40$ | Carried-over cells that jump to very large harm |
-| T6 | $\rho = 0.7$; $S_0 = \psi\,\mu_Y$ for $\psi \in \{0.3, 0.5, 0.7, 0.85, 0.95, 1.0, 1.1, 1.25\}$; rows 20 and 80 only | Riku's sweep of shuffled harm. Results are reported in bins of $z_D$ |
-| T7 | Level 5 only, $\rho = 0.7$. After generation, all 5 searches of one attack batch chosen at random are made missing, and so are the 5 held-out searches with the lowest mean carried-over harm | Ruth's item 3. The report prints the bias and coverage of Section 5's convention and, beside them, the mean of the "both reached" estimate |
-| T8 | $K = 8$, $\rho = 0.7$, search-length rows. A second "delta-on" table is generated for the same batch types under a null in which the delta components do nothing, in two versions: (a) the same searches with fresh cell noise; (b) every search redrawn from its batch type's pilot starts | Ruth's item 12. Real path noise lies between the two versions. The report prints the spread of the paired share |
+| T6 | $\rho = 0.7$; $S_0 = \psi\,\mu_Y$ for $\psi \in \{0.3, 0.5, 0.7, 0.85, 0.95, 1.0, 1.1, 1.25\}$; rows 20 and 80 only | A review's sweep of shuffled harm (research log). Results are reported in bins of $z_D$ |
+| T7 | Level 5 only, $\rho = 0.7$. After generation, all 5 searches of one attack batch chosen at random are made missing, and so are the 5 held-out searches with the lowest mean carried-over harm | Review item 3. The report prints the bias and coverage of Section 5's convention and, beside them, the mean of the "both reached" estimate |
+| T8 | $K = 8$, $\rho = 0.7$, search-length rows. A second "delta-on" table is generated for the same batch types under a null in which the delta components do nothing, in two versions: (a) the same searches with fresh cell noise; (b) every search redrawn from its batch type's pilot starts | Review item 12. Real path noise lies between the two versions. The report prints the spread of the paired share |
 
 **Check scenarios** have exact known answers and are not built on the pilot.
 
@@ -305,7 +305,7 @@ Here $\mu_O$ is the population mean of own added harm at the row. The value 0.09
 | G1 | Gaussian attack-batch and held-out-batch effects only | Coverage of a plain mean is 95 percent within Monte Carlo error |
 | G2 | Gaussian independent cell noise only | $V_{\mathrm{PB}}$ averages 2.94 times the true variance at $K = 16$, and coverage exceeds 99 percent |
 
-The deterministic checks of the draft's E5 are separate from these. Those that exercise this note's code are: Section 4.7's example with its enumerated bootstrap, Section 5.3's example, the checkpoint's Appendix D.1 example, the scale check (every harm times 100 leaves every ratio's interval unchanged and scales every plain mean's by 100), a table with no dependence on the start (which must give $\nu = K - 1$ without error), the two-batch example of Section 4.1, and one batch with no searches at a level.
+The deterministic checks of the draft's E5 are separate from these. Those that exercise this note's code are: Section 4.7's example with its enumerated bootstrap, Section 5.3's example, the research log's Appendix D.1 example, the scale check (every harm times 100 leaves every ratio's interval unchanged and scales every plain mean's by 100), a table with no dependence on the start (which must give $\nu = K - 1$ without error), the two-batch example of Section 4.1, and one batch with no searches at a level.
 
 ## 8. The Criterion and the Repair
 
@@ -324,7 +324,7 @@ A cell under 93.5 percent is rerun with 10,000 experiments and fails only if the
 1. For each of the row's core cells compute the multiplier it needs: the 95th percentile of $|d|/w$ and, where the truth is on a line, also the 96.25th percentiles of $d/w$ and of $-d/w$; take the largest.
 2. $\lambda_r$ is the largest of these over the row's core cells, rounded up to a multiple of 0.05.
 3. Confirm on 2,000 fresh experiments per core scenario from a second master seed, with $\lambda_r$ applied: every core cell of the row must now pass. If one does not, raise $\lambda_r$ by 0.05 and confirm again on a third seed.
-4. If $\lambda_r$ would exceed 1.5, stop: the row goes to the PI.
+4. If $\lambda_r$ would exceed 1.5, stop: the row goes to the author.
 5. Record every $\lambda_r$ as part of the dated amendment before any real run. $\lambda_r$ applies to all six statistics of the row, and to the delta-on run at the same search length.
 
 Worked example: a row's worst cell has coverage 91.8 percent and a 95th percentile of $|d|/w$ of 1.12, and no other cell needs more. Then $\lambda_r = 1.15$. If the fresh set gives that cell 95.1 percent, the row is done.
@@ -339,7 +339,7 @@ One line per scenario, row, and statistic (all six), in a machine-readable file 
 - coverage of the unwidened interval; the share of experiments with the interval wholly above the truth, and wholly below it;
 - the mean of $V_{\mathrm{PB}} + V_c$ divided by the Monte Carlo variance of the estimate;
 - the 5th, 50th, and 95th percentiles of the half-width;
-- the share of experiments with $V_c = 0$, the share with $V_c/(V_{\mathrm{PB}} + V_c) > 0.5$, and the mean $\nu$ (Ruth's item 6);
+- the share of experiments with $V_c = 0$, the share with $V_c/(V_{\mathrm{PB}} + V_c) > 0.5$, and the mean $\nu$ (review item 6);
 - the multiplier needed, as in step 1 of the repair;
 - for core scenarios, coverage of the percentile interval;
 - where the truth is on a line, the frequency of each verdict; for $\tau^{\mathrm{shuf}}$ always, the frequency of each of the four signed readings and of "no reading defined";
@@ -349,7 +349,7 @@ One line per scenario, row, and statistic (all six), in a machine-readable file 
 
 Then, in words: each core cell's pass or fail; each row's $\lambda_r$ with its confirmation; every stress cell under 92.5 percent, as the list of caveats for the post; G1 and G2 against their known answers; the seeds and the commit.
 
-## 10. Where I Differ From the Draft
+## 10. Where We Differ From the Draft
 
 - **R9, replaced** by Section 5: every mean over every cell where its quantity exists, a table that handles missing and empty batches without a special case, and a deterministic sub-table for the start part. Reasons in Section 5.4.
 - **R10, agreed.** It is the limit of the signed formula.
@@ -359,9 +359,9 @@ Then, in words: each core cell's pass or fail; each row's $\lambda_r$ with its c
 - **R3 and R5, a detail:** $z_D$ and the intervals of the plain differences use the unwidened standard error, so that a multiplier cannot make a denominator look further from zero than it is.
 - **R11, a detail:** the paired share takes the same interval machinery with $K = 8$; T8 supplies the null spread to read it against.
 
-## 11. What I Am Unsure Of
+## 11. What We Are Unsure Of
 
 - **The carried-over model is invented.** Cell noise of 0.2, a vulnerability tied to a batch type's 20-step harm, and shuffled harm that ignores which setting was shuffled are guesses. The test can show under-coverage caused by real own-search tails and by the scenarios' structure, not by structure in real carried-over cells that nobody has imagined.
 - **The generator's batch types repeat.** With 16 batches drawn from 8 types, same-type batches share searches, which makes type effects somewhat stronger and pairing noise somewhat weaker than in real data. Rows are still independent draws, so the interval's assumptions hold as well as they do in reality.
-- **The start part under missing searches** is estimated on batches whose searches all reached the level, a selected set. I judge this second-order, since the start term is a small share of the variance at harm levels, but it is untested outside T7.
-- I have not run any of this. Hand arithmetic in Sections 4.7 and 5.3 was checked twice; an implementation that disagrees with it should be compared line by line before either is trusted.
+- **The start part under missing searches** is estimated on batches whose searches all reached the level, a selected set. We judge this second-order, since the start term is a small share of the variance at harm levels, but it is untested outside T7.
+- We have not run any of this. Hand arithmetic in Sections 4.7 and 5.3 was checked twice; an implementation that disagrees with it should be compared line by line before either is trusted.

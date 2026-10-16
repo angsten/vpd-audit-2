@@ -1,8 +1,8 @@
-"""Session 4, plan 6, review of report 2: B1's original-label arm, printed (report 3).
+"""Plan 6 of the research log, review of report 2 of the research log: B1's original-label arm, printed (report 3 of the research log).
 
     uv run python -m vpd_audit_2.pilot_b_original     (reads part_b/sealed/b1_raw.json; writes part_b/original_arm.json)
 
-Ruth's ruling: the original-label arm is a measurement plan 6's Section 4 allows, being neither V nor a freed arm. This
+A ruling recorded before the pilot: the original-label arm is a measurement plan 6 of the research log's Section 4 allows, being neither V nor a freed arm. This
 module reads the original arm only: the per-text harms under the keys "original|s{s}|n{n}" (versions (i) and (iii), one
 shared-source search per set and seed, read at 20, 40, and 80 steps) and v2["t{i}|s{s}"]["harm"]["original"] (version
 (ii), per text). It reads no freed arm, no J, no G, and no stochastic value, and writes no difference between arms.

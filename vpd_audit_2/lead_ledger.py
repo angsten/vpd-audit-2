@@ -1,11 +1,11 @@
-"""Session 5, plans 2 and 4: the lead run's spend ledger and its checks against the PI's cap.
+"""Plans 2 and 4 of the research log: the lead run's spend ledger and its checks against the author's cap.
 
 Pure arithmetic, with no cloud call: how much work each stage holds, how long it takes at measured timings, what it
 costs, and whether the projection exceeds the cap. The stages are those of the table and run specification's Section
-4.1, with the lead's held-out side in two waves (plan 4, Section 4.3). Money is counted as Amendment 4's Section 3 says
+4.1, with the lead's held-out side in two waves (plan 4 of the research log, Section 4.3). Money is counted as Amendment 4's Section 3 says
 (`freeze/amendment4.md`):
 
-  - The cap is $150, covering the session's rehearsals and both arms of the run.
+  - The cap is $150, covering the rehearsals and both arms of the run.
   - Money spent is counted from the run's own clocks. It is the larger of two figures: function hours at $6.80, the
     pilot's billed rate; and the provider's listed price times function seconds plus 50 seconds of billed boot for
     every container life, reruns included. A bill that has posted enters as a third figure, the bill times 1.03. No
@@ -27,7 +27,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any
 
-CAP_DOLLARS = 150.0  # Amendment 4, Section 2: the PI's cap
+CAP_DOLLARS = 150.0  # Amendment 4, Section 2: the author's cap
 FLAT_RATE = 6.80  # dollars per function hour: the pilot's question 2 part, $19.20 for 10,170 function seconds
 BOOT_SECONDS = 50.0  # Amendment 4, Section 3: billed boot allowed for every container life
 BILLING_LAG = 1.03
@@ -60,7 +60,7 @@ DESIGN = (
     Stage("delta_heldout", "delta_on", "heldout", 8, 5, 320, 5, 5, 8, True),
 )
 # The rehearsal: two calibration batches, pilot start 1, each held-out role scoring its own batch's attack file alone;
-# the delta-on searches run 20 steps (plan 2, Section 7; plan 4, Section 6.1).
+# the delta-on searches run 20 steps (plan 2 of the research log, Section 7; plan 4 of the research log, Section 6.1).
 REHEARSAL_DESIGN = (
     Stage("rehearsal_attack", "rehearsal", "attack", 2, 1, 320, 10, 8, 0, False),
     Stage("rehearsal_heldout_1", "rehearsal", "heldout", 1, 1, 320, 10, 8, 1, False),
@@ -173,7 +173,7 @@ def remaining_seconds(rest: tuple[Stage | str, ...], timings: dict[str, float], 
 
 
 def remaining_after_first_heldout(design: tuple[Stage, ...], timings: dict[str, float], measured: dict[str, float], first_container_seconds: float) -> float:
-    """What remains at check C2, after the one held-out container of wave 1 (plan 4, Section 4.3): wave 2 at the larger
+    """What remains at check C2, after the one held-out container of wave 1 (plan 4 of the research log, Section 4.3): wave 2 at the larger
     of that container's seconds and the rehearsal's projection for a container, since one container is a single reading
     and the first to finish is the fastest; then the later stages as `remaining_seconds` gives them."""
     wave_2 = design[2]

@@ -1,4 +1,4 @@
-"""Session 6, plan 1, Section 2.3: the starts test on the GPU, and its local side, with no cloud call in it.
+"""Plan 1 of the research log, Section 2.3: the starts test on the GPU, and its local side, with no cloud call in it.
 
 What runs: 41 searches of 320 steps, each scored on its own batch only.
 
@@ -13,7 +13,7 @@ B200, step 0.1, strict deterministic algorithms, labels and targets and weight d
 components searched.
 
 This is a separate small driver, not a third mode of `lead_run`. It calls `lead_run.search_unit`, the search path both of
-session 5's rehearsals showed bit-identical to the pilot's (the hook saving settings at 20, 40, 80, 160, and 320 steps and
+the earlier rehearsals showed bit-identical to the pilot's (the hook saving settings at 20, 40, 80, 160, and 320 steps and
 one step earlier, cumulative gradients, and per-text own harms), with a context of its own (`Context`), its own checks of
 the batch and the configuration, and its own specs. `lead_run` is unchanged, and so are its deciding-mode refusals: it
 still refuses any starts but 9 to 13 in deciding mode and allows only start 1 in rehearsal mode. Outside deciding mode
@@ -68,10 +68,10 @@ GUARD_BATCH, GUARD_START = ST.GUARD
 N_STEPS = LR.N_STEPS
 STAGE = LG.Stage("starts_test", ARM, SIDE, len(BATCHES), len(TEST_STARTS), N_STEPS, len(LT.SETTINGS_LEAD), 8, 0, False)
 DESIGN = (STAGE,)
-CAP_DOLLARS = 20.0  # plan 1, Section 2.3: if the projection exceeds $20, do not launch
+CAP_DOLLARS = 20.0  # plan 1 of the research log, Section 2.3: if the projection exceeds $20, do not launch
 RUN_COMMIT = "8522c18156c6c9023aedffe9061a56838898e960"  # the lead run's commit: the search path must be unchanged since it
 READING_FILES = ("vpd_audit_2/starts_test.py", "vpd_audit_2/starts_run.py", "vpd_audit_2/modal_starts.py")
-# The projection's inputs (plan 1, Section 2.3): the pilot's question 2 part cost $19.20 for its 64 searches; the run's
+# The projection's inputs (plan 1 of the research log, Section 2.3): the pilot's question 2 part cost $19.20 for its 64 searches; the run's
 # attack containers held five searches each, and the rehearsal measured the time to ready and a scoring pass.
 PILOT_DOLLARS, PILOT_SEARCHES = 19.20, 64
 RUN_LEDGER = LL.RESULTS / "ledger.json"
@@ -354,7 +354,7 @@ def build_records(units: Path, commit: str, starts_meta: dict[str, Any]) -> dict
                              "start_key": starts_meta["starts"][str(s)]["seed_key"], "start_sha256": meta["start_sha256"], "unit_file": path.name,
                              "unit_sha256": LT.sha256_file(path), "prep_fp": meta["prep_fp"], "ids_sha": meta["ids_sha"], "record": record,
                              "hook_events": events, "own_harms_at_saved_steps": harms})
-    return {"what": "The starts test (sessions/006/engineering/plan_1.md, Section 2.3): C1 to C8 from starts 9 to 13, each searched for 320 steps and "
+    return {"what": "The starts test (plan 1 of the research log, Section 2.3): C1 to C8 from starts 9 to 13, each searched for 320 steps and "
                     "scored on its own batch only, and C1 from start 1 as the guard. Harms in nats; a search's record holds its harm at the start and "
                     "after each of its 320 steps; the own harms are its own-batch re-scores, per text, at the start and at each saved setting.",
             "commit": commit, "volume_folder": f"{VOLUME}/{UNITS}", "searches": searches}
@@ -378,7 +378,7 @@ def collect_command(commit: str, *, read_file: Callable[[str], bytes], log: Call
                                            "outcomes": guard, "all_equal": held, "at": LL.utc_now()})
     log(event="guard_checked", unit=unit_id(GUARD_BATCH, GUARD_START), guard="equals_the_pilots_search", ok=bool(held))
     if not held:
-        raise LL.LaunchRefusal("the guard search does not equal the pilot's bit for bit: nothing else is read. Report to the head")
+        raise LL.LaunchRefusal("the guard search does not equal the pilot's bit for bit: nothing else is read. Stop and report")
     records = build_records(dest, commit, json.load(open(STARTS_JSON)))
     LL.write_json(RESULTS / "records.json", records)
     log(event="records_written", count=len(records["searches"]))

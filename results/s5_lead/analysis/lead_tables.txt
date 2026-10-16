@@ -15,7 +15,7 @@ Provenance
   bootstrap: {'16': {'B': 10000, 'seed': [20261001, 5001, 16, 10000], 'indices_sha256': '118cd417ab6c348da09f1b3c59e54e3248bc28ea4ccda53eab8d77c198a46cae'}, '8': {'B': 10000, 'seed': [20261001, 5001, 8, 10000], 'indices_sha256': 'eb5abbaea611c40d901db76902f8eca80c6820797de33a97d20a7765accbf779'}}
   analysis modules changed since the run: []
   repair note sha256: None
-  PI ruling sha256: None
+  author ruling sha256: None
   made-up-data report sha256: 76bb4f4ca68618da4d837e4ad67d47377d4c5f4b898f5e05a7ef15715bf87653
 
 Own-search added harm, each batch's mean over its starts, sorted (raw nats minus the start's harm)

@@ -1,4 +1,4 @@
-"""Riku's row cases on made-up cells (`freeze/amendment1_specs/output_and_reading_spec.md`, Section 5.2), as inputs.
+"""The reading specification's row cases on made-up cells (`freeze/amendment1_specs/output_and_reading_spec.md`, Section 5.2), as inputs.
 
 The recipe, unless a case says otherwise: 16 attack batches, 16 held-out batches, 5 starts, 8 shuffled copies; `start`
 0.21 and `own20` 0.78; `attack_start` equal to the start mean and `attack_own` equal to the `own` mean; every array

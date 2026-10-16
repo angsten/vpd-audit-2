@@ -1,4 +1,4 @@
-"""Session 5, plan 1, Section 5.2: the interval of every statistic of the lead experiment.
+"""Plan 1 of the research log, Section 5.2: the interval of every statistic of the lead experiment.
 
 The rules: `freeze/part1.md`, Section 5 (signed); `freeze/amendment1.md`, entries 2.3 and 2.4 and Section 9; and the
 binding specification `freeze/amendment1_specs/interval_spec.md`, Sections 2 to 5 ("the specification" below).
@@ -18,7 +18,7 @@ Steps, in the specification's order:
     `lin_table` at K attack and K held-out indices drawn with replacement; it does not recompute the ratio.
     V_PB = K / (K - 1) * SE*^2, with SE*^2 the sample variance (divisor B - 1) of the replicates.
   - The closed form (4.2) is computed for every interval, and the bootstrap variance must agree with it within the band
-    of plan 1, Section 12.3: 1 +/- max(0.07, 5 sqrt((kurtosis - 1) / B)), the kurtosis being that of the B replicate
+    of plan 1 of the research log, Section 12.3: 1 +/- max(0.07, 5 sqrt((kurtosis - 1) / B)), the kurtosis being that of the B replicate
     values. A closed form of exactly zero requires a bootstrap variance of exactly zero. A miss raises.
   - Start part (4.3, with 5.1 item 4): the three-way analysis of variance of the linearized cells on the complete
     sub-table (all starts; attack batches with every search present; held-out batches with every search present).
@@ -29,7 +29,7 @@ Names follow the specification's erratum, item 3: `lin_cell` is W_ijs, `lin_tabl
 `half_width` is w. A cell's shuffled harm is called `shuf` by the callers.
 
 Exact zeros. Two cases must give a variance of exactly zero and not rounding dust: an input that is the same number in
-every cell (Riku's cases R10 and R11), and cells that do not depend on the start. So every mean is computed on the
+every cell (the reading specification's cases R10 and R11), and cells that do not depend on the start. So every mean is computed on the
 cells minus one reference cell (which changes no mean, centred sum, or mean square), and the mean squares are computed
 on the cells minus their first start's value (which changes none of the four mean squares, since each is built from
 contrasts between starts).
@@ -49,7 +49,7 @@ MASTER_SEED = 20261001  # the manifest's master seed
 BOOTSTRAP_STREAM = 5001  # this module's own stream under the master seed, fixed before any deciding run
 BOOTSTRAP_B = 10_000  # signed, Section 5
 T_PROBABILITY = 0.975  # a 95 percent two-sided interval
-CLOSED_FORM_BAND_FLOOR = 0.07  # plan 1, Section 12.3
+CLOSED_FORM_BAND_FLOOR = 0.07  # plan 1 of the research log, Section 12.3
 CLOSED_FORM_BAND_STANDARD_ERRORS = 5.0
 PERCENTILE_UNRELIABLE_SHARE = 0.001  # specification 4.5: 0.1 percent of replicates
 
@@ -177,7 +177,7 @@ def replicate_deviations(lin_table: np.ndarray, indices: BootstrapIndices) -> np
 
 
 def closed_form_band(replicates: np.ndarray) -> tuple[float, float]:
-    """Plan 1, Section 12.3: the half-width of the band on SE*^2 / V_closed, and the replicates' kurtosis."""
+    """Plan 1 of the research log, Section 12.3: the half-width of the band on SE*^2 / V_closed, and the replicates' kurtosis."""
     d = replicates - replicates.mean()
     m2 = float((d**2).mean())
     m4 = float((d**4).mean())

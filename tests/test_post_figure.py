@@ -1,5 +1,5 @@
-"""Session 7, plan 2: the post's Figure 1. The point set and the reference values on the real lead table (read only), and
-each drawing function on six made-up points. Fast; no GPU."""
+"""Plan 2 of the research log: the post's Figure 1. The point set and the reference values on the real lead table (read only),
+each drawing function on six made-up points, and the committed PNGs and their copies. Fast; no GPU."""
 
 from __future__ import annotations
 
@@ -61,19 +61,19 @@ def test_the_reference_values_are_the_held_out_searches_at_20_steps_and_the_rand
 
 
 def _six_points() -> pd.DataFrame:
-    rows = [("n20", 0.7, 0.6, 0.30), ("n80", 4.0, 3.5, 0.31), ("n320", 40.0, 38.0, 0.29),
-            ("h2", 2.1, 1.9, 0.32), ("h5", 5.4, 5.0, 0.30), ("h10", 11.0, 10.0, 0.28)]
-    return pd.DataFrame([{"row": r, "attack_batch": "A1", "start": 9, "step": k + 10, "own_batch_harm": own, "unseen_harm_mean": unseen,
+    rows = [("n20", 20, 0.7, 0.6, 0.30), ("n80", 80, 4.0, 3.5, 0.31), ("n320", 320, 40.0, 38.0, 0.29),
+            ("h2", 30, 2.1, 1.9, 0.32), ("h5", 60, 5.4, 5.0, 0.30), ("h10", 120, 11.0, 10.0, 0.28)]
+    return pd.DataFrame([{"row": r, "attack_batch": "A1", "start": 9, "step": step, "own_batch_harm": own, "unseen_harm_mean": unseen,
                           "unseen_harm_min": unseen * 0.9, "unseen_harm_max": unseen * 1.1, "shuffled_harm_mean": shuf,
                           "in_post_figure": r != "h10", "attack_start_harm": 0.22}
-                         for k, (r, own, unseen, shuf) in enumerate(rows)], columns=list(PF.COLUMNS))
+                         for r, step, own, unseen, shuf in rows], columns=list(PF.COLUMNS))
 
 
-@pytest.mark.parametrize("variant", PF.VARIANTS)
-def test_the_carry_over_figure_writes_a_png(tmp_path, variant):
-    path = PF.draw_carry_over(_six_points(), {"benchmark": 0.75, "random_start": 0.22}, tmp_path / f"{variant}.png", variant)
+def test_the_carry_over_figure_writes_a_png_and_its_75_and_62_percent_copies(tmp_path):
+    path = PF.draw_carry_over(_six_points(), {"benchmark": 0.75, "random_start": 0.22}, tmp_path / "carry_over.png")
     assert path.is_file() and path.stat().st_size > 0
     assert path.read_bytes()[:8] == b"\x89PNG\r\n\x1a\n"
+    assert sorted(p.name for p in tmp_path.iterdir()) == ["carry_over.png", "carry_over_62.png", "carry_over_75.png"]
 
 
 def test_the_registered_figure_writes_a_png(tmp_path):
@@ -86,8 +86,24 @@ def test_a_point_outside_the_axes_is_refused_not_clipped(tmp_path):
     pts = _six_points()
     pts.loc[0, "unseen_harm_mean"] = 0.1  # below the raw axes' 0.15
     with pytest.raises(ValueError):
-        PF.draw_carry_over(pts, {"benchmark": 0.75, "random_start": 0.22}, tmp_path / "x.png", "b")
+        PF.draw_carry_over(pts, {"benchmark": 0.75, "random_start": 0.22}, tmp_path / "x.png")
     pts = _six_points()
     pts.loc[0, "own_batch_harm"] = 0.2  # added harm 0.2 - 0.22 is negative: a log axis would drop it
     with pytest.raises(ValueError):
         PF.draw_registered(pts, {"benchmark": 0.75, "random_start": 0.22}, tmp_path / "y.png")
+
+
+def test_the_committed_pngs_and_their_copies_exist_and_no_other_figure_1_png():
+    from PIL import Image
+
+    from vpd_audit_2.post_small import small_path
+
+    want = set()
+    for key, scales in PF.COPIES.items():
+        full = PF.OUT_DIR / PF.OUT_NAMES[key]
+        w, h = Image.open(full).size
+        want.add(full.name)
+        for scale in scales:
+            assert Image.open(small_path(full, scale)).size == (round(scale * w), round(scale * h))
+            want.add(small_path(full, scale).name)
+    assert {p.name for p in PF.OUT_DIR.glob("figure1_*.png")} == want

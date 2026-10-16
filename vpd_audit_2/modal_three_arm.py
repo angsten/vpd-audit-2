@@ -1,4 +1,4 @@
-"""The Modal app for session 7's three-arm experiment (`sessions/007/engineering/plan_6.md`). Every GPU command is
+"""The Modal app for the three-arm experiment (plan 6 of the research log). Every GPU command is
 `three_arm_run`'s, tested without the cloud; this module hands it the cloud as plain functions. The image, the volume,
 the model loader, the container settings (one B200, 32 GiB, preemptible, single use), the control dictionary, and the
 bill's reader are the lead run's (`modal_lead`).

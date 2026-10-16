@@ -1,4 +1,4 @@
-"""Session 6, plan 2: the on-or-off histogram's arithmetic on tiny made-up arrays, with hand-computed answers, and its
+"""Plan 2 of the research log: the on-or-off histogram's arithmetic on tiny made-up arrays, with hand-computed answers, and its
 refusals."""
 
 from __future__ import annotations

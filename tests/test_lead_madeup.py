@@ -1,7 +1,7 @@
 """The made-up-data test's own pieces: the generator, the truth by enumeration, the criterion, and the repair.
 
 Expected values come from `freeze/amendment1_specs/interval_spec.md` (Sections 6 to 8) with its erratum,
-`freeze/amendment1.md` (Section 5), and plan 1 (Sections 7 and 12.2). The test of record itself is the command
+`freeze/amendment1.md` (Section 5), and plan 1 of the research log (Sections 7 and 12.2). The test of record itself is the command
 `python -m vpd_audit_2.lead_madeup`; these tests check that it does what those documents say, at small sizes.
 """
 
@@ -140,7 +140,7 @@ def test_true_values_reproduce_the_specifications_worked_example():
     assert t["depends"] == pytest.approx(0.417, abs=5e-4)  # 0.169 / 0.405
     assert t["kappa"] == pytest.approx(0.477, abs=5e-4)  # 0.169 / 0.354
     assert t["carried_margin"] == pytest.approx(0.169, abs=5e-4) and t["own_margin"] == pytest.approx(0.405, abs=1e-12)
-    # the three statistics the output specification adds (plan 1, Section 7)
+    # the three statistics the output specification adds (plan 1 of the research log, Section 7)
     assert t["shuffled_vs_yardstick"] == pytest.approx(0.40 - 0.805) and t["carried_added"] == mu_C and t["pooled_retention"] == t["carries"]
     assert M.true_values(0.2, 0.8, 0.5, 0.3, 0.2, 0.5)["depends"] is None  # shuffled harm equal to the own search's: no ratio
 
@@ -155,10 +155,10 @@ def test_scenarios_put_each_truth_where_the_specification_says(R, by_id):
     assert pop["P7"]["n20"]["rho_row"] == pytest.approx(1.0, abs=1e-12)  # at 20 steps the yardstick is the own search
     for row in M.ALL_ROWS:
         p5, t5 = pop["P5"][row], pop["T5"][row]
-        # plan 1, Section 7: in T5, mu_C becomes 0.9702 mu_C + 0.0298 (40 - mu_k) throughout
+        # plan 1 of the research log, Section 7: in T5, mu_C becomes 0.9702 mu_C + 0.0298 (40 - mu_k) throughout
         assert t5["mu_C"] == pytest.approx(0.9702 * p5["mu_C"] + 0.0298 * (40 - p5["mu_k"]), rel=1e-12)
         assert t5["truth"]["carried_added"] == t5["mu_C"] and t5["truth"]["own_margin"] == p5["truth"]["own_margin"]
-        assert t5["truth"]["carried_margin"] == pytest.approx(0.9702 * (p5["mu_k"] + p5["mu_C"]) + 0.0298 * 40 - 0.40, rel=1e-12)  # Daniel's form
+        assert t5["truth"]["carried_margin"] == pytest.approx(0.9702 * (p5["mu_k"] + p5["mu_C"]) + 0.0298 * 40 - 0.40, rel=1e-12)  # the interval specification's form
         assert p5["truth"]["pooled_retention"] == p5["truth"]["carries"] == pytest.approx(0.6, abs=1e-12)
         assert p5["truth"]["shuffled_vs_yardstick"] == pytest.approx(0.40 - p5["mu_q"], abs=1e-15)
     for row in ("n20", "n80"):
@@ -406,7 +406,7 @@ def test_harm_level_rows_are_topped_up_until_enough_experiments_are_read():
     out = M.collect(SerialPool(), scn, "amended", TEST_SEED, 1, 0, 30, rows=("n80", "h10"))
     assert out["n80"].vals.shape == (30, 9, 8) and out["n80"].generated == 30 and out["n80"].read == 30
     assert np.array_equal(out["n80"].vals_all, out["n80"].vals, equal_nan=True)  # a search-length row is always read
-    # beside the experiments judged, the first 30 generated, read or not (plan 3, step 7)
+    # beside the experiments judged, the first 30 generated, read or not (plan 3 of the research log, step 7)
     assert out["h10"].vals_all.shape == (30, 9, 8)
     first_read = out["h10"].experiments[out["h10"].experiments < 30]
     assert 0 < first_read.size < 30 and np.array_equal(out["h10"].vals_all[first_read], out["h10"].vals[: first_read.size], equal_nan=True)
@@ -431,7 +431,7 @@ def test_rerun_triggers_and_failure_are_amendment_1s():
     j = lambda c, a, b: {"coverage": c, "above": a, "below": b}  # noqa: E731
     # a cell under 93.5 percent is rerun; one with its truth on a line also if more than 3.25 percent lie on one side
     assert M.needs_rerun(j(0.9349, 0.0, 0.0), False) and not M.needs_rerun(j(0.935, 0.03, 0.03), False)
-    assert M.needs_rerun(j(0.94, 0.042, 0.018), True)  # plan 1, Section 12.2: 94.0 percent with 4.2 percent on one side is rerun
+    assert M.needs_rerun(j(0.94, 0.042, 0.018), True)  # plan 1 of the research log, Section 12.2: 94.0 percent with 4.2 percent on one side is rerun
     assert M.needs_rerun(j(0.95, 0.0, 0.0326), True) and not M.needs_rerun(j(0.95, 0.0325, 0.0), True)
     assert not M.needs_rerun(j(0.94, 0.042, 0.018), False)  # the second trigger needs a line
     # a cell fails below 92.5 percent, or with more than 3.75 percent wholly on one side of its line
@@ -493,7 +493,7 @@ def test_the_repair_is_computed_not_chosen():
     assert rows["n80"]["multiplier"] == 1.3
     assert [(c["seed"], c["multiplier"], c["passed"]) for c in rows["n80"]["confirmation"]] == [(2, 1.2, False), (3, 1.25, False), (4, 1.3, True)]
     assert rows["n80"]["confirmation"][0]["failed_cells"] == ["P1 carries"]
-    # a row needing more than 1.5 goes to the PI
+    # a row needing more than 1.5 goes to the author
     rows = M.repair(ScriptedTest(lambda *a: 0.90), _first_cells({"h10": 1.44}, {"h10"}))
     assert rows["h10"]["to_pi"] and [c["multiplier"] for c in rows["h10"]["confirmation"]] == [1.45, 1.5]
     rows = M.repair(ScriptedTest(lambda *a: 0.99), _first_cells({"h10": 1.62}, {"h10"}))
@@ -505,7 +505,7 @@ def test_the_repair_is_computed_not_chosen():
 
 
 def test_a_cell_is_judged_on_its_rerun_alone_by_both_criteria():
-    """Plan 1, Section 12.2: a rerun cell is judged on its 10,000; the multiplier it needs comes from that sample."""
+    """Plan 1 of the research log, Section 12.2: a rerun cell is judged on its 10,000; the multiplier it needs comes from that sample."""
     test = M.Test.__new__(M.Test)
     test.scenarios = {s.id: s for s in M.scenarios()}
     test.population = {"P1": {"n40": {"truth": {"carries": 0.2}}}}
@@ -580,7 +580,7 @@ def test_the_guard_stops_the_test_when_a_truth_is_wrong(monkeypatch, tmp_path):
     M.write_report(report, tmp_path)
     assert sorted(p.name for p in tmp_path.iterdir()) == ["report.json", "summary.md"]
     assert "**The test stopped: the guard on the generator" in (tmp_path / "summary.md").read_text()
-    assert M.GUARD_STOP == 5.0 and M.GUARD_LIST == 3.5  # what the command uses (plan 1, Section 12.2, item 4)
+    assert M.GUARD_STOP == 5.0 and M.GUARD_LIST == 3.5  # what the command uses (plan 1 of the research log, Section 12.2, item 4)
 
 
 def test_the_version_as_committed_is_printed_beside_and_sets_no_multiplier(small_run, small_run_as_committed, tmp_path):
@@ -624,7 +624,7 @@ def test_a_whole_small_run_writes_a_report_the_analysis_can_read(small_run, tmp_
                         "## Harm-Level Core Cells: Coverage Where the Level Is Read, and Over All Experiments",
                         "## The Shuffled Ratio by Its Denominator's Distance From Zero (T6)", "## The Delta-On Shares", "## In Words"):
             assert section in summary
-        # for every harm-level cell, coverage over all experiments beside coverage where the level is read (plan 3, step 7)
+        # for every harm-level cell, coverage over all experiments beside coverage where the level is read (plan 3 of the research log, step 7)
         for c in report["core_cells"]:
             assert ("all_experiments" in c) == (c["row"] in M.ROW_LEVEL)
         for ln in report["lines"]:

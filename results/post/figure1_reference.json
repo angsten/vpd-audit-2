@@ -8,7 +8,7 @@
     "definition": "init_H.mean(): the random starting point's harm on the unseen batches, mean over the 16 held-out batches and 5 starts, raw nats per token"
   },
   "paper_table": {
-    "source": "the paper's PGD table, tab:vpd-pgd-ce (literature/original/bushnaq2026_vpd.txt, lines 395-399)",
+    "source": "the paper's PGD table, tab:vpd-pgd-ce",
     "kl_after_steps": {
       "20": 0.828,
       "40": 1.3539,
@@ -39,6 +39,6 @@
   },
   "table": "results/s5_lead/lead/sealed",
   "run_commit": "8522c18156c6c9023aedffe9061a56838898e960",
-  "analysis_commit": "f4e667b48b556dfaf45427caecdc261dec4e427d",
+  "analysis_commit": "1c6f150f8e1cb8e76c71fe3fd0c661e1885ce33e",
   "analysis_module_as_committed": true
 }

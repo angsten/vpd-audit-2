@@ -1,4 +1,4 @@
-"""Session 6, plan 3, Section 9: the dose-response on the rounded off set, its launch without the cloud, and its reading
+"""Plan 3 of the research log, Section 9: the dose-response on the rounded off set, its launch without the cloud, and its reading
 on made-up units.
 
 The specs and their refusals; the f = 1 hash check, passing and refusing; the projection from Section 8's containers
@@ -65,7 +65,7 @@ def test_the_f1_hash_check_passes_and_refuses():
 
 def test_the_f1_hash_check_on_the_real_settings():
     if not (D.RUN_UNITS_LOCAL / "search_A1_s9.npz").is_file() or not (SR.LOCAL_UNITS / "controls_H1_A1_s9.npz").is_file():
-        pytest.skip("the run's and plan 2's unit files are on this machine only")
+        pytest.skip("the run's and plan 2 of the research log's unit files are on this machine only")
     hc = D.rounded_hash_check()
     assert hc["all_equal"] and hc["compared"] == 1600 and hc["settings_equal_to_rounded"] == 400
 

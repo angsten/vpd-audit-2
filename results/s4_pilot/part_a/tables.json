@@ -3642,7 +3642,7 @@
     "qualifies": false
    }
   ],
-  "rule": "cheapest design with w40 <= 0.25 and w80 <= 0.25; n_s >= 5 where the start floor binds (sigma2_c > 0.1 x 2 sigma2_int / K at any budget, with the candidate's own K); else the smallest w80 under the PI's cap. Reported; the team applies the rule.",
+  "rule": "cheapest design with w40 <= 0.25 and w80 <= 0.25; n_s >= 5 where the start floor binds (sigma2_c > 0.1 x 2 sigma2_int / K at any budget, with the candidate's own K); else the smallest w80 under the author's cap. Reported; we apply the rule.",
   "timings": {
    "seconds_per_step": 0.39,
    "seconds_per_pass": 0.18,

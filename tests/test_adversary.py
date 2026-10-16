@@ -1,6 +1,6 @@
 """Our adversary loop against the authors' `_run_pgd_loop`, on the tiny stand-in (`tiny_model.py`), on the CPU in float32.
 
-These are G2's checks in miniature: the identity checks plan 3 (session 3), Section 6, names (label override equal to the
+These are G2's checks in miniature: the identity checks plan 3 of the research log, Section 6, names (label override equal to the
 labels, frozen set empty, held-out scoring of the batch the source was found on), bitwise equality with the authors' loop
 in sources, harm and gradients, the frozen-at-0 reference against the authors' weight_deltas=None path, the frozen-at-1
 check, micro-batching, the stochastic construction against the authors' function under explicit generators, the saved
@@ -127,7 +127,7 @@ def test_stochastic_construction_against_the_authors_function_and_reload(setup, 
 
 
 def test_micro_batching_one_chunk_is_bitwise_and_smaller_chunks_keep_the_sources(setup):
-    """Plan 5, item 2. One chunk of N texts (N = the batch, for N = 8 and 16) runs the micro-batched branch and equals the
+    """Plan 5 of the research log, item 2. One chunk of N texts (N = the batch, for N = 8 and 16) runs the micro-batched branch and equals the
     whole-batch path bit for bit in sources, harm, and gradients. Chunks smaller than the batch sum in another order:
     the sources and gradient signs stay bitwise equal, and the harm and gradient values agree to float32 rounding."""
     model, prep, start = setup
@@ -147,7 +147,7 @@ def test_micro_batching_one_chunk_is_bitwise_and_smaller_chunks_keep_the_sources
 
 
 def test_the_comparator_flags_an_altered_run(setup):
-    """Plan 5, item 3: one source entry changed after step 1, by the smallest float32 step, is flagged; so is a harm
+    """Plan 5 of the research log, item 3: one source entry changed after step 1, by the smallest float32 step, is flagged; so is a harm
     changed in its last bit."""
     model, prep, start = setup
     theirs = g2.authors_loop(model, prep, start, 5, device=DEV)
@@ -163,7 +163,7 @@ def test_the_comparator_flags_an_altered_run(setup):
 
 
 def test_held_out_scoring_uses_the_scored_batch_own_labels(setup):
-    """Plan 5, item 4: a source found on batch A, scored on batch B, equals a direct forward with B's labels and target,
+    """Plan 5 of the research log, item 4: a source found on batch A, scored on batch B, equals a direct forward with B's labels and target,
     and differs from the same forward with A's labels, and from its score on A."""
     model, prep_a, start = setup
     prep_b = A.prepare(model, tiny_ids(N, seed=2), "fp32", device=DEV)
@@ -179,7 +179,7 @@ def test_held_out_scoring_uses_the_scored_batch_own_labels(setup):
 
 
 def test_save_hook_threshold_crossed_mid_run(setup):
-    """Plan 5, item 5: a threshold first crossed by the two-step mean at step 5 saves the source after step 5, and
+    """Plan 5 of the research log, item 5: a threshold first crossed by the two-step mean at step 5 saves the source after step 5, and
     nothing at an earlier step."""
     model, prep, start = setup
     ref = A.run(model, prep, start, 12, 0.1, record_sources=True, device=DEV)

@@ -1,5 +1,5 @@
-"""Gate G2: our adversary loop (`adversary.py`) against the authors' (`sessions/003/notes/lena/gates_g2_g3_plan3.md`,
-Sections 2.2 to 2.4, with session 3's plan 3, Section 3, and session 4's plans 1 to 3).
+"""Gate G2: our adversary loop (`adversary.py`) against the authors' (the gate specification (research log),
+Sections 2.2 to 2.4, with the earlier plan 3 of the research log, Section 3, and the earlier plans 1 to 3 of the research log).
 
 The authors' side is `_run_pgd_loop(adv_sources, PGDConfig(...), fwd)` with `fwd = functools.partial(_forward_with_adv_sources,
 ...)` built as `pgd_masked_recon_loss_update` builds it (`pgd_utils.py:95-126`), from a copy of the saved start. A wrapper
@@ -125,7 +125,7 @@ def module_slices(model: Any) -> list[tuple[str, int, int]]:
 
 
 def sign_comparison(g_whole: np.ndarray, g_micro: np.ndarray, model: Any) -> dict[str, Any]:
-    """Plan 1, item 4: entries whose sign differs between the whole-batch and micro-batched gradients at the same source;
+    """Plan 1 of the research log, item 4: entries whose sign differs between the whole-batch and micro-batched gradients at the same source;
     for each, |g_whole| over the median nonzero |g_whole| of its module."""
     diff = np.sign(g_whole) != np.sign(g_micro)
     ratios = []
@@ -142,7 +142,7 @@ def sign_comparison(g_whole: np.ndarray, g_micro: np.ndarray, model: Any) -> dic
 
 def micro_validation(model: Any, prep: A.Prepared, start: dict[str, np.ndarray], sizes: tuple[int, ...] = (8, 16), n_steps: int = N_STEPS,
                      device: str = "cuda") -> dict[str, Any]:
-    """Plan 1, item 4: the whole-batch path for n_steps; at each step, the micro-batched gradient at the whole-batch path's
+    """Plan 1 of the research log, item 4: the whole-batch path for n_steps; at each step, the micro-batched gradient at the whole-batch path's
     source for that step (both sizes), compared sign by sign with the whole-batch gradient."""
     probes: dict[int, list[np.ndarray]] = {m: [] for m in sizes}
 
@@ -251,7 +251,7 @@ def entries_at_bounds(sources: dict[str, np.ndarray]) -> dict[str, int]:
 def protocol(model: Any, ids: np.ndarray, text_ids: list[str], start: dict[str, np.ndarray], device: str = "cuda", draw_path: Any = None,
              log: Any = print) -> dict[str, Any]:
     """G2 on one batch: step 0 (the authors' reproducibility), steps 1 to 3, the feature checks of Section 2.2, the
-    micro-batch validation (plan 1, item 4; sizes 8 and 16), the stochastic routing check of Section 2.4 and the reload
+    micro-batch validation (plan 1 of the research log, item 4; sizes 8 and 16), the stochastic routing check of Section 2.4 and the reload
     check on the first 4 texts, and the records Section 2.3 asks for."""
     import torch
 

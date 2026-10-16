@@ -1,6 +1,6 @@
 # Freeze File, Part 1: Question 2 and the Settings Both Questions Share
 
-*Session 4. Written by Ines from Riku's skeleton, with the team's decisions and the PI's approvals of this session. Version 1. Part 2, question 1's lines, sample sizes, and versions, is frozen next session after the safeguard re-test the PI approved.*
+*Version 1, with the author's approvals. Part 2, question 1's lines, sample sizes, and versions, is to be frozen later, after the safeguard re-test the author approved.*
 
 ## What You Are Signing
 
@@ -10,13 +10,13 @@ After signature, any change is a dated amendment with its reason, committed befo
 
 The essentials:
 
-1. **The experiment.** The paper's evaluation adversary, run as our loop, which is bit-identical to the authors' own code. 16 attack batches and 16 held-out batches of 128 texts, each searched from 5 shared starting points, for 320 steps, read at 20, 40, 80, 160, and 320 steps. Cap \$105 (the PI's).
+1. **The experiment.** The paper's evaluation adversary, run as our loop, which is bit-identical to the authors' own code. 16 attack batches and 16 held-out batches of 128 texts, each searched from 5 shared starting points, for 320 steps, read at 20, 40, 80, 160, and 320 steps. Cap \$105 (the author's).
 2. **Two pre-registered tables.** The step table, read at fixed search lengths, is the lead. The stage table reads each search where its own harm first reaches 2, 5, or 10 nats; it is printed in full and never resolves an undetermined step reading.
 3. **Three questions at each length or level.** Is the carried-over harm larger than the paper's standard 20-step adversary does to its own batch? Does at least a fifth of the search's added harm carry over? Does that depend on which components the search chose, beyond how often they are used?
 4. **Expected precision, stated in advance.** At 80 steps the design meets its precision target, just. At 40 steps no affordable design does, so a 40-step ratio reading of "undetermined" is expected, not a surprise.
 5. **Two sealing slips, both in question 1's pilot, neither touching question 2.** They are recorded in Section 12.
 
-The PI's signature is at the end of Section 0.
+The author's signature is at the end of Section 0.
 
 ## 0. Identity and Sign-Off
 
@@ -24,14 +24,14 @@ The PI's signature is at the end of Section 0.
 |---|---|
 | Freeze file | Part 1, version 1 |
 | Manifest | `vpd-audit-2/data/manifest/manifest.json`, SHA-256 `29d709c9…7d71`; master seed 20261001 |
-| Starts | `vpd-audit-2/results/s4_pilot/starts/starts_1_64.npz`, SHA-256 `dcb53978dc20a18b9aa6e03480cb8590d7c90f15434d3cc485b9804ea81b9f9d`; allocation in `starts_1_64.json`, SHA-256 `c9c83d15…289a`. Starts 1 to 16 equal the manifest's original `starts.npz` entry for entry, by a committed test |
+| Starts | `results/s4_pilot/starts/starts_1_64.npz`, SHA-256 `dcb53978dc20a18b9aa6e03480cb8590d7c90f15434d3cc485b9804ea81b9f9d`; allocation in `starts_1_64.json`, SHA-256 `c9c83d15…289a`. Starts 1 to 16 equal the manifest's original `starts.npz` entry for entry, by a committed test |
 | Harness on `main` | `583c819`, the merge of `session-004-pilot`, which follows `983193f`, the merge of `session-004-loop`. Every deciding run records the commit it ran at, with a clean tree |
-| Configuration | Our loop with `micro_batch=None` (the whole batch in one pass), bfloat16 autocast, one NVIDIA B200 per search, constant step 0.1, strict deterministic algorithms (no `warn_only`), TF32 off, `CUBLAS_WORKSPACE_CONFIG=:4096:8`. This path equals the authors' loop bit for bit on the real model (diagnostic D1), and reproduced session 3's eight runs bit for bit in the pilot. **No deciding measurement mixes configurations** |
+| Configuration | Our loop with `micro_batch=None` (the whole batch in one pass), bfloat16 autocast, one NVIDIA B200 per search, constant step 0.1, strict deterministic algorithms (no `warn_only`), TF32 off, `CUBLAS_WORKSPACE_CONFIG=:4096:8`. This path equals the authors' loop bit for bit on the real model (diagnostic D1), and reproduced the eight earlier runs bit for bit in the pilot. **No deciding measurement mixes configurations** |
 | Software | torch 2.8.0+cu128, CUDA 12.8, `datasets` 4.4.2, as locked in `vpd-audit-2/uv.lock` |
-| Labels, target, and weight deltas for question 2 | Computed once per batch, on the whole batch of 128, under bfloat16 autocast, as session 3's G1 and diagnostic D1 did. A held-out batch's own search and every carried-over setting scored on it use that same tensor |
-| Labels for any run touching question 1's texts | From the committed float32 label cache, never recomputed from a different batch grouping (pilot report 3: regrouping moves 0.23 percent of label entries by up to $1.2 \times 10^{-4}$) |
-| Date of commit | The session 4 finalize commit, which carries this file |
-| PI's signature | Signed by the PI in the session 4 transcript on 5 October 2026 ("All looks good - please proceed", in answer to the request for signature) |
+| Labels, target, and weight deltas for question 2 | Computed once per batch, on the whole batch of 128, under bfloat16 autocast, as gate G1 and diagnostic D1 did. A held-out batch's own search and every carried-over setting scored on it use that same tensor |
+| Labels for any run touching question 1's texts | From the committed float32 label cache, never recomputed from a different batch grouping (pilot report 3 of the research log: regrouping moves 0.23 percent of label entries by up to $1.2 \times 10^{-4}$) |
+| Date of commit | The commit that carries this file |
+| Author's signature | Signed by the author on 5 October 2026 ("All looks good - please proceed", in answer to the request for signature; research log) |
 
 ## 1. What Passed Before the Freeze
 
@@ -39,12 +39,12 @@ These are outcomes the rules depend on, not lines.
 
 | Check | Outcome |
 |---|---|
-| G1, step size (session 3) | Constant step 0.1 at every budget |
+| G1, step size | Constant step 0.1 at every budget |
 | G2, our loop | Bit-identical to the authors' loop on all 128 texts of a calibration batch, in float32 and, by D1, in bfloat16 over 320 steps |
 | G3, precision | All-on passes in float32 (floor $3.6 \times 10^{-8}$ against $4.54 \times 10^{-6}$); the at-labels and stochastic settings pass in float64. Question 2 runs in bfloat16 as the authors' evaluation did and is unaffected |
-| G5, data (session 3) | Attack and held-out sides share no document |
+| G5, data | Attack and held-out sides share no document |
 | Long-search diagnostics | A single long search is a wide draw: one smallest-unit change in one starting value moves one batch's plateau from 28 to 50 nats. "About 22 nats, not the paper's 40" is withdrawn |
-| Pilot, question 2's part | 80 own-batch searches on calibration batches; the diagonal reproduced session 3's runs bit for bit; every nudged replicate departed at step 1; no forbidden pool or start touched; strict determinism with no warning; shuffled harms sealed |
+| Pilot, question 2's part | 80 own-batch searches on calibration batches; the diagonal reproduced the earlier runs bit for bit; every nudged replicate departed at step 1; no forbidden pool or start touched; strict determinism with no warning; shuffled harms sealed |
 
 ## 2. Pools, Texts, and Starts
 
@@ -135,7 +135,7 @@ $$
 w_n(K, n_s) = t_{0.975,\,\nu}\ \frac{1}{\hat\mu}\sqrt{\frac{2\hat\sigma^2_b}{K} + \frac{2\hat\sigma^2_{\mathrm{int}}}{K n_s} + \frac{\hat\sigma^2_c}{n_s}}, \qquad \nu = \frac{(P + S)^2}{P^2/(K-1) + S^2/(n_s - 1)},
 $$
 
-where $P$ is the sum of the first two terms under the root and $S$ the third. Among $K \in \{8, 16\}$ batches per side and $n_s \in \{3, 5, 8\}$ starts, choose the cheapest design with $w_{40} \le 0.25$ and $w_{80} \le 0.25$, and with $n_s \ge 5$ whenever $\hat\sigma^2_c > 0.1 \times 2\hat\sigma^2_{\mathrm{int}}/K$ at any budget, using each candidate's own $K$. If none qualifies under the PI's cap, take the smallest $w_{80}$ under the cap, where "under the cap" means the upper end of the design's total cost estimate. *(0.25 and one-tenth are conventions.)*
+where $P$ is the sum of the first two terms under the root and $S$ the third. Among $K \in \{8, 16\}$ batches per side and $n_s \in \{3, 5, 8\}$ starts, choose the cheapest design with $w_{40} \le 0.25$ and $w_{80} \le 0.25$, and with $n_s \ge 5$ whenever $\hat\sigma^2_c > 0.1 \times 2\hat\sigma^2_{\mathrm{int}}/K$ at any budget, using each candidate's own $K$. If none qualifies under the author's cap, take the smallest $w_{80}$ under the cap, where "under the cap" means the upper end of the design's total cost estimate. *(0.25 and one-tenth are conventions.)*
 
 **Applied, from the pilot:**
 
@@ -145,7 +145,7 @@ where $P$ is the sum of the first two terms under the root and $S$ the third. Am
 | **16, 5** | **0.36** | **0.247, just under 0.25** | **0.17** | **\$86 to \$103** |
 | 16, 8 | 0.33 | 0.20 | 0.15 | \$138 to \$165 |
 
-No design meets the 40-step target: the batch-to-batch term alone gives about 0.29 even at 16 batches, the most the manifest holds. The start floor excludes 3 starts. Under the PI's \$105 cap the fallback chooses **16 batches per side with 5 starts**, which the team recommended unanimously.
+No design meets the 40-step target: the batch-to-batch term alone gives about 0.29 even at 16 batches, the most the manifest holds. The start floor excludes 3 starts. Under the author's \$105 cap the fallback chooses **16 batches per side with 5 starts**, which we recommended unanimously.
 
 **Frozen:** attack batches A1 to A16, held-out batches H1 to H16, starts 9 to 13, 8 shuffles per scored source; the run with delta components held at 1 at 8 by 8 (A1 to A8, H1 to H8) with the same starts.
 
@@ -188,11 +188,11 @@ From the pilot (own-batch added harm, 8 calibration batches by 8 starts; compone
 
 Stage crossings, median steps: 44 at 2 nats, 70 at 5 (3 missing of 64), 83 at 10 (9 missing). Stage 2's denominator: mean 1.91 nats, standard deviation 0.095. Shuffle noise ratio at most 0.0013. Timing on a B200: 0.38 to 0.40 seconds per search step, 0.18 seconds per scoring pass.
 
-## 10. Requirements for the Lead's Engineering Plan
+## 10. Requirements for the Lead's Plan
 
 1. **Resumability.** Every search writes its record, with its saved sources' hashes, the moment it finishes; a restart skips finished searches and cells. A test kills a job mid-run and checks that the restart's outputs equal an uninterrupted run's bit for bit.
 2. **One configuration.** If a B200 is unavailable, the run waits; it never falls back to another GPU type or to chunking.
-3. **Spend against the cap.** The lead's searches and scoring run before the delta-frozen run. Spend is checked between stages; if projected spend would exceed \$105, work stops and goes to the PI. Nothing is trimmed silently.
+3. **Spend against the cap.** The lead's searches and scoring run before the delta-frozen run. Spend is checked between stages; if projected spend would exceed \$105, work stops and goes to the author. Nothing is trimmed silently.
 4. **Sealing until the analysis.** No carry-over number is printed before the analysis script, committed in advance, runs on the complete table.
 5. **Provenance.** Every result records its commit (clean tree), GPU, environment, and seed keys.
 
@@ -202,11 +202,11 @@ The 0.2 line for both ratios; the "large" yardstick of the held-out batch's own 
 
 ## 12. Amendments Made Before This Freeze
 
-All registered in the session 4 checkpoint, Appendix F, and the session 3 checkpoint, Appendix E. Those made after a result are: price check 7's narrowing (question 1 only); G3's remedy; diagnostic D4's void-case reading; the withdrawal of "about 22 nats"; and the design chosen by the fallback after the pilot.
+All registered in the research log. Those made after a result are: price check 7's narrowing (question 1 only); G3's remedy; diagnostic D4's void-case reading; the withdrawal of "about 22 nats"; and the design chosen by the fallback after the pilot.
 
 Two sealing slips, both in question 1's pilot and neither touching question 2:
-- **An unrecorded comparison.** The engineer computed a comparison that could hint at the sealed sign, recognized it, and did not record it.
-- **One freed-arm harm outside the seal.** One freed-arm harm, for one calibration text and one seed on a random nominal set, was written to an unsealed results file. It was also quoted in the engineering report on the pilot's second part, beside the original arm's value. It is in the pushed history of the pilot branch, and it is sealed going forward.
+- **An unrecorded comparison.** We computed a comparison that could hint at the sealed sign, recognized it, and did not record it.
+- **One freed-arm harm outside the seal.** One freed-arm harm, for one calibration text and one seed on a random nominal set, was written to an unsealed results file. It was also quoted in the report on the pilot's second part (research log), beside the original arm's value. It is in the pushed history of the pilot branch, and it is sealed going forward.
 
 Neither is a deciding measurement.
 

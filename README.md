@@ -6,7 +6,7 @@ This repository holds the code for a follow-up to [`vpd-audit`](https://github.c
 
 It uses the earlier harness as a library, through a submodule pinned at the commit the published post links to, and never runs that harness's own analysis commands.
 
-Docstrings, tests, and result files refer in places to `sessions/...` paths and commit hashes of the private research record this code was developed in, which this repository does not contain; `freeze/` holds the rules fixed before each measurement.
+This code was developed inside a private research log, and docstrings, tests, and result files cite it in places as "the research log", together with commit hashes and branch names of that log's repository; neither is public. `freeze/` holds the rules fixed before each measurement, and its amendments record what had been seen when each was written. The files under `freeze/`, the docstrings and tests, and the text of several committed results were reworded after the runs; only wording changed (research log, merge commit `67eb50b8ad69d49efd5211ffed229acbdc8e5ac5`, 16 October 2026). The analysis entry point (`lead_analysis.py`) and the launchers check files against run commits that are not in this copy's history, so they refuse to run here; the committed tables and readings are the record.
 
 ## Setup
 
@@ -26,7 +26,7 @@ The WandB key is read from `WANDB_API_KEY` or from a `.env` file in this folder 
 
 ```
 uv run modal run vpd_audit_2/modal_app.py::main --stage prepare   # fetch the model and the decomposition, build the first post's text sets
-uv run modal run vpd_audit_2/modal_app.py::main --stage smoke     # plan 1's smoke test; writes results/plan1_smoke/
+uv run modal run vpd_audit_2/modal_app.py::main --stage smoke     # plan 1 of the research log's smoke test; writes results/plan1_smoke/
 ```
 
 ## Provenance
@@ -43,12 +43,15 @@ Beside it are the raw sources:
 
 | Post section | Numbers | Source |
 |---|---|---|
-| Methods | The reference points (0.22 nats for a random source, 0.75 for the paper's 20-step search on our batches) and the shuffled copies' make-up | `results/s5_lead/analysis/lead_tables.txt` |
+| Methods; Results; Limitations | The reference points (0.22 nats for a random source, 0.75 for the paper's 20-step search on our batches) and the shuffled copies' make-up; almost every search past 5 nats within 160 steps (shares 0.94 on the attack side, 0.96 on the held-out side); the 40-step searches' 2.1 nats on their own batches | `results/s5_lead/analysis/lead_tables.txt`: the 5-nat shares at line 138, the 2.1 (2.12) at line 58 |
 | Methods; What This Means | The first post's numbers (0.34 for every mask at its label, 0.80 for pooling 64 tokens' worth, about 4,500 components) | The first post's repository, `third_party/vpd-audit` |
 | Results; figure one | Share kept, the shuffled copies, 0.60, 75 of 80 | `results/s5_lead/analysis/lead_tables.txt` and `results/post/figure1_carry_over.csv` |
+| Results; figure one | From 40 steps on, almost every carried-over source does more than the 0.75-nat reference: 75 of 80 at 40 steps, five at or below it | `results/post/figure1_carry_over.csv`, column `unseen_harm_mean`, the 80 rows whose `row` is `n40` |
 | Results | The per-text numbers (97 percent of texts above 0.75 at 40 steps, 36 percent in the worst tenth, every text from 80 steps) | `results/s6_followups/spread.txt` |
 | Results; figure two's caption | What the damaging sources are made of (about two fifths of components at 0, the rest fully on; most source values at 0 or 1) | `results/s6_followups/histogram.txt`, read with `results/s6_followups/CONVENTIONS.md` |
 | The section on interference noise | Probe 1 | `results/s7_probe1/reading.txt` |
 | The section on why training left these defects | The three-arm experiment | `results/s7_three_arm/reading.txt` |
 | What This Means | The paper's 20-step adversary run on the first post's own texts (0.70 nats) | `results/s6_followups/rerun.txt` |
-| Limitations | Where long searches end (2 to 61 nats across 200 searches; 26 nats on the pilot's eight batches against 34.5 on the main run's sixteen) | `results/s6_starts/reading.txt` |
+| Limitations | Where long searches end (2 to 61 nats across 200 searches; 26 nats on the pilot's eight batches against 34.5 on the main run's sixteen) | Each search's mean harm over its final 20 steps (steps 301 to 320): the lead run's 160 searches, 2.40 to 60.63 nats, `results/s5_lead/analysis/lead_tables.txt`, line 655; the starts test's 40, 4.73 to 45.22, `results/s6_starts/reading.txt`, line 81. The 26 and the 34.5: `results/s6_starts/reading.txt`, lines 7 and 9. The lead searches' harm at step 320 itself is also in the lead table, `own_A` and `own_H` at the setting `n320` in `results/s5_lead/lead/sealed/table_core.npz` (2.42 to 60.96) |
+
+The post's three figures are drawn into `results/post/` by `vpd_audit_2/post_figure.py`, `post_schematic.py`, and `post_interference.py` (each run as `uv run python -m vpd_audit_2.<module>`), and the post shows `figure1_carry_over_62.png`, `figure2_carry_over_schematic_50.png`, and `figure3_interference_50.png`.

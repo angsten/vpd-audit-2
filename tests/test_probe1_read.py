@@ -1,4 +1,4 @@
-"""Session 7, plan 5: probe 1's reading (`vpd_audit_2/probe1_read.py`) on made-up numbers.
+"""Plan 5 of the research log: probe 1's reading (`vpd_audit_2/probe1_read.py`) on made-up numbers.
 
   - The weighted and unweighted agreement, the positive share, and kappa, by hand.
   - The matched draw of kept components: per cell, as many as the off set has there or all of them if fewer.
@@ -79,7 +79,7 @@ def test_the_within_batch_gate_and_the_licences():
     assert high["key"] == "do not agree, other way" and "some other way" in high["sentence"] and high["within_as_low_as_cross"] is False
     assert "contrary to the paper's premise" in RD.licence("mostly agree", (0.6, 0.7), 0.0)["sentence"]
     assert "question marks" in RD.licence("partly agree", (0.3, 0.4), 0.0)["sentence"]
-    assert "head decides" in RD.licence("weakly agree", (0.05, 0.1), 0.0)["sentence"]
+    assert "judgement call" in RD.licence("weakly agree", (0.05, 0.1), 0.0)["sentence"]
     assert RD.row_d_draws_allowed("mostly agree") and RD.row_d_draws_allowed("do not agree") and not RD.row_d_draws_allowed("undetermined")
 
 

@@ -1,9 +1,9 @@
-"""Session 6, plan 3: the GPU work of Sections 4 and 7 in one launch, and its local side, with no cloud call in it
-(`sessions/006/engineering/plan_3.md`).
+"""Plan 3 of the research log: the GPU work of Sections 4 and 7 in one launch, and its local side, with no cloud call in it
+(plan 3 of the research log).
 
 One stage of twelve containers, launched at once:
 
-  - The first post's comparison rerun (Section 4; its rules are the session 4 checkpoint's Appendix G.2 and the freeze
+  - The first post's comparison rerun (Section 4; its rules are the research log's Appendix G.2 and the freeze
     file's Part 1, Section 7). Pool Q, the first post's 1,024 texts, as eight consecutive batches of 128 in the
     manifest's order (QB1 to QB8), each searched for 20 steps from starts 41 to 45 in two arms and scored on its own batch
     only. The searched arm runs `lead_run.search_unit`, the path of the run and the starts test, with the delta components
@@ -18,7 +18,7 @@ One stage of twelve containers, launched at once:
     container each: for each of the run's 80 attack searches, at each of the five lengths, V1, V2, and V3
     (`s6_build.zeros_alone`, `s6_build.variant_split_args`), scored through `s6_run`'s unit loop, after a check that the
     full setting reproduces the saved carried harm on both paths (the split's within the run's per-text tolerance with its
-    bit equality recorded, as plan 2 checked it, and the flat path bit for bit).
+    bit equality recorded, as plan 2 of the research log checked it, and the flat path bit for bit).
 
 The local side: `launch_command` (the commit and tree checks, the projection recorded as check C0, refused over either
 cap, then `lead_launch.drive_stage`), and `collect_command` (every unit file off the volume as bytes, each checked
@@ -74,8 +74,8 @@ VARIANT_ARM = "s6_variants"
 
 STAGE = LG.Stage("s6_plan3", "s6_plan3", "both", len(BATCHES) + len(VARIANT_BATCHES), 0, 0, 0, 0, 0, False)
 DESIGN = (STAGE,)
-RERUN_CAP = 6.0  # plan 3, Section 4: stop above $6
-CAP_DOLLARS = 11.0  # the rerun's $6 and the variants' estimated $5 (plan 3, Section 7)
+RERUN_CAP = 6.0  # plan 3 of the research log, Section 4: stop above $6
+CAP_DOLLARS = 11.0  # the rerun's $6 and the variants' estimated $5 (plan 3 of the research log, Section 7)
 READING_FILES = ("vpd_audit_2/s6_plan3_run.py", "vpd_audit_2/modal_s6_plan3.py", "vpd_audit_2/s6_rerun.py", "vpd_audit_2/s6_variants.py",
                  "vpd_audit_2/s6_build.py", "vpd_audit_2/s6_run.py")
 STARTS_TEST_RECORD = REPO_ROOT / "results" / "s6_starts" / "runs_starts_test.json"
@@ -401,11 +401,11 @@ def projection(listed_hourly_price: float, *, starts_record: Path | None = None,
     """The launch's cost before it starts, priced as Amendment 4 prices money (`lead_ledger.money`), against the rerun's
     $6 and the launch's cap.
 
-      - The rerun, from the starts test's eight containers (plan 1): their mean time to ready, and per search, the first
+      - The rerun, from the starts test's eight containers (plan 1 of the research log): their mean time to ready, and per search, the first
         iteration, the nine warm iterations, the ten after them at the steady rate, the final harm, a volume commit, and
         2 (1 + 4) scoring passes at their rate (the start and up to four scored settings, each once more through the
         authors' function). Ten searches per container, eight containers.
-      - The variants, from plan 2's four S4 containers: their mean time to ready, a flat pass and a split pass at their
+      - The variants, from plan 2 of the research log's four S4 containers: their mean time to ready, a flat pass and a split pass at their
         rates (`unit_controls` and `unit_split`), and a volume commit every ten units. Per container 80 units of 5 flat
         and 10 split passes, and the check's 1 flat and 2 split.
     Every container life adds 50 seconds of boot."""
@@ -424,7 +424,7 @@ def projection(listed_hourly_price: float, *, starts_record: Path | None = None,
     for path in (PLAN2_RECORDS if plan2_records is None else plan2_records):
         s4 += [c["timings"] for c in json.load(open(path))["containers"] if c["container"].split("|")[2] in VARIANT_BATCHES]
     if len(s4) != len(VARIANT_BATCHES):
-        raise LL.LaunchRefusal("plan 2's records do not hold its four S4 containers")
+        raise LL.LaunchRefusal("plan 2 of the research log's records do not hold its four S4 containers")
     ready_v = float(np.mean([t["to_ready"] for t in s4]))
     flat_pass, split_pass, commit_s = _mean_rate(s4, "unit_controls"), _mean_rate(s4, "unit_split"), _mean_rate(s4, "volume_commit")
     n_units = 1 + len(SR.ATTACK) * len(SR.STARTS)
@@ -453,7 +453,7 @@ def launch_command(commit: str, cloud: LL.Cloud, *, listed_hourly_price: float, 
     ledger_path = RESULTS / "ledger.json"
     earlier = LL.began_at(ledger_path)
     if earlier is not None and earlier != commit:
-        raise LL.LaunchRefusal("plan 3's launch began at another commit")
+        raise LL.LaunchRefusal("plan 3 of the research log's launch began at another commit")
     if earlier is None:
         LL.record_c0(ledger_path, projection(listed_hourly_price))
     if refs is None:

@@ -1,4 +1,4 @@
-"""Session 5, plans 2 and 4: the local side of the lead run, with no cloud call in it.
+"""Plans 2 and 4 of the research log: the local side of the lead run, with no cloud call in it.
 
 What each container is handed, the checks a launcher makes before any deciding job, the launcher itself, the ledger it
 keeps, the sealed tables' arrival on the local side as bytes, the receipts, and the rehearsal's record. `modal_lead.py`
@@ -10,9 +10,9 @@ name of the one batch it holds. Its inputs are built by `container_inputs`, whic
 and of no other. A held-out container is given the attack batches' names, so that it can find their searches' saved
 settings on the volume; it is never given their token ids.
 
-The deciding run's stages, in order (plan 4, Section 7): the lead's attack side; the lead's held-out side in two waves,
+The deciding run's stages, in order (plan 4 of the research log, Section 7): the lead's attack side; the lead's held-out side in two waves,
 H1 alone and then the other fifteen; and the delta-on arm's attack and held-out sides. The rehearsal mirrors them on
-calibration batches C1 and C2, each scored on itself only (plan 4, Section 6.1).
+calibration batches C1 and C2, each scored on itself only (plan 4 of the research log, Section 6.1).
 
 Nothing on the local side loads a deciding table: `receive_table` checks bytes against a hash and writes them. The one
 command that loads a table here, `validate_rehearsal_tables`, reads a rehearsal's and refuses any other.
@@ -69,7 +69,7 @@ REHEARSAL_STAGE_BATCHES = {
 REHEARSAL_UNITS = {("rehearsal", "attack"): "units_attack", ("rehearsal", "heldout"): "units_heldout",
                    ("rehearsal_delta_on", "attack"): "units_delta_attack", ("rehearsal_delta_on", "heldout"): "units_delta_heldout"}
 REHEARSAL_PART_BYTES = 1_000  # a part size so small that a one-by-one table's per-text file goes in two parts
-REHEARSAL_STOP_DOLLARS = 6.0  # plan 4, Section 6.1: stop and report if the repeat rehearsal's counted spend passes this
+REHEARSAL_STOP_DOLLARS = 6.0  # plan 4 of the research log, Section 6.1: stop and report if the repeat rehearsal's counted spend passes this
 FIRST_REHEARSAL_LIVES = 3  # the first rehearsal's GPU containers: the one killed, its replacement, and the held-out role's
 # What the rehearsal's own spend checks expect a container to take, rounded up from the first rehearsal's record
 # (`results/s5_lead/rehearsal/rehearsal.json`). They price the rehearsal itself and nothing else.
@@ -78,9 +78,9 @@ REHEARSAL_EXPECTED_TIMINGS = {
     "seconds_first_search_extra": 2.5, "seconds_per_search_fixed": 0.3, "seconds_per_commit_after_search": 4.9, "seconds_per_commit_after_blocks": 4.9,
     "seconds_per_shuffle": 0.0075, "seconds_per_search_unit_other": 2.1, "seconds_per_block_other": 0.02,
 }
-TRIGGERS = ("stop", "kill")  # the rehearsal-only triggers of plan 4, Section 6, rows 2 and 3
+TRIGGERS = ("stop", "kill")  # the rehearsal-only triggers of plan 4 of the research log, Section 6, rows 2 and 3
 # Every module a container or the assembler runs. The rehearsal covers the deciding run only if each is byte-identical
-# between the rehearsal's commit and the run's (plan 2, Section 8).
+# between the rehearsal's commit and the run's (plan 2 of the research log, Section 8).
 RUN_FILES = ("vpd_audit_2/adversary.py", "vpd_audit_2/pilot.py", "vpd_audit_2/lead_run.py", "vpd_audit_2/lead_table.py", "vpd_audit_2/lead_launch.py",
              "vpd_audit_2/lead_ledger.py", "vpd_audit_2/modal_lead.py", "vpd_audit_2/modal_app.py", "vpd_audit_2/modal_gates.py", "vpd_audit_2/manifest.py",
              "vpd_audit_2/env.py", "pyproject.toml", "uv.lock", "third_party/vpd-audit")
@@ -301,7 +301,7 @@ def check_rehearsal_commit(commit: str, earlier: str | None) -> None:
 
 
 def check_deciding_commit(commit: str, rehearsal_commit: str) -> None:
-    """Before any deciding job (plan 2, Sections 5.3 and 8): the tree is clean at the commit the head's go named, but
+    """Before any deciding job (plan 2 of the research log, Sections 5.3 and 8): the tree is clean at the commit the go-ahead named, but
     for the run's own records; that commit descends from Part A; every module the run imports is byte-identical to the
     rehearsal's; and the multipliers file is committed."""
     if not tree_holds_only_the_runs_records():
@@ -387,7 +387,7 @@ def stage_seconds_on(ledger: dict[str, Any], name: str) -> float:
 
 
 def rehearsal_counts(results: Path | None = None, bill: dict[str, Any] | None = None) -> dict[str, Any]:
-    """What the session's rehearsals have cost, in function seconds and container lives, which the cap covers
+    """What the rehearsals have cost, in function seconds and container lives, which the cap covers
     (Amendment 4, Section 2): the first rehearsal from its record, and each repeat from its ledger and its assembly."""
     results = RESULTS if results is None else results
     by_app = (bill or {}).get("by_app", {})
@@ -431,7 +431,7 @@ class Cloud:
 
 
 def stage_summary(stage: str, returns: list[dict[str, Any]]) -> dict[str, Any]:
-    """What a finished stage leaves on the open record (plan 2, Section 8): counts of finished units against the
+    """What a finished stage leaves on the open record (plan 2 of the research log, Section 8): counts of finished units against the
     expected counts, one hash per unit file, seconds per container, and guard outcomes as true or false."""
     units = [u for r in returns for u in r["units"]]
     return {"stage": stage, "containers": len(returns), "finished_units": sum(r["finished_units"] for r in returns),
@@ -472,7 +472,7 @@ def drive_stage(stage: LG.Stage, specs: list[dict[str, Any]], cloud: Cloud, *, l
                 timings: dict[str, float], listed_hourly_price: float, cap: float, outside: Callable[[dict[str, Any]], dict[str, Any]], commit: str,
                 guards_spec: dict[str, Any] | None = None, accept_expected_refusals: bool = False, trigger: str | None = None,
                 poll_seconds: float = 20.0) -> dict[str, Any]:
-    """Launch one stage's containers at once, wait for them, and keep the ledger (plan 4, Sections 4.1 to 4.3).
+    """Launch one stage's containers at once, wait for them, and keep the ledger (plan 4 of the research log, Sections 4.1 to 4.3).
 
       - A container's failure is recorded by its guard and unit, or by its error's type and place, and the other
         containers finish.
@@ -598,9 +598,9 @@ def drive_stage(stage: LG.Stage, specs: list[dict[str, Any]], cloud: Cloud, *, l
     write_json(ledger_path, ledger)
     cloud.log(event="stage_finished", container=stage.name, count=summary["finished_units"], ok=bool(summary["complete"] and not stopped_by))
     if errors or not summary["complete"]:
-        raise LaunchRefusal("the stage did not finish cleanly: see the ledger and the stage's record, and report to the head")
+        raise LaunchRefusal("the stage did not finish cleanly: see the ledger and the stage's record, and report")
     if stopped_by:
-        raise LaunchRefusal("the run stops here: " + "; ".join(stopped_by) + ". Report to the head")
+        raise LaunchRefusal("the run stops here: " + "; ".join(stopped_by) + ". Stop and report")
     return summary
 
 
@@ -644,7 +644,7 @@ def assemble_arms(arms: list[dict[str, Any]], *, assemble: Callable[[dict[str, A
                   commit: str, app_id: str, log: Callable[..., None]) -> dict[str, Any]:
     """Assemble each arm's table on the volume, copy it to the local side as bytes, and write its receipt. Each arm is
     `{"key", "spec", "results"}`: the assembler's spec and the local folder for the table. An arm with `pairs_with`
-    is handed that arm's fingerprints of labels and targets, for the cross-arm pairing check (plan 2, Section 5.1)."""
+    is handed that arm's fingerprints of labels and targets, for the cross-arm pairing check (plan 2 of the research log, Section 5.1)."""
     record: dict[str, Any] = {}
     fingerprints: dict[str, Any] = {}
     for arm in arms:
@@ -720,7 +720,7 @@ def _containers(runs: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def guards_plan(commit: str, rehearsal: int) -> dict[str, Any]:
-    """The guards-only pass after wave 1 (plan 4, Section 4.3): the lead's one held-out batch of wave 1 against every
+    """The guards-only pass after wave 1 (plan 4 of the research log, Section 4.3): the lead's one held-out batch of wave 1 against every
     attack search. In a rehearsal, the first calibration batch against itself."""
     if rehearsal:
         root, batch = volume_root("rehearsal", commit, rehearsal), REHEARSAL_STAGE_BATCHES["rehearsal_heldout_1"][0]
@@ -787,7 +787,7 @@ def record_c0(ledger_path: Path, c0: dict[str, Any]) -> None:
     ledger["checks"] = [c for c in ledger["checks"] if c["check"] != "C0"] + [{**c0, "at": utc_now()}]
     write_json(ledger_path, ledger)
     if c0["exceeds_cap"]:
-        raise LaunchRefusal("check C0: the projection exceeds the cap. Do not start; report to the head")
+        raise LaunchRefusal("check C0: the projection exceeds the cap. Do not start; report")
 
 
 def began_at(ledger_path: Path) -> str | None:
@@ -865,8 +865,8 @@ def backup_command(commit: str, rehearsal: int, *, read_file: Callable[[str], by
 
 
 def validate_rehearsal_tables(folder: Path) -> dict[str, Any]:
-    """Load each of a rehearsal's copied tables with plan 1's loader and run plan 1's checks on it, giving every check's
-    name with pass or fail and no value (plan 4, Section 6, row 7). It reads a rehearsal's tables and refuses any
+    """Load each of a rehearsal's copied tables with plan 1 of the research log's loader and run plan 1 of the research log's checks on it, giving every check's
+    name with pass or fail and no value (plan 4 of the research log, Section 6, row 7). It reads a rehearsal's tables and refuses any
     other: the folder must be a repeat rehearsal's, and each table's own metadata must say it is a rehearsal's."""
     folder = Path(folder)
     if folder.parent.resolve() != RESULTS.resolve() or not folder.name.startswith("rehearsal_"):
@@ -897,7 +897,7 @@ def _all(xs: Any) -> bool:
 
 
 def rehearsal_outcomes(folder: Path) -> dict[str, Any]:
-    """Each row of plan 4's Section 6 as met or not, from the files the rehearsal's commands left in its folder: the
+    """Each row of plan 4 of the research log's Section 6 as met or not, from the files the rehearsal's commands left in its folder: the
     ledger, each stage's record, the assembly's, the backup's, and the validation's. True or false, and nothing else."""
     ledger = json.load(open(folder / "ledger.json"))
     names = [s.name for s in LG.REHEARSAL_DESIGN]
@@ -963,7 +963,7 @@ def rehearsal_outcomes(folder: Path) -> dict[str, Any]:
     searches = {f"{REHEARSAL_UNITS[key]}/search_{b}_s{REHEARSAL_START}.npz" for key in REHEARSAL_UNITS for b in REHEARSAL_BATCHES}
     out["row_5_assemble_and_backup"] = bool(sorted(assembled) == sorted(lead_keys + delta_keys) and set(backup["files"]) == searches and backup["notice"] == "DO_NOT_OPEN.md")
 
-    # row 6: the per-text file in two parts, through the assembler, the byte copy, and plan 1's loader
+    # row 6: the per-text file in two parts, through the assembler, the byte copy, and plan 1 of the research log's loader
     def copied(key: str) -> bool:
         return all(LT.sha256_file(folder / key / "sealed" / f["name"]) == f["sha256"] for f in assembled[key]["receipt"]["files"])
 
@@ -980,7 +980,7 @@ def rehearsal_outcomes(folder: Path) -> dict[str, Any]:
     out["row_8_timings"] = bool(every_launch and all("to_ready" in c["timings"] for c in every_launch) and len(delta_searches) >= 2
                                 and all(c["timings"].get(k + "_count") for c in ran_a_search for k in ("search_iteration_0", "search_iterations_warm", "search_iterations_after_warm")))
 
-    # row 9, and plan 2's Section 7: bit-identity with the pilot and between the two roles; the guards of every unit
+    # row 9, and plan 2 of the research log's Section 7: bit-identity with the pilot and between the two roles; the guards of every unit
     out["row_9_search_equal_to_the_pilots"] = bool(all(_all(assembled[k]["outcomes"]["attack_role_equals_pilot"].values()) for k in lead_keys))
     out["heldout_role_equal_to_the_pilots_and_to_the_attack_role"] = bool(
         all(_all(assembled[k]["outcomes"]["heldout_role_equals_pilot"].values()) and _all(assembled[k]["outcomes"]["containers_agree"].values()) for k in lead_keys)
@@ -1020,7 +1020,7 @@ def rehearsal_record(folder: Path, *, listed: dict[str, Any], listed_hourly_pric
     c0 = LG.check_c0({k: timings[k] for k in LG.TIMING_KEYS}, listed_hourly_price, spent, assemble_seconds=2 * max(lead_assemblers))
     ratio = timings["seconds_per_search_step_delta_on"] / timings["seconds_per_search_step"]
     return {
-        "what": "The repeat rehearsal of the lead run on calibration batches C1 and C2 with pilot start 1 (plan 4, Section 6). Each batch was scored "
+        "what": "The repeat rehearsal of the lead run on calibration batches C1 and C2 with pilot start 1 (plan 4 of the research log, Section 6). Each batch was scored "
                 "on itself only. Its sealed values stay sealed; this file holds outcomes as true or false, hashes, and timings.",
         "commit": commit, "attempt": attempt, "written": utc_now(), "volume_root": volume_root("rehearsal", commit, attempt),
         "required_outcomes": outcomes, "all_required_outcomes_met": all(v is True for v in outcomes.values()),

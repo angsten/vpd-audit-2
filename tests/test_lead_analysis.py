@@ -1,4 +1,4 @@
-"""The entry point: what it writes, that it is all or nothing, and every refusal for a real table (plan 1, Sections
+"""The entry point: what it writes, that it is all or nothing, and every refusal for a real table (plan 1 of the research log, Sections
 5.4 and 6).
 
 The refusals are tested on a made-up table relabelled as real inside the test, in a small git repository built under
@@ -233,9 +233,9 @@ def base_repo(tmp_path_factory) -> Path:
     (repo / LA.MULTIPLIERS_JSON).write_text(json.dumps({"rows": {**{row: 1.0 for row in LA.ROWS}, "n40": 1.15}}))
     (repo / LA.MADEUP_REPORT).parent.mkdir(parents=True)
     (repo / LA.MADEUP_REPORT).write_text(json.dumps({"t8_null": NULL}))
-    (top / "head").write_text("a path named head, as in this repository\n")
-    (top / "sessions").mkdir()
-    (top / "sessions" / "notes.md").write_text("the session's own files\n")
+    (top / "head").write_text("a path named head, which collides with HEAD on a case-insensitive disk\n")
+    (top / "elsewhere").mkdir()
+    (top / "elsewhere" / "notes.md").write_text("files outside this folder\n")
     _git(top, "init", "-q")
     run_commit = _commit(top, "the run's commit")
     _write_real_table(repo, "lead", run_commit)
@@ -274,9 +274,9 @@ def test_a_real_table_runs_when_every_condition_holds(repo):
     assert p["made-up-data report sha256"] == LT.sha256_file(repo / LA.MADEUP_REPORT)
     assert doc["delta_on"]["blocks"][1]["multiplier"] == 1.15  # the delta-on run at the same search length
     assert "F11" in {r["key"]: r for r in doc["main"]["step"]}[40]["flags"]
-    # the session's own files outside `vpd-audit-2/` do not make the tree dirty
-    (top / "sessions" / "notes.md").write_text("changed during the session\n")
-    (top / "sessions" / "new.md").write_text("untracked\n")
+    # files outside `vpd-audit-2/` do not make the tree dirty
+    (top / "elsewhere" / "notes.md").write_text("changed outside this folder\n")
+    (top / "elsewhere" / "new.md").write_text("untracked\n")
     _run(repo)
 
 
@@ -389,7 +389,7 @@ def test_refuses_when_a_per_text_file_is_not_the_one_the_core_file_records(repo)
     _refused(repo, "per_text_files_match_core_metadata")
 
 
-def test_refuses_an_incomplete_delta_on_table_without_the_pi_ruling(base_repo, tmp_path):
+def test_refuses_an_incomplete_delta_on_table_without_the_author_ruling(base_repo, tmp_path):
     top = tmp_path / "top"
     repo = top / "vpd-audit-2"
     shutil.copytree(base_repo / "vpd-audit-2", repo, ignore=shutil.ignore_patterns("s5_lead"))
@@ -399,17 +399,17 @@ def test_refuses_an_incomplete_delta_on_table_without_the_pi_ruling(base_repo, t
     _write_real_table(repo, "lead", run_commit)
     _commit(top, "the lead's table alone, after a spend stop")
     _refused(repo, "tables_complete_or_ruling", delta=False)
-    ruling = repo / "results" / "s5_lead" / "pi_ruling_delta_on.md"
-    ruling.write_text("The PI rules: analyse the lead without the delta-on run.\n")
-    _refused(repo, "git_tree_clean", delta=False, pi_ruling=ruling)
-    _commit(top, "the PI's ruling")
-    doc, _ = _run(repo, delta=False, pi_ruling=ruling)
+    ruling = repo / "results" / "s5_lead" / "author_ruling_delta_on.md"
+    ruling.write_text("The author rules: analyse the lead without the delta-on run.\n")
+    _refused(repo, "git_tree_clean", delta=False, author_ruling=ruling)
+    _commit(top, "the author's ruling")
+    doc, _ = _run(repo, delta=False, author_ruling=ruling)
     assert doc["delta_on"] == {"blocks": None, "note": LA.RULING_LINE}  # the summary is replaced by one fixed line
-    assert doc["provenance"]["PI ruling sha256"] == LT.sha256_file(ruling)
+    assert doc["provenance"]["author ruling sha256"] == LT.sha256_file(ruling)
     assert f"DELTA-ON SUMMARY\n  {LA.RULING_LINE}" in LR.render(doc)
     outside = tmp_path / "ruling.md"
     outside.write_text("not committed\n")
-    _refused(repo, "ruling_committed", delta=False, pi_ruling=outside)
+    _refused(repo, "ruling_committed", delta=False, author_ruling=outside)
     # an incomplete delta-on table that is given is no better than none
     _write_real_table(repo, "delta_on", run_commit, complete=False, seed=7)
     _commit(top, "an incomplete delta-on table")
@@ -417,7 +417,7 @@ def test_refuses_an_incomplete_delta_on_table_without_the_pi_ruling(base_repo, t
     # and an incomplete lead is refused whatever the ruling
     _write_real_table(repo, "lead", run_commit, complete=False)
     _commit(top, "an incomplete lead")
-    _refused(repo, "lead_table_complete", delta=False, pi_ruling=ruling)
+    _refused(repo, "lead_table_complete", delta=False, author_ruling=ruling)
 
 
 def test_refuses_without_the_committed_report_of_the_made_up_data_test(repo):

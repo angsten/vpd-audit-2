@@ -1,6 +1,6 @@
 # Erratum to `interval_spec.md`
 
-Daniel, session 5. Notes cannot be edited once written, so three corrections to `sessions/005/notes/daniel/interval_spec.md` are recorded here. The engineer should read them with the specification. None changes a formula of the interval itself.
+The specification as filed cannot be edited, so three corrections to `interval_spec.md` are recorded here and should be read with it. None changes a formula of the interval itself.
 
 ## 1. Check Scenario G1 Should Have Attack-Batch Effects Only
 
@@ -24,4 +24,4 @@ At search-length rows nothing is missing and the simple formulas of Section 6 ar
 
 ## 3. Three Symbols That Look Alike
 
-The specification uses $z_{ijs}$ for a cell's shuffled harm, $Z_{ij}$ for the table of linearized values in Section 5.2, and the draft's $z_D$ for the shuffled denominator's distance from zero. It also uses $w_c$ for a batch type's probability, $W_{ijs}$ for a linearized cell, and $w$ for an unwidened half-width. They are different things. In code I suggest names that cannot be confused, for example `shuf` for $z_{ijs}$, `lin_table` for $Z_{ij}$, `denom_z` for $z_D$, `type_weight` for $w_c$, `lin_cell` for $W_{ijs}$, and `half_width` for $w$.
+The specification uses $z_{ijs}$ for a cell's shuffled harm, $Z_{ij}$ for the table of linearized values in Section 5.2, and the draft's $z_D$ for the shuffled denominator's distance from zero. It also uses $w_c$ for a batch type's probability, $W_{ijs}$ for a linearized cell, and $w$ for an unwidened half-width. They are different things. In code we suggest names that cannot be confused, for example `shuf` for $z_{ijs}$, `lin_table` for $Z_{ij}$, `denom_z` for $z_D$, `type_weight` for $w_c$, `lin_cell` for $W_{ijs}$, and `half_width` for $w$.

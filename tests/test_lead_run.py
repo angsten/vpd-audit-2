@@ -1,9 +1,9 @@
-"""Session 5, plan 2, Section 6: the lead run on the tiny model, on a CPU.
+"""Plan 2 of the research log, Section 6: the lead run on the tiny model, on a CPU.
 
-Lena's T1 (a small arm end to end against a brute-force reference), T2 (the saved settings' steps), T14 (kill and
+The table specification's T1 (a small arm end to end against a brute-force reference), T2 (the saved settings' steps), T14 (kill and
 restart at three points), T15 (nothing printed, logged, or returned holds a harm), T16 (the delta-on arm); each guard
 G1 to G11 failing on its made-up input with a message that names it and carries no value; one commit; the per-text
-parts; the two bit-identity proofs of plan 2's Section 4; and the per-text wrapper (Lena's Section 6, items 1 and 3).
+parts; the two bit-identity proofs of plan 2 of the research log's Section 4; and the per-text wrapper (the table specification's Section 6, items 1 and 3).
 """
 
 from __future__ import annotations
@@ -71,7 +71,7 @@ def small_arm(fx):
     return {"units": units, "attack": attack, "heldout": heldout, "assembled": out, "table": LT.load_table(fx.tmp / "table")}
 
 
-# ----------------------------------------------------------------------------- plan 2, Section 4: the additions change nothing
+# ----------------------------------------------------------------------------- plan 2 of the research log, Section 4: the additions change nothing
 
 
 def test_the_per_text_wrapper_and_cumulative_gradients_leave_the_search_bit_identical(fx):
@@ -285,7 +285,7 @@ def test_T14_kill_and_restart_at_three_points_give_identical_table_bytes(fx, sma
 
 
 def test_G3_restart_stops_when_one_label_differs_by_one_unit(fx, small_arm, tmp_path):
-    """G3 (Lena's row): perturb one label by one unit after a restart, and the container stops. A finished unit rests on
+    """G3 (the table specification's row): perturb one label by one unit after a restart, and the container stops. A finished unit rests on
     a fingerprint the restarted container must reproduce bit for bit."""
     import shutil
 
@@ -636,8 +636,8 @@ def test_one_commit_the_assembler_refuses_units_of_two_commits(fx, small_arm, tm
 
 
 def test_parts_and_the_per_text_check_through_the_assembler(fx, small_arm, tmp_path):
-    """Plan 2, Section 6, "Parts": the loader refuses parts joined in the wrong order, and validate refuses a per-text
-    array whose mean disagrees with its core value. Both are plan 1's checks; here they are reached from an assembled table."""
+    """Plan 2 of the research log, Section 6, "Parts": the loader refuses parts joined in the wrong order, and validate refuses a per-text
+    array whose mean disagrees with its core value. Both are plan 1 of the research log's checks; here they are reached from an assembled table."""
     import shutil
 
     from vpd_audit_2.manifest import deterministic_npz
@@ -680,7 +680,7 @@ def test_configuration_is_asserted_in_a_deciding_container(fx, tmp_path):
 
 
 def test_rehearsal_mode_records_the_wrong_batch_refusals_and_still_writes_the_table(tmp_path):
-    """Plan 2, Section 7: one calibration batch on both sides. G6 must report every carried vector equal to the own-batch
+    """Plan 2 of the research log, Section 7: one calibration batch on both sides. G6 must report every carried vector equal to the own-batch
     one, the ids check must fail, and the table is written all the same."""
     fx2 = Fixture(tmp_path, arm="rehearsal", starts=(1,))
     units_a, units_h = tmp_path / "attack_units", tmp_path / "heldout_units"
@@ -703,7 +703,7 @@ def test_rehearsal_mode_records_the_wrong_batch_refusals_and_still_writes_the_ta
 
 
 def test_the_spend_stop_is_obeyed_between_units_and_a_relaunch_finishes_the_rest(fx, small_arm, tmp_path):
-    """Check C2's stop (Lena's Section 9.2): a container asked to stop finishes what it is on, returns `stopped`, and
+    """Check C2's stop (the table specification's Section 9.2): a container asked to stop finishes what it is on, returns `stopped`, and
     leaves whole files; a later launch skips them, does the rest, and the table's bytes are those of an unbroken run."""
     import shutil
 
@@ -754,7 +754,7 @@ def test_a_failure_crosses_from_a_container_to_the_launcher_with_its_name_and_no
     assert str(c) == "ValueError at lead_run.search_unit line 400 in container lead|attack|A1" and _no_value(str(c)) and _no_value(str(g))
 
 
-# ----------------------------------------------------------------------------- session 5, plan 4: what the reviews added
+# ----------------------------------------------------------------------------- plan 4 of the research log: what the reviews added
 
 TEXT_IDS = [[f"t{j}_{k}" for k in range(N_TEXTS)] for j in range(2)]
 
@@ -775,7 +775,7 @@ def _rewrite(path: Path, edit) -> None:
 
 
 def test_the_guards_only_pass_is_the_assemblers_reading_of_one_heldout_batch(fx, small_arm, tmp_path):
-    """Plan 4, Section 4.3: the assembler's cross-unit guards on one held-out batch's blocks against every attack search,
+    """Plan 4 of the research log, Section 4.3: the assembler's cross-unit guards on one held-out batch's blocks against every attack search,
     as true or false and nothing else. It needs no other held-out batch's units, and it writes nothing."""
     import shutil
 
@@ -821,7 +821,7 @@ def floats_in(x) -> bool:
 
 
 def test_a_blocks_labels_and_targets_are_its_heldout_batchs(fx, small_arm, tmp_path):
-    """Plan 4, Section 4.5 (Riku's review, Section 7): the assembler compares each block's fingerprint of labels and
+    """Plan 4 of the research log, Section 4.5 (the plan's review, Section 7): the assembler compares each block's fingerprint of labels and
     targets with its held-out batch's, so that the denominator and the carried cell are checked to rest on one tensor."""
     import shutil
 
@@ -837,7 +837,7 @@ def test_a_blocks_labels_and_targets_are_its_heldout_batchs(fx, small_arm, tmp_p
 
 
 def test_every_unit_file_is_the_one_its_container_returned(fx, small_arm, tmp_path):
-    """Plan 4, Section 6, row 2: the assembler checks each unit file's marker against the hash its container returned,
+    """Plan 4 of the research log, Section 6, row 2: the assembler checks each unit file's marker against the hash its container returned,
     so that a file another container deleted or rewrote after the return is seen."""
     import shutil
 
@@ -860,7 +860,7 @@ def test_every_unit_file_is_the_one_its_container_returned(fx, small_arm, tmp_pa
 
 
 def test_a_search_is_timed_by_part_and_the_timing_hook_saves_what_the_plain_hook_saves(fx, tmp_path, monkeypatch):
-    """Plan 4, Section 4.1: the end of preparation and the first search step are timed under their own names. The hook
+    """Plan 4 of the research log, Section 4.1: the end of preparation and the first search step are timed under their own names. The hook
     that notes the clock saves exactly what the plain hook saves, and the search with it is bit-identical."""
     prep = A.prepare(fx.model, fx.ids["A1"], "fp32", device=DEV)
     plain, timed = A.SaveHook(steps=(10, 20), thresholds=(0.5, 2.0)), LR.TimedHook(steps=(10, 20), thresholds=(0.5, 2.0))

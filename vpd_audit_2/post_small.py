@@ -1,32 +1,36 @@
-"""The 75 percent copies of the post's PNGs (the PI, session 7), shared by `post_figure`, `post_schematic`, and
-`post_interference`.
+"""The reduced copies of the post's PNGs, shared by `post_figure`, `post_schematic`, and `post_interference`.
 
-Each copy is the full-size PNG resampled (Lanczos) to 75 percent of its pixel dimensions and saved beside it with the
-suffix _75, so its layout and fonts are the full-size figure's exactly. Re-rendering at 150 dpi instead would not keep
-the layout: the font's pixel hinting makes text a little wider relative to the drawing at 150 dpi, and in Figure 1's
-post variant the diagonal label then runs into the legend's last line.
+Each copy is the full-size PNG resampled (Lanczos) to a share of its pixel dimensions and saved beside it with the
+percentage as a suffix (_75, _62, _50), so its layout and fonts are the full-size figure's exactly; its metadata records
+the full-size files' 200 dpi times the same share. Re-rendering at a lower dpi instead would not keep the layout: the
+font's pixel hinting makes text a little wider relative to the drawing, and in an earlier Figure 1 the diagonal label
+then ran into the legend's last line.
+
+The post shows Figure 1 at 62 percent and Figures 2 and 3 at 50 percent; Figure 1 and its registered form also have a
+75 percent copy.
 """
 
 from __future__ import annotations
 
 from pathlib import Path
 
-SCALE = 0.75
-SMALL_DPI = 150  # recorded in the copy's metadata: 75 percent of the full-size files' 200
+FULL_DPI = 200  # the full-size files' resolution
+SCALE = 0.75  # the default share
 
 
-def small_path(path: Path) -> Path:
-    """The 75 percent copy's path: the suffix _75 before .png."""
+def small_path(path: Path, scale: float = SCALE) -> Path:
+    """The copy's path: the percentage as a suffix before .png (_75 for 0.75)."""
     p = Path(path)
-    return p.with_name(f"{p.stem}_75{p.suffix}")
+    return p.with_name(f"{p.stem}_{round(100 * scale)}{p.suffix}")
 
 
-def save_small_copy(path: Path) -> Path:
-    """Write the 75 percent copy of the PNG at `path` beside it; return its path."""
+def save_small_copy(path: Path, scale: float = SCALE) -> Path:
+    """Write the copy of the PNG at `path`, resampled to `scale` of each dimension, beside it; return its path."""
     from PIL import Image
 
-    out = small_path(path)
+    out = small_path(path, scale)
+    dpi = round(FULL_DPI * scale)
     with Image.open(path) as im:
         w, h = im.size
-        im.resize((round(w * SCALE), round(h * SCALE)), Image.LANCZOS).save(out, dpi=(SMALL_DPI, SMALL_DPI))
+        im.resize((round(w * scale), round(h * scale)), Image.LANCZOS).save(out, dpi=(dpi, dpi))
     return out

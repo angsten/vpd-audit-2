@@ -1,5 +1,5 @@
 {
- "what": "The starts test (sessions/006/engineering/plan_1.md, Section 2.3): C1 to C8 from starts 9 to 13, each searched for 320 steps and scored on its own batch only, and C1 from start 1 as the guard. Harms in nats; a search's record holds its harm at the start and after each of its 320 steps; the own harms are its own-batch re-scores, per text, at the start and at each saved setting.",
+ "what": "The starts test (plan 1 of the research log, Section 2.3): C1 to C8 from starts 9 to 13, each searched for 320 steps and scored on its own batch only, and C1 from start 1 as the guard. Harms in nats; a search's record holds its harm at the start and after each of its 320 steps; the own harms are its own-batch re-scores, per text, at the start and at each saved setting.",
  "commit": "21c5c7b75e00ab26d0fd86481cfd4b39177a895b",
  "volume_folder": "/cache/s6_starts/units",
  "searches": [

@@ -1,7 +1,7 @@
-"""Session 5, plan 1, Section 5.4: the entry point of the lead experiment's analysis.
+"""Plan 1 of the research log, Section 5.4: the entry point of the lead experiment's analysis.
 
     uv run python -m vpd_audit_2.lead_analysis --lead <folder> [--delta-on <folder>] --out <folder>
-        [--multipliers <json>] [--madeup-report <json>] [--repair-note <file>] [--pi-ruling <file>]
+        [--multipliers <json>] [--madeup-report <json>] [--repair-note <file>] [--author-ruling <file>]
 
 One command reads a table, or the lead and delta-on tables together, validates, computes every row, and writes the
 record (`lead_records.json`), the printed tables (`lead_tables.txt`), and every statistic's bootstrap replicate values
@@ -13,7 +13,7 @@ the name of the check that failed, or the exception's type and the module and fu
 no digit, and never the exception's own text.
 
 A table is real if its metadata says so, or if any of its files lies under a folder named `sealed`. For a real table
-the command refuses to run unless every condition of plan 1, Section 5.4, holds (`check_real`). This command is what
+the command refuses to run unless every condition of plan 1 of the research log, Section 5.4, holds (`check_real`). This command is what
 lifts the seal. Nothing else in the repository may load a real table.
 """
 
@@ -37,7 +37,7 @@ from vpd_audit_2 import lead_table as LT
 
 REPO_ROOT = Path(__file__).resolve().parent.parent  # the `vpd-audit-2` folder
 # The analysis modules, which must be byte-identical between the run's commit and the commit the analysis runs at
-# (plan 1, Section 12.1, item 3). `pilot.py` is among them for `crossing`.
+# (plan 1 of the research log, Section 12.1, item 3). `pilot.py` is among them for `crossing`.
 ANALYSIS_MODULES = ("vpd_audit_2/lead_table.py", "vpd_audit_2/lead_intervals.py", "vpd_audit_2/lead_reading.py",
                     "vpd_audit_2/lead_analysis.py", "vpd_audit_2/pilot.py")
 FREEZE_DIR = "freeze"
@@ -48,7 +48,7 @@ RECEIPT = "receipt.json"
 ROWS = LT.STEP_ROWS + LT.LEVEL_ROWS
 MULTIPLIER_GRID = 0.05
 OUT_RECORDS, OUT_TEXT, OUT_REPLICATES = "lead_records.json", "lead_tables.txt", "lead_replicates.npz"
-RULING_LINE = "The delta-on run is not summarized: it is not complete, and the PI's ruling on it is on file."
+RULING_LINE = "The delta-on run is not summarized: it is not complete, and the author's ruling on it is on file."
 NO_DELTA_LINE = "No delta-on table was given."
 NO_SECOND_COPY_LINE = "Not computed: this made-up table carries no per-text harms."
 
@@ -144,8 +144,8 @@ def _receipt_path(folder: Path) -> Path:
 
 
 def check_real(repo_root: Path, tables: dict[str, dict[str, Any]], *, delta_given: bool, repair_note: Path | None,
-               pi_ruling: Path | None) -> dict[str, Any]:
-    """Every condition for reading a real table (plan 1, Section 5.4). Reads no harm. Returns what the output records."""
+               author_ruling: Path | None) -> dict[str, Any]:
+    """Every condition for reading a real table (plan 1 of the research log, Section 5.4). Reads no harm. Returns what the output records."""
     repo_root = Path(repo_root).resolve()
     top = git_top(repo_root)
     if top is None:
@@ -198,15 +198,15 @@ def check_real(repo_root: Path, tables: dict[str, dict[str, Any]], *, delta_give
         if not parts or any(listed.get(n) != h for n, h in parts.items()):
             raise Refusal("per_text_files_match_core_metadata")
 
-    # both tables complete, or the PI's ruling on the delta-on run
+    # both tables complete, or the author's ruling on the delta-on run
     if tables["lead"]["meta"].get("complete") is not True:
         raise Refusal("lead_table_complete")
     delta_complete = delta_given and tables["delta_on"]["meta"].get("complete") is True
     ruling_hash = None
-    if pi_ruling is not None:
-        if not is_committed(top, pi_ruling):
+    if author_ruling is not None:
+        if not is_committed(top, author_ruling):
             raise Refusal("ruling_committed")
-        ruling_hash = LT.sha256_file(Path(pi_ruling))
+        ruling_hash = LT.sha256_file(Path(author_ruling))
     if not delta_complete and ruling_hash is None:
         raise Refusal("tables_complete_or_ruling")
 
@@ -214,7 +214,7 @@ def check_real(repo_root: Path, tables: dict[str, dict[str, Any]], *, delta_give
     if not is_committed(top, repo_root / MADEUP_REPORT):
         raise Refusal("made_up_report_committed")
     return {"analysis_commit": head, "run_commit": run_commit, "multipliers": multipliers, "analysis_modules_changed_since_run": changed,
-            "repair_note_sha256": note_hash, "pi_ruling_sha256": ruling_hash, "use_delta_on": bool(delta_complete),
+            "repair_note_sha256": note_hash, "author_ruling_sha256": ruling_hash, "use_delta_on": bool(delta_complete),
             "null_range": read_null_range(repo_root / MADEUP_REPORT), "made_up_report_sha256": LT.sha256_file(repo_root / MADEUP_REPORT)}
 
 
@@ -294,7 +294,7 @@ def _validated(folder: Path, what: str) -> tuple[dict[str, Any], dict[str, Any] 
 
 
 def compute(lead_dir: Path, delta_dir: Path | None = None, *, multipliers_path: Path | None = None, madeup_report_path: Path | None = None,
-            repair_note: Path | None = None, pi_ruling: Path | None = None, repo_root: Path | None = None,
+            repair_note: Path | None = None, author_ruling: Path | None = None, repo_root: Path | None = None,
             B: int = LI.BOOTSTRAP_B) -> tuple[dict[str, Any], dict[str, np.ndarray]]:
     """Everything the command writes, in memory: the record and the replicate values."""
     repo_root = REPO_ROOT if repo_root is None else Path(repo_root)
@@ -309,7 +309,7 @@ def compute(lead_dir: Path, delta_dir: Path | None = None, *, multipliers_path: 
     real = any(LT.is_real(t["meta"], t["files"]) for t in tables.values())
 
     if real:
-        facts = check_real(repo_root, tables, delta_given=delta_dir is not None, repair_note=repair_note, pi_ruling=pi_ruling)
+        facts = check_real(repo_root, tables, delta_given=delta_dir is not None, repair_note=repair_note, author_ruling=author_ruling)
         multipliers, null_range, use_delta = facts["multipliers"], facts["null_range"], facts["use_delta_on"]
         delta_note = RULING_LINE if not use_delta else None
     else:
@@ -323,7 +323,7 @@ def compute(lead_dir: Path, delta_dir: Path | None = None, *, multipliers_path: 
             null_range = read_null_range(Path(madeup_report_path))
         top = git_top(Path(repo_root))
         facts = {"analysis_commit": head_commit(top) if top is not None else None, "run_commit": None, "repair_note_sha256": None,
-                 "pi_ruling_sha256": None, "analysis_modules_changed_since_run": [], "made_up_report_sha256": None}
+                 "author_ruling_sha256": None, "analysis_modules_changed_since_run": [], "made_up_report_sha256": None}
 
     lead, lead_second = _validated(folders["lead"], "lead table")
     replicates: dict[str, np.ndarray] = {}
@@ -377,7 +377,7 @@ def compute(lead_dir: Path, delta_dir: Path | None = None, *, multipliers_path: 
         "bootstrap": {str(k): {"B": v.B, "seed": list(v.seed), "indices_sha256": v.sha256} for k, v in indices.items()},
         "analysis modules changed since the run": facts["analysis_modules_changed_since_run"],
         "repair note sha256": facts["repair_note_sha256"],
-        "PI ruling sha256": facts["pi_ruling_sha256"],
+        "author ruling sha256": facts["author_ruling_sha256"],
         "made-up-data report sha256": facts["made_up_report_sha256"],
     }
     doc = json.loads(json.dumps(_plain(doc), allow_nan=False))
@@ -432,11 +432,11 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--multipliers", type=Path, default=None, help="made-up tables only; a real table reads the committed file")
     ap.add_argument("--madeup-report", type=Path, default=None, help="made-up tables only; a real table reads the committed report")
     ap.add_argument("--repair-note", type=Path, default=None)
-    ap.add_argument("--pi-ruling", type=Path, default=None)
+    ap.add_argument("--author-ruling", type=Path, default=None)
     args = ap.parse_args(argv)
     try:
         doc, replicates = compute(args.lead, args.delta_on, multipliers_path=args.multipliers, madeup_report_path=args.madeup_report,
-                                  repair_note=args.repair_note, pi_ruling=args.pi_ruling)
+                                  repair_note=args.repair_note, author_ruling=args.author_ruling)
         text = write_outputs(args.out, doc, replicates)
     except Exception as exc:  # noqa: BLE001  (every failure becomes one line that holds no number)
         print(failure_line(exc), file=sys.stderr)

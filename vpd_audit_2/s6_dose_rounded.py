@@ -1,4 +1,4 @@
-"""Session 6, plan 3, Section 9: the dose-response on the rounded off set. Added at the PI's request, as description;
+"""Plan 3 of the research log, Section 9: the dose-response on the rounded off set. Added at the author's request, as description;
 nothing here has a line. Committed before the launch.
 
     uv run python -m vpd_audit_2.s6_dose_rounded > results/s6_followups/dose_rounded.txt
@@ -12,8 +12,8 @@ string "0.25", "0.5", "0.75", or "0.9".
 
 Read as `s6_dose` reads Section 8. Per step and fraction: the pooled kept share, the sum over cells of (the harm - the
 saved start's harm) over the sum of (the saved carried harm - the saved start's harm), and the mean harm in nats over the
-cells. As f = 1, the rounded setting's figures from plan 2's control (d), not scored again: the builder at f = 1 is
-checked to reproduce the hash plan 2 recorded for each rounded pass. As f = 0, the all-ones harm (plan 2's `ones` pass,
+cells. As f = 1, the rounded setting's figures from plan 2 of the research log's control (d), not scored again: the builder at f = 1 is
+checked to reproduce the hash plan 2 of the research log recorded for each rounded pass. As f = 0, the all-ones harm (plan 2 of the research log's `ones` pass,
 one value per batch). At 320 steps, the kept share per batch at each f. The check units' outcomes, and the f = 1 hash
 check's, are printed first.
 """
@@ -32,7 +32,7 @@ from vpd_audit_2 import s6_read as R
 from vpd_audit_2 import s6_run as SR
 from vpd_audit_2 import s6_variants as V
 
-NOTE = "Added at the PI's request, as description (plan 3, Section 9); no line."
+NOTE = "Added at the author's request, as description (plan 3 of the research log, Section 9); no line."
 FRACTIONS = (0.0,) + B.DOSE_ROUNDED_FRACTIONS + (1.0,)
 PER_BATCH_ROW = "n320"
 
@@ -86,12 +86,12 @@ def dose_rounded(units: R.Units, plan2: R.Units, lead: dict[str, Any]) -> dict[s
 
 def report(res: dict[str, Any], chk: dict[str, Any], hc: dict[str, Any]) -> str:
     keys = [B.dose_key(f) for f in FRACTIONS]
-    L = ["A dose-response on the rounded off set, on cell set S4 (session 6, plan 3, Section 9). " + NOTE,
+    L = ["A dose-response on the rounded off set, on cell set S4 (plan 3 of the research log, Section 9). " + NOTE,
          "S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per step. The rounded off set is the setting's entries below one half",
          "(delta entries included). At fraction f, a random f of the off set is set to 0 and every other entry to 1; f = 1 is the rounded setting",
-         "(plan 2's control (d), not scored again), f = 0 is all ones (plan 2's ones pass).",
+         "(plan 2 of the research log's control (d), not scored again), f = 0 is all ones (plan 2 of the research log's ones pass).",
          "Kept share: the sum over cells of (harm - saved start harm) over the sum of (saved carried harm - saved start harm), as Section 8 is read.", "",
-         f"The f = 1 hash check: the builder at f = 1 reproduces the hash plan 2 recorded for the rounded pass in {hc['equal']} of {hc['compared']} cells, "
+         f"The f = 1 hash check: the builder at f = 1 reproduces the hash plan 2 of the research log recorded for the rounded pass in {hc['equal']} of {hc['compared']} cells, "
          f"and equals the rounded setting in {hc['settings_equal_to_rounded']} of {hc['settings']} settings.", "",
          "The checks, per batch (the full setting on the split's path and the flat path, and the start on the split's path):"]
     for h, x in chk.items():

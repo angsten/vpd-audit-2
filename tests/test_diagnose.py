@@ -1,4 +1,4 @@
-"""Plan 4's diagnostics on the tiny stand-in, on the CPU (where CUDA autocast is disabled, so "bf16" runs in float32):
+"""Plan 4 of the research log's diagnostics on the tiny stand-in, on the CPU (where CUDA autocast is disabled, so "bf16" runs in float32):
 D1's comparison, D2's four gradients, the run of one cell, the readings of D3 and D4, and D5's trace."""
 
 from __future__ import annotations
@@ -76,7 +76,7 @@ def test_perturbed_start_moves_one_entry_by_one_bf16_ulp(setup):
 
 
 def test_d4_reading_is_void_when_the_sources_match_and_the_harm_differs_in_its_last_bits():
-    """Plan 5, item 8: the case that occurred. The authors' sources are identical across permutations, while the harm
+    """Plan 5 of the research log, item 8: the case that occurred. The authors' sources are identical across permutations, while the harm
     readout differs in its last bits; the reading must be the void case, with the two flags reported apart."""
     base = [1.0 + 0.1 * k for k in range(321)]
     src = np.full((41, 5), 0.25, np.float32)
@@ -91,7 +91,7 @@ def test_d4_reading_is_void_when_the_sources_match_and_the_harm_differs_in_its_l
 
 
 def test_d3_reading_at_six_and_five_of_seven():
-    """Plan 5, item 9."""
+    """Plan 5 of the research log, item 9."""
     base = [float(k) for k in range(321)]
     g1 = {j: base for j in range(2, 9)}
     for n_up, reading in ((6, "suggestive; undetermined"), (5, "not shown")):
@@ -101,7 +101,7 @@ def test_d3_reading_at_six_and_five_of_seven():
 
 
 def test_perturbed_start_moves_down_when_up_would_reach_1(setup):
-    """Plan 5, item 10: every entry at 0.999, so x + ulp >= 1 and the entry moves down by its bf16 ulp, 2^-8."""
+    """Plan 5 of the research log, item 10: every entry at 0.999, so x + ulp >= 1 and the entry moves down by its bf16 ulp, 2^-8."""
     model, _, _ = setup
     high = {k: np.full((1, 1, model.module_to_c[k] + 1), 0.999, np.float32) for k in model.target_module_paths}
     s2, info = D.perturbed_start(high, 1)
@@ -113,7 +113,7 @@ def test_perturbed_start_moves_down_when_up_would_reach_1(setup):
 
 
 def test_departure_from_the_unperturbed_twin(setup):
-    """Plan 5, item 11: a one-ulp perturbed start departs from its twin, at a recorded step; a twin against itself does
+    """Plan 5 of the research log, item 11: a one-ulp perturbed start departs from its twin, at a recorded step; a twin against itself does
     not; and a change confined to the perturbed entry, with the harm unchanged, is not a departure."""
     model, ids, start = setup
     prep = A.prepare(model, ids, "bf16", device=DEV)

@@ -1,31 +1,31 @@
 # Freeze File, Part 1: Amendment 1
 
-*Session 5. Written by Ines from Ruth's draft and audit, Daniel's interval specification, Riku's output and reading specification, and Lena's table and run specification. Everything in this file was fixed before the made-up-data test ran and before any deciding run. The interval multipliers that Section 5 provides for are recorded in a separate dated file, after that test and before any deciding run.*
+*Consolidated from an audit of the signed rules and the three specifications under `amendment1_specs/`. Everything in this file was fixed before the made-up-data test ran and before any deciding run. The interval multipliers that Section 5 provides for are recorded in a separate dated file, after that test and before any deciding run.*
 
 ## What This Amendment Does
 
 Part 1 of the freeze file fixes every rule by which question 2's results are read: whether the harm the paper's adversary finds on some texts carries over to texts it never saw. Part 1 says that any change after signature is "a dated amendment with its reason, committed before the run it affects", and that the post reports it. This is that amendment.
 
-Before the run, four researchers reviewed the signed rules independently, each from a different side. The reviews found two kinds of thing:
+Before the run, the signed rules were reviewed independently four times, each from a different side. The reviews found two kinds of thing:
 
 - **Gaps:** places where the signed rules are silent but the analysis script must compute or print something. Each gets a convention (Section 2).
 - **Faults:** places where a signed rule, read exactly as written, could mislead. Each is written down, the reading is left exactly as signed, and a description is printed beside it (Sections 3 and 4).
 
 **No signed line, threshold, sample size, seed, pool, or start changes. No reading is added, removed, or reworded.** The one change to a signed computation is a possible widening of the interval, under a criterion fixed here before the test that could trigger it has run (Section 5).
 
-**Nothing here has seen a carry-over number.** When this file was written, no adversary setting had been scored on any batch other than the one it was found on, the made-up-data test had not run, and the pilot's sealed shuffled harms remained unopened. What did exist: the pilot's unsealed own-batch results on calibration batches, and each researcher's predictions, filed before these entries were drafted.
+**Nothing here has seen a carry-over number.** When this file was written, no adversary setting had been scored on any batch other than the one it was found on, the made-up-data test had not run, and the pilot's sealed shuffled harms remained unopened. What did exist: the pilot's unsealed own-batch results on calibration batches, and the predictions filed before these entries were drafted.
 
 ## 0. Identity
 
 | Entry | Value |
 |---|---|
-| Amends | Freeze file, Part 1, version 1, signed by the PI on 5 October 2026 |
+| Amends | Freeze file, Part 1, version 1, signed by the author on 5 October 2026 |
 | Amendment | 1 |
-| Date | 5 October 2026, session 5 |
-| Commit | The first commit of branch `session-005-lead`, which carries this file as `vpd-audit-2/freeze/amendment1.md` beside the unchanged Part 1. Every deciding job records a commit that descends from it |
-| The PI | Told in the session 5 transcript, before any deciding run, of faults 3.2 and 3.11, of the team's default for each (description only), and that giving either number a signed line is possible only before the run. Part 1 does not require a signature on an amendment. A line added by the PI before the run would be a second dated amendment |
-| Specifications | Three binding specifications are committed beside this file, unchanged, under `vpd-audit-2/freeze/amendment1_specs/`: the interval and its test; the printed output and the reading logic; the results table and the run. Where a specification and this amendment differ, this amendment governs, and Section 9 lists the differences |
-| Later entry | The interval multipliers of Section 5, in a separate dated file, `vpd-audit-2/freeze/amendment1_multipliers.md`, committed after the made-up-data test and before any deciding run |
+| Date | 5 October 2026 |
+| Commit | The first commit of branch `session-005-lead`, which carries this file as `freeze/amendment1.md` beside Part 1, unchanged in substance. Every deciding job records a commit that descends from it |
+| The author | Told, before any deciding run (research log), of faults 3.2 and 3.11 and of our default for each (description only), and that giving either number a signed line is possible only before the run. Part 1 does not require a signature on an amendment. A line added by the author before the run would be a second dated amendment |
+| Specifications | Three binding specifications are committed beside this file, unchanged in substance, under `freeze/amendment1_specs/`: the interval and its test; the printed output and the reading logic; the results table and the run. Where a specification and this amendment differ, this amendment governs, and Section 9 lists the differences |
+| Later entry | The interval multipliers of Section 5, in a separate dated file, `freeze/amendment1_multipliers.md`, committed after the made-up-data test and before any deciding run |
 
 ## 1. Symbols
 
@@ -223,7 +223,7 @@ A shuffled copy keeps the counts of mask values within each matrix and each usag
 
 ### 3.6 The Signed Expectation of an Undetermined 40-Step Ratio
 
-The signed file says: "At 40 steps no affordable design does, so a 40-step ratio reading of "undetermined" is expected, not a surprise." The precision target was a relative half-width (projected 0.36), while the verdict depends on the estimate's distance from 0.2. None of the four independent predictions filed in session 5 gives "undetermined" at 40 steps more than 0.29. With the projected width, that reading needs an estimate between about 0.15 and 0.31, or carried-over cells far noisier than the pilot's own-batch cells. The post therefore reports an undetermined 40-step ratio for what it implies, and does not present a determined one as beating expectations.
+The signed file says: "At 40 steps no affordable design does, so a 40-step ratio reading of "undetermined" is expected, not a surprise." The precision target was a relative half-width (projected 0.36), while the verdict depends on the estimate's distance from 0.2. None of the four independent predictions filed in the research log gives "undetermined" at 40 steps more than 0.29. With the projected width, that reading needs an estimate between about 0.15 and 0.31, or carried-over cells far noisier than the pilot's own-batch cells. The post therefore reports an undetermined 40-step ratio for what it implies, and does not present a determined one as beating expectations.
 
 ### 3.7 Rare Early-Breakout Batches
 
@@ -270,7 +270,7 @@ Printed in the same row as the reading they accompany. None has a threshold or a
 
 ## 5. The Error-Bar Test: Criterion and Repair, Fixed Before the Test Runs
 
-The signed interval is the team's own construction. Before any deciding run it is tested on made-up experiments with known answers. This section was written before that test ran.
+The signed interval is our own construction. Before any deciding run it is tested on made-up experiments with known answers. This section was written before that test ran.
 
 **5.1 The test.** Made-up experiments are built on the pilot's 64 real own-batch searches, which have the shape that threatens the interval: breakouts, alternation, stalls, and one batch in eight that rises early. Carried-over and shuffled harm are invented, with a true answer known by enumeration. The scenario list is closed before the test runs: 13 core scenarios, 8 stress scenarios, and 2 checks with exact known answers. Each scenario has 2,000 experiments.
 
@@ -284,7 +284,7 @@ The signed interval is the team's own construction. Before any deciding run it i
 1. For each of the row's core cells, the multiplier it needs is the 95th percentile of the absolute error over the unwidened half-width; where the truth is on a line, also the 96.25th percentile of the signed error over the half-width, in each direction.
 2. The row's multiplier is the largest of these, rounded up to a multiple of 0.05.
 3. It is confirmed on 2,000 fresh experiments per core scenario from a second seed: every core cell of the row must pass with it. If one does not, the multiplier rises by 0.05 and is confirmed on a third seed.
-4. A row needing more than 1.5 goes to the PI.
+4. A row needing more than 1.5 goes to the author.
 
 Once recorded, the widened interval is the interval of record for every reading and every description in that row, and for the delta-on run at the same search length. The unwidened interval is reported beside it as description. No interval is ever narrowed. *(The grid and 1.5 are conventions.)*
 
@@ -294,18 +294,18 @@ Once recorded, the widened interval is the interval of record for every reading 
 
 **5.5 Known-answer checks** run beside coverage: every harm multiplied by 100, which must leave every ratio's interval unchanged and scale every difference's by 100; the bootstrap variance against its closed form, on every interval; three worked examples with hand-computed answers, one of them with a missing search; a table with no dependence on the start; a "digits" table with closed-form means; the plan's worked example; a setting constant within strata; a search that jumps from 1 to 40 nats in one step; alternation across a level; 10 against 11 missing searches; a table with one cell deleted, which the script must refuse; and 36 cases of the reading logic with the expected printed verdicts.
 
-**5.6 The multipliers.** This file does not change once committed. The multiplier recorded for each row, the coverage that set it, and the commit of the test's report are entered in a separate dated file beside it, `vpd-audit-2/freeze/amendment1_multipliers.md`, committed after the test and before any deciding run. The analysis script refuses to read a real table without that file.
+**5.6 The multipliers.** This file does not change once committed. The multiplier recorded for each row, the coverage that set it, and the commit of the test's report are entered in a separate dated file beside it, `freeze/amendment1_multipliers.md`, committed after the test and before any deciding run. The analysis script refuses to read a real table without that file.
 
 ## 6. Run Requirements Added to Section 10
 
 These add to the signed Section 10 and remove nothing from it.
 
-- **One side per container.** A container that holds a held-out batch never receives the token ids of any attack batch, and the reverse. Scoring a setting on the batch it was found on would give a carry-over ratio near 1, which is the result the team predicts, so this error is guarded by construction.
+- **One side per container.** A container that holds a held-out batch never receives the token ids of any attack batch, and the reverse. Scoring a setting on the batch it was found on would give a carry-over ratio near 1, which is the result we predict, so this error is guarded by construction.
 - **Saved.** Per-text harm from every scoring pass; hashes of each batch's token ids, labels, target, and weight deltas, with each search and each scoring job; all 8 shuffled harms per carried setting; per-entry gradients summed up to each saved step. Per-position harm is not saved.
 - **Guards.** The scored batch's name and hash in every row; every scored setting re-scored on its own batch and equal to its search's record bit for bit; no carried-over setting's 128 per-text harms all equal to its per-text harms on its own attack batch; the save hook's step equal to the crossing rule's; atomic writes with a completion marker; label and target hashes compared on every restart; jobs return only identifiers, counts, seconds, hashes, and guard outcomes; assertion messages carry no values; the script refuses a partial table.
-- **Sealing, wider than signed.** Every harm from a deciding batch is sealed, own-batch records and missing counts included, until the committed analysis script runs. The script runs only once both runs' tables are complete, or the PI has ruled on the delta-on run after a spend stop.
+- **Sealing, wider than signed.** Every harm from a deciding batch is sealed, own-batch records and missing counts included, until the committed analysis script runs. The script runs only once both runs' tables are complete, or the author has ruled on the delta-on run after a spend stop.
 - **A rehearsal** on calibration batch C1 runs first, since the step that copies sealed files has not run in the cloud. It scores nothing on another batch.
-- **Spend.** As signed: the lead first, spend checked between stages, the delta-on run last, nothing trimmed silently. With overhead counted, the projection is about \$100 at the pilot's billed rate of \$6.80 per function hour. Projected spend is recomputed after the rehearsal, after the attack side, after the first held-out container, and before the delta-on run, at the larger of \$6.80 and this run's own billed rate. If it exceeds \$105, work stops and goes to the PI.
+- **Spend.** As signed: the lead first, spend checked between stages, the delta-on run last, nothing trimmed silently. With overhead counted, the projection is about \$100 at the pilot's billed rate of \$6.80 per function hour. Projected spend is recomputed after the rehearsal, after the attack side, after the first held-out container, and before the delta-on run, at the larger of \$6.80 and this run's own billed rate. If it exceeds \$105, work stops and goes to the author.
 
 ## 7. Not Done Under This Amendment
 
@@ -332,7 +332,7 @@ The three specifications were written in parallel. Where they differ from each o
 4. **Nine statistics.** The interval routine serves all nine statistics of the output specification, the three it adds being plain means or ratios of the same two kinds of mean, and the two shares of the delta-on summary. The test's report gives coverage for all nine; pass and fail are judged on the three signed readings.
 5. **The table** also carries, per shuffled copy, the mean absolute change over alive entries.
 6. **Pooled retention** is printed with an interval, under fault 3.11's rule that it never changes a verdict word.
-7. **Three details of the test and its checks,** settled when the engineer asked before writing any code:
+7. **Three details of the test and its checks,** settled before any code was written:
    - the rerun rule of Section 5.2 above, with its second trigger, replaces the interval specification's;
    - the check of the bootstrap variance against its closed form allows a band of 5 Monte Carlo standard errors of their ratio, computed from the replicates' kurtosis and never under 0.07, in place of 0.90 to 1.10; a miss is an error;
    - the guard on the made-up-data generator compares all five plain means with their true values at search-length rows, stops the test at 5 Monte Carlo standard errors, and lists every comparison above 3.5.

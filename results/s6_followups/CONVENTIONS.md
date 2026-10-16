@@ -1,12 +1,12 @@
-# Conventions for Session 6's Follow-Up Analyses, Fixed Before Anyone Looks
+# Conventions for the Follow-Up Analyses, Fixed Before Anyone Looks
 
-Session 6, 7 October 2026, draft 2 after the team's objection round. One sentence or paragraph of convention per analysis, as the PI asked, consolidated by the head from the four researchers' proposals (`sessions/006/notes/*/conventions.md`). Nothing here moves a signed line. The signed lines are in `vpd-audit-2/freeze/part1.md`, line 113: the token-level split's one half, the exploited components' 90 percent, and the pin test's trigger. Everything else below is description with no line. The engineer commits this file to the code repository as `vpd-audit-2/results/s6_followups/CONVENTIONS.md` before any analysis runs, and its commit hash is quoted in the checkpoint.
+7 October 2026, second draft after a round of objections. One sentence or paragraph of convention per analysis, as the author asked, consolidated from four independent proposals (research log). Nothing here moves a signed line. The signed lines are in `freeze/part1.md`, line 113: the token-level split's one half, the exploited components' 90 percent, and the pin test's trigger. Everything else below is description with no line. This file is committed as `results/s6_followups/CONVENTIONS.md` before any analysis runs, and its commit hash is recorded in the research log.
 
-**Terms.** A **setting** is one value per component, 38,912 rank-one entries and 24 delta entries. A search's **start** $s^0$ is its random starting setting. A setting's **added harm** on a batch is its harm minus the start's harm on that batch. A **cell** is one attack batch, one held-out batch, and one start. The **strata** are the shuffle's: within each weight matrix, ten usage bands of the alive components (mean label above $10^{-6}$ on the first post's 1,024 texts) and the never-needed components as an eleventh; the 24 delta entries are a twelfth group where a convention needs one. A label is **zero** when its float32 value is exactly 0.0; the label is the pre-activation clamped to [0, 1], so this is its literal output wherever the pre-activation is at or below zero (`vpd_audit_2/labels.py`, line 148). **Pooled** means a ratio of means over cells, as the carry-over ratio is pooled (session 5 checkpoint, Appendix A).
+**Terms.** A **setting** is one value per component, 38,912 rank-one entries and 24 delta entries. A search's **start** $s^0$ is its random starting setting. A setting's **added harm** on a batch is its harm minus the start's harm on that batch. A **cell** is one attack batch, one held-out batch, and one start. The **strata** are the shuffle's: within each weight matrix, ten usage bands of the alive components (mean label above $10^{-6}$ on the first post's 1,024 texts) and the never-needed components as an eleventh; the 24 delta entries are a twelfth group where a convention needs one. A label is **zero** when its float32 value is exactly 0.0; the label is the pre-activation clamped to [0, 1], so this is its literal output wherever the pre-activation is at or below zero (`vpd_audit_2/labels.py`, line 148). **Pooled** means a ratio of means over cells, as the carry-over ratio is pooled (research log, Appendix A).
 
 ## 1. The Starts Test
 
-Fixed in the session 5 checkpoint, Appendix G, and in `sessions/006/engineering/plan_1.md`. Two descriptions are added at the team's suggestion, deciding nothing: each search's breakout step, the first step at which its two-step mean harm reaches 5 nats; and each start's 24 delta-entry values.
+Fixed in the research log (Appendix G) and in plan 1 of the research log. Two descriptions are added at our suggestion, deciding nothing: each search's breakout step, the first step at which its two-step mean harm reaches 5 nats; and each start's 24 delta-entry values.
 
 ## 2. The Token-Level Split (signed line: one half)
 
@@ -72,11 +72,11 @@ Fixed in the session 5 checkpoint, Appendix G, and in `sessions/006/engineering/
 
 ## 10. The First Post's Comparison Rerun
 
-Its rules were fixed in the session 4 checkpoint, Appendix G.2, and nothing is added. Its texts are released by the PI's decision of this session. It runs last.
+Its rules were fixed in the research log, Appendix G.2, and nothing is added. Its texts are released by the author's decision. It runs last.
 
 ## 11. Hypotheses on File Before the Data
 
-The four researchers filed hypotheses independently (`sessions/006/notes/*/conventions.md`), and they converge on three, with a fourth from Ruth. They are recorded here with the readings that would tell them apart, so that the results are read against them rather than fitted to them. They are not exclusive; the shares would say how much of each.
+Four independent sets of hypotheses were filed (research log); they converge on three, and one set adds a fourth. They are recorded here with the readings that would tell them apart, so that the results are read against them rather than fitted to them. They are not exclusive; the shares would say how much of each.
 
 | Hypothesis | What it says | Favoured by | Disfavoured by | Cheap test proposed |
 |---|---|---|---|---|
@@ -85,11 +85,11 @@ The four researchers filed hypotheses independently (`sessions/006/notes/*/conve
 | **C. Training's adversary was too local and too weak to reach the flaw** | One source per position, three small steps per batch, one text's gradient at a time, ending training at 0.57 nats, before breakout; the shared search pools 65,536 positions per step. An account of the search, which combines with A or B | A large count; entries at the bounds; most texts; low agreement across starts; the pin test's fresh search finding a second set | A few heavy components, which a per-position adversary would have seen | Run training's own adversary against the frozen released decomposition and record whether it ever breaks out; or run the shared search on one document and carry it, to see whether a per-document adversary would have seen the flaw |
 | **D. Cross-matrix combinations were never defended** | If training masked a random subset of the 24 matrices per step (the paper's line 2169), combinations needing several matrices at once were rarely presented | Exploited components spread over many matrices (weak) | Exploited components in one or two matrices | Apply the setting to one matrix at a time, the rest at the start, 24 passes per cell on a few cells |
 
-Two facts to settle before the plain page leans on them: whether the released run's training adversary routed all 24 matrices or a random subset (the paper's line 2169 says a subset; `adversary.py`'s docstring and, unverified, the authors' `persistent_pgd.py` suggest all); and whether any completed run trained with the per-document adversary exists: the one reference run whose configuration was read (`p-8383f5e5`) trained with per-position settings, and the per-document form appears only in a newer configuration file (Daniel's note, Section 7), so the post may not imply a decomposition trained that way exists unless one is found.
+Two facts to settle before the plain page leans on them: whether the released run's training adversary routed all 24 matrices or a random subset (the paper's line 2169 says a subset; `adversary.py`'s docstring and, unverified, the authors' `persistent_pgd.py` suggest all); and whether any completed run trained with the per-document adversary exists: the one reference run whose configuration was read (`p-8383f5e5`) trained with per-position settings, and the per-document form appears only in a newer configuration file (research log, Section 7), so the post may not imply a decomposition trained that way exists unless one is found.
 
 ## 12. Order of Reading
 
-The PI's order: the starts test; the token-level split; the on-or-off histogram; exploited components and whether they are off or on; the spread over texts; then the rest. Section 8's controls and Section 7's agreement are read last. The engineer reports every number in full; the team reads them against Section 11.
+The author's order: the starts test; the token-level split; the on-or-off histogram; exploited components and whether they are off or on; the spread over texts; then the rest. Section 8's controls and Section 7's agreement are read last. Every number is reported in full and read against Section 11.
 
 ## Addendum, 7 October 2026, after the histogram and before any GPU result
 
@@ -97,4 +97,4 @@ Three small changes, all description, prompted by the histogram. Nothing else ch
 
 1. **Section 5, off and on parts.** The histogram shows that from 80 steps about one entry in ten sits one step from a bound (in [0.1, 0.2) or [0.8, 0.9)), alternating with it. So at 320 steps only, beside the exact-bound parts, compute two variants at every grid $k$: an off part counting entries at most 0.1 and an on part counting entries at least 0.9, read the same way. About 150 passes per held-out container.
 2. **Section 8(d), the second rounding variant.** Nothing in the saved settings is untouched, so the moved-only variant is nearly plain rounding. Replace it with a snap variant: entries at most 0.2 go to 0, entries at least 0.8 go to 1, and every other entry keeps its value. Same cell set and cost as before.
-3. **Section 7, agreement (plan 3, CPU).** Beside the committed same-start chance level, print a chance level computed within deciles of the shared start value, since at 20 and 40 steps entries not yet at a bound still lean toward their start.
+3. **Section 7, agreement (plan 3 of the research log, CPU).** Beside the committed same-start chance level, print a chance level computed within deciles of the shared start value, since at 20 and 40 steps entries not yet at a bound still lean toward their start.

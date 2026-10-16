@@ -1,4 +1,4 @@
-"""Session 7, plan 6: the three-arm experiment's computation (`sessions/007/notes/riku/three_arm_spec_v2.md` with the
+"""Plan 6 of the research log: the three-arm experiment's computation (the experiment's specification (research log) with the
 plan's eight amendments). Training's persistent adversary, the authors' own state class at the tag
 (`param_decomp/persistent_pgd.py` at 74146b5, arithmetically the run commit 85c6b70's for the released configuration),
 run against the released decomposition held frozen. Only the sources move.

@@ -1,4 +1,4 @@
-"""Report 3's printout of B1's original-label arm reads the original arm only: its output does not change when every
+"""Report 3 of the research log's printout of B1's original-label arm reads the original arm only: its output does not change when every
 freed-arm, J, G, and stochastic value changes, and its set means and SDs are what they say."""
 
 from __future__ import annotations

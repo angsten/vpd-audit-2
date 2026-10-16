@@ -1,4 +1,4 @@
-"""Session 7, plan 6: the three-arm computation (`vpd_audit_2/three_arm.py`) on the tiny model.
+"""Plan 6 of the research log: the three-arm computation (`vpd_audit_2/three_arm.py`) on the tiny model.
 
   - The configs: the released values, the warm-up removed, the three scopes.
   - The per-document scope's source shape, and its gradient pooled over positions: the sum of the per-position

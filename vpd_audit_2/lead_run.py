@@ -1,7 +1,7 @@
-"""Session 5, plan 2: the lead run's units, guards, and assembler.
+"""Plan 2 of the research log: the lead run's units, guards, and assembler.
 
-The binding specification is `freeze/amendment1_specs/table_and_run_spec.md` ("Lena's specification") with its erratum,
-as plan 2 (`sessions/005/engineering/plan_2.md`) corrects it; Amendment 1's Section 6 adds the run requirements.
+The binding specification is `freeze/amendment1_specs/table_and_run_spec.md` ("the table specification") with its erratum,
+as plan 2 of the research log corrects it; Amendment 1's Section 6 adds the run requirements.
 
 One container handles one batch of one arm. A container for a held-out batch never receives the token ids of any
 attack batch, and the reverse: it reads the attack searches' saved settings from the volume, never their text.
@@ -10,9 +10,9 @@ attack batch, and the reverse: it reads the attack searches' saved settings from
   - A scoring block (`scoring_block`) is one attack search's scored settings, and the 8 shuffled copies of those that
     have them, scored on the container's held-out batch.
   - `attack_job` and `heldout_job` are what a container runs. A restart skips finished units.
-  - `assemble` builds an arm's table from the unit files, in plan 1's format (`lead_table`), and writes it.
+  - `assemble` builds an arm's table from the unit files, in plan 1 of the research log's format (`lead_table`), and writes it.
 
-Sealing (plan 2, Section 5.2). Every file a unit writes is sealed: records, settings, steps, hashes, gradients,
+Sealing (plan 2 of the research log, Section 5.2). Every file a unit writes is sealed: records, settings, steps, hashes, gradients,
 re-scores, and harms. A job returns, per unit, its identifier, one SHA-256 of its file, and guard outcomes as true or
 false; and per container its seconds. Nothing here prints: every message goes through `Log`, which accepts those
 fields and no others. A failed guard raises `GuardFailure`, whose message names the guard and the unit and carries no
@@ -42,7 +42,7 @@ from vpd_audit_2 import lead_table as LT
 from vpd_audit_2 import pilot as P
 
 STARTS = (9, 10, 11, 12, 13)  # signed, Section 2: question 2's deciding runs; the run refuses any other
-REHEARSAL_STARTS = (1,)  # plan 2, Section 3: the rehearsal alone uses pilot start 1
+REHEARSAL_STARTS = (1,)  # plan 2 of the research log, Section 3: the rehearsal alone uses pilot start 1
 N_STEPS = 320
 STEP = 0.1
 HOOK_STEPS = P.BUDGETS  # the hook saves the setting after step n and n - 1 for each of these
@@ -234,7 +234,7 @@ class Context:
 
 
 def check_configuration(ctx: Context, starts: tuple[int, ...]) -> None:
-    """Lena's Section 4.5: the signed Section 0's configuration, asserted in every container. The rehearsal uses pilot
+    """The table specification's Section 4.5: the signed Section 0's configuration, asserted in every container. The rehearsal uses pilot
     start 1 and is held to everything else; the tiny model's tests run on a CPU and are held to none of it."""
     if ctx.mode == "test":
         return
@@ -402,7 +402,7 @@ def _tick_search(ctx: Context, began: float, ended: float, at: list[float]) -> N
 
 def search_unit(model: Any, prep: A.Prepared, ctx: Context, side: str, batch: str, start_index: int, start: dict[str, np.ndarray],
                 batch_ids_sha: str, prep_fp: str) -> dict[str, Any]:
-    """One search and its own-batch re-scores (Lena's Sections 4.1 and 4.2)."""
+    """One search and its own-batch re-scores (the table specification's Sections 4.1 and 4.2)."""
     unit = f"search|{ctx.arm}|{batch}|s{start_index}"
     path = search_file(ctx.units, batch, start_index)
     if finished(path):
@@ -482,7 +482,7 @@ def search_unit(model: Any, prep: A.Prepared, ctx: Context, side: str, batch: st
 def scoring_block(model: Any, prep: A.Prepared, ctx: Context, heldout: str, attack: str, start_index: int, strata: dict[str, np.ndarray],
                   batch_ids_sha: str, prep_fp: str) -> dict[str, Any]:
     """One attack search's scored settings, and the 8 shuffled copies of those that have them, on this held-out batch
-    (Lena's Sections 4.1 and 4.3). Reads the attack search's settings from the volume; never its text."""
+    (the table specification's Sections 4.1 and 4.3). Reads the attack search's settings from the volume; never its text."""
     unit = f"block|{ctx.arm}|{heldout}|{attack}|s{start_index}"
     path = block_file(ctx.units, heldout, attack, start_index)
     if finished(path):
@@ -588,7 +588,7 @@ def _commit(ctx: Context, after: str, wrote: bool) -> None:
 
 
 def job_return(ctx: Context, container: str, units: list[dict[str, Any]], expected: int, stopped: bool) -> dict[str, Any]:
-    """What a job returns (plan 2, Section 5.2): the container's name; per unit, its identifier, one SHA-256 of its
+    """What a job returns (plan 2 of the research log, Section 5.2): the container's name; per unit, its identifier, one SHA-256 of its
     file, guard outcomes as true or false, and whether it was skipped; counts of units; the container's seconds; and
     the environment record. Nothing else: no per-setting hash, no pass count, no file size, no timing finer than the
     container. Timings by kind, and the count of its own unfinished files a restarted container deleted, are added for
@@ -653,7 +653,7 @@ NOTICE = ("DO NOT OPEN. Every file in this folder holds harms from the lead expe
           "analysis script, `vpd_audit_2/lead_analysis.py`, runs on the complete tables (freeze/part1.md, Section 10, item 4;\n"
           "freeze/amendment1.md, Section 6). Nothing else may load, list the contents of, or print from these files.\n")
 # What only a rehearsal's spec may carry: the override of the pool check, unit folders of its own, a shorter search, and
-# the two triggers (plan 4, Section 6, rows 2 and 3).
+# the two triggers (plan 4 of the research log, Section 6, rows 2 and 3).
 REHEARSAL_ONLY = ("allow_pool", "attack_units", "n_steps", "stop_after_first_unit", "kill_at", "kill_after", "kill_key")
 
 
@@ -670,7 +670,7 @@ def check_spec(spec: dict[str, Any], has_trigger: bool) -> None:
 
 
 def rehearsal_trigger(spec: dict[str, Any], *, set_stop: Callable[[], None], kill: Callable[[], None]) -> Callable[[str], None] | None:
-    """A rehearsal's two triggers (plan 4, Section 6, rows 2 and 3), as the hook a container calls at its named points;
+    """A rehearsal's two triggers (plan 4 of the research log, Section 6, rows 2 and 3), as the hook a container calls at its named points;
     `None` for a spec that asks for neither, as every deciding spec must.
 
       - `stop_after_first_unit`: after its first unit the container sets the run's stop flag (`set_stop`), as the
@@ -732,7 +732,7 @@ def compare_with_pilot(path: Path, pilot: dict[str, Any]) -> dict[str, bool]:
 
 def compare_search_units(a: Path, b: Path) -> dict[str, bool]:
     """Two search units of the same batch and start, from two containers: the record, the saved settings, and the
-    fingerprint of labels and targets, each bit for bit (the rehearsal, plan 2, Section 7)."""
+    fingerprint of labels and targets, each bit for bit (the rehearsal, plan 2 of the research log, Section 7)."""
     with np.load(a, allow_pickle=False) as za, np.load(b, allow_pickle=False) as zb:
         same_names = [str(x) for x in za["hook_names"]] == [str(x) for x in zb["hook_names"]]
         return {"record_equal": bool(za["record"].tobytes() == zb["record"].tobytes()),
@@ -838,7 +838,7 @@ def _gather(units: Path, arm: str, attack: list[str], heldout: list[str], starts
                     raise GuardFailure("unit_names", name)
                 commits.add(m["commit"])
                 g10 = g10 and m["attack_file_sha256"] == search_sha[(ab, start)]
-                # the carried cell and the denominator used the same labels and targets (plan 4, Section 4.5)
+                # the carried cell and the denominator used the same labels and targets (plan 4 of the research log, Section 4.5)
                 same_fp = same_fp and m["prep_fp"] == H_["prep_fp"][j]
                 block_ids[i, j, s] = m["block_ids_sha"]
                 for k, setting in enumerate(str(x) for x in u["names"]):
@@ -873,7 +873,7 @@ def _gather(units: Path, arm: str, attack: list[str], heldout: list[str], starts
 
 def cross_unit_guards(units: Path, arm: str, attack: list[str], heldout: list[str], starts: list[int], *, expect_commit: str | None = None,
                       rehearsal: bool = False, heldout_units: Path | None = None) -> dict[str, bool]:
-    """The guards-only pass (session 5, plan 4, Section 4.3): the assembler's cross-unit guards on the listed held-out
+    """The guards-only pass (plan 4 of the research log, Section 4.3): the assembler's cross-unit guards on the listed held-out
     batches' blocks against the attack searches, each as true or false. It is the assembler's own reading of the units,
     stopped before any table is built; nothing is written and nothing but the guards' names and outcomes is returned."""
     return dict(_gather(units, arm, attack, heldout, starts, expect_commit=expect_commit, rehearsal=rehearsal, heldout_units=heldout_units,
@@ -884,7 +884,7 @@ def assemble(units: Path, out_dir: Path, arm: str, attack: list[str], heldout: l
              excluded: list[dict[str, Any]], inputs_sha256: dict[str, str], containers: list[dict[str, Any]], expect_commit: str | None = None,
              lead_prep_fp: dict[str, dict[str, str]] | None = None, rehearsal: bool = False, heldout_units: Path | None = None,
              part_bytes: int | None = None, returned_sha256: dict[str, dict[str, str]] | None = None) -> dict[str, Any]:
-    """Build an arm's table from its unit files (Lena's Section 4.4), run every completeness check and cross-unit guard,
+    """Build an arm's table from its unit files (the table specification's Section 4.4), run every completeness check and cross-unit guard,
     and write the files deterministically. Returns the files' names and hashes, the declared sizes, and guard outcomes;
     never the pass count. In rehearsal mode the refusals a one-batch arm must provoke are recorded as outcomes and the
     table is written all the same, for the copy test. `heldout_units` is the rehearsal's separate folder for the
@@ -930,7 +930,7 @@ def assemble(units: Path, out_dir: Path, arm: str, attack: list[str], heldout: l
         "init_A_text": A_["init_text"], "init_H_text": H_["init_text"],
     }
     pairing = None
-    if lead_prep_fp is not None:  # the delta-on arm: each shared batch's labels and targets against the lead's (plan 2, Section 5.1)
+    if lead_prep_fp is not None:  # the delta-on arm: each shared batch's labels and targets against the lead's (plan 2 of the research log, Section 5.1)
         pairing = {"attack": {b: bool(lead_prep_fp["attack"].get(b) == fp) for b, fp in zip(attack, A_["prep_fp"])},
                    "heldout": {b: bool(lead_prep_fp["heldout"].get(b) == fp) for b, fp in zip(heldout, H_["prep_fp"])}}
     table["meta"] = {"kind": "real", "arm": arm, "complete": True, "run_commit": sorted(commits)[0], "run_tree_clean": True,

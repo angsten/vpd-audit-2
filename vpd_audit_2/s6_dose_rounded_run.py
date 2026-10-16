@@ -1,14 +1,14 @@
-"""Session 6, plan 3, Section 9: the dose-response on the rounded off set, on the GPU, and its local side, with no cloud
-call in it. Added at the PI's request, as description.
+"""Plan 3 of the research log, Section 9: the dose-response on the rounded off set, on the GPU, and its local side, with no cloud
+call in it. Added at the author's request, as description.
 
 Cell set S4 (H1, H5, H9, H13), one container each, as Section 8 ran (`s6_dose_run`): the batch's labels and targets
 checked to be the run's, the variants' check unit, then one unit per attack search of the run, each scoring 20 flat
 passes: at each of the five steps and each fraction f in 0.25, 0.5, 0.75, 0.9, the setting from
 `s6_build.dose_rounded_setting`, its draw seeded by `seed_of("s6-dose-rounded", attack batch, start, step, f)`.
 
-The fraction-one point is the rounded setting of plan 2's control (d), already scored; it is not scored again. Before
+The fraction-one point is the rounded setting of plan 2 of the research log's control (d), already scored; it is not scored again. Before
 the launch, `rounded_hash_check` builds every setting at f = 1 from the run's saved settings and checks its hash against
-the hash plan 2 recorded for its `d|rounded` pass, on all four batches; one mismatch and nothing launches.
+the hash plan 2 of the research log recorded for its `d|rounded` pass, on all four batches; one mismatch and nothing launches.
 
 The local side: `launch_command` (the commit and tree checks, the hash check, the projection recorded as check C0,
 refused over $6, then `lead_launch.drive_stage`), and `collect_command` (every unit file off the volume as bytes, each
@@ -45,7 +45,7 @@ UNITS = "units"
 BATCHES = B.S4
 STAGE = LG.Stage("s6_dose_rounded", ARM, "heldout", len(BATCHES), 0, 0, 0, 0, 0, False)
 DESIGN = (STAGE,)
-CAP_DOLLARS = 6.0  # plan 3, Section 9: launch at or under $6; over it, stop and report
+CAP_DOLLARS = 6.0  # plan 3 of the research log, Section 9: launch at or under $6; over it, stop and report
 READING_FILES = ("vpd_audit_2/s6_dose_rounded_run.py", "vpd_audit_2/modal_s6_dose_rounded.py", "vpd_audit_2/s6_dose_rounded.py", "vpd_audit_2/s6_build.py",
                  "vpd_audit_2/s6_run.py")
 RUN_UNITS_LOCAL = REPO_ROOT / ".cache" / "s5_lead_units" / "run" / "lead"
@@ -106,7 +106,7 @@ def job(model: Any, ctx: SR.Context, spec: dict[str, Any], batch_inputs: dict[st
 
 def rounded_hash_check(read_run_unit: Callable[[str, int], dict[str, np.ndarray]] | None = None,
                        recorded: Callable[[str, str], dict[str, Any]] | None = None) -> dict[str, Any]:
-    """Every setting at f = 1, built from the run's saved setting, against the hash plan 2 recorded for its rounded
+    """Every setting at f = 1, built from the run's saved setting, against the hash plan 2 of the research log recorded for its rounded
     pass on each S4 batch; and against `rounded` itself."""
     if read_run_unit is None:
         hashes = SR.run_unit_hashes()
@@ -200,7 +200,7 @@ def launch_command(commit: str, cloud: LL.Cloud, *, listed_hourly_price: float, 
         hc = (rounded_hash_check if hash_check is None else hash_check)()
         LL.write_json(RESULTS / "rounded_check.json", {**hc, "at": LL.utc_now(), "commit": commit})
         if not hc["all_equal"]:
-            raise LL.LaunchRefusal("the builder at f = 1 does not reproduce the rounded setting's hash: report to the head")
+            raise LL.LaunchRefusal("the builder at f = 1 does not reproduce the rounded setting's hash: stop and report")
         LL.record_c0(ledger_path, projection(listed_hourly_price))
     if refs is None:
         refs = SR.references(SR.load_table_checked(SR.LEAD_TABLE, SR.LEAD_RECEIPT), SR.load_table_checked(SR.DELTA_TABLE, SR.DELTA_RECEIPT))

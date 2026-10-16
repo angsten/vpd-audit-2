@@ -1,7 +1,7 @@
-"""Session 4, plan 1 (session 3's plan 3): label prices under per-process training.
+"""Plan 1 of the research log (the earlier plan 3 of the research log): label prices under per-process training.
 
-Specification: `sessions/003/notes/riku/price_spec_plan3.md` (Riku), with the decisions of session 3's plan 3, Section 3,
-and the amendments of session 4's plan 2 (check 3's rule, check 4's tie, check 7's rule, check 8's threshold).
+Specification: the price specification (research log), with the decisions of the earlier plan 3 of the research log, Section 3,
+and the amendments of the earlier plan 2 of the research log (check 3's rule, check 4's tie, check 7's rule, check 8's threshold).
 
 Units. A label's price pi is in summed nats; the saved price Pi of a freed set is in nats per token.
 
@@ -16,8 +16,8 @@ The arithmetic, all in float64 (torch, on any device):
   - the price pi = lambda E_X[f_W(S[i,c] + X_c) - f_W(S[i,c] + X_c - Delta)], X_c the sum of S over B_loc - 1
     companion texts, the expectation over the K stored companion tuples that do not contain text i;
   - the plug-in (description): X_c replaced by (B_loc - 1) times the mean of S[j, c] over the texts j != i;
-  - the session-2 plan's price (description, check 7): lambda Delta [1 + beta log2(1+s) + (beta/ln 2) s/(1+s)],
-    s = 64 * mean_i S[i, c], with the eps floor and the uncapped g_up (plan 2, item 2);
+  - the project plan's price (description, check 7): lambda Delta [1 + beta log2(1+s) + (beta/ln 2) s/(1+s)],
+    s = 64 * mean_i S[i, c], with the eps floor and the uncapped g_up (plan 2 of the research log, item 2);
   - T_i, the saved price of a set of freed labels on text i, and Pi = sum_i T_i / (512 n_texts).
 
 Companion tuples: drawn one tuple at a time with `numpy.random.default_rng(seed_of("price-companions", W))`, each
@@ -37,7 +37,7 @@ import numpy as np
 
 SEQ_LEN = 512
 N_TEXTS_BATCH = 64  # the training batch (run config batch_size)
-W_RUN = 16  # confirmed by plan 2's world-size test
+W_RUN = 16  # confirmed by plan 2 of the research log's world-size test
 K_DEFAULT = 256
 LOGGED_EVAL_MINIMALITY = 1158.31591796875  # summary.json eval/loss/ImportanceMinimalityLoss, step 400,000
 PLAN1_WHOLE_64 = 1092.94580078125  # results/plan1_smoke/smoke.json: rows 0 to 63, world size 1, bf16
@@ -233,7 +233,7 @@ class Pricer:
 
 
 def old_price(e_comp: np.ndarray, e_delta: np.ndarray, S: np.ndarray, C: Constants) -> np.ndarray:
-    """The session-2 plan's price with the eps floor and g_up: lambda Delta [1 + beta log2(1+s) + (beta/ln2) s/(1+s)],
+    """The project plan's price with the eps floor and g_up: lambda Delta [1 + beta log2(1+s) + (beta/ln2) s/(1+s)],
     s = 64 * mean over the cache's texts of S[i, c]."""
     s = N_TEXTS_BATCH * S.mean(axis=0)[e_comp]
     bracket = 1 + C.beta * np.log2(1 + s) + (C.beta / math.log(2)) * s / (1 + s)
@@ -340,7 +340,7 @@ def check3(cache: dict[str, np.ndarray], e: Entries, pricer: Pricer, slices: lis
            seed: int, n_labels: int = 200, device: str = "cpu") -> dict[str, Any]:
     """Finite difference: for 200 random labels, the authors' `_update` on the dense rank batch (the label's text plus one
     stored tuple not containing it), with and without the label zeroed, then `_compute` on that label's (layer,
-    component) sums as one-element tensors, times lambda n. Pass per label (plan 2, item 6):
+    component) sums as one-element tensors, times lambda n. Pass per label (plan 2 of the research log, item 6):
     |pi_ref - pi_work| <= 1e-9 pi_ref + 1e-13 summed nats. The difference of `_compute` over all 24 layers is recorded beside."""
     import torch
 
@@ -378,7 +378,7 @@ def check3(cache: dict[str, np.ndarray], e: Entries, pricer: Pricer, slices: lis
                      "passes": abs(pi_ref - pi_work) <= bound, "pi_all_terms": pi_all, "abs_difference_all_terms": abs(pi_all - pi_work)})
         del dense, zeroed, sums_with, sums_without
     rel = np.array([r["abs_difference"] / abs(r["pi_ref"]) for r in rows])
-    return {"labels": n_labels, "rule": "|pi_ref - pi_work| <= 1e-9 pi_ref + 1e-13 summed nats, per label (plan 2, item 6)",
+    return {"labels": n_labels, "rule": "|pi_ref - pi_work| <= 1e-9 pi_ref + 1e-13 summed nats, per label (plan 2 of the research log, item 6)",
             "passes": all(r["passes"] for r in rows), "n_failing": sum(not r["passes"] for r in rows),
             "max_relative_difference": float(rel.max()), "max_abs_difference": float(max(r["abs_difference"] for r in rows)),
             "pi_ref_range": [float(min(r["pi_ref"] for r in rows)), float(max(r["pi_ref"] for r in rows))],
@@ -443,7 +443,7 @@ def check6(S: np.ndarray, meta: dict[str, Any], C: Constants, provenance_dir: Pa
 
 def check7(e: Entries, S: np.ndarray, price_new: np.ndarray, price_old: np.ndarray) -> dict[str, Any]:
     """Components whose per-text S has a coefficient of variation (population SD over mean, across the cache's texts)
-    below 0.2. Pass (plan 2, item 2): for every qualifying component, the median over its labels of new / old lies in
+    below 0.2. Pass (plan 2 of the research log, item 2): for every qualifying component, the median over its labels of new / old lies in
     [0.98, 1.02]. Label-level 1st and 99th percentiles reported as description."""
     cv = S.std(axis=0) / S.mean(axis=0)
     qual = np.flatnonzero(cv < 0.2)
@@ -482,7 +482,7 @@ def price_entries(pricer: Pricer, e: Entries, idx: np.ndarray, delta: np.ndarray
 def check8(e: Entries, S: np.ndarray, price_k256: np.ndarray, tuples_k1024: np.ndarray, sample: np.ndarray, C: Constants, device: str) -> dict[str, Any]:
     """Convergence in K: the sample's prices with the K = 1,024 tuples, whose first 256 are the K = 256 set (nested).
     The nested difference has sqrt(3/4) of the K = 256 error's SD, so the threshold is 0.87 percent at the 99th
-    percentile (plan 2, item 12). Above it, K = 1,024 is used throughout."""
+    percentile (plan 2 of the research log, item 12). Above it, K = 1,024 is used throughout."""
     p1024 = price_entries(Pricer(S, tuples_k1024, W_RUN, C, device), e, sample)
     rel = np.abs(price_k256[sample] / p1024 - 1)
     p99 = float(np.percentile(rel, 99))
@@ -553,7 +553,7 @@ def _component_medians(comp: np.ndarray, x: np.ndarray) -> tuple[np.ndarray, np.
 
 def check7_amended(cache: dict[str, np.ndarray], e: Entries, S: np.ndarray, price_new: np.ndarray, price_old: np.ndarray, pricer: Pricer,
                    meta: dict[str, Any], C: Constants, device: str = "cpu") -> dict[str, Any]:
-    """Check 7 as amended by session 4's plan 3, Section 2, after the original failed (registered as made after the result).
+    """Check 7 as amended by the earlier plan 3 of the research log, Section 2, after the original failed (registered as made after the result).
 
     m_c = median over component c's labels of Delta / (4 S-bar_c).
       7a: components with CV < 0.2, m_c < 0.05 and a label on Q; pass if each component's median new/old is in [0.98, 1.02].
@@ -578,7 +578,7 @@ def check7_amended(cache: dict[str, np.ndarray], e: Entries, S: np.ndarray, pric
     q7a = (cv < 0.2) & has & (m < 0.05)
     q7b = (cv < 0.2) & has & (m >= 0.05)
     ratio = price_new / price_old
-    out: dict[str, Any] = {"floor_per_text": floor, "registered": "amended after the result (session 4, plan 3)"}
+    out: dict[str, Any] = {"floor_per_text": floor, "registered": "amended after the result (plan 3 of the research log)"}
 
     sel = q7a[e.comp]
     ca, meda = _component_medians(e.comp[sel], ratio[sel])
@@ -720,7 +720,7 @@ def price_cache(cache_path: Path, name: str, out_dir: Path, device: str, provena
     old = old_price(e.comp, e.delta, S, C)
     out: dict[str, Any] = {
         "cache": {"path": str(cache_path), "sha256": meta["sha256"], "precision": meta["precision"], "labels": int(e.g.size), "texts": e.n_texts},
-        "constants": {"lambda": C.lam, "beta": C.beta, "eps": C.eps, "p": C.p, "W": W_RUN, "branch": "W = 16 confirmed (plan 2's world-size test)",
+        "constants": {"lambda": C.lam, "beta": C.beta, "eps": C.eps, "p": C.p, "W": W_RUN, "branch": "W = 16 confirmed (plan 2 of the research log's world-size test)",
                       "B_loc": N_TEXTS_BATCH // W_RUN, "K": K_DEFAULT},
         "tuples_sha256": {k: sha256_array(v) for k, v in tuples.items()},
         "check1": c1, "check5": check5(S, meta, C), "check6": check6(S, meta, C, provenance_dir),

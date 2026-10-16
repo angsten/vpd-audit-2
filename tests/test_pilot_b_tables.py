@@ -1,5 +1,5 @@
 """B4's estimators on synthetic tables: the set and seed terms recover known components, the widening reduces to
-(t/1.96) h when both terms are zero, and the tables write no point estimate of V-bar or V-bar - Pi (plan 6, Section 9)."""
+(t/1.96) h when both terms are zero, and the tables write no point estimate of V-bar or V-bar - Pi (plan 6 of the research log, Section 9)."""
 
 from __future__ import annotations
 
@@ -78,7 +78,7 @@ def test_seed_route_text_on_v_scale():
 
 
 def test_guard_comparison_each_branch():
-    """Plan 7, item 10: the guard says yes when the larger h' exceeds Pi, strictly, whichever form it comes from."""
+    """Plan 7 of the research log, item 10: the guard says yes when the larger h' exceeds Pi, strictly, whichever form it comes from."""
     assert T.guard_exceeds({"V_G": 0.05, "V_J": 0.01}, 0.02)
     assert T.guard_exceeds({"V_G": 0.01, "V_J": 0.05}, 0.02)
     assert not T.guard_exceeds({"V_G": 0.01, "V_J": 0.015}, 0.02)
@@ -86,7 +86,7 @@ def test_guard_comparison_each_branch():
 
 
 def test_escalation_flag_each_branch():
-    """Plan 7, item 10: 16 sigma2_set / (4 sigma2_w) > 1 flags; equal to 1, below 1, or a zero within-set variance does not."""
+    """Plan 7 of the research log, item 10: 16 sigma2_set / (4 sigma2_w) > 1 flags; equal to 1, below 1, or a zero within-set variance does not."""
     assert T.escalates({"sigma2_set": 0.3, "sigma2_w": 1.0})  # ratio 1.2
     assert not T.escalates({"sigma2_set": 0.25, "sigma2_w": 1.0})  # ratio 1
     assert not T.escalates({"sigma2_set": 0.1, "sigma2_w": 1.0})
@@ -95,7 +95,7 @@ def test_escalation_flag_each_branch():
 
 
 def test_guard_and_escalation_through_the_tables():
-    """Plan 7, item 10, end to end on synthetic tables: a large Pi keeps the guard at no and a tiny one turns it to yes; a
+    """Plan 7 of the research log, item 10, end to end on synthetic tables: a large Pi keeps the guard at no and a tiny one turns it to yes; a
     large set effect raises the escalation flag and no set effect leaves it down."""
     rng = np.random.default_rng(3)
     raw = _synthetic_raw(rng, s2_text=1.0, s2_set=4.0, noise=0.3)

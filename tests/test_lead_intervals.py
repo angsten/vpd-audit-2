@@ -1,7 +1,7 @@
-"""The interval routine against the worked examples of its specification (plan 1, Section 6).
+"""The interval routine against the worked examples of its specification (plan 1 of the research log, Section 6).
 
 Every expected number here is copied from a document: `freeze/amendment1_specs/interval_spec.md` (Sections 4.1, 4.7,
-5.3, and 7), `freeze/amendment1.md` (entry 2.3), `sessions/004/checkpoint.md` (Appendix D.1), and plan 1 (Section 12.3).
+5.3, and 7), `freeze/amendment1.md` (entry 2.3), the research log (Appendix D.1), and plan 1 of the research log (Section 12.3).
 None was taken from this code's output.
 """
 
@@ -17,7 +17,7 @@ from vpd_audit_2 import lead_intervals as LI
 from vpd_audit_2 import lead_reading as LR
 from vpd_audit_2.lead_intervals import Combo, Presence
 
-# Daniel's Section 4.7: added harms, K = 2, n_s = 2.
+# The interval specification's Section 4.7: added harms, K = 2, n_s = 2.
 OWN = np.array([[2.0, 4.0], [4.0, 6.0]])  # [held-out, start]
 CARRIED = np.array([[[1.44, 2.04], [2.12, 2.88]], [[0.96, 1.72], [2.04, 2.80]]])  # [attack, held-out, start]
 
@@ -26,7 +26,7 @@ def _example_4_7() -> dict:
     return LI.interval(Combo(a_cells=CARRIED), Combo(h_cells=OWN), Presence.complete(2, 2, 2), indices=LI.enumerate_indices(2), batch_part="closed_form")
 
 
-def test_daniel_4_7_ratio_and_cells():
+def test_interval_spec_4_7_ratio_and_cells():
     r = _example_4_7()
     assert r["estimate"] == pytest.approx(0.5, abs=1e-12)
     assert r["denominator"] == pytest.approx(4.0, abs=1e-12)
@@ -34,7 +34,7 @@ def test_daniel_4_7_ratio_and_cells():
     assert r["lin_table"] == pytest.approx(np.array([[0.060, 0.000], [-0.040, -0.020]]), abs=1e-12)
 
 
-def test_daniel_4_7_batch_part_equals_the_enumeration_of_all_16_outcomes():
+def test_interval_spec_4_7_batch_part_equals_the_enumeration_of_all_16_outcomes():
     r = _example_4_7()
     idx = LI.enumerate_indices(2)
     assert idx.B == 16
@@ -51,7 +51,7 @@ def test_daniel_4_7_batch_part_equals_the_enumeration_of_all_16_outcomes():
     assert resid.ravel() == pytest.approx([0.02, -0.02, -0.02, 0.02], abs=1e-12)
 
 
-def test_daniel_4_7_start_part_and_interval():
+def test_interval_spec_4_7_start_part_and_interval():
     r = _example_4_7()
     ms = r["mean_squares"]
     assert ms["S"] == pytest.approx(0.0098, rel=1e-9)
@@ -69,7 +69,7 @@ def test_daniel_4_7_start_part_and_interval():
     assert r["interval_unwidened"] == r["interval"]
 
 
-def test_daniel_4_7_beside_it():
+def test_interval_spec_4_7_beside_it():
     r = _example_4_7()
     assert r["per_start"] == pytest.approx([1.64 / 3, 2.36 / 5], abs=1e-12)
     assert r["per_start"] == pytest.approx([0.547, 0.472], abs=5e-4)
@@ -91,7 +91,7 @@ def _example_5_3() -> dict:
                        indices=LI.enumerate_indices(2), batch_part="closed_form")
 
 
-def test_daniel_5_3_one_attack_search_missing():
+def test_interval_spec_5_3_one_attack_search_missing():
     r = _example_5_3()
     assert r["counts"] == {"C_A": 6.0, "C_H": 4.0}  # 6 carried cells, not 8; all 4 own searches (Amendment 1, entry 2.3)
     assert r["numerator"] == pytest.approx(11.48 / 6, abs=1e-12)
@@ -125,7 +125,7 @@ def test_checkpoint_appendix_d1():
 
 
 def _two_heldout_batches() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    """Daniel's Section 4.1: carried, own, and shuffled harms 0.5 x (0.70, 0.83, 0.60) on the first held-out batch and
+    """The interval specification's Section 4.1: carried, own, and shuffled harms 0.5 x (0.70, 0.83, 0.60) on the first held-out batch and
     1.5 x (0.70, 0.83, 0.60) on the second."""
     scale = np.array([0.5, 1.5])
     carried = np.broadcast_to((0.70 * scale)[None, :, None], (2, 2, 2)).copy()
@@ -134,7 +134,7 @@ def _two_heldout_batches() -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     return carried, own, shuf
 
 
-def test_daniel_4_1_per_cell_shuffled_form_gives_zero_on_both_batches():
+def test_interval_spec_4_1_per_cell_shuffled_form_gives_zero_on_both_batches():
     carried, own, shuf = _two_heldout_batches()
     pres = Presence.complete(2, 2, 2)
     r = LI.interval(Combo(a_cells=carried - shuf), Combo(a_cells=-shuf, h_cells=own), pres, indices=LI.enumerate_indices(2), batch_part="closed_form")

@@ -1,6 +1,6 @@
 # Sealed: Do Not Open
 
-This folder holds values sealed under the pilot's discipline (session 4, `sessions/004/engineering/plan_6.md`, Section 3). **No one may open, load, print, or summarize them** until the part of the freeze file named below is signed. After that, the freeze file's own rules govern their use.
+This folder holds values sealed under the pilot's discipline (plan 6 of the research log, Section 3). **No one may open, load, print, or summarize them** until the part of the freeze file named below is signed. After that, the freeze file's own rules govern their use.
 
 | File | What it holds | Governed by |
 |---|---|---|

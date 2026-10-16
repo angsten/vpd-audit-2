@@ -1,10 +1,10 @@
-"""The reading logic against its known-answer cases (plan 1, Section 6).
+"""The reading logic against its known-answer cases (plan 1 of the research log, Section 6).
 
 Layer one: the decision functions on intervals typed in by hand (boundaries B1 to B16, all 27 combinations of the three
 verdicts, the tie-breaks). Layer two: the row function on made-up cells (cases R1 to R17 and the added R18).
 
 Every expected value is copied from `freeze/amendment1_specs/output_and_reading_spec.md` (Sections 3 and 5),
-`freeze/amendment1.md` (fault 3.1 and Section 9), or plan 1 (Sections 5.3 and 6). None is this code's output.
+`freeze/amendment1.md` (fault 3.1 and Section 9), or plan 1 of the research log (Sections 5.3 and 6). None is this code's output.
 """
 
 from __future__ import annotations
@@ -33,7 +33,7 @@ SIGNED = {
     "C-X": "The search's harm is fitted to its batch: the case line 2022 describes as noise-tuned (either column)",
 }
 CAVEAT = "Negative ones are reported with the bias of taking a setting at its first crossing stated: downward, of unknown size."
-# The amendment's sentences for the collision flags (plan 1, Section 5.3, item 1).
+# The amendment's sentences for the collision flags (plan 1 of the research log, Section 5.3, item 1).
 F1_STEP = "Collision: the signed line \"'does not carry over' when the interval of tau_n lies below 0.2\" also applies to these data."
 F1_LEVEL = "Collision: \"large\" is yes and \"carries over\" is no at this harm level."
 F1B = "The carry-over ratio is undetermined against 0.2."

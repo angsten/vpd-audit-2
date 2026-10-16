@@ -1,7 +1,7 @@
-"""Session 5, plan 1, Section 5.1: the results table of the lead experiment.
+"""Plan 1 of the research log, Section 5.1: the results table of the lead experiment.
 
-The format is `freeze/amendment1_specs/table_and_run_spec.md`, Section 3 ("Lena's specification"), with one array added
-by Amendment 1, Section 9, item 5 (`shuf_absmean_alive`) and the per-text file written as a list of parts (plan 1,
+The format is `freeze/amendment1_specs/table_and_run_spec.md`, Section 3 ("the table specification"), with one array added
+by Amendment 1, Section 9, item 5 (`shuf_absmean_alive`) and the per-text file written as a list of parts (plan 1 of the research log,
 Section 12.1, item 1). The real run and the made-up-data generator both write it, and the analysis reads nothing else.
 
 A table is a dictionary of named arrays plus one metadata dictionary under the key "meta", in memory and on disk alike.
@@ -38,11 +38,11 @@ LEVELS = {"h2": 2.0, "h5": 5.0, "h10": 10.0}
 N_SHUFFLES = 8
 N_TEXTS = 128
 N_RECORD = 321
-PER_TEXT_RELATIVE_TOLERANCE = 1e-5  # Lena's guard G5
+PER_TEXT_RELATIVE_TOLERANCE = 1e-5  # the table specification's guard G5
 CYCLING_SHARE = 0.10  # signed, Section 3: steps n and n - 1 differ by more than 10 percent of the larger
 CORE_FILE = "table_core.npz"
 PER_TEXT_FILE = "table_per_text_{:02d}.npz"
-PER_TEXT_PART_BYTES = 40_000_000  # no committed file may exceed 45 MB (plan 2, Section 5.2)
+PER_TEXT_PART_BYTES = 40_000_000  # no committed file may exceed 45 MB (plan 2 of the research log, Section 5.2)
 
 DESIGN_KEYS = ("K_A", "K_H", "n_s", "Q", "n_shuffles", "n_texts", "n_record")
 PER_TEXT_ARRAYS = ("carried_text", "shuf_text", "own_A_text", "own_H_text", "init_A_text", "init_H_text")
@@ -60,7 +60,7 @@ class TableCheckError(Exception):
 
 STRUCTURAL_CHECKS = ("metadata", "arrays_present_with_declared_shapes")  # nothing after them can be evaluated
 # Every check `validate` makes, in the order it first makes it, and the two `load_table` makes of the per-text parts:
-# for a command that prints each name with pass or fail (session 5, plan 4, Section 6, row 7).
+# for a command that prints each name with pass or fail (plan 4 of the research log, Section 6, row 7).
 CHECKS = ("metadata", "complete_flag", "arrays_present_with_declared_shapes", "axis_labels", "no_other_nan_or_infinite", "fixed_steps",
           "missing_steps_only_at_levels", "level_steps_equal_crossing_rule", "nan_exactly_where_setting_missing", "setting_hashes_present",
           "shuffle_hashes_present", "shuffle_descriptions", "scoring_pass_count", "block_ids_match_heldout_ids", "heldout_ids_differ_from_attack_ids",
@@ -78,7 +78,7 @@ def _fail(check: str) -> None:
 
 def failed_checks(table: dict[str, Any]) -> list[str]:
     """Every check of `validate` that fails on this table, in order, not only the first. For the rehearsal, whose
-    table must be refused on purpose (session 5, plan 2, Section 7), and for nothing that decides a reading."""
+    table must be refused on purpose (plan 2 of the research log, Section 7), and for nothing that decides a reading."""
     global _collecting
     _collecting = []
     try:
@@ -152,7 +152,7 @@ def crossing_steps(rec: np.ndarray, level: float) -> np.ndarray:
 
 
 def expected_scoring_passes(table: dict[str, Any]) -> int:
-    """Lena's Section 3.6: one unshuffled pass, and 8 shuffled passes where a setting has shuffled copies, for every
+    """The table specification's Section 3.6: one unshuffled pass, and 8 shuffled passes where a setting has shuffled copies, for every
     setting an attack search has, on every held-out batch."""
     present = np.asarray(table["step_A"]) != -1  # [K_A, n_s, Q]
     per_setting = 1 + N_SHUFFLES * np.asarray(table["has_shuffles"], dtype=np.int64)  # [Q]
@@ -167,8 +167,8 @@ def _bits_equal(x: np.ndarray, y: np.ndarray) -> bool:
 
 
 def validate(table: dict[str, Any]) -> None:
-    """Every completeness check of Lena's Section 3.6, the three rules of 3.5, the checks of the steps themselves
-    (plan 1, Section 5.1), and the per-text arrays against their core values (plan 1, Section 12.1, item 1).
+    """Every completeness check of the table specification's Section 3.6, the three rules of 3.5, the checks of the steps themselves
+    (plan 1 of the research log, Section 5.1), and the per-text arrays against their core values (plan 1 of the research log, Section 12.1, item 1).
 
     For the table recomputed without the overlapping texts, the equality of `own_H` and of `init_H` with the record is
     skipped, since both are recomputed; everything else runs."""
@@ -290,7 +290,7 @@ def validate(table: dict[str, Any]) -> None:
 
 
 def _check_carried_is_neither_own(table: dict[str, Any], present_A: np.ndarray, present_H: np.ndarray) -> None:
-    """Guards G6 and G11 of the run, repeated by the program that reads the table (session 5, plan 4, Section 4.4).
+    """Guards G6 and G11 of the run, repeated by the program that reads the table (plan 4 of the research log, Section 4.4).
 
     For every carried cell that exists, its per-text harms are not all equal to the same setting's on its attack
     batch (a setting scored on the batch it was found on), and not all equal to the held-out batch's own setting's for
@@ -419,7 +419,7 @@ def long_search_levels(table: dict[str, Any]) -> dict[str, Any]:
 
 
 def without_excluded(table: dict[str, Any]) -> dict[str, Any]:
-    """The table recomputed without the overlapping held-out texts (Lena's Section 11.2): every harm scored on a
+    """The table recomputed without the overlapping held-out texts (the table specification's Section 11.2): every harm scored on a
     held-out batch (`carried`, `shuf`, `own_H`, `init_H`) becomes the mean of its per-text harms over the texts not
     excluded. No search is rerun: the records and the level-crossing steps stay as they were."""
     if not has_per_text(table):
@@ -501,8 +501,8 @@ def save_table(table: dict[str, Any], folder: Path, part_bytes: int = PER_TEXT_P
     """Write the table under `folder`, deterministically: the per-text parts first, split along the attack axis so that
     no part exceeds `part_bytes`, then the core file, whose metadata records each part's name, hash, and attack names.
     The arrays with no attack axis go in the first part with its attack batches; where they and one attack batch's
-    arrays do not fit in one part together, they go in a part of their own, which holds no attack batch (plan 2,
-    Section 5.2; plan 4, Section 6.1). Returns each file's name and SHA-256, the core file first."""
+    arrays do not fit in one part together, they go in a part of their own, which holds no attack batch (plan 2 of the research log,
+    Section 5.2; plan 4 of the research log, Section 6.1). Returns each file's name and SHA-256, the core file first."""
     from vpd_audit_2.manifest import deterministic_npz
 
     folder = Path(folder)

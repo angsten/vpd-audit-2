@@ -1,11 +1,11 @@
-"""Session 5, plans 2 and 4: what each container is handed, the checks before a deciding job, the launcher and its
+"""Plans 2 and 4 of the research log: what each container is handed, the checks before a deciding job, the launcher and its
 ledger, the tables' arrival as bytes, and the spend arithmetic. No cloud call is made: the launcher is handed a cloud
 made of plain functions. The last test runs the whole repeat rehearsal on the tiny model, through the same commands the
 cloud module calls.
 
 Known answers for the ledger come from the table and run specification's Section 9.1
-(`freeze/amendment1_specs/table_and_run_spec.md`), from Amendment 4 (`freeze/amendment4.md`), and from Daniel's spend
-review (`sessions/005/notes/daniel/spend_review.md`, Section 2). None is this code's output.
+(`freeze/amendment1_specs/table_and_run_spec.md`), from Amendment 4 (`freeze/amendment4.md`), and from the spend
+review (research log, Section 2). None is this code's output.
 """
 
 from __future__ import annotations
@@ -85,7 +85,7 @@ def test_G2_no_heldout_container_is_handed_attack_token_ids():
 
 
 def test_a_rehearsals_specs_score_each_calibration_batch_on_itself_only():
-    """Plan 4, Section 6.1: five stages on C1 and C2, each batch playing both roles and scored on itself alone."""
+    """Plan 4 of the research log, Section 6.1: five stages on C1 and C2, each batch playing both roles and scored on itself alone."""
     pools = LL._manifest()["pools"]
     commit = "ab" * 20
     root = "/cache/s5_lead/rehearsal/abababababab_2"
@@ -294,6 +294,9 @@ def test_a_commit_that_does_not_descend_from_part_a_is_refused(repo, monkeypatch
 
 def test_the_real_branch_descends_from_part_a_and_the_run_files_exist():
     here = Path(LL.__file__).resolve().parent.parent
+    known = subprocess.run(["git", "-C", str(here), "cat-file", "-e", f"{LL.PART_A_COMMIT}^{{commit}}"], capture_output=True)
+    if known.returncode != 0:
+        pytest.skip("Part A's commit is in the research log's history only, not in this copy's")
     r = subprocess.run(["git", "-C", str(here), "merge-base", "--is-ancestor", LL.PART_A_COMMIT, "HEAD^{commit}"], capture_output=True)
     assert r.returncode == 0
     for rel in LL.RUN_FILES:
@@ -368,8 +371,8 @@ def test_a_stages_record_holds_counts_hashes_seconds_and_outcomes():
 # ----------------------------------------------------------------------------- the ledger's arithmetic
 
 
-# Lena's Section 9.1: a search in 122.2 seconds, a scoring pass in 0.18, and 45 seconds per container to load and prepare.
-LENA = {"seconds_per_search_step": 122.2 / 320, "seconds_per_search_step_delta_on": 122.2 / 320, "seconds_per_scoring_pass": 0.18, "seconds_to_ready": 45.0,
+# The table specification's Section 9.1: a search in 122.2 seconds, a scoring pass in 0.18, and 45 seconds per container to load and prepare.
+SPEC_TIMINGS = {"seconds_per_search_step": 122.2 / 320, "seconds_per_search_step_delta_on": 122.2 / 320, "seconds_per_scoring_pass": 0.18, "seconds_to_ready": 45.0,
         "seconds_first_search_extra": 0.0, "seconds_per_search_fixed": 0.0, "seconds_per_commit_after_search": 0.0, "seconds_per_commit_after_blocks": 0.0,
         "seconds_per_shuffle": 0.0, "seconds_per_search_unit_other": 0.0, "seconds_per_block_other": 0.0}
 
@@ -381,7 +384,7 @@ def test_stage_work_is_the_design():
     assert (one["containers"], rest["containers"]) == (1, 15) and one["blocks"] == 80  # wave 1: H1's five starts against sixteen attack batches
     lead = {k: one[k] + rest[k] for k in one}  # the two waves together are the lead's held-out side
     assert lead["blocks"] == 1_280 and lead["shuffles_made"] == 1_280 * 64 and lead["commits"] == 80 + 16 * 16
-    assert lead["scoring_passes"] - 880 == 94_720  # Lena's Section 3.6: the lead's carried passes with nothing missing
+    assert lead["scoring_passes"] - 880 == 94_720  # the table specification's Section 3.6: the lead's carried passes with nothing missing
     delta = LG.stage_work("delta_heldout")
     assert delta["scoring_passes"] - 40 * 6 == 14_400 and delta["blocks"] == 320 and delta["commits"] == 40 + 8 * 8  # and the delta-on arm's
     assert LG.stage_work("delta_attack")["scoring_passes"] == 240
@@ -398,19 +401,19 @@ def test_stage_work_is_the_design():
     assert sum(s.containers for s in LG.REHEARSAL_DESIGN) == 8
 
 
-def test_stage_seconds_reproduce_lenas_table():
+def test_stage_seconds_reproduce_table_spec_table():
     """Section 9.1: search seconds 9,776, 9,776, 4,888, 4,888; scoring seconds 160, 17,210, 45, 2,640; 45 seconds per container."""
-    waves = [LG.stage_seconds(s, LENA) for s in ("lead_heldout_1", "lead_heldout_2")]
+    waves = [LG.stage_seconds(s, SPEC_TIMINGS) for s in ("lead_heldout_1", "lead_heldout_2")]
     heldout = {k: sum(w[k] for w in waves) for k in waves[0]}
-    got = {"lead_attack": LG.stage_seconds("lead_attack", LENA), "lead_heldout": heldout, "delta_attack": LG.stage_seconds("delta_attack", LENA),
-           "delta_heldout": LG.stage_seconds("delta_heldout", LENA)}
+    got = {"lead_attack": LG.stage_seconds("lead_attack", SPEC_TIMINGS), "lead_heldout": heldout, "delta_attack": LG.stage_seconds("delta_attack", SPEC_TIMINGS),
+           "delta_heldout": LG.stage_seconds("delta_heldout", SPEC_TIMINGS)}
     expected = {"lead_attack": (9_776, 160, 720), "lead_heldout": (9_776, 17_210, 720), "delta_attack": (4_888, 45, 360), "delta_heldout": (4_888, 2_640, 360)}
     for stage, (search, scoring, overhead) in expected.items():
         s = got[stage]
         assert s["search"] == pytest.approx(search, abs=0.5) and s["scoring"] == pytest.approx(scoring, abs=5.5) and s["overhead"] == pytest.approx(overhead)
         assert s["total"] == pytest.approx(s["search"] + s["scoring"] + s["overhead"])
     # each kind of overhead is counted where the stage has it, and a delta-on stage's steps at the delta-on arm's own rate
-    extra = {**LENA, "seconds_first_search_extra": 2.0, "seconds_per_search_fixed": 0.25, "seconds_per_commit_after_search": 4.0, "seconds_per_commit_after_blocks": 5.0,
+    extra = {**SPEC_TIMINGS, "seconds_first_search_extra": 2.0, "seconds_per_search_fixed": 0.25, "seconds_per_commit_after_search": 4.0, "seconds_per_commit_after_blocks": 5.0,
              "seconds_per_shuffle": 0.01, "seconds_per_search_unit_other": 0.05, "seconds_per_block_other": 0.5, "seconds_per_search_step_delta_on": 0.5}
     assert LG.stage_seconds("lead_heldout_2", extra)["overhead"] == pytest.approx(15 * (45 + 2.0) + 75 * (0.25 + 0.05) + 75 * 4.0 + 240 * 5.0 + 76_800 * 0.01 + 1_200 * 0.5)
     assert LG.stage_seconds("lead_attack", extra)["overhead"] == pytest.approx(16 * 47.0 + 80 * 0.3 + 80 * 4.0)
@@ -419,9 +422,9 @@ def test_stage_seconds_reproduce_lenas_table():
 
 def test_money_is_counted_as_amendment_4_says():
     """The larger of function hours at $6.80 and the listed price times function seconds plus 50 seconds of boot for
-    every container life; a posted bill enters times 1.03. Known answers: Daniel's review, Section 2, and Amendment 4."""
+    every container life; a posted bill enters times 1.03. Known answers: the spend review, Section 2, and Amendment 4."""
     assert (LG.CAP_DOLLARS, LG.FLAT_RATE, LG.BOOT_SECONDS, LG.BILLING_LAG) == (150.0, 6.80, 50.0, 1.03)
-    # Daniel's table: the lead's attack stage, 16 containers; the flat rate understates it
+    # the spend review's table: the lead's attack stage, 16 containers; the flat rate understates it
     attack = LG.money(11_008.7, 16, LISTED)
     assert attack["at_the_flat_rate"] == pytest.approx(20.79, abs=0.005) and attack["at_the_listed_price_with_boot"] == pytest.approx(21.49, abs=0.005)
     assert attack["dollars"] == attack["at_the_listed_price_with_boot"] and attack["billed"] is None
@@ -429,7 +432,7 @@ def test_money_is_counted_as_amendment_4_says():
     heldout = LG.money(30_252.8, 16, LISTED)
     assert heldout["at_the_flat_rate"] == pytest.approx(57.14, abs=0.005) and heldout["at_the_listed_price_with_boot"] == pytest.approx(56.52, abs=0.005)
     assert heldout["dollars"] == heldout["at_the_flat_rate"]
-    # the whole run on the first rehearsal's corrected reading: $104.39 flat; with boot, Daniel's note has $104.96, and
+    # the whole run on the first rehearsal's corrected reading: $104.39 flat; with boot, the spend review has $104.96, and
     # (55,263 + 48 x 50) / 3600 x 6.552504 is 104.9547, a cent below it
     run = LG.money(55_263, 48, LISTED)
     assert run["at_the_flat_rate"] == pytest.approx(104.39, abs=0.005) and run["dollars"] == pytest.approx(104.9547, abs=0.0001)
@@ -448,40 +451,40 @@ def test_money_is_counted_as_amendment_4_says():
 
 
 def test_check_c0_prices_the_run_on_top_of_the_rehearsals():
-    lena = {**LENA, "seconds_to_ready": 65.0}  # her overhead column sums to 3,120 seconds over 48 containers
+    spec_overhead = {**SPEC_TIMINGS, "seconds_to_ready": 65.0}  # its overhead column sums to 3,120 seconds over 48 containers
     spent = {"function_seconds": 1_600.0, "container_lives": 14, "billed": 0.7509}
-    c0 = LG.check_c0(lena, LISTED, spent)
+    c0 = LG.check_c0(spec_overhead, LISTED, spent)
     assert c0["function_hours"] == pytest.approx(14.6, abs=0.15) and c0["run"]["container_lives"] == 48
     assert c0["run_dollars"] == pytest.approx(max(6.80 * c0["function_hours"], LISTED * (c0["function_hours"] + 48 * 50 / 3600)))
     assert c0["run_dollars"] == pytest.approx(100, abs=1.5)  # Section 9.1: about $100
     assert c0["spent_dollars"] == pytest.approx(LISTED * (1_600 + 14 * 50) / 3600) and c0["spent_dollars"] > 6.80 * 1_600 / 3600
     assert c0["projected_dollars"] == pytest.approx(c0["run_dollars"] + c0["spent_dollars"]) and c0["cap"] == 150.0 and c0["exceeds_cap"] is False
-    assert LG.check_c0(lena, LISTED, spent, cap=100.0)["exceeds_cap"] is True
-    dear = LG.check_c0(lena, LISTED, {"function_seconds": 1_600.0, "container_lives": 14, "billed": 60.0})  # a bill, once posted, counts times 1.03
+    assert LG.check_c0(spec_overhead, LISTED, spent, cap=100.0)["exceeds_cap"] is True
+    dear = LG.check_c0(spec_overhead, LISTED, {"function_seconds": 1_600.0, "container_lives": 14, "billed": 60.0})  # a bill, once posted, counts times 1.03
     assert dear["spent_dollars"] == pytest.approx(61.8) and dear["exceeds_cap"] is True and dear["run_dollars"] == c0["run_dollars"]
     assert set(c0["stages"]) == set(DECIDING) and c0["assemble_seconds"] == 0.0
-    assert LG.check_c0(lena, LISTED, spent, assemble_seconds=3_600.0)["function_hours"] == pytest.approx(c0["function_hours"] + 1.0)
+    assert LG.check_c0(spec_overhead, LISTED, spent, assemble_seconds=3_600.0)["function_hours"] == pytest.approx(c0["function_hours"] + 1.0)
 
 
 def test_what_remains_is_projected_at_the_runs_own_measured_timings():
-    predicted = {s.name: LG.stage_seconds(s, LENA)["total"] for s in LG.DESIGN}
+    predicted = {s.name: LG.stage_seconds(s, SPEC_TIMINGS)["total"] for s in LG.DESIGN}
     rest = LG.DESIGN[1:]
-    assert LG.remaining_seconds(rest, LENA, {}) == pytest.approx(sum(predicted[s.name] for s in rest))  # nothing measured yet
+    assert LG.remaining_seconds(rest, SPEC_TIMINGS, {}) == pytest.approx(sum(predicted[s.name] for s in rest))  # nothing measured yet
     # stage 1 ran 10 percent slow: every later stage is scaled by it until a held-out stage has run
     slow = {"lead_attack": 1.1 * predicted["lead_attack"]}
-    assert LG.remaining_seconds(rest, LENA, slow) == pytest.approx(1.1 * sum(predicted[s.name] for s in rest))
+    assert LG.remaining_seconds(rest, SPEC_TIMINGS, slow) == pytest.approx(1.1 * sum(predicted[s.name] for s in rest))
     # the held-out side ran 20 percent slow over both waves: the delta-on held-out stage takes that, its attack stage stage 1's
     both = {**slow, "lead_heldout_1": 1.5 * predicted["lead_heldout_1"], "lead_heldout_2": 1.18 * predicted["lead_heldout_2"]}
     side = (both["lead_heldout_1"] + both["lead_heldout_2"]) / (predicted["lead_heldout_1"] + predicted["lead_heldout_2"])
     assert side == pytest.approx(1.2, abs=0.001)
-    assert LG.remaining_seconds(LG.DESIGN[3:], LENA, both) == pytest.approx(1.1 * predicted["delta_attack"] + side * predicted["delta_heldout"])
-    # check C2 (plan 4, Section 4.3): wave 2 at the larger of the first container's seconds and the projection for a container
+    assert LG.remaining_seconds(LG.DESIGN[3:], SPEC_TIMINGS, both) == pytest.approx(1.1 * predicted["delta_attack"] + side * predicted["delta_heldout"])
+    # check C2 (plan 4 of the research log, Section 4.3): wave 2 at the larger of the first container's seconds and the projection for a container
     per = predicted["lead_heldout_2"] / 15
-    later = lambda measured: LG.remaining_seconds(LG.DESIGN[3:], LENA, measured)  # noqa: E731
+    later = lambda measured: LG.remaining_seconds(LG.DESIGN[3:], SPEC_TIMINGS, measured)  # noqa: E731
     fast = {**slow, "lead_heldout_1": 0.8 * per}
-    assert LG.remaining_after_first_heldout(LG.DESIGN, LENA, fast, 0.8 * per) == pytest.approx(15 * per + later(fast))  # a fast first container does not lower it
+    assert LG.remaining_after_first_heldout(LG.DESIGN, SPEC_TIMINGS, fast, 0.8 * per) == pytest.approx(15 * per + later(fast))  # a fast first container does not lower it
     late = {**slow, "lead_heldout_1": 1.3 * per}
-    assert LG.remaining_after_first_heldout(LG.DESIGN, LENA, late, 1.3 * per) == pytest.approx(15 * 1.3 * per + later(late))
+    assert LG.remaining_after_first_heldout(LG.DESIGN, SPEC_TIMINGS, late, 1.3 * per) == pytest.approx(15 * 1.3 * per + later(late))
     check = LG.check_later("C2", spent_so_far={"function_seconds": 12_000.0, "container_lives": 31, "billed": None}, remaining_seconds=36_000.0,
                            remaining_lives=31, listed_hourly_price=LISTED)
     assert check["spent_dollars"] == pytest.approx(LISTED * (12_000 + 1_550) / 3600) and check["spent"]["at_the_flat_rate"] == pytest.approx(22.6667, abs=1e-4)
@@ -599,7 +602,7 @@ ONE_BATCH_ON_BOTH_SIDES = {**ALL_TRUE, "G6": False, "G11_differs_from_the_heldou
 
 def _drive(tmp: Path, design, stage, batches, scripted: Scripted, *, app_id: str = "ap-one", cap: float = 150.0, outside=LL.no_spend_outside, **kw) -> dict:
     return LL.drive_stage(stage, _specs(stage, batches), scripted.cloud(app_id), ledger_path=tmp / "ledger.json", runs_path=tmp / f"runs_{stage.name}.json", design=design,
-                          timings=LENA, listed_hourly_price=LISTED, cap=cap, outside=outside, commit="c" * 40, guards_spec={"arm": stage.arm}, **kw)
+                          timings=SPEC_TIMINGS, listed_hourly_price=LISTED, cap=cap, outside=outside, commit="c" * 40, guards_spec={"arm": stage.arm}, **kw)
 
 
 def test_a_stage_launches_its_containers_at_once_and_the_ledger_counts_them(tmp_path):
@@ -623,9 +626,9 @@ def test_a_stage_launches_its_containers_at_once_and_the_ledger_counts_them(tmp_
     assert (c1["check"], c1["after_stage"], c1["bill_read_at"], c1["exceeds_cap"]) == ("C1", "one", "2026-10-06T18:00:00+00:00", False)
     assert c1["spent"]["function_seconds"] == 1_270.0 and c1["spent"]["container_lives"] == 2 and c1["spent"]["billed"] == 1.25
     assert c1["spent_dollars"] == pytest.approx(max(6.80 * 1_270 / 3600, LISTED * 1_370 / 3600, 1.25 * 1.03))
-    predicted = LG.stage_seconds(one, LENA)["total"]
-    assert c1["remaining"]["function_seconds"] == pytest.approx(LG.remaining_seconds(design[1:], LENA, {"one": 1_270.0}, design))
-    assert c1["remaining"]["function_seconds"] == pytest.approx(1_270.0 / predicted * sum(LG.stage_seconds(s, LENA)["total"] for s in design[1:]))
+    predicted = LG.stage_seconds(one, SPEC_TIMINGS)["total"]
+    assert c1["remaining"]["function_seconds"] == pytest.approx(LG.remaining_seconds(design[1:], SPEC_TIMINGS, {"one": 1_270.0}, design))
+    assert c1["remaining"]["function_seconds"] == pytest.approx(1_270.0 / predicted * sum(LG.stage_seconds(s, SPEC_TIMINGS)["total"] for s in design[1:]))
     assert c1["remaining"]["container_lives"] == 6 and c1["projected_dollars"] == pytest.approx(c1["spent_dollars"] + c1["remaining_dollars"])
     assert ledger["bills"] == [{"read_at": "2026-10-06T18:00:00+00:00", "by_app": {"ap-one": 1.25}}] and ledger["stopped_by"] is None and ledger["stops"] == []
     # the stage's record: the containers' returns, under the launch's number as well
@@ -642,7 +645,7 @@ def test_a_stage_launches_its_containers_at_once_and_the_ledger_counts_them(tmp_
 
 
 def test_a_containers_error_is_recorded_by_type_and_the_others_finish(tmp_path):
-    """Plan 4, Section 4.1: any container's error is recorded and the other containers finish; and a relaunched stage
+    """Plan 4 of the research log, Section 4.1: any container's error is recorded and the other containers finish; and a relaunched stage
     adds to its ledger entry."""
     design = (_stage("one", "lead", "attack", 4),) + _design()[1:]
     one = design[0]
@@ -686,7 +689,7 @@ def test_a_containers_error_is_recorded_by_type_and_the_others_finish(tmp_path):
 
 
 def test_a_container_whose_first_life_did_not_return_is_counted_by_the_launchers_wait(tmp_path):
-    """Plan 4, Section 4.1, and Amendment 4: a container that died and was rerun by the provider returns its second
+    """Plan 4 of the research log, Section 4.1, and Amendment 4: a container that died and was rerun by the provider returns its second
     life's seconds. The launcher counts its whole wait for it, and both lives' boots."""
     design = _design()
     rerun = Scripted({"A1": (400.0, _job("lead|attack|A1", [_unit("u1")], 1, seconds=380.0)), "A2": (900.0, _job("lead|attack|A2", [_unit("u2", skipped=True)], 1, seconds=70.0, attempts=2))})
@@ -725,7 +728,7 @@ def test_a_launcher_that_is_interrupted_or_dies_still_counts_what_it_launched(tm
 
 
 def test_wave_1_is_followed_by_check_C2_and_the_guards_only_pass(tmp_path):
-    """Plan 4, Section 4.3: one held-out container runs to completion; check C2 takes the rest of the held-out side at
+    """Plan 4 of the research log, Section 4.3: one held-out container runs to completion; check C2 takes the rest of the held-out side at
     the larger of its seconds and the projection; the guards-only pass must find every guard true before wave 2."""
     design = _design()
     one, two, three = design[:3]
@@ -738,7 +741,7 @@ def test_wave_1_is_followed_by_check_C2_and_the_guards_only_pass(tmp_path):
     c2 = ledger["checks"][1]
     measured = {"one": 1_000.0, "two": 9_000.0}
     assert c2["measured_seconds"] == measured and c2["remaining"]["container_lives"] == 1 + 2 + 2
-    assert c2["remaining"]["function_seconds"] == pytest.approx(LG.remaining_after_first_heldout(design, LENA, measured, 9_000.0))
+    assert c2["remaining"]["function_seconds"] == pytest.approx(LG.remaining_after_first_heldout(design, SPEC_TIMINGS, measured, 9_000.0))
     assert c2["remaining"]["function_seconds"] >= 9_000.0  # wave 2's one container at this container's seconds, which exceed the projection
     assert ledger["guards_pass"]["outcomes"] == ALL_TRUE and ledger["guards_pass"]["seconds"] == 3.0 and ledger["guards_pass"]["error"] is None
     assert LL.ledger_counts(ledger)["function_seconds"] == 1_000.0 + 9_000.0 + 3.0  # the pass's seconds are counted
@@ -764,7 +767,7 @@ def test_a_guard_found_false_stops_the_run_before_wave_2(tmp_path, found, named)
     _drive(tmp_path, design, design[0], ["A1", "A2"], Scripted({**ok("A1"), **ok("A2")}))
     with pytest.raises(LL.LaunchRefusal) as e:
         _drive(tmp_path, design, design[1], ["H1"], Scripted(ok("H1"), guards=found), app_id="ap-two")
-    assert str(e.value) == f"the run stops here: the guards-only pass: {named}. Report to the head"  # the guard's name, and no value
+    assert str(e.value) == f"the run stops here: the guards-only pass: {named}. Stop and report"  # the guard's name, and no value
     ledger = json.loads((tmp_path / "ledger.json").read_text())
     assert ledger["stages"]["two"]["complete"] is True and ledger["stopped_by"] == [f"the guards-only pass: {named}"]  # the container's work stands; the run does not go on
     assert ledger["stops"][0]["after_stage"] == "two" and ledger["stops"][0]["by"] == ledger["stopped_by"]
@@ -784,7 +787,7 @@ def test_a_guards_only_pass_that_failed_to_run_is_taken_again_before_wave_2(tmp_
     _drive(tmp_path, design, design[0], ["A1", "A2"], Scripted({**ok("A1"), **ok("A2")}))
     with pytest.raises(LL.LaunchRefusal) as e:
         _drive(tmp_path, design, design[1], ["H1"], Scripted(ok("H1"), guards=ConnectionError("the provider's text, 0.25")), app_id="ap-two")
-    assert str(e.value) == "the run stops here: the guards-only pass: ConnectionError outside the pass's own code. Report to the head"
+    assert str(e.value) == "the run stops here: the guards-only pass: ConnectionError outside the pass's own code. Stop and report"
     ledger = json.loads((tmp_path / "ledger.json").read_text())
     assert ledger["guards_pass"]["error"] == "ConnectionError outside the pass's own code" and ledger["guards_pass"]["outcomes"] == {}
     still = Scripted(ok("H2"), guards={**ALL_TRUE, "G6": False})  # taken again, and this time it finds a guard false
@@ -807,7 +810,7 @@ def test_a_guards_only_pass_that_failed_to_run_is_taken_again_before_wave_2(tmp_
 
 
 def test_a_rehearsal_accepts_exactly_the_refusals_one_batch_on_both_sides_must_give(tmp_path):
-    """Plan 4, Section 6.1: with each batch on both sides the pass reports G6 and G11 false and the launcher stops; wave
+    """Plan 4 of the research log, Section 6.1: with each batch on both sides the pass reports G6 and G11 false and the launcher stops; wave
     2 then launches under a rehearsal-only flag that accepts exactly those refusals and no other."""
     design = _design("rehearsal_")
     ok = lambda b: {b: (105.0, _job(f"rehearsal|x|{b}", [_unit(b)], 1, seconds=100.0))}  # noqa: E731
@@ -851,7 +854,7 @@ def test_a_check_over_the_cap_stops_the_run(tmp_path):
     design = _design()
     ok = lambda b, seconds=100.0: {b: (seconds + 5.0, _job(f"lead|x|{b}", [_unit(b)], 1, seconds=seconds))}  # noqa: E731
     cheap = {**ok("A1"), **ok("A2")}
-    with pytest.raises(LL.LaunchRefusal, match=r"^the run stops here: C1\. Report to the head$"):
+    with pytest.raises(LL.LaunchRefusal, match=r"^the run stops here: C1\. Stop and report$"):
         _drive(tmp_path, design, design[0], ["A1", "A2"], Scripted(cheap), cap=2.0)  # about 55 cents spent and 1.75 dollars to come
     ledger = json.loads((tmp_path / "ledger.json").read_text())
     assert ledger["checks"][0]["exceeds_cap"] is True and ledger["checks"][0]["cap"] == 2.0 and ledger["stopped_by"] == ["C1"]
@@ -877,10 +880,10 @@ def test_a_check_over_the_cap_stops_the_run(tmp_path):
 
 
 def test_check_c0_is_on_the_runs_ledger_before_its_first_job(tmp_path):
-    under = LG.check_c0(LENA, LISTED, {"function_seconds": 1_600.0, "container_lives": 14, "billed": None})
+    under = LG.check_c0(SPEC_TIMINGS, LISTED, {"function_seconds": 1_600.0, "container_lives": 14, "billed": None})
     LL.record_c0(tmp_path / "ledger.json", under)
     assert [c["check"] for c in json.loads((tmp_path / "ledger.json").read_text())["checks"]] == ["C0"]
-    over = LG.check_c0(LENA, LISTED, {"function_seconds": 1_600.0, "container_lives": 14, "billed": None}, cap=90.0)
+    over = LG.check_c0(SPEC_TIMINGS, LISTED, {"function_seconds": 1_600.0, "container_lives": 14, "billed": None}, cap=90.0)
     with pytest.raises(LL.LaunchRefusal, match="check C0"):
         LL.record_c0(tmp_path / "ledger.json", over)
     ledger = json.loads((tmp_path / "ledger.json").read_text())
@@ -893,7 +896,7 @@ def test_check_c0_is_on_the_runs_ledger_before_its_first_job(tmp_path):
 
 
 def test_the_rehearsals_cost_is_counted_from_their_records(tmp_path):
-    """Amendment 4, Section 2: the cap covers the session's rehearsals. The first is counted from its record, with its
+    """Amendment 4, Section 2: the cap covers the rehearsals. The first is counted from its record, with its
     three container lives; each repeat from its ledger and its assembly."""
     assert LL.rehearsal_counts(tmp_path) == {"function_seconds": 0.0, "container_lives": 0.0, "billed": None, "app_ids": []}
     (tmp_path / "rehearsal").mkdir()
@@ -928,7 +931,7 @@ def _returns(stage: str, commit_seconds: float = 600.0) -> dict[str, tuple[float
 
 
 def test_the_deciding_runs_commands_in_order_with_a_scripted_cloud(tmp_path, monkeypatch):
-    """Plan 4, Section 7: the five stages in order, then the plans of what to assemble and what to copy. The containers
+    """Plan 4 of the research log, Section 7: the five stages in order, then the plans of what to assemble and what to copy. The containers
     are scripted; what the launcher asks of them, and what it refuses, is the run's."""
     results = tmp_path / "s5_lead"
     commit = "d" * 40
@@ -940,7 +943,7 @@ def test_the_deciding_runs_commands_in_order_with_a_scripted_cloud(tmp_path, mon
         LL.stage_command("lead_attack", commit, 0, Scripted({}).cloud(), listed_hourly_price=LISTED)
     LL.write_json(results / "rehearsal_2" / "ledger.json", {"stages": {"x": {"launches": [{"app_id": "ap-r", "function_seconds": 1_200.0, "container_lives": 11}]}},
                                                             "guards_pass": {"app_id": "ap-r", "seconds": 4.0}})
-    record = {"all_required_outcomes_met": False, "commit": commit, "timings": LENA, "check_C0": {"assemble_seconds": 30.0}}
+    record = {"all_required_outcomes_met": False, "commit": commit, "timings": SPEC_TIMINGS, "check_C0": {"assemble_seconds": 30.0}}
     LL.write_json(results / "rehearsal_2" / "rehearsal.json", record)
     with pytest.raises(LL.LaunchRefusal, match="did not meet"):
         LL.stage_command("lead_attack", commit, 0, Scripted({}).cloud(), listed_hourly_price=LISTED)
@@ -970,7 +973,7 @@ def test_the_deciding_runs_commands_in_order_with_a_scripted_cloud(tmp_path, mon
     assert wave_1.guards_asked == [{"arm": "lead", "units": "/cache/s5_lead/lead/sealed/units", "attack": LL.BATCHES["lead"]["attack"], "heldout": ["H1"],
                                     "starts": [9, 10, 11, 12, 13], "commit": commit, "rehearsal": False}]
     c2 = json.loads((results / "ledger.json").read_text())["checks"][2]
-    per_container = LG.stage_seconds("lead_heldout_2", LENA)["total"] / 15  # at Lena's timings, 45 + 611 + 5,975 passes at 0.18 s
+    per_container = LG.stage_seconds("lead_heldout_2", SPEC_TIMINGS)["total"] / 15  # at the table specification's timings, 45 + 611 + 5,975 passes at 0.18 s
     assert c2["check"] == "C2" and c2["remaining"]["container_lives"] == 31 and per_container == pytest.approx(1_731.5)
     assert c2["remaining"]["function_seconds"] >= 15 * 1_900.0  # the other fifteen at this container's seconds, the larger of the two
     # 3. wave 2: the other fifteen; check C3 before the delta-on arm
@@ -1117,7 +1120,7 @@ class TinyCloud:
 
 @pytest.mark.parametrize("at_once", [True, False])
 def test_the_repeat_rehearsal_on_the_tiny_model_through_the_commands(tmp_path, monkeypatch, at_once):
-    """Plan 4, Section 6: the rehearsal's commands, in order, with the tiny model for the cloud. Every row of its table
+    """Plan 4 of the research log, Section 6: the rehearsal's commands, in order, with the tiny model for the cloud. Every row of its table
     is met, the record is written, and check C0 is computed for the run. What each stage must do is asserted as it goes."""
     tiny = TinyCloud(at_once)
     results, volume = tmp_path / "results" / "s5_lead", tmp_path / "cache" / "s5_lead"
@@ -1149,7 +1152,7 @@ def test_the_repeat_rehearsal_on_the_tiny_model_through_the_commands(tmp_path, m
     # 2. the held-out role, wave 1: C1 alone; then check C2 and the guards-only pass, which must refuse, and the launcher stops
     with pytest.raises(LL.LaunchRefusal) as e:
         stage("rehearsal_heldout_1")
-    assert str(e.value) == "the run stops here: the guards-only pass: G11_differs_from_the_heldout_batchs_own, G6. Report to the head"
+    assert str(e.value) == "the run stops here: the guards-only pass: G11_differs_from_the_heldout_batchs_own, G6. Stop and report"
     assert LL.guards_acceptable(ledger()["guards_pass"]["outcomes"], True) and ledger()["stages"]["rehearsal_heldout_1"]["complete"] is True
     # 3. wave 2: C2 alone, under the flag that accepts exactly those refusals
     with pytest.raises(LL.LaunchRefusal, match="has not passed"):
@@ -1193,7 +1196,7 @@ def test_the_repeat_rehearsal_on_the_tiny_model_through_the_commands(tmp_path, m
     assert len(tiny.lines) == 4 * len(LT.CHECKS + LT.LOADER_CHECKS) and all(set(ln) == {"event", "unit", "guard", "ok"} for ln in tiny.lines)  # names with pass or fail, and no value
     record = LL.record_command(2, listed={"source": "a test"}, listed_hourly_price=LISTED, read_bill=cloud.read_bill, killed=tiny.control.get, log=cloud.log)
 
-    # every row of plan 4's Section 6, and plan 2's Section 7 with them
+    # every row of plan 4 of the research log's Section 6, and plan 2 of the research log's Section 7 with them
     outcomes = record["required_outcomes"]
     assert sorted(outcomes) == sorted([
         "row_1_two_containers_at_once_in_each_role", "row_2_kill_inside_a_unit", "row_3_stop_then_relaunch", "row_4_two_waves_and_the_guards_only_pass",

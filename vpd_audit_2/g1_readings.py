@@ -1,4 +1,4 @@
-"""Plan 2, section 8.3 and 8.4: gate G1's readings, recomputed from the committed trajectories alone.
+"""Plan 2 of the research log, section 8.3 and 8.4: gate G1's readings, recomputed from the committed trajectories alone.
 
     uv run python -m vpd_audit_2.g1_readings [results/plan2_g1/trajectories.json]
 
@@ -130,7 +130,7 @@ SPREAD_STARTS = tuple(range(1, 9))
 
 
 def start_spread(traj: dict[str, Any]) -> dict[str, Any]:
-    """The head's follow-up of 1 October: the 20-step spread due to the start. s_w is the pooled within-batch SD of log
+    """The follow-up of 1 October: the 20-step spread due to the start. s_w is the pooled within-batch SD of log
     harm over starts 1 to 8 on C1, C2, and C3 (21 degrees of freedom); s_8 the SD over C1 to C8, one start each;
     s = max(s_8, s_w); the interval is ybar_8 +- t_{0.995,7} s sqrt(1 + 1/8)."""
     runs = traj["runs"]

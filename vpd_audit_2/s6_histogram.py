@@ -1,10 +1,10 @@
-"""Session 6, plan 2: the on-or-off histogram (`results/s6_followups/CONVENTIONS.md`, Section 3). Description; no GPU.
+"""Plan 2 of the research log: the on-or-off histogram (`results/s6_followups/CONVENTIONS.md`, Section 3). Description; no GPU.
 
     uv run python -m vpd_audit_2.s6_histogram
 
 Settings: all 160 searches of the lead experiment (80 attack and 80 held-out, starts 9 to 13), their saved settings at
 20, 40, 80, 160, and 320 steps and the one-step-earlier copies at 160 and 320, read from the run's unit files under
-`.cache/s5_lead_units/run/lead/`, each checked against the hash session 5's backup recorded. Attack and held-out sides
+`.cache/s5_lead_units/run/lead/`, each checked against the hash the earlier backup recorded. Attack and held-out sides
 are reported apart.
 
 Bins: exactly 0; exactly 1; and the open interval (0, 1) in ten equal bins, bin k holding the values v with
@@ -146,7 +146,7 @@ def load_inputs() -> tuple[dict[tuple[str, str, int], Path], dict[int, np.ndarra
 
 
 def report(h: dict[str, Any]) -> str:
-    L = ["The on-or-off histogram (session 6, plan 2; conventions, Section 3). Description only.",
+    L = ["The on-or-off histogram (plan 2 of the research log; conventions, Section 3). Description only.",
          "Settings: the lead experiment's 160 searches, starts 9 to 13, attack and held-out sides apart. Counts are summed over a",
          "side's searches; each bin's share of its group's entries is in parentheses, at two decimals. Bin (a, b) holds the values",
          "v with floor(10 v) = 10 a, on the stored float32 value. Untouched: saved absolute gradient sum exactly zero (each checked",

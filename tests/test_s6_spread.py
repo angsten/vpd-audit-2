@@ -1,5 +1,5 @@
-"""Session 6, plan 2: the spread over texts' statistics on tiny made-up arrays, with hand-computed answers. The module
-is not run on real data until the head settles its open questions; its `main` refuses until then."""
+"""Plan 2 of the research log: the spread over texts' statistics on tiny made-up arrays, with hand-computed answers. The module
+is not run on real data until its open questions are settled; its `main` refuses until then."""
 
 from __future__ import annotations
 
@@ -120,7 +120,7 @@ def test_spearman_against_scipy_with_and_without_ties():
 
 
 def test_it_refuses_to_run_while_the_open_questions_are_unsettled(monkeypatch):
-    assert S.OPEN_QUESTIONS_SETTLED is True  # the head's answers, session 6
+    assert S.OPEN_QUESTIONS_SETTLED is True  # the settled answers
     monkeypatch.setattr(S, "OPEN_QUESTIONS_SETTLED", False)
     with pytest.raises(S.Refusal, match="not settled"):
         S.main()

@@ -1,4 +1,4 @@
-"""Plan 2, step 2 (section 4): test the world-size inference of provenance (i).
+"""Plan 2 of the research log, step 2 (section 4): test the world-size inference of provenance (i).
 
 Two parts.
 

@@ -1,6 +1,6 @@
-"""The Modal app for the lead run (`sessions/005/engineering/plan_2.md`, as `plan_4.md` changes it).
+"""The Modal app for the lead run (plan 2 of the research log, as plan 4 of the research log changes it).
 
-The deciding run, on the head's go, at the commit it names, in this order:
+The deciding run, on the go-ahead, at the commit it names, in this order:
 
     uv run modal run vpd_audit_2/modal_lead.py::stage --name lead_attack --commit <c>      (16 containers; then check C1)
     uv run modal run vpd_audit_2/modal_lead.py::stage --name lead_heldout_1 --commit <c>   (H1 alone; then check C2 and the guards-only pass)
@@ -181,7 +181,7 @@ def assemble_cpu(spec: dict) -> dict:
 
 @app.function(volumes={CACHE: volume}, cpu=4, memory=16384, timeout=3600)
 def guards_cpu(spec: dict) -> dict:
-    """The guards-only pass (plan 4, Section 4.3): the assembler's cross-unit guards on the listed held-out batches'
+    """The guards-only pass (plan 4 of the research log, Section 4.3): the assembler's cross-unit guards on the listed held-out batches'
     blocks against the attack searches. CPU only. Returns each guard's name with true or false, and its seconds."""
     t0 = time.time()
     try:
@@ -268,7 +268,7 @@ def stop(rehearsal: int = 0) -> None:
 
 @app.local_entrypoint()
 def validate(rehearsal: int) -> None:
-    """Load each of a rehearsal's copied tables with plan 1's loader, run plan 1's checks, and give every check's name
+    """Load each of a rehearsal's copied tables with plan 1 of the research log's loader, run plan 1 of the research log's checks, and give every check's name
     with pass or fail and no value (`lead_launch.validate_command`). It reads a rehearsal's tables and refuses any other."""
     LL.validate_command(rehearsal, log=LOG)
 

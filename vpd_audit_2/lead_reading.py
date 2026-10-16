@@ -1,4 +1,4 @@
-"""Session 5, plan 1, Section 5.3: from intervals to verdict words, the printed rows, and the record.
+"""Plan 1 of the research log, Section 5.3: from intervals to verdict words, the printed rows, and the record.
 
 The rules: `freeze/part1.md`, Sections 4 and 8 (signed); `freeze/amendment1.md` (Amendment 1); and the binding
 specification `freeze/amendment1_specs/output_and_reading_spec.md` ("the output specification"), Sections 3, 4, 6, 7.
@@ -49,7 +49,7 @@ VERDICT_NAMES = {"large": "large", "carries": "carries over", "depends": "depend
 RETENTION_FOOTER = "Description: resolves no cell."
 DELTA_ON_CAUTION = ("The delta-on searches follow different paths from the lead's, so a share differs from 1 by chance. "
                     "Compare it with the range on line 7 before reading it as the delta components' contribution.")
-# Two fixed sentences whose wording the amendment leaves to the script (plan 1, Section 12.1, item 7).
+# Two fixed sentences whose wording the amendment leaves to the script (plan 1 of the research log, Section 12.1, item 7).
 MISSING_WORDING = "This row holds for searches that reached the level; searches that never reach it are left out, and they are the ones that stall low."
 STEP_BEFORE_LABEL = "step n - 1: description; step n decides"
 STEP_BEFORE_WORDING = "The setting after step n - 1 has no shuffled copies, so this sub-row carries the \"large\" difference and the carry-over ratio only."

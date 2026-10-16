@@ -1,10 +1,10 @@
 # Freeze File, Part 1: Amendment 2
 
-*Session 5. Written by Ines from Daniel's ruling as the author of the made-up-data generator, Ruth's conditions, Lena's check of the pilot's data, and Riku's analysis. It corrects one factor in the made-up-data generator that Amendment 1 binds. It was written after a partial look at how the test behaves and before the test of record had run, and it says exactly what had been seen.*
+*Written from the generator author's ruling, the review's conditions, a check of the pilot's data, and the accompanying analysis. It corrects one factor in the made-up-data generator that Amendment 1 binds. It was written after a partial look at how the test behaves and before the test of record had run, and it says exactly what had been seen.*
 
 ## What This Amendment Does
 
-Amendment 1 fixed, before any test, how the lead experiment's error bars would be tested on made-up experiments with known answers, and how they would be widened if the test found them too narrow. The engineer built that test and, before running it for the record, found that one invented factor in the generator of made-up experiments would decide its outcome. This amendment removes that factor from the test of record, keeps the as-committed version as a second run printed in full, and adds one description to the real analysis.
+Amendment 1 fixed, before any test, how the lead experiment's error bars would be tested on made-up experiments with known answers, and how they would be widened if the test found them too narrow. We built that test and, before running it for the record, found that one invented factor in the generator of made-up experiments would decide its outcome. This amendment removes that factor from the test of record, keeps the as-committed version as a second run printed in full, and adds one description to the real analysis.
 
 **No signed line, threshold, sample size, seed, pool, or start of Part 1 changes. The test's scenario list, its pass criterion, its repair, and every threshold of Amendment 1 are unchanged.**
 
@@ -16,15 +16,15 @@ Amendment 1 fixed, before any test, how the lead experiment's error bars would b
 |---|---|
 | Amends | Amendment 1 to the freeze file, Part 1, as committed at `c1d256c` on branch `session-005-lead` |
 | Amendment | 2 |
-| Date | 5 October 2026, session 5 |
-| Commit | A commit of its own on branch `session-005-lead`, carrying this file as `vpd-audit-2/freeze/amendment2.md`, pushed before either version of the test of record runs |
-| The PI | Told of the finding in the session 5 transcript before this file was written. The results of both versions of the test go to the PI before any deciding run |
+| Date | 5 October 2026 |
+| Commit | A commit of its own on branch `session-005-lead`, carrying this file as `freeze/amendment2.md`, pushed before either version of the test of record runs |
+| The author | Told of the finding (research log) before this file was written. The results of both versions of the test go to the author before any deciding run |
 
 ## 1. What Had Been Seen
 
 The test of record had not run. Four things had:
 
-1. **A plumbing run of the whole harness at 100 experiments per scenario,** 200 for reruns, under master seed 20261005, in the engineer's scratch folder. It showed coverage near 0.90 in most core cells, with nearly all misses on one side, and near 0.76 at the 10-nat level. Its output is committed beside the test's report, as it was.
+1. **A plumbing run of the whole harness at 100 experiments per scenario,** 200 for reruns, under master seed 20261005, in a scratch folder. It showed coverage near 0.90 in most core cells, with nearly all misses on one side, and near 0.76 at the 10-nat level. Its output is committed beside the test's report, as it was.
 2. **A diagnostic on plain means** at search-length rows, on other seeds and with no intervals: the generator matched its enumerated truths (largest gap 2.6 Monte Carlo standard errors over 40,000 experiments).
 3. **A diagnostic at the 10-nat level** in one core scenario, over 40,000 experiments:
 
@@ -90,7 +90,7 @@ log-normal with mean 1 and standard deviation 0.1, independent of batch type. Th
 
 - The scenario list: 13 core, 8 stress, 2 checks.
 - The criterion of Amendment 1's Section 5.2, including that a harm-level row is judged on the experiments in which the count rule lets the level be read. An interval is judged where it will be used.
-- The repair of Section 5.3: a multiplier of at most 1.5 from the core cells, and a row needing more goes to the PI.
+- The repair of Section 5.3: a multiplier of at most 1.5 from the core cells, and a row needing more goes to the author.
 - Every threshold.
 
 **One correction only.** If core cells fail under the amended generator, Section 5.3 applies as written. The generator is not changed again.

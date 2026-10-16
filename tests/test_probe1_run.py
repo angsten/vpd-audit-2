@@ -1,4 +1,4 @@
-"""Session 7, plan 5: probe 1's launch without the cloud (`vpd_audit_2/probe1_run.py`), on the tiny model.
+"""Plan 5 of the research log: probe 1's launch without the cloud (`vpd_audit_2/probe1_run.py`), on the tiny model.
 
   - The specs and their refusals.
   - The whole run through the commands the cloud module calls: the validation stage, its collection and verdict, the

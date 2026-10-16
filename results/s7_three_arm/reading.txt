@@ -1,4 +1,4 @@
-The three-arm experiment (session 7, plan 6; Riku's specification with the plan's eight amendments): training's persistent
+The three-arm experiment (plan 6 of the research log; the experiment's specification with the plan's eight amendments): training's persistent
 adversary against the released decomposition held frozen, 1,000 batches of 64 unused attack-side texts per arm and seed.
 Breakout: the two-batch mean of the harm reaches 5 nats. The governing series is the harm on the fresh batch before its
 ascents (amendment 5); training's own loss is beside it.

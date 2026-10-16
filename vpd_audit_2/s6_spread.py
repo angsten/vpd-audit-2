@@ -1,9 +1,9 @@
-"""Session 6, plan 2: how the harm is spread over texts (`results/s6_followups/CONVENTIONS.md`, Section 6). Description;
+"""Plan 2 of the research log: how the harm is spread over texts (`results/s6_followups/CONVENTIONS.md`, Section 6). Description;
 no GPU.
 
     uv run python -m vpd_audit_2.s6_spread
 
-The head's answers to the questions sent with plan 1's report 2 (session 6): the Spearman correlations with another
+The settled answers to the questions raised by the first wave's report: the Spearman correlations with another
 attack batch and with another start use every other one, averaged within the cell, then the mean over cells, with the
 count of partners printed beside each; statistics 1 and 2 are on the harm, the literal text (0.75 nats is a harm
 level), and the two concentration measures on the added harm; the 11 held-out texts whose spans overlap attack rows are
@@ -54,7 +54,7 @@ BENCHMARK = 0.75
 TOP_TEXTS = 13  # 10 percent of 128
 PERCENTILE_TEXT = 13  # the 13th lowest
 SUMMARY_PERCENTILES = (10, 50, 90)
-OPEN_QUESTIONS_SETTLED = True  # the head, session 6, after plan 1's report 2
+OPEN_QUESTIONS_SETTLED = True  # settled after the first wave's report
 PARTNER_BATCHES = "every_other"
 PARTNER_STARTS = "every_other"
 DROP_OVERLAPPING = False
@@ -262,7 +262,7 @@ def _partners(p: dict[str, Any]) -> str:
 
 
 def report(out: dict[str, Any], overlap: dict[str, Any]) -> str:
-    L = ["How the harm is spread over texts (session 6, plan 2; conventions, Section 6). Description only; no interval.",
+    L = ["How the harm is spread over texts (plan 2 of the research log; conventions, Section 6). Description only; no interval.",
          "Each statistic: its median over cells, with the 10th and 90th percentiles over cells in parentheses. Added harm is the",
          "text's harm under the setting less its harm under the same start. Statistics 1 and 2 are on the harm (0.75 nats is a",
          "harm level); the two concentration measures are on the added harm, negative values counted as zero. A text's harm is",

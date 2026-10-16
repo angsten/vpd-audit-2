@@ -1,7 +1,7 @@
-"""The Modal app for session 6's plan 3: the first post's comparison rerun (Section 4) and the intact-background variants
-(Section 7, added after the readings, as description), in one launch (`sessions/006/engineering/plan_3.md`).
+"""The Modal app for plan 3 of the research log: the first post's comparison rerun (Section 4) and the intact-background variants
+(Section 7, added after the readings, as description), in one launch (plan 3 of the research log).
 
-On the head's go, at the commit it names, in this order:
+On the go-ahead, at the commit it names, in this order:
 
     uv run modal run vpd_audit_2/modal_s6_plan3.py::launch --commit <c>    (12 containers at once: QB1 to QB8, and H1, H5, H9, H13)
     uv run modal run vpd_audit_2/modal_s6_plan3.py::collect --commit <c>   (the 404 unit files, as bytes, to .cache/s6_plan3/)
@@ -103,7 +103,7 @@ def variants_gpu(spec: dict, batch_inputs: dict, starts: dict, strata: dict, lay
 
 
 def _no_guards_pass(spec: dict[str, Any]) -> dict[str, Any]:
-    raise LL.LaunchRefusal("plan 3 has no guards-only pass")  # the launcher asks for one only in a three-stage design
+    raise LL.LaunchRefusal("plan 3 of the research log has no guards-only pass")  # the launcher asks for one only in a three-stage design
 
 
 @app.local_entrypoint()

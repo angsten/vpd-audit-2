@@ -1,6 +1,6 @@
-"""The table: its checks, its rows, and Lena's tests T3 to T13 on made-up inputs (plan 1, Section 6).
+"""The table: its checks, its rows, and the table specification's tests T3 to T13 on made-up inputs (plan 1 of the research log, Section 6).
 
-Expected values come from `freeze/amendment1_specs/table_and_run_spec.md` (Sections 3 and 10) and plan 1 (Sections 5.1
+Expected values come from `freeze/amendment1_specs/table_and_run_spec.md` (Sections 3 and 10) and plan 1 of the research log (Sections 5.1
 and 12.1). None is this code's output.
 """
 
@@ -105,7 +105,7 @@ def test_validate_passes_and_every_check_can_fail(table):
     LT.validate(no_text)  # a made-up table may omit the per-text arrays
 
 
-def test_scoring_pass_count_is_lenas(table):
+def test_scoring_pass_count_is_table_spec(table):
     lead = C.synthetic_table(K_=16, low_attack=3, per_text=False)
     m = int((lead["step_A"] == -1).sum())  # missing level settings among the attack searches
     assert m == 6  # three searches that never reach 5 or 10 nats
@@ -128,7 +128,7 @@ def test_steps_are_the_existing_crossing_rule(table):
                     assert step[b, s, names.index(row)] == (-1 if k is None else k)
 
 
-# ----------------------------------------------------------------------------- Lena's tests on made-up inputs
+# ----------------------------------------------------------------------------- the table specification's tests on made-up inputs
 
 
 def _table_with_heldout_record(rec: np.ndarray, **kwargs) -> dict:
@@ -482,13 +482,13 @@ def test_a_table_is_real_by_its_metadata_or_by_a_folder_named_sealed(tmp_path):
     assert LT.is_real({}, [tmp_path / "t" / "table_core.npz"]) is True  # anything not marked made up is real
 
 
-# ----------------------------------------------------------------------------- session 5, plan 4: what the reviews added
+# ----------------------------------------------------------------------------- plan 4 of the research log: what the reviews added
 
 
 def test_the_arrays_with_no_attack_axis_go_in_a_part_of_their_own_when_they_do_not_fit(tmp_path):
-    """Plan 4, Section 6.1: where the arrays with no attack axis and one attack batch's arrays do not fit in one part
+    """Plan 4 of the research log, Section 6.1: where the arrays with no attack axis and one attack batch's arrays do not fit in one part
     together, the first part holds the arrays with no attack axis alone. So a table of one attack batch can be written
-    in two parts, and plan 1's loader reads it back."""
+    in two parts, and plan 1 of the research log's loader reads it back."""
     one = C.synthetic_table(K_=1, ns=1)
     LT.validate(one)
     files = LT.save_table(one, tmp_path / "one", part_bytes=1_000)
@@ -525,9 +525,9 @@ def test_the_arrays_with_no_attack_axis_go_in_a_part_of_their_own_when_they_do_n
 
 
 def test_validate_repeats_the_two_wrong_batch_comparisons(table):
-    """Plan 4, Section 4.4 (Riku's review, Section 4). The program that reads the table checks for itself that no
+    """Plan 4 of the research log, Section 4.4 (the plan's review, Section 4). The program that reads the table checks for itself that no
     carried cell's per-text harms are all equal to the same setting's on its attack batch, or to the held-out batch's
-    own setting's. First his example, with three texts; then whole tables through `validate`."""
+    own setting's. First its example, with three texts; then whole tables through `validate`."""
     one = np.ones((1, 1, 1), dtype=bool)
     own_A = np.array([0.9, 1.1, 1.0], dtype=np.float32).reshape(1, 1, 1, 3)
     own_H = np.array([0.7, 0.8, 0.6], dtype=np.float32).reshape(1, 1, 1, 3)

@@ -2,7 +2,7 @@ Agreement between settings (conventions, Section 7, and the addendum's item 3). 
 Settings read: 160 run searches (A1-A16, H1-H16 from starts 9-13), 40 starts-test searches (C1-C8 from starts 9-13, loaded by name; the guard search not read), 64 pilot searches (C1-C8 from starts 1-8, values only); every file or array matched its recorded SHA-256.
 Entries: 38,912 rank-one (9,948 alive, 28,964 never-needed) and 24 delta. Strata file SHA-256 12ce906776467e6faffeea6c5d86130e907a8e25a0109ec1d2fc013ec5110af2.
 Agree: both below one half or both at or above. Chance levels: independence within the shuffle's 264 strata (different starts); crossing from the start within the same strata (same start); crossing within start-value decile by alive or never-needed (same start; the addendum's level, not defined for the 24 delta entries). The delta entries are one group for the chance levels. Kappa = (mean agreement - mean chance) / (1 - mean chance) over a family's pairs.
-Top 3,000: plan 2's ranking a_c = G_c (s_c - s0_c) over all 38,936 entries, pairs whose settings both have saved gradients (starts 9-13); O and E are means over pairs, beyond chance = (O - E)/(3000 - E), the same-side share pooled over the family's overlapping entries.
+Top 3,000: plan 2 of the research log's ranking a_c = G_c (s_c - s0_c) over all 38,936 entries, pairs whose settings both have saved gradients (starts 9-13); O and E are means over pairs, beyond chance = (O - E)/(3000 - E), the same-side share pooled over the family's overlapping entries.
 
 320 steps (n320): 264 settings
   family                                pairs  entries       agree   chance level and kappa

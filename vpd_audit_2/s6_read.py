@@ -1,4 +1,4 @@
-"""Session 6, plan 2: what the reading scripts share. The scored units, loaded by name from the local copy (refusing an
+"""Plan 2 of the research log: what the reading scripts share. The scored units, loaded by name from the local copy (refusing an
 incomplete set and naming every unit missing), and the run's tables, each checked against its receipt."""
 
 from __future__ import annotations
@@ -11,7 +11,7 @@ import numpy as np
 from vpd_audit_2 import s6_build as B
 from vpd_audit_2 import s6_run as SR
 
-PAPER_ALIVE = 9972  # the paper's count on its own data (literature/text_only/bushnaq2026_vpd.md, lines 347 and 360)
+PAPER_ALIVE = 9972  # the paper's count on its own data, from table `tab:num-components-per-layer` in its 'Target language model' section
 STRATA_ALIVE = 9948  # the strata's count on the first post's 1,024 texts (results/s4_pilot/part_a/strata.npz)
 ALIVE_LINE = ("Counts are set beside two alive counts: 9,972 is the paper's count on its own data; 9,948 is the strata's count on the "
               "first post's 1,024 texts.")

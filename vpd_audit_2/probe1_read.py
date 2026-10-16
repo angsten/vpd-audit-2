@@ -1,5 +1,5 @@
-"""Session 7, plan 5: probe 1's reading, committed before the run (`sessions/007/notes/daniel/probe1_spec.md`, Sections 4
-and 5, with the six amendments of `sessions/007/engineering/plan_5.md`). No GPU.
+"""Plan 5 of the research log: probe 1's reading, committed before the run (the probe's specification (research log), Sections 4
+and 5, with the six amendments of plan 5 of the research log). No GPU.
 
     uv run python -m vpd_audit_2.probe1_read results/s7_probe1
 
@@ -11,17 +11,17 @@ Settings and sets. The 80 attack searches at 320 steps decide; at 80 steps, the 
 setting s: the off set O is its components (delta entries apart) below one half; the kept components are the rest; the
 off delta entries are its delta entries below one half. Pushes are the intact model's unless named otherwise.
 
-The statistic (the note's Section 4, amendment 2).
+The statistic (the specification's Section 4, amendment 2).
   - Batch push P_c(A) = sum over the attack batch's 128 texts of p_c(x), in float64.
   - Agreement on a held-out text y: g(y) = sum_{c in O} |p_c(y)| [sign p_c(y) = sign P_c(A)] / sum_{c in O} |p_c(y)|,
     signs by np.sign (a zero batch push agrees with nothing).
   - Chance (amendment 2): the same over matched kept components. In each (weight matrix, usage band) cell of the strata
     of `pilot.py` (`s6_build.cells_of`), as many kept components as O has there, or all of them if fewer, drawn
     uniformly without replacement, cells in ascending order, one generator seeded ("probe1-chance", attack batch,
-    start, steps, draw); eight draws, as the note's eight permutations, and g0(y) is their mean.
+    start, steps, draw); eight draws, as the specification's eight permutations, and g0(y) is their mean.
   - Pooled over the 128 texts of each of the 1,280 held-out cells: g-bar and g0-bar; agreement beyond chance
     kappa = (g-bar - g0-bar) / (1 - g0-bar), a ratio of two cell means.
-  - The interval: session 5's two-way bootstrap over attack and held-out batches with its start term
+  - The interval: the earlier two-way bootstrap over attack and held-out batches with its start term
     (`lead_intervals.interval`, the run's indices, multiplier 1 as the lead's rows had).
 
 The reading (amendments 3 and 4), on kappa's interval [lo, hi]: with g0-bar above 0.9, "undetermined (degenerate)" and
@@ -34,7 +34,7 @@ marginal positive share on held-out texts; the unweighted sign agreement and its
 (amendment 5: each attack text against the batch push of the other 127, kappa and its interval over attack batches
 with the start term); the additivity ratio sum_{c in O} p_c(y) / sum_t |Delta(y, t)|, and with the off delta entries
 added; kappa with the off delta entries counted in O; at the full pattern, the same statistic as description; and the
-checks (the pattern's damage against session 6's rounded control, the intact model against the target).
+checks (the pattern's damage against the earlier rounded control, the intact model against the target).
 
 Within-batch gate (amendment 5): if the reading is "do not agree" and the within-batch kappa is at or below the upper
 end of the cross-batch interval, the licensed sentence is the input-specific one.
@@ -44,10 +44,10 @@ lower median of its 2,048; on it, four off-set components and four matched kept 
 without replacement with probability proportional to |p_c(y)|, seeded ("probe1-row-d", attack, start, batch, text).
 The drawn arrow is the push while on, the negative of the measured switch-off push.
 
-Post hoc, added after the reading at the head's request and printed as such in the 320-step row (nothing above
+Post hoc, added after the reading and printed as such in the 320-step row (nothing above
 changes): the kept components' sign balance on the attack batch; the positive share of push mass for the off set and
-the matched kept set, on the attack batch and the held-out texts, with session 5's interval on the held-out difference;
-and kappa against the note's original chance level, the off set's attack-batch signs permuted among the off set within
+the matched kept set, on the attack batch and the held-out texts, with the lead experiment's interval method (freeze/part1.md, Section 5; freeze/amendment1_specs/interval_spec.md) on the held-out difference;
+and kappa against the specification's original chance level, the off set's attack-batch signs permuted among the off set within
 each (weight matrix, usage band) cell, 8 permutations.
 """
 
@@ -69,21 +69,22 @@ STEPS = {"n320": 320, "n80": 80}
 CHANCE_LABEL = "probe1-chance"
 ROW_D_LABEL = "probe1-row-d"
 CHANCE_DRAWS = 8
-PERMUTATION_LABEL = "probe1-permutation"  # post hoc: the note's original chance level
+PERMUTATION_LABEL = "probe1-permutation"  # post hoc: the specification's original chance level
 PERMUTATIONS = 8
 MULTIPLIER = 1.0
 DEGENERATE_CHANCE = 0.9
 LINES = (0.0, 0.2, 0.5)
 ROW_D_OFF, ROW_D_ON = 4, 4
 N_CHUNKS = 2
-POST_HOC_NOTE = ("post hoc: added after the reading at the head's request (session 7), from the saved pushes; the kept components' "
+POST_HOC_NOTE = ("post hoc: added after the reading, from the saved pushes; the kept components' "
                  "sign balance on the attack batch, computed as the off set's is")
-POST_HOC_NOTE_3 = ("post hoc: added after the reading at the head's request (session 7), from the saved pushes; kappa with the chance "
-                   "level of Daniel's note as first written: the off set's attack-batch signs permuted among the off set within each "
+POST_HOC_NOTE_3 = ("post hoc: added after the reading, from the saved pushes; kappa with the chance "
+                   "level of the probe's specification as first written: the off set's attack-batch signs permuted among the off set within each "
                    "(weight matrix, usage band) cell, 8 permutations, seeded ('probe1-permutation', attack, start, steps, r)")
-POST_HOC_NOTE_2 = ("post hoc: added after the reading at the head's request (session 7), from the saved pushes; the share of push mass "
+POST_HOC_NOTE_2 = ("post hoc: added after the reading, from the saved pushes; the share of push mass "
                    "that is positive (along the pattern's shift) for the off set and the matched kept set (mean of the 8 draws), on the "
-                   "attack batch and pooled over the held-out texts, with session 5's interval on the held-out off-minus-kept difference")
+                   "attack batch and pooled over the held-out texts, with the lead experiment's interval method (freeze/part1.md, "
+                   "Section 5; freeze/amendment1_specs/interval_spec.md) on the held-out off-minus-kept difference")
 READINGS = ("mostly agree", "partly agree", "weakly agree", "do not agree", "undetermined", "undetermined (degenerate)")
 SENTENCES = {
     "mostly agree": ("We may say: \"the switched-off components push the same way on text the search never saw, contrary to the paper's "
@@ -93,8 +94,8 @@ SENTENCES = {
     "partly agree": "Print the number and keep the question marks.",
     "undetermined": "Print the number and keep the question marks.",
     "undetermined (degenerate)": "Kappa is not read; the marginal positive shares are reported instead. Print the number and keep the question marks.",
-    "weakly agree": ("No sentence is fixed for this reading: amendment 4 added the line, and neither the note nor the plan says what it "
-                     "licenses. The head decides."),
+    "weakly agree": ("No sentence is fixed for this reading: amendment 4 added the line, and neither the specification nor the plan says what it"
+                     "licenses. It is a judgement call."),
 }
 
 
@@ -138,7 +139,7 @@ def chance_seed(attack: str, start: int, steps: int, draw: int) -> int:
 
 
 def permuted_off_signs(sign_ref: np.ndarray, off: np.ndarray, codes: np.ndarray, seed: int) -> np.ndarray:
-    """Post hoc (the note's original chance level): the reference signs with the off set's entries permuted among
+    """Post hoc (the specification's original chance level): the reference signs with the off set's entries permuted among
     themselves within each (weight matrix, usage band) cell, cells in ascending order, one generator; every other entry
     unchanged."""
     rng = np.random.default_rng(seed)
@@ -198,7 +199,7 @@ def kappa(g_bar: float, g0_bar: float) -> float:
 
 
 def reading(interval: tuple[float, float] | list[float], chance: float) -> str:
-    """The note's lines with amendments 3 and 4, on kappa's interval and the pooled chance level."""
+    """The specification's lines with amendments 3 and 4, on kappa's interval and the pooled chance level."""
     if chance > DEGENERATE_CHANCE:
         return "undetermined (degenerate)"
     lo, hi = float(interval[0]), float(interval[1])
@@ -214,7 +215,7 @@ def reading(interval: tuple[float, float] | list[float], chance: float) -> str:
 
 
 def licence(read: str, cross_interval: tuple[float, float] | list[float], within_kappa: float) -> dict[str, Any]:
-    """What the reading licenses for Figure 3's row (d) (the note's Section 5, amendment 5's gate)."""
+    """What the reading licenses for Figure 3's row (d) (the specification's Section 5, amendment 5's gate)."""
     if read == "do not agree":
         as_low = bool(within_kappa <= float(cross_interval[1]))
         key = "do not agree, input-specific" if as_low else "do not agree, other way"
@@ -224,7 +225,7 @@ def licence(read: str, cross_interval: tuple[float, float] | list[float], within
 
 
 def row_d_draws_allowed(read: str) -> bool:
-    """Whether the note's Section 5 lets row (d) show the real components: on "mostly agree" and "do not agree"."""
+    """Whether the specification's Section 5 lets row (d) show the real components: on "mostly agree" and "do not agree"."""
     return read in ("mostly agree", "do not agree")
 
 
@@ -241,7 +242,7 @@ class Inputs:
     starts: list[int]
     text_ids_H: np.ndarray  # [K_H, 128]
     settings: dict[tuple[str, int, str], np.ndarray]  # (attack, start, row) to the saved flat setting
-    s6_rounded: dict[tuple[str, str, int, str], float] | None = None  # (held-out, attack, start, row) to session 6's rounded harm
+    s6_rounded: dict[tuple[str, str, int, str], float] | None = None  # (held-out, attack, start, row) to the earlier rounded harm
 
 
 def unit_name(stage: str, batch: str, attack: str, start: int, chunk: int) -> str:
@@ -493,11 +494,11 @@ def _iv(r: dict[str, Any]) -> str:
 
 
 def report(rows: dict[str, dict[str, Any]], d: dict[str, Any] | None, validation: dict[str, Any]) -> str:
-    L = ["Probe 1: do the pattern's pushes point the same way on text it never saw? (session 7, plan 5; Daniel's specification",
+    L = ["Probe 1: do the pattern's pushes point the same way on text it never saw? (plan 5 of the research log; the probe's specification",
          "with the plan's six amendments). Pushes are first-order, at the intact model, projected on the full rounded pattern's",
          "logit shift and summed over positions; a positive push means switching the component off moves the output along the",
          "pattern's shift.", "",
-         f"Validation (the note's Section 2): {'passed' if validation['passes'] else 'FAILED'}. Sign share above the bottom decile "
+         f"Validation (the specification's Section 2): {'passed' if validation['passes'] else 'FAILED'}. Sign share above the bottom decile "
          f"{validation['sign_share_above']:.4f} (at least 0.9), Spearman {validation['spearman_all']:.4f} (at least 0.8), over "
          f"{validation['pairs']} pairs.", ""]
     for row, r in rows.items():
@@ -508,11 +509,11 @@ def report(rows: dict[str, dict[str, Any]], d: dict[str, Any] | None, validation
                   f"  Reading: {r['reading'].upper()}.",
                   f"  Licensed: {r['licence']['sentence']}"]
             pb = r["post_hoc_permutation_baseline"]
-            L.append(f"  POST HOC (added after the reading, at the head's request), baseline = the note's original chance level, the off set's "
+            L.append(f"  POST HOC (added after the reading), baseline = the specification's original chance level, the off set's "
                      f"attack-batch signs permuted within weight matrix and usage band (8 permutations): g0-bar {pb['g0_bar']:.4f}; kappa "
                      f"{_iv(pb['interval'])}; the pre-registered lines would read: {pb['lines_would_read']}. Not the reading.")
         else:
-            L += [f"Description (the note's Section 3): settings at {STEPS[row]} steps, {r['cells']} held-out cells of 128 texts.",
+            L += [f"Description (the specification's Section 3): settings at {STEPS[row]} steps, {r['cells']} held-out cells of 128 texts.",
                   f"  g-bar (agreement) {r['g_bar']:.4f}; g0-bar (chance, matched kept components) {r['g0_bar']:.4f}.",
                   f"  Agreement beyond chance kappa: {_iv(r['interval'])}.",
                   f"  The lines would read: {r['reading']} (description only; nothing is licensed by this row)."]
@@ -524,13 +525,13 @@ def report(rows: dict[str, dict[str, Any]], d: dict[str, Any] | None, validation
               f"range {r['sign_balance_attack']['min']:.4f} to {r['sign_balance_attack']['max']:.4f};"]
         if row == "n320":
             ph = r["post_hoc_sign_balance_attack_kept"]
-            L.append(f"    POST HOC (added after the reading, at the head's request): the kept components' sign balance on the attack batch, "
+            L.append(f"    POST HOC (added after the reading): the kept components' sign balance on the attack batch, "
                      f"computed the same way: all kept, mean {ph['all_kept']['mean']:.4f}, range {ph['all_kept']['min']:.4f} to {ph['all_kept']['max']:.4f}; "
                      f"matched kept (mean of the 8 draws), mean {ph['matched_kept_mean_of_draws']['mean']:.4f}, range "
                      f"{ph['matched_kept_mean_of_draws']['min']:.4f} to {ph['matched_kept_mean_of_draws']['max']:.4f};")
             ps = r["post_hoc_positive_share"]
             dd = ps["heldout_off_minus_matched_kept"]
-            L.append(f"    POST HOC (added after the reading, at the head's request): share of push mass that is positive (along the pattern's "
+            L.append(f"    POST HOC (added after the reading): share of push mass that is positive (along the pattern's "
                      f"shift), off set against matched kept (mean of the 8 draws): attack batch, of the batch push {ps['attack_batch_push_mass']['off']:.4f} "
                      f"against {ps['attack_batch_push_mass']['matched_kept']:.4f}; attack texts, per text {ps['attack_texts']['off']:.4f} against "
                      f"{ps['attack_texts']['matched_kept']:.4f}; held-out texts, per text {ps['heldout_texts']['off']:.4f} against "
@@ -552,7 +553,7 @@ def report(rows: dict[str, dict[str, Any]], d: dict[str, Any] | None, validation
             L.append(f"    at the full pattern (description; circular on the attack batch): g-bar {fp['g_bar']:.4f}, chance {fp['g0_bar']:.4f}, "
                      f"kappa {_iv(fp['interval'])}; attack sign balance {fp['sign_balance_attack_mean']:.4f};")
         L.append(f"    checks: the pattern's mean KL from the intact model {r['pattern_kl_mean']:.3f} nats"
-                 + (f"; against session 6's rounded control on {r['check_s6_rounded']['cells']} S4 cells, ratio of means "
+                 + (f"; against the earlier rounded control on {r['check_s6_rounded']['cells']} S4 cells, ratio of means "
                     f"{r['check_s6_rounded']['ratio_of_means']:.4f}, largest relative difference {r['check_s6_rounded']['max_relative_difference']:.4f}"
                     if "check_s6_rounded" in r else "")
                  + f"; intact against target: largest logit difference {r['checks']['intact_max_abs_logit_difference']:.2e}, largest text KL "
@@ -614,7 +615,7 @@ def load_inputs(rows: list[str]) -> Inputs:
 
 
 def s6_rounded_harms(heldout: list[str], attack: list[str], starts: list[int], rows: list[str]) -> dict[tuple[str, str, int, str], float]:
-    """Session 6's control (d), the rounded setting's harm on the S4 batches, from its checked unit files."""
+    """The earlier control (d), the rounded setting's harm on the S4 batches, from its checked unit files."""
     from vpd_audit_2 import s6_build as B
     from vpd_audit_2 import s6_run as SR
     from vpd_audit_2 import s6_variants as V
@@ -632,7 +633,7 @@ def compute(results: Path, *, units_folder: Path | None = None, inputs: Inputs |
     results = Path(results)
     validation = json.load(open(results / "validation.json"))
     if not validation.get("passes"):
-        raise Refusal("the validation did not pass: the note's fallback decides, not this reading")
+        raise Refusal("the validation did not pass: the specification's fallback decides, not this reading")
     receipt = json.load(open(results / "backup.json"))
     files = receipt["files"]
     folder = Path(units_folder) if units_folder is not None else PR.LOCAL / PR.UNITS

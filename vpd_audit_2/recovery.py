@@ -1,4 +1,4 @@
-"""Plan 2, step 1 (section 3): full document recovery, on the CPU, with no model.
+"""Plan 2 of the research log, step 1 (section 3): full document recovery, on the CPU, with no model.
 
     uv run python -m vpd_audit_2.recovery
 
@@ -436,7 +436,7 @@ def main() -> dict[str, Any]:
                     "mixed_rows": int(mixed.sum()), "rows_by_label_set": {str(k): int(v) for k, v in zip(*np.unique(labels.astype(str), return_counts=True))}}
     log(f"wrote {ROWS_PARQUET} ({out['table']['bytes'] / 1e6:.1f} MB); mixed rows {out['table']['mixed_rows']}")
 
-    # agreement with plan 1's data check on the first-post rows it identified
+    # agreement with plan 1 of the research log's data check on the first-post rows it identified
     dc = json.load(open(env.PROVENANCE_DIR / "data" / "data_check.json"))
     agree = []
     for r in dc["first_post_rows_identified"]:

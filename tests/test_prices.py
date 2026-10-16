@@ -66,7 +66,7 @@ def test_constants():
 
 
 def test_the_deciding_branch_is_pinned():
-    """Plan 5, item 7: the deciding prices use W = 16 (plan 2's world-size test) and K = 256 (check 8 passed), so three
+    """Plan 5 of the research log, item 7: the deciding prices use W = 16 (plan 2 of the research log's world-size test) and K = 256 (check 8 passed), so three
     companions per tuple; the global column uses 63."""
     assert (P.W_RUN, P.K_DEFAULT) == (16, 256)
     t = P.tuple_sets(1024)
@@ -122,7 +122,7 @@ def test_price_is_the_mean_over_valid_tuples(syn):
     js = np.arange(a, b)[:: max(1, (b - a) // 20)]
     got = pricer.price_text(i, e.comp[js], e.delta[js])
     valid = [k for k in range(tuples.shape[0]) if i not in tuples[k]]
-    # Plan 5, item 6: at least one tuple excludes text 3 (so the expectation has terms), and at least one contains it
+    # Plan 5 of the research log, item 6: at least one tuple excludes text 3 (so the expectation has terms), and at least one contains it
     # (so the exclusion branch is exercised); with this seed text 3 is in tuples 2, 4, 10, 14, and 15.
     assert 0 < len(valid) < tuples.shape[0]
     for j, g in zip(js, got):
@@ -182,8 +182,8 @@ def test_saved_price_against_the_authors_functions_on_dense_rank_batches(syn):
     assert abs(T - ref) <= 1e-9 * ref
 
 
-def test_riku_third_case_numbers():
-    """Riku's worked example (spec Section 6): f16(1.032) - f16(0.032) = 3.12, and the plug-in difference at X = 14.1 is 5.65."""
+def test_price_spec_third_case_numbers():
+    """The price specification's worked example (Section 6): f16(1.032) - f16(0.032) = 3.12, and the plug-in difference at X = 14.1 is 5.65."""
     s = torch.tensor([1.032, 0.032, 1.032 + 14.1, 0.032 + 14.1], dtype=torch.float64)
     f = P.f_w(s, 16, 0.5)
     assert abs(float(f[0] - f[1]) - 3.12) < 0.005

@@ -1,6 +1,6 @@
-"""Session 6, plan 3, Section 8: the dose-response's launch without the cloud, and its reading on made-up units.
+"""Plan 3 of the research log, Section 8: the dose-response's launch without the cloud, and its reading on made-up units.
 
-The specs and their refusals; the projection from plan 3's variants containers and the refusal over $8; the whole
+The specs and their refusals; the projection from plan 3 of the research log's variants containers and the refusal over $8; the whole
 launch on the tiny model (one S4 batch, two attack batches, two starts) through the commands the cloud module calls,
 with a dose pass rebuilt and rescored independently; a failing check stopping the container; the copy; and the
 reading's pooled shares on a design whose answers are known by hand.

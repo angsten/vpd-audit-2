@@ -1,4 +1,4 @@
-"""Session 6, plan 2: the GPU re-scoring's container job on the tiny model, on a CPU, and its local side.
+"""Plan 2 of the research log: the GPU re-scoring's container job on the tiny model, on a CPU, and its local side.
 
 The job runs an S4 held-out batch (H1, with the delta-on free check) and an attack pair, on made-up run units, with every
 reference value scored independently through `adversary.score_per_text`; then a restart skips every unit; wrong references

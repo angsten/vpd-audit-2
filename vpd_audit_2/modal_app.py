@@ -1,4 +1,4 @@
-"""The Modal app for plan 1's smoke test.
+"""The Modal app for plan 1 of the research log's smoke test.
 
 One image: Debian slim with Python 3.13; this repository's `pyproject.toml` and `uv.lock`, and the `vpd-audit`
 submodule (with the authors' code inside it) copied in and installed from the lockfile with `uv sync --frozen`

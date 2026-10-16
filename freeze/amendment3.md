@@ -1,12 +1,12 @@
 # Freeze File, Part 1: Amendment 3
 
-*Session 5. Written by Ines from the team's review of the made-up-data test of record, and recording the PI's decision on it. Written after that test had run and before any deciding run.*
+*Written from our review of the made-up-data test of record, recording the author's decision on it. Written after that test had run and before any deciding run.*
 
 ## What This Amendment Does
 
-Amendment 1 fixed, before any test, how the lead experiment's error bars would be tested on made-up experiments with known answers, and how they would be widened if found too narrow: one multiplier per row, computed from the test, confirmed on fresh experiments, and capped at 1.5, with any row needing more going to the PI. The test of record has run. Every row's computed need exceeds 1.5, so by that rule every row went to the PI. This amendment records the PI's decision and what the record must carry with it.
+Amendment 1 fixed, before any test, how the lead experiment's error bars would be tested on made-up experiments with known answers, and how they would be widened if found too narrow: one multiplier per row, computed from the test, confirmed on fresh experiments, and capped at 1.5, with any row needing more going to the author. The test of record has run. Every row's computed need exceeds 1.5, so by that rule every row went to the author. This amendment records the author's decision and what the record must carry with it.
 
-**No signed line, threshold, sample size, seed, pool, or start of Part 1 changes.** The multipliers of Amendment 1's Section 5.3 are 1 in every row, by the PI's decision and not by the rule, for the reason in Section 3.
+**No signed line, threshold, sample size, seed, pool, or start of Part 1 changes.** The multipliers of Amendment 1's Section 5.3 are 1 in every row, by the author's decision and not by the rule, for the reason in Section 3.
 
 **No carry-over number existed when this was written.** No adversary setting had been scored on any batch other than the one it was found on.
 
@@ -16,15 +16,15 @@ Amendment 1 fixed, before any test, how the lead experiment's error bars would b
 |---|---|
 | Amends | Amendment 1, Section 5.3, as committed at `c1d256c` on branch `session-005-lead`, and the multipliers file it provides for |
 | Amendment | 3 |
-| Date | 6 October 2026, session 5 |
-| Commit | A commit of its own on `session-005-lead`, carrying this file as `vpd-audit-2/freeze/amendment3.md` and the multipliers file `vpd-audit-2/freeze/amendment1_multipliers.md` with its machine-readable copy, pushed before any deciding run |
-| The PI's decision | "B sounds good", in the session 5 transcript on 6 October 2026, choosing option B of four put to the PI: (A) widen every row as the rule computes; (B) widen nothing and state the limit; (C) widen "large" alone; (D) change the yardstick |
-| A correction before commit | When the PI chose B, Ines had told the PI that option A "would probably have turned the 80-step reading undetermined". Daniel showed that statement unsupported (Section 3 gives the correct figures). Ines corrected it with the PI before this file was committed and asked whether B still stood. The PI replied: "Yes, B still stands" |
+| Date | 6 October 2026 |
+| Commit | A commit of its own on `session-005-lead`, carrying this file as `freeze/amendment3.md` and the multipliers file `freeze/amendment1_multipliers.md` with its machine-readable copy, pushed before any deciding run |
+| The author's decision | "B sounds good", on 6 October 2026 (research log), choosing option B of four put to the author: (A) widen every row as the rule computes; (B) widen nothing and state the limit; (C) widen "large" alone; (D) change the yardstick |
+| A correction before commit | When the author chose B, he had been told that option A "would probably have turned the 80-step reading undetermined". That statement was found unsupported (Section 3 gives the correct figures), corrected with the author before this file was committed, and the author was asked whether B still stood. He replied: "Yes, B still stands" |
 | A decision after a look | This is the second. Amendment 2 was written after a 100-experiment plumbing run of the test; this amendment is written after the test of record itself, which is what it rules on |
 
 ## 1. What the Test of Record Found
 
-The test and its results are in `vpd-audit-2/results/s5_madeup/` and the engineer's reports, `sessions/005/engineering/plan_1.report_1.md` and `plan_1.report_2.md`; the test ran at commit `7c30101`, and the split by count below at `155df44`. Master seed 20261006; 2,000 experiments per scenario, 10,000 for a rerun. The two checks with exact known answers passed: coverage 0.9505 against 0.95; bootstrap variance 2.9316 times the true variance against 2.9375.
+The test and its results are in `results/s5_madeup/` and the test's two reports (research log); the test ran at commit `7c30101`, and the split by count below at `155df44`. Master seed 20261006; 2,000 experiments per scenario, 10,000 for a rerun. The two checks with exact known answers passed: coverage 0.9505 against 0.95; bootstrap variance 2.9316 times the true variance against 2.9375.
 
 **Of 299 core cells, 50 failed:** 37 of the "large" difference, 10 of the shuffled ratio, 3 of the carry-over ratio.
 
@@ -40,7 +40,7 @@ The multiplier each row would need by Amendment 1's rule: 1.90, 1.65, 1.85, 2.15
 
 ## 2. What the Failures Are
 
-The engineer identified one mechanism behind nearly every failing cell. Daniel, the interval's author, confirmed the arithmetic and the diagnosis, and the rest of the team reviewed it.
+One mechanism was identified behind nearly every failing cell; the interval's author confirmed the arithmetic and the diagnosis, and we reviewed it.
 
 The yardstick for "large" is the held-out batches' own 20-step harm. In the pilot, one calibration batch in eight (type C5) took twice the others' harm at 20 steps, and the made-up experiments keep that measured fact. A held-out side of 16 batches holds no such batch with probability $(7/8)^{16} = 11.8$ percent. In those experiments the yardstick is low by about $(1.18 - 0.51)/8 = 0.084$ nats, the "large" estimate is high by the same amount, and the interval is narrow, because no held-out batch stands out to resample. The variance estimate is close to right on average: in 48 of the 50 failing cells the estimated variance over the true variance lies between 0.94 and 1.14. In the other two, both "large" at 10 nats, it is about 1.6, because the experiments judged there are a selected fifth; those two cells still have the lowest coverage of the 299 core cells, 0.735 and 0.713. So the fault is not the size of the variance estimate. It is small exactly in the samples where the estimate is biased, and no interval built by resampling 16 units can see a kind of unit the sample does not hold.
 
@@ -56,9 +56,9 @@ The mechanism is not shown for six failing cells:
 - **The shuffled ratio at 40 steps where its truth is on a line** (three cells). They were not split by count. They miss below, as the 20-step ratios do, and are presumed to share the mechanism.
 - **Scenario P13 at 40 steps** (three cells, one for each reading). P13 mixes settings that have broken out with settings that have not and gives them different retention. Its "large" cell was split by count and covers 0.946, 0.944, 0.932, and 0.887 with 0, 1, 2, and 3 or more early-breakout held-out batches. Coverage falls as the count rises, so the yardstick is not what fails that cell; the mixture is. Its two ratio cells were not split.
 
-**The direction.** Thirty-six of the 37 failing "large" cells miss above the truth: the false verdict this flaw produces is "large = yes", a systematic defect by the paper's own test, which is also the finding every member of the team predicted. The failing 20- and 40-step ratio cells miss below.
+**The direction.** Thirty-six of the 37 failing "large" cells miss above the truth: the false verdict this flaw produces is "large = yes", a systematic defect by the paper's own test, which is also the finding we all predicted. The failing 20- and 40-step ratio cells miss below.
 
-**The size on real data,** from the pilot: 0.084 nats is 11 to 17 percent of the predicted "large" difference at 40 steps and at 2 nats, 1.3 percent at 80 steps, under 0.5 percent at 160 and 320, and 3 percent at 5 nats. On the team's predictions it can move a "large" verdict only at 40 steps and at 2 nats, and only in the one sample in eight that holds no early-breakout held-out batch.
+**The size on real data,** from the pilot: 0.084 nats is 11 to 17 percent of the predicted "large" difference at 40 steps and at 2 nats, 1.3 percent at 80 steps, under 0.5 percent at 160 and 320, and 3 percent at 5 nats. On our predictions it can move a "large" verdict only at 40 steps and at 2 nats, and only in the one sample in eight that holds no early-breakout held-out batch.
 
 **The assumption.** The amended generator makes carried harm independent of the held-out batch's type. If real held-out batches differ in how much carried harm they take, the as-committed version, printed beside the test of record, is the other bracket.
 
@@ -89,7 +89,7 @@ These quantities come from the committed test report and the analysis's existing
 
 ## 4. What Had Been Seen
 
-Before Amendment 2: a 100-experiment plumbing run and two diagnostics, as that amendment states. Before this amendment: the test of record in both versions, in full; the engineer's diagnostic of the mechanism on seed 777 (4,000 experiments of two scenarios); and the split by count on the record's seed. No carry-over number. The multipliers the rule computed are printed in the test's report and quoted in Section 1, so a reader can see what the rule would have done.
+Before Amendment 2: a 100-experiment plumbing run and two diagnostics, as that amendment states. Before this amendment: the test of record in both versions, in full; a diagnostic of the mechanism on seed 777 (4,000 experiments of two scenarios); and the split by count on the record's seed. No carry-over number. The multipliers the rule computed are printed in the test's report and quoted in Section 1, so a reader can see what the rule would have done.
 
 ## 5. What Does Not Change
 

@@ -1,4 +1,4 @@
-"""Session 6, plan 1, Section 2.4: the starts test's reading, fixed before the data (`sessions/005/checkpoint.md`,
+"""Plan 1 of the research log, Section 2.4: the starts test's reading, fixed before the data (the research log,
 Appendix G).
 
 The test searched the pilot's eight calibration batches, C1 to C8, from the run's five starts, 9 to 13: 40 searches of
@@ -10,12 +10,12 @@ the `record` arrays of `results/s4_pilot/part_a/runs.json`, key `a1`.
     uv run python -m vpd_audit_2.starts_test --pilot-only    (the pilot's 64 records alone, for checking this script)
 
 A search's added harm at step k is `record[k] - record[0]`. Its final level is its mean harm over its last 20 steps,
-`record[301]` to `record[320]` (checkpoint, Section 7). The reading prints, in this order, after the guard:
+`record[301]` to `record[320]` (research log, Section 7). The reading prints, in this order, after the guard:
 
   1. The deciding statistic, the mean added harm after step 320 over the 40 test searches, with the reading fixed in
      Appendix G (at or above 31 nats, Starts; at or below 29, Something else; between, Undetermined) and the two
      reference values beside it: the pilot's 25.5 and the run's 34.5. Beside the pilot's 25.5, its exact value from
-     `runs.json`, 25.4485, and one line saying the checkpoint's figure was rounded twice; the thresholds are untouched.
+     `runs.json`, 25.4485, and one line saying the earlier figure was rounded twice; the thresholds are untouched.
   2. Each start's mean added harm at 80, 160, and 320 steps over the eight batches.
   3. Each batch's mean at 80, 160, and 320 steps over starts 9 to 13, beside the pilot's over starts 1 to 8.
   4. The 8 by 13 tables of added harm at 80, 160, and 320 steps, the pilot's 64 searches joined with the test's 40, each
@@ -24,7 +24,7 @@ A search's added harm at step k is `record[k] - record[0]`. Its final level is i
      over the sum of the three.
   5. Description: each search's final level; the median, quartiles, and range over the 40; and how many are at or above
      40.2 nats, the paper's 320-step value, counted two ways, each labelled: by the harm after step 320 (as the
-     checkpoint's Section 7 counted its 12.5 and 31 percent, the like-for-like comparison), and by the final level.
+     research log's Section 7 counted its 12.5 and 31 percent, the like-for-like comparison), and by the final level.
   6. Description: each search's breakout step, the first step k at which its two-step mean harm,
      (record[k - 1] + record[k]) / 2, reaches 5 nats (`pilot.crossing`, the harm-level table's rule), in a table by
      batch and start; and by start and by batch, the median breakout step (a search that never breaks out counted as
@@ -139,7 +139,7 @@ def median_breakout(steps: list[int | None]) -> float:
 
 def finals(searches: Searches, keys: list[tuple[str, int]]) -> dict[str, Any]:
     """The final levels, and the count at or above the paper's 40.2 nats two ways: by the harm after step 320 (as the
-    checkpoint's Section 7 counted) and by the final level."""
+    research log's Section 7 counted) and by the final level."""
     f = np.array([final_level(searches[key]) for key in keys], dtype=np.float64)
     at_320 = np.array([float(searches[key][N_STEPS]) for key in keys], dtype=np.float64)
     q1, med, q3 = np.percentile(f, [25, 50, 75])
@@ -221,7 +221,7 @@ def _finals_lines(f: dict[str, Any], who: str) -> list[str]:
     L.append(f"   Over the {f['n']}: median {f['median']:.2f}, quartiles {f['q1']:.2f} and {f['q3']:.2f} (numpy's linear interpolation), "
              f"range {f['min']:.2f} to {f['max']:.2f}.")
     n = f["n"]
-    L.append(f"   At or above {PAPER_320} nats, the paper's 320-step value, by the harm after step {N_STEPS} (as the checkpoint's Section 7 "
+    L.append(f"   At or above {PAPER_320} nats, the paper's 320-step value, by the harm after step {N_STEPS} (as the research log's Section 7 "
              f"counted its 12.5 and 31 percent): {f['at_or_above_paper_by_320']} of {n} ({100 * f['at_or_above_paper_by_320'] / n:.1f} percent).")
     L.append(f"   At or above {PAPER_320} nats, by the final level: {f['at_or_above_paper_by_final']} of {n} "
              f"({100 * f['at_or_above_paper_by_final'] / n:.1f} percent).")
@@ -261,13 +261,13 @@ def _reference_lines(pilot: Searches) -> list[str]:
     exact = mean_added(pilot, [(b, s) for b in BATCHES for s in PILOT_STARTS], N_STEPS)
     return [f"   For reference (Appendix G): the pilot's {PILOT_REFERENCE} (C1 to C8 from starts 1 to 8; exactly {exact:.4f} from runs.json); "
             f"the run's {RUN_REFERENCE} (held-out side, 16 batches, from starts 9 to 13).",
-            f"   The checkpoint's {PILOT_REFERENCE} was rounded twice ({exact:.4f} to {exact:.2f}, then to {PILOT_REFERENCE}); rounded once it is "
+            f"   The earlier figure {PILOT_REFERENCE} was rounded twice ({exact:.4f} to {exact:.2f}, then to {PILOT_REFERENCE}); rounded once it is "
             f"{exact:.1f}. The thresholds, {STARTS_AT:g} and {ELSE_AT:g}, are untouched."]
 
 
 def reading_text(test: Searches, guard: list[float], pilot: Searches) -> tuple[str, bool]:
     """The reading as printed, and whether the guard held. A guard that fails stops it after the guard's line."""
-    L: list[str] = ["The starts test, read as fixed in advance (sessions/005/checkpoint.md, Appendix G; sessions/006/engineering/plan_1.md, Section 2.4).",
+    L: list[str] = ["The starts test, read as fixed in advance (the research log, Appendix G; plan 1 of the research log, Section 2.4).",
                     "Added harm at step k is record[k] - record[0], in nats.", ""]
     ok = bit_equal(guard, pilot[GUARD])
     L.append(f"The guard: C1 from start 1, searched again in this test, {'equals' if ok else 'DOES NOT EQUAL'} the pilot's record "

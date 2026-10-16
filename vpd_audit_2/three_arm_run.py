@@ -1,12 +1,12 @@
-"""Session 7, plan 6: the three-arm experiment on the GPU, and its local side, with no cloud call in it
-(`modal_three_arm.py` hands it the cloud). The specification is `sessions/007/notes/riku/three_arm_spec_v2.md` with the
+"""Plan 6 of the research log: the three-arm experiment on the GPU, and its local side, with no cloud call in it
+(`modal_three_arm.py` hands it the cloud). The specification is the experiment's specification (research log) with the
 plan's eight amendments; the computation is `three_arm.py`.
 
 Stages, in this order, one commit for all of them:
 
   - "gate" (one container): on one batch of calibration rows, (1) for each arm, our batch step against the authors'
     class driven by training's own sequence, from the same seed, in bfloat16 autocast: the losses and the sources
-    after the batch, bit for bit (the note's gate is the released scope's; the other two are recorded beside it);
+    after the batch, bit for bit (the specification's gate is the released scope's; the other two are recorded beside it);
     (2) the scaled gradient against the scale times the authors' gradient; (3) the per-document state's loss against
     the per-position state's holding the same values at every position, bit for bit; (4) as description, our released
     state on 64 texts against the authors' on the first 4 texts alone, as one training process saw them, from the same
@@ -637,7 +637,7 @@ def launch_command(stage: str, commit: str, cloud: LL.Cloud, *, listed_hourly_pr
     ledger["checks"].append(check)
     LL.write_json(ledger_path, ledger)
     if check["exceeds_cap"]:
-        raise LL.LaunchRefusal(f"the projection before {stage} exceeds the cap: do not start; report to the head")
+        raise LL.LaunchRefusal(f"the projection before {stage} exceeds the cap: do not start; report")
     sp = specs(stage, commit, plan["texts_file_sha256"], refs=refs, extension=extension, carry=carry)
     rec = stage_record(stage, len(sp))
     return LL.drive_stage(rec, sp, cloud, ledger_path=ledger_path, runs_path=RESULTS / f"runs_{stage}.json", design=(rec,), timings={},
@@ -715,7 +715,7 @@ def rehearsal_command(commit: str, *, folder: Path | None = None, listed_hourly_
 
 
 def breakout(series: np.ndarray, level: float = 5.0) -> int | None:
-    """Session 6's rule: the first batch b >= 2 whose two-batch mean (h[b-1] + h[b]) / 2, batches numbered from 1,
+    """The earlier rule: the first batch b >= 2 whose two-batch mean (h[b-1] + h[b]) / 2, batches numbered from 1,
     reaches the level; None if none does."""
     h = np.asarray(series, dtype=np.float64)
     for b in range(2, h.size + 1):

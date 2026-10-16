@@ -1,4 +1,4 @@
-"""Plan 2, step 5 (section 7): fresh float32 labels for pool Q, and gate G4.
+"""Plan 2 of the research log, step 5 (section 7): fresh float32 labels for pool Q, and gate G4.
 
 GPU part (`modal_gates.py::labels_q`):
   - `fresh_cache`: on Q's 1,024 texts, in chunks of 32, the target's forward pass and the causal importance function in
@@ -9,7 +9,7 @@ GPU part (`modal_gates.py::labels_q`):
       block "pos": every entry with label > 0 (lower-leaky, which is clamp(z, 0, 1) on the forward pass), with `z`,
         the pre-sigmoid value, as a parallel float32 array;
       block "band": every entry whose pre-sigmoid value lies in (-0.001, 0] (label 0), with its `z`. The plan's
-        (-0.05, 0] is dense on Q (about 29,000 of 38,912 entries per position, about 92 GB); the head narrowed it on
+        (-0.05, 0] is dense on Q (about 29,000 of 38,912 entries per position, about 92 GB); it was narrowed on
         1 October. A histogram of z near zero is recorded in the cache's manifest.
     Written to the volume `vpd-audit-2-cache` at `labels/Q_fp32.npz` with a manifest `labels/Q_fp32.json`.
   - `authors_path_check`: the authors' own call sequence of `evaluate()` (`param_decomp/eval.py:408-413`) on Q rows 0 to
@@ -19,7 +19,7 @@ GPU part (`modal_gates.py::labels_q`):
     autocast, float32 labels, deterministic algorithms, sub-batches of 64, chunks of 32. On DU it reproduces
     D_unif_main; on Q it reproduces E_main, the like-for-like reference for G4.
   - `paired_precision`: on each chunk of 32 Q texts, the float32 pass and the bf16 pass side by side on the GPU;
-    the finding the head asked for on 1 October: |g32 - g16| and |z32 - z16| over every entry positive in either
+    the finding asked for on 1 October: |g32 - g16| and |z32 - z16| over every entry positive in either
     precision, overall and by bands of the float32 label; entries crossing 0 and 0.1; and the saturated labels
     (z > 1) in each precision. Each pass's sparse labels are hashed, to tie them to the stored caches.
 
@@ -43,7 +43,7 @@ from typing import Any
 import numpy as np
 
 CHUNK = 32
-BAND = 0.001  # the plan's 0.05 gives a dense block (about 29,000 entries per position); narrowed by the head, 1 October
+BAND = 0.001  # the plan's 0.05 gives a dense block (about 29,000 entries per position); narrowed 1 October
 SEQ_LEN = 512
 PERCENTILES = (50, 90, 99, 99.9)
 LABEL_BANDS = ((0.0, 0.1), (0.1, 0.5), (0.5, 0.9), (0.9, 1.0))  # [lo, hi), the last closed: by the float32 label

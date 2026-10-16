@@ -1,21 +1,21 @@
 ✓ Initialized. View run at 
-https://modal.com/apps/tangst10/main/ap-nOlk9G4Mpg5GuKtMd0bOw6
+https://modal.com/apps/<workspace>/main/<app>
 ✓ Created objects.
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/vpd_audit_
+│   <repo>/vpd_audit_
 │   2/modal_s6_dose_rounded.py
 ├── 🔨 Created mount PythonPackage:vpd_audit_2
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/provenance
+│   <repo>/provenance
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/pyproject.
+│   <repo>/pyproject.
 │   toml
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/uv.lock
+│   <repo>/uv.lock
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/third_part
+│   <repo>/third_part
 │   y/vpd-audit
 └── 🔨 Created function dose_rounded_gpu.
 Stopping app - local entrypoint completed.
 ✓ App completed. View run at 
-https://modal.com/apps/tangst10/main/ap-nOlk9G4Mpg5GuKtMd0bOw6
+https://modal.com/apps/<workspace>/main/<app>

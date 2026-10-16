@@ -1,4 +1,4 @@
-"""Versions (i) and (iii) of the freed-label test, and its stochastic half (plan 6, Section 4, item 7; plan Section 5.4).
+"""Versions (i) and (iii) of the freed-label test, and its stochastic half (plan 6 of the research log, Section 4, item 7; plan Section 5.4).
 
 The adversarial half: one source shared across a set of 16 texts, all 24 matrices masked, delta components on (the
 evaluation adversary's form), our G2-validated loop at constant step 0.1 in float32, run once to 80 steps from shared start

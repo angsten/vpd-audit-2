@@ -1,4 +1,4 @@
-Three intact-background variants on cell set S4 (session 6, plan 3, Section 7). Added after the readings, as description (plan 3, Section 7); no line.
+Three intact-background variants on cell set S4 (plan 3 of the research log, Section 7). Added after the readings, as description (plan 3 of the research log, Section 7); no line.
 S4: the 400 carried settings on H1, H5, H9, and H13, 320 cells per length. Kept share: the sum over cells of (variant's harm - saved start
 harm) over the sum of (saved carried harm - saved start harm), as the conventions' Section 8(d). V1: entries at exactly 0 stay 0, every other
 entry 1. V2: mask s where the label is zero, 1 where positive, delta entries s. V3: mask l + s(1 - l) where the label is positive, 1 where zero,

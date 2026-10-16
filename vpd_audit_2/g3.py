@@ -1,5 +1,5 @@
-"""Gate G3: precision (`sessions/003/notes/lena/gates_g2_g3_plan3.md`, Section 3, with session 4's plan 2, items 3, 4,
-and 13, and plan 3, Section 3).
+"""Gate G3: precision (the gate specification (research log), Section 3, with the earlier plan 2 of the research log, items 3, 4,
+and 13, and plan 3 of the research log, Section 3).
 
 On the 32 calibration texts CQ, per background, the base pass is run at sub-batch size 32 and again at size 1 (32 passes
 of one text), with identical masks. With d the logit difference (size 1 minus size 32), P the original model's
@@ -9,22 +9,22 @@ evaluated as log1p(sum_i Q_i expm1(d_i)) - sum_i P_i d_i, in float64 after casti
 float64 softmax of the cast logits). The summed null of a text is the sum of e from a position to the end; its value at
 position 0 is the floor for a label's summed effect.
 
-Floor per background: the 99th percentile over the 32 texts of |position-0 summed null| (plan 2, item 3), with the
+Floor per background: the 99th percentile over the 32 texts of |position-0 summed null| (plan 2 of the research log, item 3), with the
 maximum and the signed values beside it; per position, the median, 99th percentile, maximum, and fraction negative of e.
 
 Backgrounds (all 24 matrices masked unless stated):
   - all_on: component masks 1, delta masks 1;
   - at_labels: component masks at the labels, delta masks 0;
   - stochastic: masks g + (1 - g) u and uniform delta masks, from key (master, "stoch", 1, text_id, 0) (gating);
-  - stochastic_routed (recorded, not gating; plan 2, item 4): the same draw under uniform-k-subset routing from
+  - stochastic_routed (recorded, not gating; plan 2 of the research log, item 4): the same draw under uniform-k-subset routing from
     (master, "routing", 1, text_id, 0), unrouted matrices at their target weights.
 Pass, per gating background: the floor lies below pi_5 / 100.
 
-Positive control (plan 2, item 13; not gating): per CQ text, a position drawn with seed (master, "g3-control", text_id),
+Positive control (plan 2 of the research log, item 13; not gating): per CQ text, a position drawn with seed (master, "g3-control", text_id),
 and a component drawn among those whose label is 0 there and whose weight norm ||U_c|| ||V_c|| (the harness's
 `weight_norms`) is among the C_l // 10 smallest of its own matrix; its mask set to 0 at that position. Its effect, summed
 from that position to the end, at both groupings, against the all-on and stochastic backgrounds. Every |difference| is
-reported against that background's floor; any above it holds G3 until the team has read it.
+reported against that background's floor; any above it holds G3 until it has been read.
 """
 
 from __future__ import annotations
@@ -211,7 +211,7 @@ def _timed_logits(model: Any, prep: A.Prepared, background: str, draw: Any, grou
 
 def run_float64_diagnostic(model: Any, ids: np.ndarray, text_ids: list[str], line: float, backgrounds: tuple[str, ...] = ("at_labels", "stochastic"),
                            device: str = "cuda", log: Any = print) -> dict[str, Any]:
-    """Session 4, report 1 on plan 3, follow-up 1 (a diagnostic, not a remedy): the named backgrounds with float64 forward
+    """Report 1 of the research log on plan 3 of the research log, follow-up 1 (a diagnostic, not a remedy): the named backgrounds with float64 forward
     passes, same texts, same null construction (sub-batch 32 against 1), same draws, and the same masks: the labels are the
     float32 labels G3 used (computed once at sub-batch 32), cast to float64; u and the delta masks are the same draw, cast.
     The target, the weight deltas, and every forward pass are float64. The float32 passes are timed beside, with a
@@ -293,7 +293,7 @@ def _trace(model: Any, prep: A.Prepared, background: str, draw: Any, rows: list[
 
 def float64_oddity(model: Any, ids: np.ndarray, text_ids: list[str], backgrounds: tuple[str, ...] = ("at_labels", "stochastic"), top: int = 3,
                    device: str = "cuda", log: Any = print) -> dict[str, Any]:
-    """Plan 4, D5 (not blocking): at the positions where the float64 null effect is largest, the two groupings' logits
+    """Plan 4 of the research log, D5 (not blocking): at the positions where the float64 null effect is largest, the two groupings' logits
     and every non-decomposed module's input and output compared, in forward order; the first module whose relative
     output difference exceeds 1e-12, and whether the norm layers compute in float32 (their output against a float64
     recomputation of the same formula). Same setup as `run_float64_diagnostic`. Changes nothing."""

@@ -1,5 +1,5 @@
-"""Session 6, plan 3, Section 2: agreement between settings on tiny made-up settings with hand-computed answers,
-including the worked examples of Riku's note (`sessions/006/notes/riku/conventions.md`, Section 4.3)."""
+"""Plan 3 of the research log, Section 2: agreement between settings on tiny made-up settings with hand-computed answers,
+including the worked examples of one of the four independent proposals (research log, Section 4.3)."""
 
 from __future__ import annotations
 
@@ -16,7 +16,7 @@ from vpd_audit_2 import s6_agreement as G
 # ----------------------------------------------------------------------------- the worked examples
 
 
-def test_riku_first_example_independence_against_the_same_start_level():
+def test_proposal_first_example_independence_against_the_same_start_level():
     # 20 entries in one stratum; the start has 10 below one half and 10 above. Each setting crosses one half from the
     # start on 4 entries (q = 0.2), two from below and two from above, so each keeps 10 below (p = 0.5). They cross
     # together on one entry, so they disagree on 6 and agree on 14: A = 0.70.
@@ -41,7 +41,7 @@ def test_riku_first_example_independence_against_the_same_start_level():
     assert (r["agreement"], r["independence"], r["crossing"]) == pytest.approx((0.70, 0.50, 0.68))
 
 
-def test_riku_two_stratum_example():
+def test_proposal_two_stratum_example():
     # Alive: 3 of 4 below in each, agreeing on all 4. Never-needed: 2 of 4 below in each, agreeing on 2 of 4.
     codes = np.array([0, 0, 0, 0, 1, 1, 1, 1])
     Ba = np.array([1, 1, 1, 0, 1, 1, 0, 0], dtype=bool)
@@ -100,7 +100,7 @@ def test_the_groups_and_strata_of_a_small_layout():
     assert ent.codes["rank_one"].tolist() == [0, 0, 1, 2, 2, 1, 4, 3, 3, 4]
     assert ent.codes["alive"].tolist() == [0, 0, 1, 1, 2, 2] and ent.codes["never_needed"].tolist() == [0, 0, 1, 1]
     assert ent.codes["delta"].tolist() == [0, 0]
-    # plan 2's cells: matrix * 12 + stratum, each delta its matrix's stratum 11
+    # plan 2 of the research log's cells: matrix * 12 + stratum, each delta its matrix's stratum 11
     assert ent.cells.tolist() == [0, 0, 1, 10, 10, 1, 11, 22, 14, 14, 22, 23]
 
 

@@ -1,11 +1,11 @@
-"""Session 5, plan 1, Part D: the made-up-data test of the interval.
+"""Plan 1 of the research log, Part D: the made-up-data test of the interval.
 
     uv run python -m vpd_audit_2.lead_madeup [--processes N]                          (the test of record, to results/s5_madeup/)
     uv run python -m vpd_audit_2.lead_madeup --version as_committed [--processes N]   (beside it, to results/s5_madeup/as_committed/)
 
 Implements `freeze/amendment1_specs/interval_spec.md`, Sections 6 to 9, with its erratum, under Amendment 1
-(`freeze/amendment1.md`, Section 5 and Section 9, item 7), Amendment 2 (`freeze/amendment2.md`), plan 1 (Sections 7
-and 12.2), and plan 3.
+(`freeze/amendment1.md`, Section 5 and Section 9, item 7), Amendment 2 (`freeze/amendment2.md`), plan 1 of the research log (Sections 7
+and 12.2), and plan 3 of the research log.
 
 Two versions of the generator, differing in a held-out batch's vulnerability alone (Amendment 2): "amended", the test
 of record, in which it is log-normal noise; and "as_committed", the generator of Amendment 1, in which it also carries
@@ -17,7 +17,7 @@ no other pilot file is read, and the sealed shuffle file stays sealed). Carried-
 with a truth known by enumeration, never from a simulated sample:
 
   - at search-length rows the expectation over the start shift is exact, from the normal probability of each warped
-    index (plan 1, Section 12.2, item 4);
+    index (plan 1 of the research log, Section 12.2, item 4);
   - at harm-level rows it is taken over a grid of 401 start shifts across +/- 4 sigma weighted by the normal density,
     every mean being the expected total over the expected count (the erratum, item 2).
 
@@ -57,7 +57,7 @@ PILOT_RUNS = REPO_ROOT / "results" / "s4_pilot" / "part_a" / "runs.json"
 OUT_DIR = REPO_ROOT / "results" / "s5_madeup"
 
 MASTER_SEED = 20261006  # the test of record's master seed (Amendment 2, Section 6); confirmation seeds are streams 2, 3, ... under it
-# The generator's two versions (Amendment 2; plan 3, step 2). They differ in one line, a held-out batch's vulnerability:
+# The generator's two versions (Amendment 2; plan 3 of the research log, step 2). They differ in one line, a held-out batch's vulnerability:
 # "amended", the test of record, has v_j = g_j; "as_committed", the generator of Amendment 1, has v_j = f_c(j) g_j.
 # The as-committed version is run in full and printed beside the test of record, and sets no multiplier.
 VERSIONS = ("amended", "as_committed")
@@ -88,7 +88,7 @@ FIELDS = ("est", "hw", "vtot", "vc", "nu", "denom_z", "pct_lo", "pct_hi")
 F = {name: k for k, name in enumerate(FIELDS)}
 S = {name: k for k, name in enumerate(STATS)}
 
-# Amendment 1, Section 5.2, and plan 1, Section 12.2.
+# Amendment 1, Section 5.2, and plan 1 of the research log, Section 12.2.
 COVERAGE_FLOOR, ONE_SIDED_CEILING = 0.925, 0.0375
 RERUN_COVERAGE, RERUN_ONE_SIDED = 0.935, 0.0325
 MULTIPLIER_GRID, MULTIPLIER_LIMIT = 0.05, 1.5
@@ -268,7 +268,7 @@ def population(R: np.ndarray, scn: Scenario) -> dict[str, dict[str, Any]]:
             rho_row = (S0 - mu_k) / mu_O
         if rho_row is not None:
             mu_C = rho_row * mu_O
-        if scn.jump:  # plan 1, Section 7: the jump's effect on every truth that uses mu_C
+        if scn.jump:  # plan 1 of the research log, Section 7: the jump's effect on every truth that uses mu_C
             mu_C = (1 - JUMP_SEARCH) * (1 - JUMP_CELL) * mu_C + (1 - (1 - JUMP_SEARCH) * (1 - JUMP_CELL)) * (JUMP_HARM - mu_k)
         out[row] = {"mu_k": float(mu_k), "mu_q": float(mu_q), "mu_Y": float(mu_Y), "mu_O": float(mu_O), "mu_C": float(mu_C), "S0": float(S0),
                     "rho_row": None if rho_row is None else float(rho_row), "share_present": float(share),
@@ -277,7 +277,7 @@ def population(R: np.ndarray, scn: Scenario) -> dict[str, dict[str, Any]]:
 
 
 def true_values(mu_k: float, mu_q: float, mu_Y: float, mu_O: float, mu_C: float, S0: float) -> dict[str, float | None]:
-    """The true value of each statistic from the population means (the specification's Section 6, and plan 1, Section 7,
+    """The true value of each statistic from the population means (the specification's Section 6, and plan 1 of the research log, Section 7,
     for the three statistics the output specification adds). `mu_O` is the mean own added harm, the specification's
     mu_{Y+}. Pooled retention has the carry-over ratio's truth, since the generator draws both sides from one population."""
     return {
@@ -472,7 +472,7 @@ def simulate(task: tuple[str, str, int, int, int, int, int, tuple[str, ...], int
     """Experiments [e0, e1) of one scenario in one version of the generator, under one seed and phase, with the
     intervals of the rows asked for. Every row's cells are always drawn, in the scenario's row order, so an experiment
     is the same whatever is asked. A harm-level row's intervals are computed where the level is read and, for the
-    experiments numbered below `all_below`, also where it is not (plan 3, step 7)."""
+    experiments numbered below `all_below`, also where it is not (plan 3 of the research log, step 7)."""
     scn_id, version, master, seed_no, phase, e0, e1, wanted, all_below = task
     st = _worker_state()
     R, scn, pop = st["R"], st["scenarios"][scn_id], st["population"][scn_id]
@@ -580,7 +580,7 @@ def collect(pool: Any, scn: Scenario, version: str, master: int, seed_no: int, p
 def cell_errors(sample: RowSample, stat: str, truth: float, every_experiment: bool = False) -> tuple[np.ndarray, np.ndarray]:
     """d = estimate - truth and the unwidened half-width w, over the experiments in which the statistic is defined:
     those the row is judged on, or, with `every_experiment`, the first experiments generated whether or not the count
-    rule lets the level be read (description only; plan 3, step 7)."""
+    rule lets the level be read (description only; plan 3 of the research log, step 7)."""
     vals = sample.vals_all if every_experiment else sample.vals
     est, hw = vals[:, S[stat], F["est"]], vals[:, S[stat], F["hw"]]
     ok = np.isfinite(est) & np.isfinite(hw)
@@ -696,7 +696,7 @@ def repair(test: Test, cells: list[dict[str, Any]]) -> dict[str, dict[str, Any]]
     """Amendment 1, Section 5.3: a row whose core cells all pass keeps a multiplier of 1; otherwise the largest
     multiplier its core cells need, rounded up to a multiple of 0.05, confirmed on fresh experiments from a second
     seed, raised by 0.05 with a fresh seed each time a cell still fails, until every core cell of the row passes or
-    the multiplier exceeds 1.5, when the row goes to the PI."""
+    the multiplier exceeds 1.5, when the row goes to the author."""
     rows: dict[str, dict[str, Any]] = {}
     first_try: dict[str, float] = {}
     for row in ALL_ROWS:
@@ -793,7 +793,7 @@ def reading_frequency(L: np.ndarray, U: np.ndarray) -> dict[str, float]:
 
 
 def guard_comparisons(test: Test, seed_no: int = 1) -> list[dict[str, Any]]:
-    """The guard on the generator (specification Section 6; plan 1, Section 12.2, item 4): every scenario's five plain
+    """The guard on the generator (specification Section 6; plan 1 of the research log, Section 12.2, item 4): every scenario's five plain
     means at search-length rows against their true values, in Monte Carlo standard errors."""
     out = []
     for (s_no, phase, scn_id), rows in test.samples.items():
@@ -881,7 +881,7 @@ def run(pool: Any, n: int = N_EXPERIMENTS, n_rerun: int = N_RERUN, log: Any = No
     log = log or (lambda *a: None)
     scns = scenarios()
     report: dict[str, Any] = {
-        "what": "The made-up-data test of the lead experiment's interval (plan 1, Part D; plan 3). Every number here is made up; none is a result.",
+        "what": "The made-up-data test of the lead experiment's interval (plan 1 of the research log, Part D; plan 3 of the research log). Every number here is made up; none is a result.",
         "version": version, "version_label": VERSION_LABEL[version], "sets_multipliers": version == "amended",
         "seeds": {"master": master, "experiment_generator": "numpy.random.default_rng([master, seed, phase, scenario, experiment])",
                   "seed": "1 for the test, 2 and up for the confirmations", "phase": "0 for the first experiments, 1 for a rerun",
@@ -1073,7 +1073,7 @@ def summary_markdown(report: dict[str, Any]) -> str:
                    f"{_fmt(c['coverage'], 4)} | {_fmt(c['above'], 4)} | {_fmt(c['below'], 4)} | {_fmt(c['rerun'])} | {_fmt(c['multiplier_needed'], 3)} | "
                    f"{'FAIL' if c['fail'] else 'pass'} |")
     out += ["", "## Each Row's Multiplier" if amended else "## The Multiplier Each Row Would Have Required (It Sets None)", "",
-            "| Row | Failing core cells | Largest multiplier needed | Multiplier | Confirmation | Goes to the PI |", "|---|---|---|---|---|---|"]
+            "| Row | Failing core cells | Largest multiplier needed | Multiplier | Confirmation | Goes to the author |", "|---|---|---|---|---|---|"]
     for row, r in report["rows"].items():
         conf = "; ".join(f"seed {c['seed']} at {c['multiplier']:.2f}: {'passed' if c['passed'] else 'failed'} (lowest coverage {_fmt(c['lowest_coverage'], 4)})"
                          for c in r["confirmation"]) or "not needed"
@@ -1143,7 +1143,7 @@ def summary_markdown(report: dict[str, Any]) -> str:
         if r["multiplier"] == 1.0 and not r["failed_cells"]:
             out.append(f"- **{row}:** every core cell passes; the multiplier stays 1.")
         elif r["to_pi"]:
-            out.append(f"- **{row}:** needs more than {MULTIPLIER_LIMIT}; the row goes to the PI.")
+            out.append(f"- **{row}:** needs more than {MULTIPLIER_LIMIT}; the row goes to the author.")
         else:
             last = r["confirmation"][-1]
             out.append(f"- **{row}:** multiplier {r['multiplier']:.2f}, confirmed on seed {last['seed']} (lowest coverage {_fmt(last['lowest_coverage'], 4)}).")

@@ -1,4 +1,4 @@
-"""Session 5, plan 1, Part E: the held-out texts that share a 50-token span with an attack text.
+"""Plan 1 of the research log, Part E: the held-out texts that share a 50-token span with an attack text.
 
     uv run python -m vpd_audit_2.heldout_overlap            (compute, check against the manifest, write the list)
     uv run python -m vpd_audit_2.heldout_overlap --verify   (recompute and compare byte for byte with the committed list)

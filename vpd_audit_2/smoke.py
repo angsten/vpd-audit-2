@@ -1,4 +1,4 @@
-"""Plan 1, section 6: the smoke test, on the GPU. Called by `modal_app.smoke`; nothing here runs an adversary.
+"""Plan 1 of the research log, section 6: the smoke test, on the GPU. Called by `modal_app.smoke`; nothing here runs an adversary.
 
 Texts: the first post's recipients E (rows 0 to 1,023 of the `val` stream) for checks 5a to 5e, E rows 0 to 63
 for the minimality readings, and E rows 0 to 127 for the stochastic readings. The donors D_unif (rows 1,024 to

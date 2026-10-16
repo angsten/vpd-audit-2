@@ -321,7 +321,7 @@ A cell is one core scenario, one row, and one signed reading. Coverage is of the
 
 ## The Multiplier Each Row Would Have Required (It Sets None)
 
-| Row | Failing core cells | Largest multiplier needed | Multiplier | Confirmation | Goes to the PI |
+| Row | Failing core cells | Largest multiplier needed | Multiplier | Confirmation | Goes to the author |
 |---|---|---|---|---|---|
 | n20 | P1 carries, P1 depends, P2 carries, P2 depends, P3 carries, P3 depends, P4 carries, P4 depends, P5 carries, P5 depends, P6 carries, P6 depends, P7 carries, P7 depends, P8 carries, P8 depends, P9 carries, P9 depends, P10 carries, P11 carries, P11 depends, P12 carries, P13 carries | 1.811 | 1.85 | not needed | yes |
 | n40 | P9 depends, P10 depends, P11 large, P11 depends, P12 large, P13 large, P13 carries, P13 depends | 1.484 | 1.50 | seed 2 at 1.50: passed (lowest coverage 0.9480) | no |
@@ -2708,14 +2708,14 @@ Where a signed reading's truth sits on a line, how often each verdict is printed
 
 - **Core cells:** 299 judged, 200 failing: P1 n20 carries, P1 n20 depends, P1 n80 carries, P1 n160 carries, P1 n160 depends, P1 n320 carries, P1 n320 depends, P1 h2 large, P1 h2 carries, P1 h5 large, P1 h5 carries, P1 h5 depends, P1 h10 large, P1 h10 carries, P1 h10 depends, P2 n20 carries, P2 n20 depends, P2 n160 carries, P2 n160 depends, P2 n320 large, P2 n320 carries, P2 n320 depends, P2 h2 large, P2 h2 carries, P2 h2 depends, P2 h5 large, P2 h5 carries, P2 h5 depends, P2 h10 large, P2 h10 carries, P2 h10 depends, P3 n20 carries, P3 n20 depends, P3 n160 carries, P3 n160 depends, P3 n320 large, P3 n320 carries, P3 n320 depends, P3 h2 large, P3 h2 carries, P3 h2 depends, P3 h5 large, P3 h5 carries, P3 h5 depends, P3 h10 large, P3 h10 carries, P3 h10 depends, P4 n20 carries, P4 n20 depends, P4 n80 carries, P4 n160 carries, P4 n160 depends, P4 n320 carries, P4 n320 depends, P4 h2 large, P4 h2 carries, P4 h5 carries, P4 h5 depends, P4 h10 large, P4 h10 carries, P4 h10 depends, P5 n20 carries, P5 n20 depends, P5 n160 carries, P5 n160 depends, P5 n320 carries, P5 n320 depends, P5 h2 carries, P5 h2 depends, P5 h5 large, P5 h5 carries, P5 h5 depends, P5 h10 large, P5 h10 carries, P5 h10 depends, P6 n20 carries, P6 n20 depends, P6 n160 carries, P6 n160 depends, P6 n320 large, P6 n320 carries, P6 n320 depends, P6 h2 large, P6 h2 carries, P6 h2 depends, P6 h5 large, P6 h5 carries, P6 h5 depends, P6 h10 large, P6 h10 carries, P6 h10 depends, P7 n20 carries, P7 n20 depends, P7 n160 carries, P7 n320 carries, P7 h2 carries, P7 h2 depends, P7 h5 carries, P7 h5 depends, P7 h10 carries, P7 h10 depends, P8 n20 carries, P8 n20 depends, P8 n160 carries, P8 n320 carries, P8 h2 large, P8 h2 carries, P8 h2 depends, P8 h5 large, P8 h5 carries, P8 h5 depends, P8 h10 large, P8 h10 carries, P8 h10 depends, P9 n20 carries, P9 n20 depends, P9 n40 depends, P9 n80 depends, P9 n160 carries, P9 n160 depends, P9 n320 carries, P9 n320 depends, P9 h2 carries, P9 h2 depends, P9 h5 large, P9 h5 carries, P9 h5 depends, P9 h10 large, P9 h10 carries, P9 h10 depends, P10 n20 carries, P10 n40 depends, P10 n80 depends, P10 n160 carries, P10 n160 depends, P10 n320 carries, P10 n320 depends, P10 h2 carries, P10 h2 depends, P10 h5 carries, P10 h5 depends, P10 h10 large, P10 h10 carries, P10 h10 depends, P11 n20 carries, P11 n20 depends, P11 n40 large, P11 n40 depends, P11 n80 large, P11 n80 depends, P11 n160 large, P11 n160 carries, P11 n160 depends, P11 n320 large, P11 n320 carries, P11 n320 depends, P11 h2 large, P11 h2 carries, P11 h2 depends, P11 h5 large, P11 h5 carries, P11 h5 depends, P11 h10 large, P11 h10 carries, P11 h10 depends, P12 n20 carries, P12 n40 large, P12 n80 large, P12 n80 depends, P12 n160 large, P12 n160 carries, P12 n160 depends, P12 n320 large, P12 n320 carries, P12 n320 depends, P12 h2 large, P12 h2 carries, P12 h2 depends, P12 h5 large, P12 h5 carries, P12 h5 depends, P12 h10 large, P12 h10 carries, P12 h10 depends, P13 n20 carries, P13 n40 large, P13 n40 carries, P13 n40 depends, P13 n160 carries, P13 n160 depends, P13 n320 carries, P13 n320 depends, P13 h2 carries, P13 h2 depends, P13 h5 large, P13 h5 carries, P13 h5 depends, P13 h10 large, P13 h10 carries, P13 h10 depends.
 - **This version sets no multiplier.** What follows is what each row would have required under the generator as committed.
-- **n20:** needs more than 1.5; the row goes to the PI.
+- **n20:** needs more than 1.5; the row goes to the author.
 - **n40:** multiplier 1.50, confirmed on seed 2 (lowest coverage 0.9480).
-- **n80:** needs more than 1.5; the row goes to the PI.
-- **n160:** needs more than 1.5; the row goes to the PI.
-- **n320:** needs more than 1.5; the row goes to the PI.
-- **h2:** needs more than 1.5; the row goes to the PI.
-- **h5:** needs more than 1.5; the row goes to the PI.
-- **h10:** needs more than 1.5; the row goes to the PI.
+- **n80:** needs more than 1.5; the row goes to the author.
+- **n160:** needs more than 1.5; the row goes to the author.
+- **n320:** needs more than 1.5; the row goes to the author.
+- **h2:** needs more than 1.5; the row goes to the author.
+- **h5:** needs more than 1.5; the row goes to the author.
+- **h10:** needs more than 1.5; the row goes to the author.
 - **Stress cells under 92.5 percent:** 289, listed above.
 - **G1:** yes. **G2:** yes.
 - **Seeds:** master 20261006. **Commit:** 7c301015d6318fc1dc353fa83e2a0f4d3f22e80e (code as committed: yes).

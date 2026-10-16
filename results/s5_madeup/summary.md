@@ -321,7 +321,7 @@ A cell is one core scenario, one row, and one signed reading. Coverage is of the
 
 ## Each Row's Multiplier
 
-| Row | Failing core cells | Largest multiplier needed | Multiplier | Confirmation | Goes to the PI |
+| Row | Failing core cells | Largest multiplier needed | Multiplier | Confirmation | Goes to the author |
 |---|---|---|---|---|---|
 | n20 | P1 carries, P2 depends, P4 carries, P5 depends, P9 depends, P10 depends, P11 depends, P12 depends | 1.886 | 1.90 | not needed | yes |
 | n40 | P9 depends, P10 depends, P11 large, P11 depends, P12 large, P13 large, P13 carries, P13 depends | 1.626 | 1.65 | not needed | yes |
@@ -2577,14 +2577,14 @@ Where a signed reading's truth sits on a line, how often each verdict is printed
 ## In Words
 
 - **Core cells:** 299 judged, 50 failing: P1 n20 carries, P1 h2 large, P1 h5 large, P2 n20 depends, P2 h2 large, P4 n20 carries, P4 h2 large, P4 h5 large, P5 n20 depends, P5 h2 large, P7 n80 large, P7 n160 large, P7 n320 large, P7 h2 large, P7 h5 large, P7 h10 large, P8 n160 large, P8 n320 large, P8 h2 large, P8 h5 large, P8 h10 large, P9 n20 depends, P9 n40 depends, P9 h2 large, P9 h5 large, P10 n20 depends, P10 n40 depends, P10 h2 large, P10 h5 large, P11 n20 depends, P11 n40 large, P11 n40 depends, P11 n80 large, P11 n160 large, P11 n320 large, P11 h2 large, P11 h5 large, P11 h10 large, P12 n20 depends, P12 n40 large, P12 n80 large, P12 n160 large, P12 n320 large, P12 h2 large, P12 h5 large, P12 h10 large, P13 n40 large, P13 n40 carries, P13 n40 depends, P13 h2 large.
-- **n20:** needs more than 1.5; the row goes to the PI.
-- **n40:** needs more than 1.5; the row goes to the PI.
-- **n80:** needs more than 1.5; the row goes to the PI.
-- **n160:** needs more than 1.5; the row goes to the PI.
-- **n320:** needs more than 1.5; the row goes to the PI.
-- **h2:** needs more than 1.5; the row goes to the PI.
-- **h5:** needs more than 1.5; the row goes to the PI.
-- **h10:** needs more than 1.5; the row goes to the PI.
+- **n20:** needs more than 1.5; the row goes to the author.
+- **n40:** needs more than 1.5; the row goes to the author.
+- **n80:** needs more than 1.5; the row goes to the author.
+- **n160:** needs more than 1.5; the row goes to the author.
+- **n320:** needs more than 1.5; the row goes to the author.
+- **h2:** needs more than 1.5; the row goes to the author.
+- **h5:** needs more than 1.5; the row goes to the author.
+- **h10:** needs more than 1.5; the row goes to the author.
 - **Stress cells under 92.5 percent:** 159, listed above as limits for the post.
 - **G1:** yes. **G2:** yes.
 - **Seeds:** master 20261006. **Commit:** 7c301015d6318fc1dc353fa83e2a0f4d3f22e80e (code as committed: yes).

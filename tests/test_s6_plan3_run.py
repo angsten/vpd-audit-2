@@ -1,4 +1,4 @@
-"""Session 6, plan 3: the launch of Sections 4 and 7, without the cloud.
+"""Plan 3 of the research log: the launch of Sections 4 and 7, without the cloud.
 
 The held-at-0 search path against `lead_run.search_unit` (at 1.0 they write the same arrays bit for bit) and against
 the plain loop (at 0.0); the specs and their refusals; the inputs a container is handed; the projection; the checks
@@ -302,7 +302,7 @@ class TinyCloud:
         self.rows = {b: LR.sha_rows(x) for b, x in self.ids.items()}
         rng = np.random.default_rng(8)
         self.flat_starts = {s: rng.random(self.n).astype(np.float32) for s in RUN_STARTS}
-        self.strata = {k: rng.integers(0, 11, c) for k, c in self.lay}  # the unit loop builds plan 2's cells; the variants do not use them
+        self.strata = {k: rng.integers(0, 11, c) for k, c in self.lay}  # the unit loop builds plan 2 of the research log's cells; the variants do not use them
         self.units = {}
         for a in ATT:
             for s in RUN_STARTS:

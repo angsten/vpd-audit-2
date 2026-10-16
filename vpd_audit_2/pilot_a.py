@@ -1,4 +1,4 @@
-"""Session 4, plan 6, Part A: question 2's nuisance scales on C1 to C8 (`sessions/004/engineering/plan_6.md`, Section 5).
+"""Plan 6 of the research log, Part A: question 2's nuisance scales on C1 to C8 (plan 6 of the research log, Section 5).
 
 One container per batch C_j, at the lead's configuration (our loop, `micro_batch=None`, bf16 autocast, one B200, step 0.1,
 320 steps; labels, target, and weight deltas once per batch under bf16 autocast; strict deterministic algorithms):
@@ -12,7 +12,7 @@ One container per batch C_j, at the lead's configuration (our loop, `micro_batch
   4. A3 (on the start-1 run): the sources the hook saved at 20, 40, 80, 160, and 320 steps and at stages 2, 5, and 10
      nats, each scored unshuffled (a check against the record) and in 8 frequency-stratified shuffles, keyed
      ("pilot-shuffle", C_j, 1, tag, r). The shuffles' harms are sealed: the job writes them to `sealed_path` itself and
-     returns only that file's path and SHA-256 (plan 7, item 5), so no caller holds them to print by accident.
+     returns only that file's path and SHA-256 (plan 7 of the research log, item 5), so no caller holds them to print by accident.
 
 Every run's harm after every step, the hook's events, seconds per step, the start's key, the GPU, and the determinism mode
 are returned; the hook's sources are written to the volume, their SHA-256 returned.

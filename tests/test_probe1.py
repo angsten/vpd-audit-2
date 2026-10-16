@@ -1,4 +1,4 @@
-"""Session 7, plan 5: probe 1's computation on the tiny model (`vpd_audit_2/probe1.py`).
+"""Plan 5 of the research log: probe 1's computation on the tiny model (`vpd_audit_2/probe1.py`).
 
   - The first-order push of an entry equals a central finite difference of the same move, at the intact model and at the
     full pattern, for components and delta entries (float64, so the difference is precise).

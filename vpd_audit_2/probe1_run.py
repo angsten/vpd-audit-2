@@ -1,13 +1,13 @@
-"""Session 7, plan 5: probe 1 on the GPU, and its local side, with no cloud call in it (`modal_probe1.py` hands it the
-cloud). The specification is `sessions/007/notes/daniel/probe1_spec.md` with the plan's six amendments.
+"""Plan 5 of the research log: probe 1 on the GPU, and its local side, with no cloud call in it (`modal_probe1.py` hands it the
+cloud). The specification is the probe's specification (research log) with the plan's six amendments.
 
 Three stages, in this order, one commit for all of them:
 
-  - "validation" (one container, H1): the note's Section 2 check on the setting of A1 from start 9 at 320 steps, the
-    first attack search (session 6's check cell): eight texts of H1 drawn by a seed; every first-order push on them;
+  - "validation" (one container, H1): the specification's Section 2 check on the setting of A1 from start 9 at 320 steps, the
+    first attack search (the earlier check cell): eight texts of H1 drawn by a seed; every first-order push on them;
     200 off-set components, 20 from each decile of |p| (`probe1.validation_components`); the exact one-at-a-time
     moves of those 1,600 pairs. Then timing cells on the whole of H1 (A1's five searches, at both lengths, nothing kept)
-    for the projection, and the rounded pattern's damage on H1 against session 6's control (d). The pass rule is applied
+    for the projection, and the rounded pattern's damage on H1 against the earlier control (d). The pass rule is applied
     locally (`validate_command`), and nothing else launches unless it passed.
   - "s320": the 80 attack searches' settings at 320 steps, each on its own attack batch and on the 16 held-out batches.
   - "s80": the same at 80 steps, as description.
@@ -355,7 +355,7 @@ def validation_texts(n_batch: int, n: int) -> np.ndarray:
 def validation_job(model: Any, ctx: SR.Context, spec: dict[str, Any], batch_inputs: dict[str, tuple[np.ndarray, list[str]]],
                    read_run_unit: Callable[[str, int], dict[str, np.ndarray]], *, chunk: int = CHUNK, scratch: Path | None = None,
                    n_texts: int = P1.VALIDATION_TEXTS, per_decile: int = P1.VALIDATION_PER_DECILE) -> dict[str, Any]:
-    """The note's Section 2 check and the timing cells; one unit."""
+    """The specification's Section 2 check and the timing cells; one unit."""
     from vpd_audit_2.manifest import seed_of
 
     v = VALIDATION
@@ -401,7 +401,7 @@ def validation_job(model: Any, ctx: SR.Context, spec: dict[str, Any], batch_inpu
     gc.collect()
 
     # timing cells on the whole batch, A1's five searches at both lengths; nothing is kept but their seconds, and the
-    # rounded pattern's damage for the validation's own setting against session 6's control (d)
+    # rounded pattern's damage for the validation's own setting against the earlier control (d)
     unit_shape = (chunk, P1.n_entries(lay))
     kl_own: list[np.ndarray] = []
     chk_all: list[dict[str, float]] = []
@@ -479,7 +479,7 @@ def job(model: Any, ctx: SR.Context, spec: dict[str, Any], batch_inputs: dict[st
 
 
 def read_run_unit_local(attack: str, start: int) -> dict[str, np.ndarray]:
-    """A run search unit from session 5's local copy, checked against the hash its backup recorded."""
+    """A run search unit from the earlier local copy, checked against the hash its backup recorded."""
     hashes = SR.run_unit_hashes()
     data = (RUN_UNITS_LOCAL / f"search_{attack}_s{start}.npz").read_bytes()
     if hashlib.sha256(data).hexdigest() != hashes[f"search_{attack}_s{start}.npz"]:
@@ -604,13 +604,13 @@ def launch_command(stage: str, commit: str, cloud: LL.Cloud, *, listed_hourly_pr
     if stage != "validation":
         val = validation_record()
         if val is None or val.get("commit") != commit or not val.get("passes"):
-            raise LL.LaunchRefusal("the validation has not passed at this commit: nothing is scored (the note's fallback is the head's call)")
+            raise LL.LaunchRefusal("the validation has not passed at this commit: nothing is scored (the specification's fallback is a judgement call)")
     bill = cloud.read_bill(LL.ledger_apps(ledger))
     check = projection(stage, points, ledger, listed_hourly_price, bill)
     ledger["checks"].append(check)
     LL.write_json(ledger_path, ledger)
     if check["exceeds_cap"]:
-        raise LL.LaunchRefusal(f"the projection before {stage} exceeds the cap: do not start; report to the head")
+        raise LL.LaunchRefusal(f"the projection before {stage} exceeds the cap: do not start; report")
     if refs is None:
         lead = SR.load_table_checked(SR.LEAD_TABLE, SR.LEAD_RECEIPT)
         refs = references(lead, s6_rounded_reference())
@@ -679,7 +679,7 @@ def collect_command(stage: str, commit: str, *, read_file: Callable[[str], bytes
 
 
 def validate_command(commit: str, *, units_folder: Path | None = None) -> dict[str, Any]:
-    """The note's pass rule on the collected validation unit, written to `validation.json`, with the timings the
+    """The specification's pass rule on the collected validation unit, written to `validation.json`, with the timings the
     scoring stages are projected from and the checks beside it."""
     receipt = json.load(open(RESULTS / "backup.json"))
     rel = f"{UNITS}/{validation_unit_name()}.npz"
@@ -711,7 +711,7 @@ def validate_command(commit: str, *, units_folder: Path | None = None) -> dict[s
 
 
 def validation_text(v: dict[str, Any]) -> str:
-    L = [f"Probe 1, validation (the note's Section 2): {'PASSED' if v['passes'] else 'FAILED'}.",
+    L = [f"Probe 1, validation (the specification's Section 2): {'PASSED' if v['passes'] else 'FAILED'}.",
          f"  {v['pairs']} pairs; the bottom decile of |first-order p| is at {v['bottom_decile_cut']:.3e}; {v['pairs_above']} pairs above it.",
          f"  Sign share above the bottom decile {v['sign_share_above']:.4f} (rule: at least 0.9); over all pairs {v['sign_share_all']:.4f}.",
          f"  Spearman over all pairs {v['spearman_all']:.4f} (rule: at least 0.8); above the bottom decile {v['spearman_above']:.4f}; Pearson {v['pearson_all']:.4f}.",
@@ -720,7 +720,7 @@ def validation_text(v: dict[str, Any]) -> str:
     for d, x in v["by_component_decile"].items():
         L.append(f"    {d}: {x['sign_share']:.3f}, {x['median_abs_first']:.3e}, {x['median_abs_exact']:.3e}")
     L.append(f"  The rounded pattern's damage on H1 for the validation setting, float32 against the intact model: {v['pattern_kl_whole_batch_fp32']:.4f} nats; "
-             f"session 6's rounded control (bfloat16, against the target) {v['s6_rounded_bf16']}; the lead's carried harm (unrounded) {v['lead_carried_bf16']}.")
+             f"the earlier rounded control (bfloat16, against the target) {v['s6_rounded_bf16']}; the lead's carried harm (unrounded) {v['lead_carried_bf16']}.")
     return "\n".join(L) + "\n"
 
 

@@ -4168,7 +4168,7 @@
    0.75,
    1.0
   ],
-  "note": "Added after the readings, as description (plan 3, Section 8); no line.",
+  "note": "Added after the readings, as description (plan 3 of the research log, Section 8); no line.",
   "per_batch_at_320": {
    "H1": {
     "0": -0.006743842748370361,
@@ -4404,7 +4404,7 @@
    0.9,
    1.0
   ],
-  "note": "Added at the PI's request, as description (plan 3, Section 9); no line.",
+  "note": "Added at the author's request, as description (plan 3 of the research log, Section 9); no line.",
   "per_batch_at_320": {
    "H1": {
     "0": -0.006743842748370361,
@@ -8539,7 +8539,7 @@
     }
    }
   },
-  "note": "Added after the readings, as description (plan 3, Section 7); no line.",
+  "note": "Added after the readings, as description (plan 3 of the research log, Section 7); no line.",
   "rows": {
    "n160": {
     "V1": {

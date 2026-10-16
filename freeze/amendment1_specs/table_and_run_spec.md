@@ -1,18 +1,18 @@
-# The Results Table and the Run's Guards: Specification for the Engineer
+# The Results Table and the Run's Guards: Specification for the Run
 
-Lena, session 5, round 2. Written before any deciding run.
+The table and run specification. Written before any deciding run.
 
 ## 1. Purpose and Scope
 
-The lead experiment (question 2) searches for damaging mask settings on some batches of text and scores them, unchanged, on batches the search never saw. Its results will be read by signed rules, `sessions/004/freeze_file_part1_q2.md` ("the signed rules"), as amended by the pre-run decisions in `sessions/005/prerun_decisions_draft_1.md` ("the draft"). This note specifies three things for the engineer:
+The lead experiment (question 2) searches for damaging mask settings on some batches of text and scores them, unchanged, on batches the search never saw. Its results will be read by signed rules, `freeze/part1.md` ("the signed rules"), as amended by the pre-run decisions (research log; "the draft"). This note specifies three things:
 
 1. **The table:** the one data format that the real run and the made-up-data generator both write, and the only data the analysis script reads (Section 3).
 2. **The run:** what each cloud job computes and saves, the guards that stop it from silently computing the wrong thing, restarts, and sealing (Sections 4 to 8).
-3. **Spend:** a realistic estimate with overhead, and the checks against the PI's \$105 cap (Section 9).
+3. **Spend:** a realistic estimate with overhead, and the checks against the author's \$105 cap (Section 9).
 
-How intervals are computed from the table is Daniel's specification, `sessions/005/notes/daniel/interval_spec.md`. Where this note and the signed rules differ, the signed rules govern. Section 11 lists the points where I depart from the draft or need a decision.
+How intervals are computed from the table is `interval_spec.md`. Where this note and the signed rules differ, the signed rules govern. Section 11 lists the points where this note departs from the draft or needed a decision.
 
-File paths are relative to the project folder. Code lives in `vpd-audit-2/vpd_audit_2/`; I refer to `adversary.py` as `A` and `pilot.py` as `P`.
+File paths are relative to the project folder. Code lives in `vpd-audit-2/vpd_audit_2/`; we refer to `adversary.py` as `A` and `pilot.py` as `P`.
 
 ## 2. Terms
 
@@ -104,7 +104,7 @@ A search whose two-step mean never reaches a level by step 320 has no setting at
 2. A harm is NaN exactly where its setting is missing: `own[b, s, q]`; and, for an attack search, `carried[i, :, s, q]` and `shuf[i, :, s, q, :]`. `shuf` is also NaN for `n159` and `n319`, which have no shuffled copies.
 3. No other entry of any harm array is NaN or infinite.
 
-A missing held-out search does **not** blank `carried`: every attack setting is still scored on that batch. Which cells enter a level's ratio when the held-out search is missing is Daniel's convention (the draft's R9); the table keeps everything so that any convention can be computed.
+A missing held-out search does **not** blank `carried`: every attack setting is still scored on that batch. Which cells enter a level's ratio when the held-out search is missing is the interval specification's convention (the draft's R9); the table keeps everything so that any convention can be computed.
 
 Nothing is ever substituted for a missing setting. In particular the final setting, which the pilot's files also stored, never stands in for a level setting.
 
@@ -162,7 +162,7 @@ Read back: every number came from raw harms, the starting harm was subtracted on
 
 ### 4.1 Jobs and Units
 
-One cloud container handles one batch of one arm. **A container for a held-out batch never receives the token ids of any attack batch, and the reverse.** This is the main structural defence against the error I most fear: scoring a setting on the batch it was found on, which would produce a carry-over ratio near 1, the very result we expect.
+One cloud container handles one batch of one arm. **A container for a held-out batch never receives the token ids of any attack batch, and the reverse.** This is the main structural defence against the error we most fear: scoring a setting on the batch it was found on, which would produce a carry-over ratio near 1, the very result we expect.
 
 | Stage | Containers | Each container's work, in order |
 |---|---|---|
@@ -237,7 +237,7 @@ G6 compares per-text vectors and not the two batch means because two unrelated b
 
 - A unit is finished if and only if its completion marker exists and matches the file. A restart reloads the volume, deletes temporary files and any file without a matching marker, and skips finished units.
 - A search is never resumed in the middle. An unfinished search starts again from step 0; at most two minutes are lost.
-- A restarted container recomputes the batch's labels and targets and applies G3. If G3 fails, the container stops and the matter goes to the head; there is no automatic recovery, because the finished units of that batch then rest on a tensor that can no longer be reproduced.
+- A restarted container recomputes the batch's labels and targets and applies G3. If G3 fails, the container stops and the matter is reviewed; there is no automatic recovery, because the finished units of that batch then rest on a tensor that can no longer be reproduced.
 
 **The kill-and-restart test** (signed rules, Section 10, item 1), on the tiny model on a CPU: run a small arm (2 attack batches, 2 held-out batches, 2 starts) once without interruption, and again with the job killed at each of three points and restarted: between units; after a unit's file is renamed but before its marker is written; and during a scoring block. The assembled table's two files must have the same SHA-256 in every case. The rehearsal repeats the between-units kill once in the cloud, because a cloud volume loses uncommitted writes, which no local test can show.
 
@@ -245,7 +245,7 @@ G6 compares per-text vectors and not the two batch means because two unrelated b
 
 **The idea works, with one change.** `_forward_with_adv_sources` (the authors' `param_decomp/metrics/pgd_utils.py`, line 204) builds the masks, runs the model once, and ends with `sum_loss, n_examples = reconstruction_loss(out, target_out)`. So a callable object passed as `reconstruction_loss` sees the logits of that one forward pass and can keep per-text values as a side effect. No extra model pass is needed.
 
-**The change.** The wrapper should not call the authors' `recon_loss_kl` and then compute the KL a second time. The KL runs over a tensor of $128 \times 512 \times 50{,}277$ logits, about 13 GB in float32, and I expect it to be a large part of the 0.18 seconds a scoring pass takes. A second copy of that work on each of about 110,000 passes could cost \$10 or more, which the cap cannot absorb. Instead the wrapper repeats the authors' three lines exactly and adds one cheap line:
+**The change.** The wrapper should not call the authors' `recon_loss_kl` and then compute the KL a second time. The KL runs over a tensor of $128 \times 512 \times 50{,}277$ logits, about 13 GB in float32, and we expect it to be a large part of the 0.18 seconds a scoring pass takes. A second copy of that work on each of about 110,000 passes could cost \$10 or more, which the cap cannot absorb. Instead the wrapper repeats the authors' three lines exactly and adds one cheap line:
 
 ```python
 class KLWithPerText:
@@ -272,7 +272,7 @@ The rehearsal also measures the seconds per scoring pass with the wrapper, which
 
 ## 7. Sealing
 
-**What is sealed.** Every harm produced from a deciding batch: carried and shuffled harms, and also the searches' own records, own-batch re-scores, starting harms, and level-crossing steps. The signed rules seal only carry-over numbers. I seal the own-batch values too because it costs nothing and because the count of searches that never reach 10 nats decides whether that level reads undetermined; nobody should see it before the script prints it.
+**What is sealed.** Every harm produced from a deciding batch: carried and shuffled harms, and also the searches' own records, own-batch re-scores, starting harms, and level-crossing steps. The signed rules seal only carry-over numbers. We seal the own-batch values too because it costs nothing and because the count of searches that never reach 10 nats decides whether that level reads undetermined; nobody should see it before the script prints it.
 
 **Where sealed values live.** On the cloud volume under one folder per arm, for example `/cache/s5_lead/<arm>/sealed/`, with a do-not-open notice. Settings, gradients, hashes, and timings live beside it under `open/`.
 
@@ -280,9 +280,9 @@ The rehearsal also measures the seconds per scoring pass with the wrapper, which
 
 **What a job may not do.** Print or return any harm, per-text harm, crossing step, or count of missing settings. Use `numpy.testing` assertions or any assertion whose message formats a tensor or a float; messages name the guard and the unit only. When a guard fails, debugging is done on the tiny model or a calibration batch, never by opening deciding values.
 
-**Copying.** The assembler writes the two table files on the volume. The local side copies each as bytes with `volume.read_file`, checks the SHA-256 against the one the assembler returned, and writes it under `vpd-audit-2/results/s5_lead/<arm>/sealed/`. Nothing on the local side loads the files. This is the pilot's pattern (`modal_pilot.py`, lines 131 to 135), which was written after the pilot's question 2 part ran and has not yet run in the cloud; the rehearsal runs it first.
+**Copying.** The assembler writes the two table files on the volume. The local side copies each as bytes with `volume.read_file`, checks the SHA-256 against the one the assembler returned, and writes it under `results/s5_lead/<arm>/sealed/`. Nothing on the local side loads the files. This is the pilot's pattern (`modal_pilot.py`, lines 131 to 135), which was written after the pilot's question 2 part ran and has not yet run in the cloud; the rehearsal runs it first.
 
-**Lifting the seal.** The committed analysis script, at a recorded commit with a clean tree, is the first program to load a table. I recommend it run only once both arms' tables are complete, or the PI has ruled on the delta-on arm after a spend stop, so that no decision about the delta-on arm is taken with the lead's results in view.
+**Lifting the seal.** The committed analysis script, at a recorded commit with a clean tree, is the first program to load a table. We recommend it run only once both arms' tables are complete, or the author has ruled on the delta-on arm after a spend stop, so that no decision about the delta-on arm is taken with the lead's results in view.
 
 **Tests.** On the tiny model, run a whole small arm and capture everything printed, logged, and returned. Assert that the captured text contains no floating-point number outside the `seconds` fields, and that the lead modules contain no bare `print`.
 
@@ -314,7 +314,7 @@ The cost model in `pilot_a_tables.cost` counts search steps and scoring passes o
 | Delta-on, 8 held-out containers | 4,888 | 2,640 | 560 | 2.25 |
 | **All** | | | | **14.7** |
 
-Scoring seconds take 0.18 seconds per pass and include the own-batch re-scores this note adds (about 2,200 passes over both arms). Overhead is 45 seconds per container for loading and preparing, plus, for a held-out container, my guesses of 15 seconds to make shuffles and 30 seconds for volume commits.
+Scoring seconds take 0.18 seconds per pass and include the own-batch re-scores this note adds (about 2,200 passes over both arms). Overhead is 45 seconds per container for loading and preparing, plus, for a held-out container, our guesses of 15 seconds to make shuffles and 30 seconds for volume commits.
 
 At \$6.80 per function hour the whole run is about **\$100**. At the \$7.50 upper rate of the signed estimate it is about **\$110**. So the picture is not "\$2 under the cap": with overhead counted, the run fits only if the pilot's billed rate holds, with about \$5 to spare. Scoring is 45 percent of the time, so a scoring pass 10 percent slower than 0.18 seconds uses \$3.50 of that.
 
@@ -324,16 +324,16 @@ The run keeps a ledger: each container's function seconds and the billed dollars
 
 | Check | When | If projected spend exceeds \$105 |
 |---|---|---|
-| C0 | After the rehearsal, with its measured timings | Do not start; report to the head |
-| C1 | After stage 1 | Do not start stage 2; report to the head |
+| C0 | After the rehearsal, with its measured timings | Do not start; report |
+| C1 | After stage 1 | Do not start stage 2; report |
 | C2 | After the first held-out container of stage 2 finishes | Let running containers finish their current unit, then stop; report |
 | C3 | After stage 2, before the delta-on arm | Do not start stage 3; report. The lead's units are complete and stay sealed |
 
-A stop goes to the PI through the head, as Section 10, item 3 of the signed rules requires. Nothing is trimmed, and no design choice is made by the engineer.
+A stop goes to the author, as Section 10, item 3 of the signed rules requires. Nothing is trimmed, and no design choice is made except by the author.
 
 ## 10. Tests on Made-Up Inputs
 
-These belong in the test suite before the run. Each line names the input and the known answer. The interval's own tests are in Daniel's specification.
+These belong in the test suite before the run. Each line names the input and the known answer. The interval's own tests are in the interval specification.
 
 | # | Input | Known answer |
 |---|---|---|
@@ -376,13 +376,13 @@ The assembler turns the list into `excluded_H`. The delta-on table uses the same
 
 **What "recomputed without them" means.** Each held-out batch harm (carried, shuffled, the batch's own settings, its starting harm, its 20-step yardstick) is replaced by the mean of the per-text harms over the texts not excluded, and every reading is recomputed. The searches are not rerun: a held-out batch's own search saw all 128 texts, and its level-crossing steps stay as they were. The script states this beside the recomputed numbers.
 
-## 12. Points for the Head
+## 12. Points Decided Before the Run
 
-1. **Cost (the draft's S5).** With overhead counted, the estimate is about \$100 at the pilot's billed rate and about \$110 at the signed estimate's upper rate (Section 9.1). The checks of Section 9.2 need a rate to project with; I propose the larger of \$6.80 per function hour and this run's own billed rate. The PI may want to know now that the delta-on arm is where a shortfall would land.
+1. **Cost (the draft's S5).** With overhead counted, the estimate is about \$100 at the pilot's billed rate and about \$110 at the signed estimate's upper rate (Section 9.1). The checks of Section 9.2 need a rate to project with; we propose the larger of \$6.80 per function hour and this run's own billed rate. The author may want to know now that the delta-on arm is where a shortfall would land.
 2. **The per-text readout must not compute the KL twice** (Section 6). This changes how the draft's S1 is implemented, not what it saves.
 3. **Guard G6 compares per-text vectors,** where the draft's S2 says "zero carried-over values equal to the attack search's own record". Batch means can coincide by chance; 128 values cannot.
-4. **Sealing is wider than the signed rules require** (Section 7): own-batch records and missing counts are sealed too. Say if you would rather keep to the signed scope.
+4. **Sealing is wider than the signed rules require** (Section 7): own-batch records and missing counts are sealed too. Keeping to the signed scope was the alternative.
 5. **A rehearsal on C1** (Section 8) is not in the draft. It is the only place the sealed-copy step, the volume's commit behaviour, and the modified loop's bit-identity are tested in the cloud before a deciding batch is touched.
-6. **The analysis should wait for both arms,** or for the PI's ruling on the delta-on arm (Section 7).
-7. **The level settings of the delta-on arm are not scored.** The signed cost model assumes this; I note it so that nobody expects a delta-on harm-level table.
-8. **Per-position harm is not saved,** as you proposed. The plan's by-position breakdown "from the passes already run" (`sessions/002/plan.md`, line 329) will therefore need new forward passes on saved settings when it is taken up.
+6. **The analysis should wait for both arms,** or for the author's ruling on the delta-on arm (Section 7).
+7. **The level settings of the delta-on arm are not scored.** The signed cost model assumes this; we note it so that nobody expects a delta-on harm-level table.
+8. **Per-position harm is not saved,** as proposed. The project plan's by-position breakdown "from the passes already run" (research log, line 329) will therefore need new forward passes on saved settings when it is taken up.

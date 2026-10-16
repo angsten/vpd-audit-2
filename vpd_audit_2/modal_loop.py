@@ -1,7 +1,7 @@
-"""The Modal app for session 4's plan 1 (session 3's plan 3, amended by session 4's plan 2): label prices, gate G3, gate G2,
+"""The Modal app for plan 1 of the research log (the earlier plan 3 of the research log, amended by plan 2 of the research log): label prices, gate G3, gate G2,
 and the recorded 320-step runs.
 
-The image, the volume `vpd-audit-2-cache`, and the cache paths are plan 1's (`modal_app.py`). Token ids are passed in
+The image, the volume `vpd-audit-2-cache`, and the cache paths are plan 1 of the research log's (`modal_app.py`). Token ids are passed in
 from the local machine and re-hashed against the manifest's hashes on arrival.
 
     uv run modal run vpd_audit_2/modal_loop.py::prices      (bf16 labels of Q with z; price check 4; every price column and check)
@@ -46,15 +46,15 @@ def _manifest_sha() -> str:
 @app.function(volumes={CACHE: volume}, gpu="A100-40GB", timeout=3600, memory=65536)
 def price_labels_gpu(q_ids: np.ndarray, q_sha512: list[str], ws_ids: np.ndarray, ws_sha512: list[str], e_main_sha: dict[str, str],
                      plan2_l0: dict[str, float]) -> dict:
-    """Plan 2, item 1: Q's bf16 labels with z (A100-40GB, the GPU of plan 2's bf16 pass). Item 7: price check 4 on WS_W16
-    (A100-40GB, the GPU of plan 2's world-size test)."""
+    """Plan 2 of the research log, item 1: Q's bf16 labels with z (A100-40GB, the GPU of plan 2 of the research log's bf16 pass). Item 7: price check 4 on WS_W16
+    (A100-40GB, the GPU of plan 2 of the research log's world-size test)."""
     t0 = time.time()
     from vpd_audit_2 import price_inputs
 
     assert _sha_rows(q_ids) == q_sha512, "Q: the ids received are not the manifest's"
     assert _sha_rows(ws_ids) == ws_sha512, "WS_W16: the ids received are not the manifest's"
     stored = json.load(open(LABELS_DIR / "reproduce" / "E_main.json"))["sha256"]
-    assert stored == e_main_sha, "the volume's E_main is not the one plan 2 recorded"
+    assert stored == e_main_sha, "the volume's E_main is not the one plan 2 of the research log recorded"
     model, files = _load_model()
     env_rec = _environment()
     q_hash = hashlib.sha256(np.ascontiguousarray(q_ids, dtype=np.int32).tobytes()).hexdigest()
@@ -77,7 +77,7 @@ def prices_gpu() -> dict:
 
     from vpd_audit_2 import env, prices
 
-    torch.use_deterministic_algorithms(True)  # strict (plan 5, item 1)
+    torch.use_deterministic_algorithms(True)  # strict (plan 5 of the research log, item 1)
     out = {"environment": _environment()}
     fp32, tuples = prices.price_cache(LABELS_DIR / "Q_fp32.npz", "Q_fp32", PRICES_DIR, "cuda", env.PROVENANCE_DIR, deciding=True, log=_log)
     volume.commit()
@@ -112,13 +112,13 @@ def check7_diagnostic() -> None:
 
 @app.function(volumes={CACHE: volume}, gpu="A100-40GB", memory=65536, timeout=3600)
 def price_check7_amended(tuples_sha256: str) -> dict:
-    """Check 7 as amended (session 4, plan 3, Section 2), from the stored float32 prices and S; check 3's reference calls
+    """Check 7 as amended (plan 3 of the research log, Section 2), from the stored float32 prices and S; check 3's reference calls
     for 7c on the GPU."""
     import torch
 
     from vpd_audit_2 import prices
 
-    torch.use_deterministic_algorithms(True)  # strict (plan 5, item 1)
+    torch.use_deterministic_algorithms(True)  # strict (plan 5 of the research log, item 1)
     C = prices.constants()
     cache, meta = prices.load_cache(LABELS_DIR / "Q_fp32.npz")
     e, _ = prices.entries(cache, meta, C)
@@ -156,7 +156,7 @@ def _deterministic_npz(arrays: dict[str, np.ndarray]) -> bytes:
 
 
 def _price_reading(inputs: dict, res: dict) -> dict:
-    """Plan 3, Section 4: checks 1 to 5 and 7 pass (check 5 on the bf16 cache carries the rule; plan 1, item 5)."""
+    """Plan 3 of the research log, Section 4: checks 1 to 5 and 7 pass (check 5 on the bf16 cache carries the rule; plan 1 of the research log, item 5)."""
     f, b = res["Q_fp32"], res["Q_bf16"]
     items = {
         "check1_fp32": f["check1"]["passes"], "check1_bf16": b["check1"]["passes"],
@@ -277,7 +277,7 @@ def g3_float64_gpu(ids: np.ndarray, sha512: list[str], text_ids: list[str], line
 
 @app.local_entrypoint()
 def g3_float64() -> None:
-    """The diagnostic of report 1 on plan 3, follow-up 1: at labels and stochastic with float64 forward passes."""
+    """The diagnostic of report 1 of the research log on plan 3 of the research log, follow-up 1: at labels and stochastic with float64 forward passes."""
     from vpd_audit_2.manifest import pool_ids
 
     g3r = json.load(open(G3_RESULTS / "g3.json"))
@@ -304,7 +304,7 @@ def g3_float64() -> None:
 
 @app.function(volumes={CACHE: volume}, gpu="B200", timeout=3 * 3600, memory=131072)
 def g2_gpu(ids: np.ndarray, sha512: list[str], text_ids: list[str], start: dict[str, np.ndarray]) -> dict:
-    """G2 on all 128 texts of C1; on an out-of-memory error, on its first 32 texts (plan 2, item 8)."""
+    """G2 on all 128 texts of C1; on an out-of-memory error, on its first 32 texts (plan 2 of the research log, item 8)."""
     t0 = time.time()
     import torch
 
@@ -400,14 +400,14 @@ def recorded() -> None:
               f"labels and target {v['labels_target_seconds']['mean_of_5']:.3f} s")
 
 
-# ----------------------------------------------------------------------------- plan 4: why our 320-step runs end higher
+# ----------------------------------------------------------------------------- plan 4 of the research log: why our 320-step runs end higher
 
 PLAN4_RESULTS = REPO_ROOT / "results" / "s4_plan4"
 
 
 @app.function(volumes={CACHE: volume}, gpu="B200", timeout=2 * 3600, memory=131072)
 def diag_gpu(task: dict) -> dict:
-    """One task of plan 4 on a B200: 'd1', 'd2', or 'cell' (one or two 320-step runs on a possibly permuted batch)."""
+    """One task of plan 4 of the research log on a B200: 'd1', 'd2', or 'cell' (one or two 320-step runs on a possibly permuted batch)."""
     t0 = time.time()
     import torch
 
@@ -483,7 +483,7 @@ def diagnose(stage: str = "d1") -> None:
         return
     if stage == "d234":
         d1r = json.load(open(PLAN4_RESULTS / "d1.json"))
-        assert d1r["d1"]["bitwise"], "D1 is not bitwise: D3 and D4 wait for the team"
+        assert d1r["d1"]["bitwise"], "D1 is not bitwise: D3 and D4 wait"
         ids, texts, sha = pool_ids("C1")
         tasks = {"D2": {"kind": "d2", "name": "D2", "ids": ids, "sha512": sha}}
         tasks.update({f"D3|C{j}": _cell_task(f"D3|C{j}", f"C{j}", j, ["ours"]) for j in range(2, 9)})

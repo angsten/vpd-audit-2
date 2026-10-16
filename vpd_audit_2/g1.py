@@ -1,4 +1,4 @@
-"""Plan 2, step 6 (section 8): gate G1, the step-size schedule. The GPU part; the readings are in `g1_readings.py`.
+"""Plan 2 of the research log, step 6 (section 8): gate G1, the step-size schedule. The GPU part; the readings are in `g1_readings.py`.
 
 One search is the authors' own evaluation adversary loop, called directly:
   - the labels, the target output, and the weight deltas are computed once, under `no_grad` (and bf16 autocast unless

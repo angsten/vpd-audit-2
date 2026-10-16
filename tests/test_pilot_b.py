@@ -1,4 +1,4 @@
-"""Plan 6, Part B's harnesses on the tiny model (CPU) and the synthetic price cache: CQ's price path against the stored
+"""Plan 6 of the research log, Part B's harnesses on the tiny model (CPU) and the synthetic price cache: CQ's price path against the stored
 path, the nominal set, the label cache, version (ii) against the authors' `run_adv_pgd`, the freed-label and stochastic
 harnesses' identities, and the removal harness against G3's positive control."""
 
@@ -42,8 +42,8 @@ Q_IDS = [f"q{k}" for k in range(TP.N_TEXTS)]
 
 def test_external_path_matches_the_stored_path_given_the_same_tuples(syn):
     """The external path's arithmetic is the stored path's: a text outside Q whose labels equal Q text i's, priced against
-    tuples that never contain i, gets text i's stored-path T. (Plan 6's version priced the Q text itself on the external
-    path; plan 7, item 8 refuses that.)"""
+    tuples that never contain i, gets text i's stored-path T. (Plan 6 of the research log's version priced the Q text itself on the external
+    path; plan 7 of the research log, item 8 refuses that.)"""
     C, cache, meta, e, S, tuples = syn
     for i in (2, 7):
         t_i = tuples[~(tuples == i).any(axis=1)]
@@ -75,7 +75,7 @@ def test_a_text_outside_q_uses_every_tuple(syn):
 
 
 def test_q_texts_are_priced_from_the_stored_path_and_refused_externally(syn, tmp_path):
-    """Plan 7, item 8: the router sends Q texts to the stored path (the stored S row, Delta from Q's full cache), equal bit
+    """Plan 7 of the research log, item 8: the router sends Q texts to the stored path (the stored S row, Delta from Q's full cache), equal bit
     for bit to `prices.Pricer` on the full cache's entries; a Q text on the external path is refused; a text outside Q goes
     to the external path with its own cache."""
     C, cache, meta, e, S, tuples = syn
@@ -189,7 +189,7 @@ def test_version_ii_matches_the_authors_run_adv_pgd(tiny):
     r = PA.reference_check(model, tok, labels, fm, target, seed=11, fill_seed=12)
     assert r["freed"]["passes"] and r["original"]["passes"] and r["identity_empty_freed_set"]["passes"], r
     assert r["freed"]["authors_reproducible"]
-    # plan 7, item 1: the freed arm's harms leave only under "sealed"
+    # plan 7 of the research log, item 1: the freed arm's harms leave only under "sealed"
     assert {"harm_ours", "harm_theirs"} <= set(r["sealed"]["freed_arm_harm"]) and r["freed"]["harm_difference_ours_minus_theirs"] == 0.0
     from vpd_audit_2 import pilot_b as PB
 
@@ -197,7 +197,7 @@ def test_version_ii_matches_the_authors_run_adv_pgd(tiny):
 
 
 def test_seal_prerequisites_moves_the_freed_harm():
-    """Plan 7, item 4: both the current record and the pilot's committed one split into an open part without a freed-arm
+    """Plan 7 of the research log, item 4: both the current record and the pilot's committed one split into an open part without a freed-arm
     harm (the difference and the flag kept) and a sealed part with both harms; a leak is caught."""
     from vpd_audit_2 import pilot_b as PB
 
@@ -223,7 +223,7 @@ def test_seal_prerequisites_moves_the_freed_harm():
 
 
 def test_committed_prerequisites_hold_no_freed_arm_harm():
-    """Plan 7, item 4: the committed `prerequisites.json` holds no freed-arm harm; the moved values sit in `sealed/`
+    """Plan 7 of the research log, item 4: the committed `prerequisites.json` holds no freed-arm harm; the moved values sit in `sealed/`
     (checked by key only, never read here)."""
     from vpd_audit_2 import pilot_b as PB
 
@@ -277,7 +277,7 @@ def test_freed_label_harness_identities(tiny):
 
 
 def test_j_equals_scoring_with_the_freed_masks_zeroed_explicitly(tiny):
-    """Plan 7, item 11 (Riku): J at the original arm's endpoint equals scoring that endpoint's masks, built by the authors'
+    """Plan 7 of the research log, item 11: J at the original arm's endpoint equals scoring that endpoint's masks, built by the authors'
     `_construct_mask_infos_from_adv_sources` with the deltas, then the freed entries set to 0 by index assignment, minus
     the endpoint's own harm; bit for bit, at every reading."""
     from param_decomp.metrics.pgd_utils import _construct_mask_infos_from_adv_sources
@@ -359,7 +359,7 @@ def test_b1_and_b2_jobs_run_on_a_tiny_cache(tiny, tmp_path):
 
 
 def test_original_arm_check_passes_and_has_teeth(tiny, tmp_path):
-    """Report 3, Daniel's check, on the tiny model. On all 32 texts (the batch the cache's labels came from) the harness's
+    """The pre-registration check, on the tiny model. On all 32 texts (the batch the cache's labels came from) the harness's
     original arm equals the plain loop bitwise at 20 steps. On a set of 16 it equals the plain loop given the cache's
     labels (on CPU the tiny model's labels differ in the last bits between a 32- and a 16-text batch). The rerun equals a
     stored B1 partition job's original arm, and a one-ulp change to the stored value fails it."""

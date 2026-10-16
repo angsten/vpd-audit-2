@@ -1,5 +1,5 @@
 ✓ Initialized. View run at 
-https://modal.com/apps/tangst10/main/ap-fQKljq8Z6hszDs1bVjFd5v
+https://modal.com/apps/<workspace>/main/<app>
 Building image im-TG8yHJkb4wF2OafrkmRGoL
 
 => Step 0: FROM base
@@ -23,18 +23,18 @@ Built image im-TG8yHJkb4wF2OafrkmRGoL in 1.91s
 
 ✓ Created objects.
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/vpd_audit_
+│   <repo>/vpd_audit_
 │   2/modal_s6_plan3.py
 ├── 🔨 Created mount PythonPackage:vpd_audit_2
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/provenance
+│   <repo>/provenance
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/pyproject.
+│   <repo>/pyproject.
 │   toml
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/uv.lock
+│   <repo>/uv.lock
 ├── 🔨 Created mount 
-│   /Users/tom.angsten/research_projects/vpd_audit_part_2/vpd-audit-2/third_part
+│   <repo>/third_part
 │   y/vpd-audit
 ├── 🔨 Created function rerun_gpu.
 └── 🔨 Created function variants_gpu.
@@ -89,4 +89,4 @@ Migrating pretrained_model_output_attr='idx_0' to output_extract
 Runner failed with exception: code: 'The operation was cancelled', message: "Timeout expired", source: tonic::transport::Error(Transport, TimeoutExpired(())): transport error: Timeout expired
 Stopping app - local client disconnected. Use `modal run --detach` to keep apps running even if your local client disconnects.
 ✓ App completed. View run at 
-https://modal.com/apps/tangst10/main/ap-fQKljq8Z6hszDs1bVjFd5v
+https://modal.com/apps/<workspace>/main/<app>

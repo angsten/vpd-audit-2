@@ -1,5 +1,5 @@
 """Our adversary loop: the authors' evaluation adversary (`param_decomp/metrics/pgd_utils.py` at 74146b5) with the
-features questions 1 and 2 need, specified in `sessions/003/notes/lena/gates_g2_g3_plan3.md`, Section 2.2. Gate G2
+features questions 1 and 2 need, specified in the gate specification (research log), Section 2.2. Gate G2
 checks it against the authors' `_run_pgd_loop` (`g2.py`).
 
 What our loop orchestrates, and what it takes from the authors unchanged:
@@ -24,7 +24,7 @@ The features (Section 2.2):
   - micro-batching: `micro_batch` = 8 or 16 runs the forward and backward over chunks of texts, accumulating the gradient
     of sum_loss / N_total (N_total the batch's positions) in chunk order before the sign step; the harm is the sum of the
     chunks' sums over N_total. The sign ignores the positive scale, so this equals the whole-batch step up to summation order.
-  - save hook (session 4, plan 3, Section 3): `SaveHook` keeps the source after step n and n - 1 for given n, and at the
+  - save hook (plan 3 of the research log, Section 3): `SaveHook` keeps the source after step n and n - 1 for given n, and at the
     first step whose two-step mean of harm (after steps k - 1 and k) reaches each given h.
 
 Indexing follows G1: entry k of the harm record (from zero) is the harm after k updates; a run of n steps records n + 1.
@@ -130,13 +130,13 @@ class Frozen:
 
 @dataclass
 class SaveHook:
-    """Session 4, plan 3, Section 3: the source after step n and n - 1 for n in `steps`, and at the first step k >= 1
+    """Plan 3 of the research log, Section 3: the source after step n and n - 1 for n in `steps`, and at the first step k >= 1
     whose two-step mean of harm, (h[k-1] + h[k]) / 2, reaches each h in `thresholds`."""
     steps: tuple[int, ...] = (20, 40, 80, 160, 320)
     thresholds: tuple[float, ...] = (2.0, 5.0, 10.0)
     saved: dict[str, np.ndarray] = field(default_factory=dict)
     events: dict[str, int] = field(default_factory=dict)
-    # Session 5, plan 2, Section 4: with `run(..., cum_grads=True)`, per saved source the signed sum and the sum of
+    # Plan 2 of the research log, Section 4: with `run(..., cum_grads=True)`, per saved source the signed sum and the sum of
     # absolute values of the per-entry gradient over iterations 0 to k - 1 (float32, the source's flat layout).
     cum: dict[str, tuple[np.ndarray, np.ndarray]] = field(default_factory=dict)
 
@@ -168,7 +168,7 @@ def flatten(tensors: dict[str, Any]) -> np.ndarray:
 
 class KLWithPerText:
     """The authors' `recon_loss_kl` (`param_decomp/models/batch_and_loss_fns.py` at 74146b5), line for line, keeping each
-    text's mean harm from the same tensor (session 5, plan 2, Section 4; the table and run specification, Section 6).
+    text's mean harm from the same tensor (plan 2 of the research log, Section 4; the table and run specification, Section 6).
     It repeats the authors' three lines and does not call their function; the search never uses it."""
 
     per_text: Any = None

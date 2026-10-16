@@ -1,11 +1,11 @@
-"""Session 4, plan 5, item 1: did any determinism warning fire in the runs recorded before deterministic algorithms were
+"""Plan 5 of the research log, item 1: did any determinism warning fire in the runs recorded before deterministic algorithms were
 made strict? Those runs set `torch.use_deterministic_algorithms(True, warn_only=True)`, under which an operation with no
 deterministic implementation prints a UserWarning ("... does not have a deterministic implementation, but you set
 'torch.use_deterministic_algorithms(True, warn_only=True)'") to the container's stderr, which Modal keeps in the app's log.
 
     uv run python -m vpd_audit_2.determinism_logs      (writes results/s4_plan5/determinism_logs.json)
 
-For each of the session's Modal apps it fetches `modal app logs <app id>`, checks that the log is the run named (by a
+For each of the Modal apps it fetches `modal app logs <app id>`, checks that the log is the run named (by a
 line only that run prints, where it prints one), and counts determinism warnings and warnings of any kind. A probe app
 (`ap-pk94FyyIFTq6OiPVioEB0X`, a scratch script outside the repository) triggered one such warning on purpose with
 `torch.histc` on a CUDA tensor; its log is checked too, as the positive control that the warning reaches the log.

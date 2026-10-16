@@ -1,4 +1,4 @@
-"""Session 6, plan 3: the rerun's and the variants' readings on made-up units, before any GPU result exists.
+"""Plan 3 of the research log: the rerun's and the variants' readings on made-up units, before any GPU result exists.
 
 The two-factor interval against an independent least-squares decomposition, in each truncation case; the clause's
 boundaries; the delta components' share and its refusal to be called one when negative; the rerun's loader and its

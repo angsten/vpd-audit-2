@@ -1,12 +1,12 @@
-"""Session 4, plan 1: the GPU label computations the prices need (plan 2, items 1 and 7).
+"""Plan 1 of the research log: the GPU label computations the prices need (plan 2 of the research log, items 1 and 7).
 
-  - `bf16_cache`: Q's labels in bf16 autocast, with their pre-sigmoid values z, in chunks of 32: the bf16 pass of plan 2's
+  - `bf16_cache`: Q's labels in bf16 autocast, with their pre-sigmoid values z, in chunks of 32: the bf16 pass of plan 2 of the research log's
     `labels.paired_precision`, whose sparse labels hash-matched the earlier harness's bf16 cache `E_main` bit for bit.
     The label blocks (indptr, indices, values) must hash equal to `labels/reproduce/E_main.npz`; z is stored beside them.
     Written as `labels/Q_bf16.npz` with a manifest, in fresh_cache's layout.
-  - `check4`: price check 4 on the rebuilt step-400,000 evaluation batch `WS_W16`. The labels are recomputed as plan 2's
+  - `check4`: price check 4 on the rebuilt step-400,000 evaluation batch `WS_W16`. The labels are recomputed as plan 2 of the research log's
     world-size test computed them (bf16 autocast, no_grad, rank shares of 8 texts in rank order, the authors' `CI_L0`), and
-    tied to plan 2's by the 24 L0 values. The minimality in two forms through the authors' `_update` and `_compute` on
+    tied to plan 2 of the research log's by the 24 L0 values. The minimality in two forms through the authors' `_update` and `_compute` on
     the upper-leaky output: the whole batch at world size 1 (the evaluation's form) and the per-process form, 16 shares of
     8 texts at world size 16, the mean over shares. Float32 labels are computed beside the bf16 ones.
 """
@@ -22,7 +22,7 @@ import numpy as np
 
 CHUNK = 32
 SEQ_LEN = 512
-L0_EXACT_OR_TOL = 0.0005  # plan 2, item 7: equal, or each within 0.05 percent
+L0_EXACT_OR_TOL = 0.0005  # plan 2 of the research log, item 7: equal, or each within 0.05 percent
 
 
 def _sha(a: np.ndarray) -> str:
@@ -90,7 +90,7 @@ def bf16_cache(model: Any, ids: np.ndarray, out_path: Path, meta_extra: dict[str
 
 
 def check4(model: Any, ids: np.ndarray, plan2_l0: dict[str, float], log: Any = print) -> dict[str, Any]:
-    """Price check 4. Pass: either bf16 form within 0.1 percent of the logged 1158.32, with the labels tied to plan 2's."""
+    """Price check 4. Pass: either bf16 form within 0.1 percent of the logged 1158.32, with the labels tied to plan 2 of the research log's."""
     import torch
 
     from vpd_audit_2.prices import LOGGED_EVAL_MINIMALITY, authors_compute, authors_update, constants
@@ -140,7 +140,7 @@ def check4(model: Any, ids: np.ndarray, plan2_l0: dict[str, float], log: Any = p
             exact = all(l0_out[k] == plan2_l0[k] for k in plan2_l0)
             rec["l0_tie"] = {"all_24_equal_exactly": exact, "relative_differences": diffs, "max_abs_relative_difference": max(abs(v) for v in diffs.values()),
                              "all_within_0.05pct": all(abs(v) <= L0_EXACT_OR_TOL for v in diffs.values()),
-                             "rule": "the 24 L0 values equal plan 2's exactly, or each lies within 0.05 percent (plan 2, item 7)"}
+                             "rule": "the 24 L0 values equal plan 2 of the research log's exactly, or each lies within 0.05 percent (plan 2 of the research log, item 7)"}
             rec["l0_tie"]["passes"] = bool(exact or rec["l0_tie"]["all_within_0.05pct"])
             within = {"whole": abs(rec["relative_difference_whole"]) <= 0.001, "per_process": abs(rec["relative_difference_per_process"]) <= 0.001}
             rec["within_0.1pct"] = within
@@ -148,7 +148,7 @@ def check4(model: Any, ids: np.ndarray, plan2_l0: dict[str, float], log: Any = p
         log(f"[prices] check 4 ({prec}): whole {whole:.4f}, per-process {per:.4f} against {LOGGED_EVAL_MINIMALITY:.4f}")
     b = out["bf16"]
     out["forms_within_0.1pct"] = [k for k, v in b["within_0.1pct"].items() if v]
-    out["rule"] = "either bf16 form within 0.1 percent of the logged 1158.32, the labels tied to plan 2's by the 24 L0 values"
+    out["rule"] = "either bf16 form within 0.1 percent of the logged 1158.32, the labels tied to plan 2 of the research log's by the 24 L0 values"
     out["passes"] = bool(b["l0_tie"]["passes"] and out["forms_within_0.1pct"])
     return out
 

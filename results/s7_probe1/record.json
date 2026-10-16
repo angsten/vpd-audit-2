@@ -486,7 +486,7 @@
     },
     "kappa": 0.4346409428265338,
     "lines_would_read": "partly agree",
-    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; kappa with the chance level of Daniel's note as first written: the off set's attack-batch signs permuted among the off set within each (weight matrix, usage band) cell, 8 permutations, seeded ('probe1-permutation', attack, start, steps, r)"
+    "note": "post hoc: added after the reading, from the saved pushes; kappa with the chance level of the probe's specification as first written: the off set's attack-batch signs permuted among the off set within each (weight matrix, usage band) cell, 8 permutations, seeded ('probe1-permutation', attack, start, steps, r)"
    },
    "post_hoc_positive_share": {
     "attack_batch_push_mass": {
@@ -573,7 +573,7 @@
      "matched_kept": 0.5363512862256077,
      "off": 0.5802673508285097
     },
-    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the share of push mass that is positive (along the pattern's shift) for the off set and the matched kept set (mean of the 8 draws), on the attack batch and pooled over the held-out texts, with session 5's interval on the held-out off-minus-kept difference"
+    "note": "post hoc: added after the reading, from the saved pushes; the share of push mass that is positive (along the pattern's shift) for the off set and the matched kept set (mean of the 8 draws), on the attack batch and pooled over the held-out texts, with the lead experiment's interval method (freeze/part1.md, Section 5; freeze/amendment1_specs/interval_spec.md) on the held-out off-minus-kept difference"
    },
    "post_hoc_sign_balance_attack_kept": {
     "all_kept": {
@@ -586,7 +586,7 @@
      "mean": 0.5686743367532419,
      "min": 0.5005725602396153
     },
-    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the kept components' sign balance on the attack batch, computed as the off set's is"
+    "note": "post hoc: added after the reading, from the saved pushes; the kept components' sign balance on the attack batch, computed as the off set's is"
    },
    "reading": "do not agree",
    "row": "n320",
@@ -1072,7 +1072,7 @@
     },
     "kappa": 0.4138874636096438,
     "lines_would_read": "partly agree",
-    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; kappa with the chance level of Daniel's note as first written: the off set's attack-batch signs permuted among the off set within each (weight matrix, usage band) cell, 8 permutations, seeded ('probe1-permutation', attack, start, steps, r)"
+    "note": "post hoc: added after the reading, from the saved pushes; kappa with the chance level of the probe's specification as first written: the off set's attack-batch signs permuted among the off set within each (weight matrix, usage band) cell, 8 permutations, seeded ('probe1-permutation', attack, start, steps, r)"
    },
    "post_hoc_positive_share": {
     "attack_batch_push_mass": {
@@ -1159,7 +1159,7 @@
      "matched_kept": 0.5361130246738163,
      "off": 0.5954973168680081
     },
-    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the share of push mass that is positive (along the pattern's shift) for the off set and the matched kept set (mean of the 8 draws), on the attack batch and pooled over the held-out texts, with session 5's interval on the held-out off-minus-kept difference"
+    "note": "post hoc: added after the reading, from the saved pushes; the share of push mass that is positive (along the pattern's shift) for the off set and the matched kept set (mean of the 8 draws), on the attack batch and pooled over the held-out texts, with the lead experiment's interval method (freeze/part1.md, Section 5; freeze/amendment1_specs/interval_spec.md) on the held-out off-minus-kept difference"
    },
    "post_hoc_sign_balance_attack_kept": {
     "all_kept": {
@@ -1172,7 +1172,7 @@
      "mean": 0.5692794735150482,
      "min": 0.497900462750664
     },
-    "note": "post hoc: added after the reading at the head's request (session 7), from the saved pushes; the kept components' sign balance on the attack batch, computed as the off set's is"
+    "note": "post hoc: added after the reading, from the saved pushes; the kept components' sign balance on the attack batch, computed as the off set's is"
    },
    "reading": "do not agree",
    "row": "n80",

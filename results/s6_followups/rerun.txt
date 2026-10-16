@@ -1,4 +1,4 @@
-The first post's comparison rerun (session 6, plan 3, Section 4; the session 4 checkpoint, Appendix G.2; the freeze file, Part 1, Section 7).
+The first post's comparison rerun (plan 3 of the research log, Section 4; the research log, Appendix G.2; the freeze file, Part 1, Section 7).
 Pool Q, the first post's 1,024 texts, as eight batches of 128 in the manifest's order; starts 41 to 45; 20 steps; each search scored on its
 own batch only. A cell is the harm (nats) of the setting after step 20 on its batch. 40 cells per arm.
 

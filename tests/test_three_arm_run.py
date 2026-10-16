@@ -1,4 +1,4 @@
-"""Session 7, plan 6: the three-arm launch without the cloud (`vpd_audit_2/three_arm_run.py`), on the tiny model.
+"""Plan 6 of the research log: the three-arm launch without the cloud (`vpd_audit_2/three_arm_run.py`), on the tiny model.
 
   - The specs and their refusals.
   - The whole experiment through the commands the cloud module calls: the gate and its verdict, the rehearsal and its

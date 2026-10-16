@@ -1,5 +1,5 @@
-"""The Modal app for session 6's plan 3, Section 9: the dose-response on the rounded off set, on cell set S4. Added at
-the PI's request, as description.
+"""The Modal app for plan 3 of the research log, Section 9: the dose-response on the rounded off set, on cell set S4. Added at
+the author's request, as description.
 
     uv run modal run vpd_audit_2/modal_s6_dose_rounded.py::launch --commit <c>    (4 containers at once: H1, H5, H9, H13)
     uv run modal run vpd_audit_2/modal_s6_dose_rounded.py::collect --commit <c>   (the 324 unit files, as bytes, to .cache/s6_dose_rounded/)

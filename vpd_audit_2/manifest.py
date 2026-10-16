@@ -1,4 +1,4 @@
-"""Plan 2, step 4 (section 6): the one fixed manifest of text pools, and the random draws keyed by text.
+"""Plan 2 of the research log, step 4 (section 6): the one fixed manifest of text pools, and the random draws keyed by text.
 
     uv run python -m vpd_audit_2.manifest            (build, assert, write data/manifest/)
     uv run python -m vpd_audit_2.manifest --verify   (rebuild in memory and compare byte for byte with the committed files)
@@ -30,10 +30,10 @@ import numpy as np
 from vpd_audit_2 import env
 
 MASTER = 20261001
-CONTENT_HASH = "sha512"  # the 512 ids the model sees (the head, 1 Oct); the 513-id counts are reported beside
-PROSE_LABELS = ("Pile-CC", "Wikipedia (en)")  # 64 + 64 in each prose batch, mixed rows excluded (the head, 1 Oct)
+CONTENT_HASH = "sha512"  # the 512 ids the model sees (decided 1 Oct); the 513-id counts are reported beside
+PROSE_LABELS = ("Pile-CC", "Wikipedia (en)")  # 64 + 64 in each prose batch, mixed rows excluded (decided 1 Oct)
 CODE_LABEL = "Github"
-DU_ROWS = (1024, 2048)  # pool DU: the first post's donors, for G4's reproduction of D_unif_main only (the head, 1 Oct)
+DU_ROWS = (1024, 2048)  # pool DU: the first post's donors, for G4's reproduction of D_unif_main only (decided 1 Oct)
 DOM_BATCHES = {"attack": 3, "held-out": 1}
 BATCH = 128
 N_CALIBRATION, N_ATTACK, N_HELD_OUT = 16, 16, 16

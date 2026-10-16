@@ -1,4 +1,4 @@
-The starts test, read as fixed in advance (sessions/005/checkpoint.md, Appendix G; sessions/006/engineering/plan_1.md, Section 2.4).
+The starts test, read as fixed in advance (the research log, Appendix G; plan 1 of the research log, Section 2.4).
 Added harm at step k is record[k] - record[0], in nats.
 
 The guard: C1 from start 1, searched again in this test, equals the pilot's record (runs.json, a1, C1, start 1) bit for bit, all 321 values.
@@ -7,7 +7,7 @@ The guard: C1 from start 1, searched again in this test, equals the pilot's reco
    26.0631 nats. Reading: Something else.
    The reading fixed in advance: at or above 31 nats, Starts; at or below 29 nats, Something else; between, Undetermined.
    For reference (Appendix G): the pilot's 25.5 (C1 to C8 from starts 1 to 8; exactly 25.4485 from runs.json); the run's 34.5 (held-out side, 16 batches, from starts 9 to 13).
-   The checkpoint's 25.5 was rounded twice (25.4485 to 25.45, then to 25.5); rounded once it is 25.4. The thresholds, 31 and 29, are untouched.
+   The earlier figure 25.5 was rounded twice (25.4485 to 25.45, then to 25.5); rounded once it is 25.4. The thresholds, 31 and 29, are untouched.
 
 2. Each start's mean added harm over the eight batches C1 to C8:
     start    80 steps   160 steps   320 steps
@@ -79,7 +79,7 @@ The guard: C1 from start 1, searched again in this test, equals the pilot's reco
        C7   34.11   39.94   29.08   37.00   30.90
        C8    5.28   43.34    9.85   25.29   33.28
    Over the 40: median 31.74, quartiles 10.61 and 35.84 (numpy's linear interpolation), range 4.73 to 45.22.
-   At or above 40.2 nats, the paper's 320-step value, by the harm after step 320 (as the checkpoint's Section 7 counted its 12.5 and 31 percent): 4 of 40 (10.0 percent).
+   At or above 40.2 nats, the paper's 320-step value, by the harm after step 320 (as the research log's Section 7 counted its 12.5 and 31 percent): 4 of 40 (10.0 percent).
    At or above 40.2 nats, by the final level: 4 of 40 (10.0 percent).
 
 6. Description: the breakout step.

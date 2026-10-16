@@ -1,4 +1,4 @@
-"""Session 6, plan 2: the settings the GPU re-scoring scores, built on tiny made-up arrays with hand-computed answers."""
+"""Plan 2 of the research log: the settings the GPU re-scoring scores, built on tiny made-up arrays with hand-computed answers."""
 
 from __future__ import annotations
 
@@ -155,7 +155,7 @@ def test_a_saved_setting_is_read_by_its_row():
     assert s.tolist() == [3, 4, 5] and G.tolist() == [-3, -4, -5] and LR.SAVED["n20"] == "step_20"
 
 
-# ----------------------------------------------------------------------------- plan 3, Section 7: the variants
+# ----------------------------------------------------------------------------- plan 3 of the research log, Section 7: the variants
 
 
 def test_v1_keeps_the_zeros_and_sets_every_other_entry_to_one():
@@ -180,7 +180,7 @@ def test_the_variants_units_and_their_passes():
     assert B.n_passes("variants") == 15 and B.n_passes("variants_check") == 3 and B.VARIANTS == ("V1", "V2", "V3")
 
 
-# ----------------------------------------------------------------------------- plan 3, Section 8: the dose-response
+# ----------------------------------------------------------------------------- plan 3 of the research log, Section 8: the dose-response
 
 
 def test_a_dose_keeps_a_random_fraction_of_the_zeros_and_sets_the_rest_to_one():
@@ -213,7 +213,7 @@ def test_the_dose_seeds_one_draw_per_setting_length_and_fraction():
     assert B.n_passes("dose") == 15
 
 
-# ----------------------------------------------------------------------------- plan 3, Section 9: the dose-response on the rounded off set
+# ----------------------------------------------------------------------------- plan 3 of the research log, Section 9: the dose-response on the rounded off set
 
 
 def test_the_rounded_dose_sets_a_random_fraction_of_the_off_set_to_zero_and_the_rest_to_one():

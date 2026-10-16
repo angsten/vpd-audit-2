@@ -1,10 +1,10 @@
-"""Session 6, plan 3, Section 2: agreement between settings (`results/s6_followups/CONVENTIONS.md`, Section 7 and the
-addendum's item 3; `sessions/006/engineering/plan_3.md`, Section 2). Description, no line; no GPU.
+"""Plan 3 of the research log, Section 2: agreement between settings (`results/s6_followups/CONVENTIONS.md`, Section 7 and the
+addendum's item 3; plan 3 of the research log, Section 2). Description, no line; no GPU.
 
     uv run python -m vpd_audit_2.s6_agreement > results/s6_followups/agreement.txt
 
 The settings. Every search from starts 9 to 13: the run's 160 (A1 to A16 and H1 to H16; `.cache/s5_lead_units/run/lead/`,
-each file checked against session 5's backup) and the starts test's 40 (C1 to C8; `.cache/s6_starts/units/`, loaded by
+each file checked against the earlier backup) and the starts test's 40 (C1 to C8; `.cache/s6_starts/units/`, loaded by
 name and each file checked against the starts test's backup; the guard search of C1 from start 1 is not read). And the
 pilot's 64 (C1 to C8 from starts 1 to 8; `.cache/s4_pilot_sources/`, fetched from the volume's `s4_pilot/part_a/sources/`,
 every array checked against the SHA-256 the pilot's `runs.json` recorded), by value only: the pilot saved no gradients.
@@ -21,15 +21,15 @@ Chance levels, each a sum over groups g of (n_g / N) [x_a x_b + (1 - x_a)(1 - x_
     delta entries are one group of their own;
   - crossing (pairs from the same start): x = q, the share of entries in g on the other side of one half from their start
     value, over the same groups;
-  - decile (pairs from the same start; the addendum's item 3 with the team's refinement): the crossing formula over cells
+  - decile (pairs from the same start; the addendum's item 3 with our refinement): the crossing formula over cells
     of start-value decile crossed with alive or never-needed only. The deciles are ten equal-count bins of the start's
     38,912 rank-one entries by rank, ties to the lower index; the alive and never-needed rows use the same bins. Not
     defined for the 24 delta entries (printed n/a).
 Agreement beyond chance is (mean agreement - mean chance) / (1 - mean chance) over a family's pairs, for each level.
 
 The top-3,000 overlap, for pairs whose settings both have saved gradients (starts 9 to 13): each setting's top 3,000
-entries under plan 2's ranking a_c = G_c (s_c - s0_c) (`s6_build.rank_by_effect`, all 38,936 entries, the delta entries
-ranked with the rest); O the count of entries in both; E = sum_c k_a,c k_b,c / n_c over plan 2's matched-random cells
+entries under plan 2 of the research log's ranking a_c = G_c (s_c - s0_c) (`s6_build.rank_by_effect`, all 38,936 entries, the delta entries
+ranked with the rest); O the count of entries in both; E = sum_c k_a,c k_b,c / n_c over plan 2 of the research log's matched-random cells
 (matrix by stratum, each matrix's delta entry a cell of its own); beyond chance (mean O - mean E) / (3000 - mean E); and,
 among overlapping entries, the share on the same side of one half, pooled: over a family's pairs, the sum of the
 same-side counts over the sum of O.
@@ -107,7 +107,7 @@ def _sha_array(a: np.ndarray) -> str:
 @dataclass(frozen=True)
 class Entries:
     """The flat layout's groups (flat indices), each group's strata for the chance levels (codes 0..G-1 over the group's
-    columns), the alive mask, and plan 2's matched-random cells over all entries."""
+    columns), the alive mask, and plan 2 of the research log's matched-random cells over all entries."""
     cols: dict[str, np.ndarray]
     codes: dict[str, np.ndarray]
     alive: np.ndarray
@@ -557,7 +557,7 @@ def report(rows: dict[str, Any], split: dict[str, Any], inputs: dict[str, Any]) 
          "starts); crossing from the start within the same strata (same start); crossing within start-value decile by alive or "
          "never-needed (same start; the addendum's level, not defined for the 24 delta entries). The delta entries are one group "
          "for the chance levels. Kappa = (mean agreement - mean chance) / (1 - mean chance) over a family's pairs.",
-         "Top 3,000: plan 2's ranking a_c = G_c (s_c - s0_c) over all 38,936 entries, pairs whose settings both have saved "
+         "Top 3,000: plan 2 of the research log's ranking a_c = G_c (s_c - s0_c) over all 38,936 entries, pairs whose settings both have saved "
          "gradients (starts 9-13); O and E are means over pairs, beyond chance = (O - E)/(3000 - E), the same-side share "
          "pooled over the family's overlapping entries.",
          ""]

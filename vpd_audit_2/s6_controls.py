@@ -1,4 +1,4 @@
-"""Session 6, plan 2: three cheap controls and the rounding check (`results/s6_followups/CONVENTIONS.md`, Section 8, with
+"""Plan 2 of the research log: three cheap controls and the rounding check (`results/s6_followups/CONVENTIONS.md`, Section 8, with
 the addendum's item 2). Description.
 
     uv run python -m vpd_audit_2.s6_controls
@@ -142,7 +142,7 @@ def rounding(units: R.Units, lead: dict[str, Any]) -> dict[str, Any]:
 
 
 def report(a: dict[str, Any], deltas: dict[str, Any], b: dict[str, Any], c: dict[str, Any], d: dict[str, Any]) -> str:
-    L = ["Three cheap controls and the rounding check (session 6, plan 2; conventions, Section 8, with the addendum). Description only.",
+    L = ["Three cheap controls and the rounding check (plan 2 of the research log; conventions, Section 8, with the addendum). Description only.",
          "Cell set S4: the 400 carried settings on H1, H5, H9, and H13 (320 cells per length).", "",
          "(a) The delta components' share of carried added harm remaining with the 24 delta entries at 1; from each start alone; and the saved",
          "    settings' delta entries (80 settings by 24 entries) at exactly 0, exactly 1, and between."]

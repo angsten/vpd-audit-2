@@ -1,4 +1,4 @@
-The on-or-off histogram (session 6, plan 2; conventions, Section 3). Description only.
+The on-or-off histogram (plan 2 of the research log; conventions, Section 3). Description only.
 Settings: the lead experiment's 160 searches, starts 9 to 13, attack and held-out sides apart. Counts are summed over a
 side's searches; each bin's share of its group's entries is in parentheses, at two decimals. Bin (a, b) holds the values
 v with floor(10 v) = 10 a, on the stored float32 value. Untouched: saved absolute gradient sum exactly zero (each checked

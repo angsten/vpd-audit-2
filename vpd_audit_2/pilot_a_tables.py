@@ -1,5 +1,5 @@
-"""Session 4, plan 6, A4: Part A's derived tables, computed mechanically from the stored records
-(`sessions/004/engineering/plan_6.md`, Sections 5 and 7).
+"""Plan 6 of the research log, A4: Part A's derived tables, computed mechanically from the stored records
+(plan 6 of the research log, Sections 5 and 7).
 
     uv run python -m vpd_audit_2.pilot_a_tables      (reads results/s4_pilot/part_a/, writes tables.json there)
 
@@ -118,7 +118,7 @@ def design_table(components: dict[str, dict[str, Any]]) -> list[dict[str, Any]]:
 
 def load(part_a: Path = PART_A) -> dict[str, Any]:
     """The runs and the sealed shuffle harms, for A4's ratio only. The sealed files are the pilot's merged
-    `a3_shuffles.npz` or one `a3_shuffles_C{j}.npz` per batch (plan 7, item 5); their keys are batch-prefixed and disjoint."""
+    `a3_shuffles.npz` or one `a3_shuffles_C{j}.npz` per batch (plan 7 of the research log, item 5); their keys are batch-prefixed and disjoint."""
     runs = json.load(open(part_a / "runs.json"))
     sealed: dict[str, np.ndarray] = {}
     files = sorted((part_a / "sealed").glob("a3_shuffles*.npz"))
@@ -196,7 +196,7 @@ def tables(data: dict[str, Any]) -> dict[str, Any]:
 
     out["design_table"] = {"rows": design_table(comps), "rule": "cheapest design with w40 <= 0.25 and w80 <= 0.25; n_s >= 5 where the start "
                            "floor binds (sigma2_c > 0.1 x 2 sigma2_int / K at any budget, with the candidate's own K); else the smallest w80 "
-                           "under the PI's cap. Reported; the team applies the rule.",
+                           "under the author's cap. Reported; we apply the rule.",
                            "timings": {"seconds_per_step": SEC_PER_STEP, "seconds_per_pass": SEC_PER_PASS, "rates_per_B200_hour": list(RATES)}}
 
     sealed = data["sealed"]

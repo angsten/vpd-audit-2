@@ -1,5 +1,5 @@
-"""Session 7, plan 5: probe 1's computation (`sessions/007/notes/daniel/probe1_spec.md`, Sections 1 and 2, with the six
-amendments of `sessions/007/engineering/plan_5.md`). No GPU is assumed; the container calls these on a B200, the tests on
+"""Plan 5 of the research log: probe 1's computation (the probe's specification (research log), Sections 1 and 2, with the six
+amendments of plan 5 of the research log). No GPU is assumed; the container calls these on a B200, the tests on
 the tiny model.
 
 Notation. A setting is flat: C_l + 1 float32 entries per module in the layout's order, the delta entry last. Its rounded
@@ -9,7 +9,7 @@ its label and r its source, and a delta entry's mask is r itself.
 
 The move. Entry e's move on text x is scaled by a[x, e], and its source is r = 1 - a. So a = 0 everywhere is the intact
 model (every mask 1, the target model), and a = 1 moves a component's mask to its label (to 0 where the label is 0) and a
-delta entry's mask to 0: the note's move "from mask 1 to its pattern value" for every entry the pattern switches off.
+delta entry's mask to 0: the specification's move "from mask 1 to its pattern value" for every entry the pattern switches off.
 The move is the same for every setting, so one backward pass gives every entry's push, kept components and delta entries
 included (amendment 1). The full pattern is the point a = 1 on the entries it switches off and 0 elsewhere; its sources
 are exactly the rounded setting.
@@ -18,7 +18,7 @@ are exactly the rounded setting.
     position. A position where it is exactly zero gets a zero direction and is counted.
   - `first_order_pushes`: p_e(x) = sum_t <dz(x, t) / da_e, Delta_hat(x, t)> for every entry, from one forward pass with
     the scales as leaves and one backward pass (a vector-Jacobian product with Delta_hat), at the intact model and, as the
-    note's description, at the full pattern. Texts do not interact, so text x's scale moves only text x's logits.
+    specification's description, at the full pattern. Texts do not interact, so text x's scale moves only text x's logits.
     `IntactGraph` keeps the intact forward so that several settings on one batch each cost one pattern forward and one
     backward: the Jacobian at a = 0 does not depend on the setting.
   - `exact_pushes`: for listed (entry, text) pairs, the exact one-at-a-time move at the intact model,
@@ -43,7 +43,7 @@ from typing import Any
 import numpy as np
 
 POINTS = ("intact", "pattern")
-PASS_SIGN_SHARE = 0.90  # the note's Section 2: the first-order sign matches the exact one for at least 90 percent
+PASS_SIGN_SHARE = 0.90  # the specification's Section 2: the first-order sign matches the exact one for at least 90 percent
 PASS_SPEARMAN = 0.80  # ... and the Spearman correlation is at least 0.8
 VALIDATION_DECILES = 10
 VALIDATION_PER_DECILE = 20  # 200 components
@@ -335,7 +335,7 @@ def exact_pushes(model: Any, batch: Batch, pairs: list[tuple[int, int]], directi
 
 def validation_components(first_order_texts: np.ndarray, off_components: np.ndarray, seed: int, *, deciles: int = VALIDATION_DECILES,
                           per_decile: int = VALIDATION_PER_DECILE) -> dict[str, Any]:
-    """The note's 200 components, stratified by deciles of |p|: each off-set component's |p| is its mean over the
+    """The specification's 200 components, stratified by deciles of |p|: each off-set component's |p| is its mean over the
     validation texts of |p(x)|; components whose |p| is exactly zero on every text are left out (their move is null);
     the rest fall into ten equal-count deciles by rank (ties by flat index), and 20 are drawn uniformly without
     replacement from each, deciles in ascending order, one generator."""
@@ -366,7 +366,7 @@ def spearman(x: np.ndarray, y: np.ndarray) -> float:
 
 
 def pass_rule(first: np.ndarray, exact: np.ndarray) -> dict[str, Any]:
-    """The note's pass rule on the validation pairs. The bottom decile is that of |first-order p| over all pairs (the
+    """The specification's pass rule on the validation pairs. The bottom decile is that of |first-order p| over all pairs (the
     10th percentile, numpy's default interpolation); a pair is above it if its |p| is strictly greater. The sign share
     is over those pairs (np.sign, so an exact zero matches only a zero); the Spearman correlation is over all pairs."""
     first = np.asarray(first, dtype=np.float64).reshape(-1)
