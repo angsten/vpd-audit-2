@@ -15,10 +15,10 @@ The statistic (the specification's Section 4, amendment 2).
   - Batch push P_c(A) = sum over the attack batch's 128 texts of p_c(x), in float64.
   - Agreement on a held-out text y: g(y) = sum_{c in O} |p_c(y)| [sign p_c(y) = sign P_c(A)] / sum_{c in O} |p_c(y)|,
     signs by np.sign (a zero batch push agrees with nothing).
-  - Chance (amendment 2): the same over matched kept components. In each (weight matrix, usage band) cell of the strata
-    of `pilot.py` (`s6_build.cells_of`), as many kept components as O has there, or all of them if fewer, drawn
-    uniformly without replacement, cells in ascending order, one generator seeded ("probe1-chance", attack batch,
-    start, steps, draw); eight draws, as the specification's eight permutations, and g0(y) is their mean.
+  - Chance (amendment 2): the same over matched kept components. It replaced the specification's original chance level, a permutation of the off set's attack-batch signs within each
+    cell, because a search that left those signs mostly one way would make the permutation change nothing and the agreement beyond chance read near zero by construction. In each (weight
+    matrix, usage band) cell of the strata of `pilot.py` (`s6_build.cells_of`), as many kept components as O has there, or all of them if fewer, drawn uniformly without replacement,
+    cells in ascending order, one generator seeded ("probe1-chance", attack batch, start, steps, draw); eight draws, as the specification's eight permutations, and g0(y) is their mean.
   - Pooled over the 128 texts of each of the 1,280 held-out cells: g-bar and g0-bar; agreement beyond chance
     kappa = (g-bar - g0-bar) / (1 - g0-bar), a ratio of two cell means.
   - The interval: the earlier two-way bootstrap over attack and held-out batches with its start term

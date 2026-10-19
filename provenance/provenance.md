@@ -304,7 +304,7 @@ So the validation rows come from **1,000,000 contiguous documents of monology's 
 - **The permutation.** Shuffled row i equals unshuffled row `np.random.default_rng(42).permutation(2775651)[i]`. All 513 tokens matched on 16 of 16 rows, the first-post boundaries and 8 random rows. The installed `datasets` 4.4.2 `shuffle(seed)` equals `default_rng(seed).permutation(n)` (checked on n = 5,000).
 - **The tokenization.** Tokenizing `val` documents 0 to 1,999 of `danbraunai/pile-uncopyrighted` the authors' way reproduced the first **6,155 of 6,155** unshuffled rows exactly: 2,593 rows from the first batch, 3,562 from the second.
 - **Each row's documents and Pile subsets** then follow from the EOS positions within its batch, and the re-split dataset keeps `meta.pile_set_name`. Of the first post's 2,048 rows, 8 fall in those two batches and were identified (`data_check.json: first_post_rows_identified`). Two of them, shuffled rows 1,409 and 1,835, both donors, are from the same EuroParl document (val document 1,489).
-- **Full recovery** means tokenizing all 1,000,000 documents: about 1.2 hours single-process here (229 documents/s), less with the authors' `num_proc=10`.
+- **Full recovery** means tokenizing all 1,000,000 documents: about 1.2 hours single-process here (229 documents/s). It has been done, in the 1,120 batches of the correction above (`data/doc_recovery/recovery.json`).
 
 **Uncertain.** That the re-split's 1M documents are byte-identical to monology's training documents n − 1.1M to n − 0.1M rests on the card. Checking it means streaming most of the 11 GB `train/29.jsonl.zst`. This was not done.
 
@@ -417,7 +417,7 @@ Compute: one 512-token text per call, a few hundred steps, each one stochastic a
 
 ## Gate G5 and the Leakage Bound
 
-**The gate passes.** Each row's document can be identified by recovering membership as (k) describes. The permutation and the tokenization were verified on rows, and full recovery is a deterministic 1-hour tokenization. The tokenized split itself has no document field.
+**The gate passes.** Each row's document can be identified by recovering membership as (k) describes. The permutation and the tokenization were verified on rows, and the full recovery, a deterministic 1-hour tokenization, has since been done in 1,120 batches (`data/doc_recovery/recovery.json`). The tokenized split itself has no document field.
 
 **The fallback's preconditions, for the record.**
 - The tokenized validation split came from monology's **training** split (its last 1.1M documents but 100K).
@@ -440,6 +440,6 @@ Compute: one 512-token text per call, a few hundred steps, each one stochastic a
 | Share of rows in documents longer than one row | 0.896 |
 | Share of Σ n_d² from the 100 longest documents | 0.454 |
 
-m is dominated by a few very long documents. The dropped batch tails (under 513 tokens in each of 1,000 batches) are left out of the token total, a 0.02 % effect.
+m is dominated by a few very long documents. The dropped batch tails (under 513 tokens at the end of each tokenization batch, 1,120 in the full recovery) are left out of the token total, a 0.02 % effect.
 
 **The scale each carry-over ratio sees (plan 2 of the research log).** Between one attack batch and one held-out batch of 128 rows each, drawn at random by row, the expected number of row pairs sharing a document is 128 × 128 × (m − 1)/N = 16,384 × 40.83 / 2,775,651 ≈ **0.24**. Pools built by tokenization batch (plan 2 of the research log, Section 6) make it exactly zero.
