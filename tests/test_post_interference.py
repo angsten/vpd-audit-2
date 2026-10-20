@@ -98,7 +98,9 @@ def test_the_net_arrows_take_the_kept_share_and_the_readings_and_section_label_a
         for p in patches:  # the net arrow starts at NET_ORIGIN
             if isinstance(p, FancyArrowPatch) and p._posA_posB[0] == (P.NET_ORIGIN, y0 + P.RH / 2):
                 nets[row] = (p._posA_posB[1][0] - P.NET_ORIGIN) / P.PUSH
-        readings[row] = [(t.get_text(), t.get_color()) for t in texts if t.get_position() == (P.READ_X, y0 + P.RH / 2)]
+        # each reading hangs under its net arrow, left-aligned with the net column's header
+        under = (P.READ_X, y0 + P.RH / 2 - P.READING_DROP)
+        readings[row] = [(t.get_text(), t.get_color()) for t in texts if t.get_position() == under]
     words = [t.get_text() for t in texts]
     assert nets == pytest.approx({"b": 4.0, "d": 4.0, "e": 4 * 0.95}, abs=1e-9)  # (a) and (c) are dots: net push 0
     assert readings["d"] == [("Contributions Add Up", P.MUTED)] and readings["e"] == [("Contributions Add Up", P.VERMILLION)]

@@ -1,4 +1,4 @@
-"""Plans 4 and 7 of the research log: the post's Figure 3, the paper's interference picture as a toy, and two facts
+"""Plans 4, 7, and 9 of the research log: the post's Figure 3, the paper's interference picture as a toy, and two facts
 measured on the released decomposition, drawn in the toy's terms.
 
     uv run python -m vpd_audit_2.post_interference
@@ -29,6 +29,10 @@ One PNG goes to `results/post/`, `figure3_interference.png`, with a copy at 50 p
 The style is Figure 2's: its helpers and constants are imported from `post_schematic.py`, and `VERMILLION` from
 `post_figure.py` (neither is changed). The figure is laid out at Figure 2's scale, so a data unit is the same size in the
 saved image.
+
+The layout is narrow, since LessWrong scales every image to its column width: each row's reading ("Contributions Add
+Up") sits under its net arrow, in the net column, rather than in a column of its own at the right; the longer row titles
+wrap onto three lines; and the rows sit 1.65 units apart, where they sat 1.5 apart while the readings had their column.
 """
 
 from __future__ import annotations
@@ -93,12 +97,12 @@ def kept_share(record_path: Path = LEAD_RECORD) -> dict:
 # ----------------------------------------------------------------------------- the words
 
 SECTIONS = ("The Paper's Picture", "Released Decomposition")
-TITLES = {"a": "(a) Text A, Nothing\nSwitched Off", "b": "(b) Text A with Adversary's\nSource Applied",
-          "c": "(c) Text B with Same\nSource Applied",
-          "d": "(d) The Batch Searched with\nAdversary's Source Applied", "e": "(e) One Unseen Text with\nSame Source Applied"}
+TITLES = {"a": "(a) Text A, Nothing\nSwitched Off", "b": "(b) Text A with\nAdversary's Source\nApplied",
+          "c": "(c) Text B with\nSame Source Applied",
+          "d": "(d) The Batch Searched\nwith Adversary's\nSource Applied", "e": "(e) One Unseen Text\nwith Same\nSource Applied"}
 READINGS = {"a": "Contributions Cancel", "b": "Contributions Add Up", "c": "Contributions Cancel Again"}
 NET_HEADER = "Net Contribution\nto the Output"
-# Beside rows (d) and (e), as beside rows (a) to (c); the unseen text's in vermilion.
+# Under the net arrows of rows (d) and (e), as of rows (a) to (c); the unseen text's in vermilion.
 MEASURED_READINGS = {"d": "Contributions Add Up", "e": "Contributions Add Up"}
 MEASURED_READING_COLOURS = {"d": MUTED, "e": VERMILLION}
 LEGEND_A = [("on", "Component On"), ("off", "Switched Off by Adversary")]
@@ -109,21 +113,23 @@ LEGEND_B = [("push", "Contribution to the Output"), ("net", "Net Contribution")]
 CW3 = 0.9  # cell width (Figure 2's is 1.7: eight cells and the net column must fit the post's column)
 RH = 1.0  # cell height, as Figure 2's
 PUSH = 0.45  # a component's arrow, in data units; the net arrow is the net push times this
+PITCH = 1.65  # the rows' pitch: room for the three-line titles and for the readings under the net arrows
 NET_X0 = 8 * CW3 + 0.35  # the net column
-NET_W = 2.3
+NET_W = 5.3  # the net column also holds the readings, so it is wide; nothing sits to its right
 NET_ORIGIN = NET_X0 + 0.2  # every net arrow starts here; a zero net push is a dot here
 NET_HEADER_INSET = 0.08  # the net column's header starts this far left of NET_ORIGIN, over the dots and arrow tails
-READ_X = NET_X0 + NET_W + 0.35  # the readings, left-aligned
-READ_W = 6.45  # the readings' column, which sets the figure's right edge
+READ_X = NET_ORIGIN - NET_HEADER_INSET  # the readings, left-aligned with the net column's header
+READING_DROP = 0.36  # each reading's top sits this far below its row's middle, under the net arrow
 TITLE_X = -1.05  # the row titles, right-aligned
-BRACKET_X = -7.55  # the section brackets at the far left
-ROW_TOP = {"a": 0.0, "b": -1.5, "c": -3.0, "d": -6.45, "e": -7.95}  # each row's top edge
-RULE_Y = -5.0  # the hairline between the paper's picture and the released decomposition, a full row below row (c)
+BRACKET_X = -6.2  # the section brackets at the far left (the three-line titles are narrower than two-line ones)
+# each row's top edge: one pitch apart, with two more units between (c) and (d) for the hairline and the section label
+ROW_TOP = {"a": 0.0, "b": -PITCH, "c": -2 * PITCH, "d": -2 * PITCH - 2.0 - PITCH, "e": -2 * PITCH - 2.0 - 2 * PITCH}
+RULE_Y = ROW_TOP["c"] - 1.0 - 1.0  # the hairline between the two sections, a full row below row (c)
 SECTION_LABEL_Y = {SECTIONS[0]: 0.2, SECTIONS[1]: RULE_Y - 0.48}  # "Released Decomposition" below the rule, not touching it
 D_BOTTOM = ROW_TOP["e"] - 1.3  # the bottom of the lower section's bracket
 FLIP_INSET = 0.25  # the curved arrows run this far inside c4's column, one at each side
 FLIP_GAP = 0.2  # and start and end this far from the two rows' middles
-XLIM = (BRACKET_X - 0.1, READ_X + READ_W)
+XLIM = (BRACKET_X - 0.1, NET_X0 + NET_W + 0.2)
 LEGEND_Y = D_BOTTOM - 0.85  # the first legend row's swatch bottom
 LEGEND_X = (BRACKET_X + 0.6, BRACKET_X + 7.4)
 BOTTOM_TOP = LEGEND_Y - 0.3  # just under the legend's first row, the top of the margin at the figure's foot (no footer)
@@ -185,7 +191,7 @@ def _draw_rows(ax):
         for j in range(8):
             _cell(ax, j * CW3, y, bool(sw[j]), push=PUSHES[inp][j])
         _net(ax, y, row_net_push(row))
-        ax.text(READ_X, y + RH / 2, READINGS[row], ha="left", va="center", fontsize=9.5, color=MUTED)
+        ax.text(READ_X, y + RH / 2 - READING_DROP, READINGS[row], ha="left", va="top", fontsize=9.5, color=MUTED)
         ax.text(TITLE_X, y + RH / 2, TITLES[row], ha="right", va="center", fontsize=10.5, color=INK, linespacing=1.1)
     # the schematic rows: (d) the searched batch, row (b)'s arrows; (e) one unseen text, the same with c4 flipped and
     # tinted; each with a net arrow (row (b)'s net push, times the kept share on the unseen text) and a reading
@@ -198,7 +204,8 @@ def _draw_rows(ax):
             else:
                 _cell(ax, j * CW3, y, bool(SWITCHES[j]), push=sign)
         _net(ax, y, row_net_push("b") * share[row])
-        ax.text(READ_X, y + RH / 2, MEASURED_READINGS[row], ha="left", va="center", fontsize=9.5, color=MEASURED_READING_COLOURS[row])
+        ax.text(READ_X, y + RH / 2 - READING_DROP, MEASURED_READINGS[row], ha="left", va="top", fontsize=9.5,
+                color=MEASURED_READING_COLOURS[row])
         ax.text(TITLE_X, y + RH / 2 + 0.02, TITLES[row], ha="right", va="center", fontsize=10.5, color=INK, linespacing=1.1)
     # a pair of curved arrows between row (d)'s c4 and row (e)'s, inside the column: down at the left, up at the right
     xl, xr = FLIP * CW3 + FLIP_INSET, (FLIP + 1) * CW3 - FLIP_INSET
@@ -208,7 +215,7 @@ def _draw_rows(ax):
     # the section brackets and the hairline between them
     _bracket(ax, BRACKET_X, ROW_TOP["a"], RULE_Y + 0.25, MUTED, 1.0)
     _bracket(ax, BRACKET_X, ROW_TOP["d"], D_BOTTOM, MUTED, 1.0)
-    ax.plot([BRACKET_X, READ_X + READ_W], [RULE_Y, RULE_Y], color=MUTED, linewidth=0.5)
+    ax.plot([BRACKET_X, XLIM[1]], [RULE_Y, RULE_Y], color=MUTED, linewidth=0.5)
     ax.text(BRACKET_X, SECTION_LABEL_Y[SECTIONS[0]], SECTIONS[0], ha="left", va="bottom", fontsize=HEAD, color=INK)
     ax.text(BRACKET_X, SECTION_LABEL_Y[SECTIONS[1]], SECTIONS[1], ha="left", va="top", fontsize=HEAD, color=INK)
 
